@@ -1,0 +1,32 @@
+<div id="users_sidebar" class="sidebar">
+	<h2>Users</h2>
+	
+<% if logged_in? %>
+
+	<p>Logged in as <%= link_to(User.find(session[:user_id]).username, :controller => "/users", :action => "profile") %></p>
+	<p><%= link_to "Logout", :controller => "/users", :action => "logout" %></p>
+	<% if User.find(session[:user_id]).role.can_administer? && !admin_namespace? %>
+		<p><%= link_to "Go to administration", :controller => "/admin" %></p>
+	<% end %>
+	
+<% else %>
+
+	<% form_tag("/users/login") do %>
+		<p>
+			<label for="username">Username</label>
+			<%= text_field_tag :username, params[:username], :class => "field" %>
+		</p>
+	
+		<p>
+			<label for="password">Password</label>
+			<%= password_field_tag :password, params[:password], :class => "field" %>
+		</p>
+	
+		<p>
+			<%= submit_tag "Login" %>
+		</p>
+	<% end %>
+	
+	<p><%= link_to "Register New User", :controller => "users", :action => "register" %></p>
+<% end %>
+</div>

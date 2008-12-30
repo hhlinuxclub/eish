@@ -1,0 +1,25 @@
+<h2 class="title">Listing news</h2>
+
+<p><%= link_to "New news article", new_admin_news_article_path %></p>
+
+<table>
+  <tr>
+    <th>Title</th>
+    <th>Created at</th>
+    <th>Body</th>
+		<th>Actions</th>
+  </tr>
+
+	<% for news_article in @news %>
+		<tr<%= " class=\"unpublished\"" unless news_article.published? %>>
+	    <td><%=h news_article.title %></td>
+		  <td><%=h news_article.created_at %></td>
+		  <td><%=h news_article.body %></td>
+		  <td>
+				<%= link_to image_tag("icons/show.png", :alt => "Show"), admin_news_article_path(news_article) %>
+		    <%= link_to image_tag("icons/edit.png", :alt => "Edit"), edit_admin_news_article_path(news_article) %>
+		    <%= link_to image_tag("icons/destroy.png", :alt => "Destroy"), admin_news_article_path(news_article), :confirm => 'Are you sure?', :method => :delete %>
+			</td>
+	  </tr>
+	<% end %>
+</table>

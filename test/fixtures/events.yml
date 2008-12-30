@@ -1,0 +1,15 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  occurs_at: 2008-12-13 02:59:02
+  name: MyString
+  location: MyString
+  description: MyText
+  user_id: 1
+
+two:
+  occurs_at: 2008-12-13 02:59:02
+  name: MyString
+  location: MyString
+  description: MyText
+  user_id: 1

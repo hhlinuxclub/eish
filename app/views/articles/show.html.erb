@@ -1,0 +1,7 @@
+<h2 class="title"><%=h @article.title %></h2>
+<p class="metadata">
+	<%=h format_date(@article.created_at) %>
+	by <%=h @article.user.first_name + " " + @article.user.last_name %>
+</p>
+<p><b><%=h @article.description %></b></p>
+<%= RedCloth.new(@article.body).to_html %>

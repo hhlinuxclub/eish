@@ -1,0 +1,44 @@
+<h2 class="title"><%=h @user.username %></h2>
+<p>
+	<b>Name: </b><%=h @user.last_name %>, <%=h @user.first_name %><br />
+	<b>Role: </b><%=h @user.role.name %>
+</p>
+
+<h3 class="title">Information Update</h3>
+
+<p>
+	<b>Instructions:</b><br />
+	For any change to be made to your account, please provide us with your current password before making any changes. Just making sure you are still you.</p>
+</p>
+
+<% form_for :user, @user, :url => { :action => "update" } do |f| %>
+	<%= f.error_messages %>
+	
+	<p>
+		<%= f.label :current_password %><br />
+		<%= f.password_field :current_password, :size => 40 %>
+	</p>
+	
+	<p>
+		<%= f.label :email %><br />
+		<%= f.text_field :email, :size => 40 %>
+	</p>
+	
+	<p>
+		<%= f.label :new_password %><br />
+		<%= f.password_field :password, :size => 40 %>
+	</p>
+	
+	<p>
+		<%= f.label :password_confirmation %><br />
+		<%= f.password_field :password_confirmation, :size => 40 %>
+	</p>
+	
+	<%= f.submit "Update", :class => "submit" %>
+<% end %>
+
+<p>
+	<b>Notice:</b><br />
+	Name and username changes must be verified before they can be made. As a result, if you need such a change, please contact an administrator. We'll be glad to do it for you.
+</p>
+	

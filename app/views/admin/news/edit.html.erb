@@ -1,0 +1,24 @@
+<h2>Editing news</h2>
+
+<% form_for(:news_article, @news_article, :controller => "admin/news", :url => { :action => "update"}, :html => { :method => :put }) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :title %><br />
+    <%= f.text_field :title %>
+  </p>
+  <p>
+    <%= f.label :body %><br />
+    <%= f.text_area :body %>
+  </p>
+	<p>
+		<%= f.label :published %>
+		<%= f.check_box :published %>
+	</p>
+  <p>
+    <%= f.submit "Update" %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', admin_news_article_path(@news_article) %> |
+<%= link_to 'Back', admin_news_path %>

@@ -1,0 +1,12 @@
+<div id="events_sidebar" class="sidebar">
+	<h2>Events</h2>
+	
+	<% for event in Event.upcoming(2) %>
+		<p title="<%= format_event_dates(event) %>">
+			<%= link_to(event.name, event_path(event)) %>
+			<% if event.is_ongoing? %>
+				<span class="classifier">Ongoing</span>
+			<% end %>
+		</p>
+	<% end %>
+</div>

@@ -1,0 +1,9 @@
+<h2 class="title"><%= @user.username %></h2>
+<dl>
+	<dt>Name</dt> 
+	<dd><%= @user.last_name %>, <%= @user.first_name %></dd>
+	<dt>Role</dt>
+	<dd><%= @user.role.name %></dd>
+	<dt>Email</dt>
+	<dd><%= @user.email %></dd>
+</dl>

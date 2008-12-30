@@ -1,0 +1,17 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  name: MyString
+  can_create: false
+  can_update: false
+  can_delete: false
+  can_publish: false
+  can_administer: false
+
+two:
+  name: MyString
+  can_create: false
+  can_update: false
+  can_delete: false
+  can_publish: false
+  can_administer: false
