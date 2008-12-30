@@ -1,29 +1,29 @@
-== Welcome to the hhlc.eish!
+== Welcome to the hhlc.eish! ==
 
 This program is tailored to the needs of the HHLC (HAAGA-HELIA Linux Club).
 However, if found useful for any other situation, feel free to use, modify and 
 redistribute. If so, please make sure that the HHLC logo and name are removed.
 
 
-== Project Status
+== Project Status ==
 
 The project is still under heavy development and is lacking most of its features.
 Not recommended for any use besides development.
 
 
-== Required Gems
+== Required Gems ==
 
 RedCloth
 
 
-== Copyright
+== Copyright ==
 
 Copyright 2008, João Carlos Cardoso and Matias Korhonen.
 
 The above copyright notice applies to all files of this program.
 
 
-== License
+== License ==
 
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
@@ -35,4 +35,5 @@ but WITHOUT ANY WARRANTY; without even the implied warranty of
 MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 GNU General Public License for more details.
 
-A copy of the GNU General Public License can be found in the LICENSE file.
+You should have received a copy of the GNU General Public License
+along with this program.  If not, see <http://www.gnu.org/licenses/>.
