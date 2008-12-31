@@ -1,26 +1,30 @@
 == Welcome to the hhlc.eish! ==
 
 This program is tailored to the needs of the HHLC (HAAGA-HELIA Linux Club).
-However, if found useful for any other situation, feel free to use, modify and 
+However, if found useful for any other situation, feel free to use, modify and
 redistribute. If so, please make sure that the HHLC logo and name are removed.
 
 
 == Project Status ==
 
-The project is still under heavy development and is lacking most of its features.
-Not recommended for any use besides development.
+The project is still under heavy development and is lacking most of its
+features. Not recommended for any use besides development.
 
 
 == Required Gems ==
 
-RedCloth
+RedCloth <http://redcloth.org/>
 
 
 == Copyright ==
 
 Copyright 2008, João Carlos Cardoso and Matias Korhonen.
 
-The above copyright notice applies to all files of this program.
+The above copyright notice applies to all files of this program, excluding the
+files under the directory "public/images/icons", which are a part of the Tango
+Icon Library <http://redcloth.org/> and released under the Creative Commons 
+Attribution Share-Alike license, available at 
+<http://creativecommons.org/licenses/by-sa/2.5/>.
 
 
 == License ==
