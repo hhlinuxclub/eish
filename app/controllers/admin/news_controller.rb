@@ -31,6 +31,7 @@ class Admin::NewsController < ApplicationController
 
   def create
     @news_article = News.new(params[:news])
+    @news_article.user_id = session[:user_id]
 
     respond_to do |format|
       if @news_article.save
