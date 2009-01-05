@@ -4,7 +4,7 @@ class NewsController < ApplicationController
   # GET /news
   # GET /news.xml
   def index
-    @news = News.find(:all).reverse
+    @news = News.find_all_by_published(true).reverse
 
     respond_to do |format|
       format.html # index.html.erb
