@@ -15,7 +15,7 @@ class NewsController < ApplicationController
   # GET /news/1
   # GET /news/1.xml
   def show
-    @news_article = News.find(params[:id])
+    @news_article = News.find_by_id_and_published(params[:id], true)
 
     respond_to do |format|
       format.html # show.html.erb
