@@ -14,7 +14,7 @@
 		<tr<%= " class=\"unpublished\"" unless news_article.published? %>>
 	    <td><%=h news_article.title %></td>
 		  <td><%=h news_article.created_at %></td>
-		  <td><%=h news_article.body %></td>
+		  <td><%= truncate(strip_tags(RedCloth.new(news_article.body).to_html), 80, "&hellip;") %></td>
 		  <td>
 				<%= link_to image_tag("icons/show.png", :alt => "Show"), admin_news_article_path(news_article) %>
 		    <%= link_to image_tag("icons/edit.png", :alt => "Edit"), edit_admin_news_article_path(news_article) %>
