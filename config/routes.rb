@@ -38,6 +38,7 @@ ActionController::Routing::Routes.draw do |map|
   map.namespace :admin do |admin|
     admin.resources :users
     admin.resources :news, :singular => :news_article
+    admin.resources :articles
   end
 
   # You can have the root of your site routed with map.root -- just remember to delete public/index.html.
@@ -48,7 +49,7 @@ ActionController::Routing::Routes.draw do |map|
   # Install the default routes as the lowest priority.
   # Note: These default routes make all actions in every controller accessible via GET requests. You should
   # consider removing the them or commenting them out if you're using named routes and resources.
-  map.connect "admin", :namespace => "admin", :controller => "users"
+  map.connect "admin", :namespace => "admin", :controller => "news"
   
   map.connect ':controller/:action/:id'
   map.connect ':controller/:action/:id.:format'

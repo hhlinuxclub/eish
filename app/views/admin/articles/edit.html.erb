@@ -1,0 +1,34 @@
+<h2>Editing article</h2>
+
+<% form_for [:admin, @article] do |f| %>
+  <%= f.error_messages%>
+
+	<p>
+		<%= f.label :title %><br />
+		<%= f.text_field :title %>
+	</p>
+	
+	<p>
+		<%= f.label :description %><br />
+		<%= f.text_field :description %>
+	</p>
+	
+	<p>
+		<%= f.label :body %><br />
+		<%= f.text_area :body %>
+	</p>
+	
+	<p>
+		<%= f.label :published %><br />
+		<%= f.check_box :published %>
+	</p>
+	
+	<p>
+		<%= f.submit "Update" %>
+	</p>
+<% end %>
+
+<p>
+	<%= link_to 'Show', admin_article_path(@article) %> |
+	<%= link_to "Back", admin_articles_path %>
+</p>
