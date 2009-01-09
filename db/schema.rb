@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20090108203006) do
+ActiveRecord::Schema.define(:version => 20090109164604) do
 
   create_table "articles", :force => true do |t|
     t.string   "title"
@@ -28,6 +28,8 @@ ActiveRecord::Schema.define(:version => 20090108203006) do
     t.string   "location"
     t.text     "description"
     t.integer  "user_id"
+    t.boolean  "published",   :default => false
+    t.boolean  "is_address",  :default => false
   end
 
   create_table "galleries", :force => true do |t|
