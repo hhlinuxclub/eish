@@ -9,8 +9,8 @@ class EventsController < ApplicationController
     
     condition_for_ongoing = "starts_at < '" + now  + "' AND ends_at > '" + now + "'"
     
-    @upcoming_events = Event.find(:all, :conditions => "starts_at > '#{today} 00:00:00'", :order => "starts_at")
-    @ongoing_events = Event.find(:all, :conditions => condition_for_ongoing, :order => "starts_at")
+    @upcoming_events = Event.find_all_by_published(true, :conditions => "starts_at > '#{today} 00:00:00'", :order => "starts_at")
+    @ongoing_events = Event.find_all_by_published(true, :conditions => condition_for_ongoing, :order => "starts_at")
     
     respond_to do |format|
       format.html # index.html.erb
@@ -20,7 +20,7 @@ class EventsController < ApplicationController
   
   def past
     now = DateTime.now.to_s(:db)
-    @past_events = Event.find(:all, :conditions => "ends_at < '#{now}'", :order => "starts_at DESC")
+    @past_events = Event.find_all_by_published(true, :conditions => "ends_at < '#{now}'", :order => "starts_at DESC")
     
     respond_to do |format|
       format.html
