@@ -72,7 +72,7 @@ class Admin::NewsController < ApplicationController
     respond_to do |format|
       if news_article.save
         flash[:notice] = "The news article is now published."
-        format.html { redirect_to (admin_news_article_path(news_article)) }
+        format.html { redirect_to(admin_news_article_path(news_article)) }
       else
         flash[:notice] = "Some error occurred. Nothing was changed."
         format.html { render :action => "show", :id => news_article.id }
@@ -87,7 +87,7 @@ class Admin::NewsController < ApplicationController
     respond_to do |format|
       if news_article.save
         flash[:notice] = "The news article is now unpublished."
-        format.html { redirect_to (admin_news_article_path(news_article)) }
+        format.html { redirect_to(admin_news_article_path(news_article)) }
       else
         flash[:notice] = "Some error occurred. Nothing was changed."
         format.html { render :action => "show", :id => news_article.id }
