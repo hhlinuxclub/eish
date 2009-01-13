@@ -1,0 +1,17 @@
+<h2 class="title"><%=h @event.name %></h2>
+<p class="metadata"><%=h format_event_dates(@event) %></p>
+<p>
+	<b>Location: </b><%=h @event.location %>
+</p>
+<%= RedCloth.new(@event.description).to_html %>
+
+<% if @event.published %>
+	<p>This event is published. <%= link_to "Unpublish", :action => "unpublish", :id => @event.id %>.</p>
+<% else %>
+	<p>This event is unpublished. <%= link_to "Publish", :action => "publish", :id => @event.id %>.</p>
+<% end %>
+
+<p>
+	<%= link_to 'Edit', edit_admin_event_path(@event) %> |
+	<%= link_to 'Index', admin_events_path %>
+</p>

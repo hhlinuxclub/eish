@@ -39,6 +39,7 @@ ActionController::Routing::Routes.draw do |map|
     admin.resources :users
     admin.resources :news, :singular => :news_article
     admin.resources :articles
+    admin.resources :events
   end
 
   # You can have the root of your site routed with map.root -- just remember to delete public/index.html.

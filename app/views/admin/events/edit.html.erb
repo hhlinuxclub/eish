@@ -1,0 +1,38 @@
+<h2>Editing event</h2>
+
+<% form_for [:admin, @event] do |f| %>
+	<%= f.error_messages %>
+	
+	<p>
+		<%= f.label :name %><br />
+		<%= f.text_field :name %>
+	</p>
+	
+	<p>
+		<%= f.label :starts_at %><br />
+		<%= datetime_select :event, :starts_at, :order => [:day, :month, :year], :start_year => Time.now.year %>
+	</p>
+	
+	<p>
+		<%= f.label :ends_at %><br />
+		<%= datetime_select :event, :ends_at, :order => [:day, :month, :year], :start_year => Time.now.year %>
+	</p>
+	
+	<p>
+		<%= f.check_box :all_day %> <%= f.label :all_day %>
+	</p>
+	
+	<p>
+		<%= f.label :location %><br />
+		<%= f.text_field :location %> <%= f.check_box :is_address %> <%= f.label :is_address, "Address" %>
+	</p>
+	
+	<p>
+		<%= f.label :description %><br />
+		<%= f.text_area :description %>
+	</p>
+	
+	<p>
+		<%= f.submit "Update" %>
+	</p>
+<% end %>
