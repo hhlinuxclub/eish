@@ -8,7 +8,7 @@
 
 <p>
 	<b>Instructions:</b><br />
-	For any change to be made to your account, please provide us with your current password before making any changes. Just making sure you are still you.</p>
+	For any change to be made to your account, please provide us with your current password before making any changes. Just making sure you are still you.
 </p>
 
 <% form_for :user, @user, :url => { :action => "update" } do |f| %>
@@ -25,7 +25,7 @@
 	</p>
 	
 	<p>
-		<%= f.label :new_password %><br />
+		<%= f.label :password, "New password" %><br />
 		<%= f.password_field :password, :size => 40 %>
 	</p>
 	
@@ -34,7 +34,7 @@
 		<%= f.password_field :password_confirmation, :size => 40 %>
 	</p>
 	
-	<%= f.submit "Update", :class => "submit" %>
+	<p><%= f.submit "Update", :class => "submit" %></p>
 <% end %>
 
 <p>
