@@ -1,8 +1,9 @@
 module EventsHelper
   def format_event_dates(event)
     # If all day
-    if event.starts_at.hour == 0 && event.starts_at.min == 0 && event.ends_at.hour == 23 && event.ends_at.min == 59
+    if event.all_day?
       # If one day
+      event.ends_at = event.ends_at - 86400
       if event.starts_at.to_date == event.ends_at.to_date
         return event.starts_at.strftime("%d %B %Y")
       # If several days
