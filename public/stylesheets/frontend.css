@@ -192,3 +192,7 @@ dt {
 dd {
 	margin-bottom: 10px;
 }
+
+img {
+	border: none;
+}
