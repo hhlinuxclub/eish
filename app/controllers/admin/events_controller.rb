@@ -1,4 +1,6 @@
 class Admin::EventsController < ApplicationController
+  cache_sweeper :event_sweeper, :only => [:create, :update, :destroy, :publish, :unpublish]
+  
   def index
     @events = Event.find(:all)
 
@@ -32,9 +34,9 @@ class Admin::EventsController < ApplicationController
   def create
     @event = Event.new(params[:event])
     
-    if params[:all_day]
+    if params[:event][:all_day] == "1"
       @event.starts_at = Time.local(@event.starts_at.year, @event.starts_at.month, @event.starts_at.day, 0, 0, 0)
-      @event.ends_at = Time.local(@event.ends_at.year, @event.ends_at.month, @event.ends_at.day, 23, 59, 59)
+      @event.ends_at = Time.local(@event.ends_at.year, @event.ends_at.month, @event.ends_at.day + 1, 0, 0, 0)
     end
     
     respond_to do |format|
@@ -49,6 +51,20 @@ class Admin::EventsController < ApplicationController
 
   def update
     @event = Event.find(params[:id])
+    
+    if params[:event][:all_day] == "1"
+      @event.ends_at = @event.ends_at + 86400
+      params[:event]["starts_at(1i)"] = @event.starts_at.year.to_s
+      params[:event]["starts_at(2i)"] = @event.starts_at.month.to_s
+      params[:event]["starts_at(3i)"] = @event.starts_at.day.to_s
+      params[:event]["starts_at(4i)"] = "0"
+      params[:event]["starts_at(5i)"] = "0"
+      params[:event]["ends_at(1i)"] = @event.ends_at.year.to_s
+      params[:event]["ends_at(2i)"] = @event.ends_at.month.to_s
+      params[:event]["ends_at(3i)"] = @event.ends_at.day.to_s
+      params[:event]["ends_at(4i)"] = "0"
+      params[:event]["ends_at(5i)"] = "0"
+    end
 
     respond_to do |format|
       if @event.update_attributes(params[:event])
