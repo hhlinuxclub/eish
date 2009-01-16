@@ -3,5 +3,7 @@ log/*.log
 tmp/*
 .DS_Store
 .svn
+.loadpath
+.project
 public/tmp
 config/database.yml
