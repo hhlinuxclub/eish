@@ -1,5 +1,6 @@
 class EventsController < ApplicationController
   skip_before_filter :authorize
+  caches_page :index, :if => Proc.new { |c| c.request.format.ics? }
   
   # GET /events
   # GET /events.xml
@@ -15,6 +16,7 @@ class EventsController < ApplicationController
     respond_to do |format|
       format.html # index.html.erb
       format.xml { render :xml => @upcoming_events }
+      format.ics
     end
   end
   
