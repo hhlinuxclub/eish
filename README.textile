@@ -11,6 +11,7 @@ The project is still under heavy development and is lacking most of its features
 h1. Required Gems
 
 * "RedCloth":http://redcloth.org/
+* "icalendar":http://icalendar.rubyforge.org/
 
 
 h1. Copyright
