@@ -2,15 +2,21 @@ body {
 	margin: 0px;
 	padding: 0px;
 	font-family: Verdana, sans-serif;
+	background: #000000;
 }
 
 #container {
 	position: relative;
+	width: 900px;
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 5px;
+	background: #ffffff;
 }
 
 #header {
-	height: 100px;
-	background: #0066cb url('../images/header.gif') no-repeat 20px 20px;
+	height: 115px;
+	background: #0066cb url('../images/header.png') no-repeat 0px 0px;
 }
 
 #header h1 {
@@ -18,9 +24,9 @@ body {
 }
 
 #navigation {
-	background-color: #282828;
-	padding: 5px 20px;
-	text-align: center;
+	background: #282828 url('../images/nav_left_green.png') repeat-y 0px 0px;
+	padding: 5px 20px 0px 0px;
+	text-align: left;
 }
 
 #navigation ul {
@@ -33,7 +39,7 @@ body {
 	font-weight: normal;
 	font-size: 13pt;
 	display: inline;
-	padding: 0px 20px;
+	padding: 5px 20px 0px 0px;
 }
 
 #navigation a:link,
@@ -48,7 +54,7 @@ body {
 
 #sidebars {
 	width: 200px;
-	margin: 20px 20px 20px 0;
+	margin: 25px 5px 5px 5px;
 	float: right;
 }
 
@@ -82,7 +88,9 @@ body {
 
 #content {
 	padding: 20px;
-	margin-right: 240px;
+	margin-right: 0px;
+	margin-top: 0px;
+	border-top: #000000 solid 5px;
 }
 
 #footer {
