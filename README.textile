@@ -24,6 +24,10 @@ h2. Exceptions
 
 * Files under the directory "public/images/icons" are a part of the "Tango Icon Library":http://tango.freedesktop.org/ and released under the "Creative Commons Attribution Share-Alike license":http://creativecommons.org/licenses/by-sa/2.5/.
 
+h1. Bug Tracker
+
+Found a bug? Perfect. Let us know at our "bug tracker":http://hhlc.lighthouseapp.com.
+
 
 h1. License
 
