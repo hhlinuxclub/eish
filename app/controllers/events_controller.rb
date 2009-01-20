@@ -4,6 +4,7 @@ class EventsController < ApplicationController
   
   # GET /events
   # GET /events.xml
+  # GET /events.ics
   def index
     today = Date.today.to_s(:db)
     now = DateTime.now.to_s(:db)
@@ -16,25 +17,29 @@ class EventsController < ApplicationController
     respond_to do |format|
       format.html # index.html.erb
       format.xml { render :xml => @upcoming_events }
-      format.ics
+      format.ics # index.ics.erb
     end
   end
   
+  # GET /events/past
+  # GET /events/past.xml
   def past
     now = DateTime.now.to_s(:db)
     @past_events = Event.find_all_by_published(true, :conditions => "ends_at < '#{now}'", :order => "starts_at DESC")
     
     respond_to do |format|
-      format.html
+      format.html # past.html.erb
       format.xml { render :xml => @past_events }
     end
   end
   
+  # GET /events/1
+  # GET /events/1.xml
   def show
     @event = Event.find(params[:id])
     
     respond_to do |format|
-      format.html
+      format.html # show.html.erb
       format.xml { render :xml => @event }
     end
   end
