@@ -4,7 +4,7 @@ class ArticlesController < ApplicationController
   # GET /articles
   # GET /articles.xml
   def index
-    @articles = Article.find_all_by_published(true).reverse
+    @articles = Article.all_published.reverse
 
     respond_to do |format|
       format.html # index.html.erb

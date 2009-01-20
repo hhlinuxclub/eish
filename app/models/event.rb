@@ -7,8 +7,21 @@ class Event < ActiveRecord::Base
     return self.starts_at < DateTime.now
   end
   
-  def self.upcoming(limit)
-    return Event.find_all_by_published(true, :conditions => "ends_at > '#{DateTime.now.to_s(:db)}'", :order => "starts_at", :limit => limit)
+  def self.upcoming(limit=:all)
+    if limit == :all
+      return find_all_by_published(true, :conditions => "starts_at > '#{Date.today.to_s(:db)} 00:00:00'", :order => "starts_at")
+    else
+      return find_all_by_published(true, :conditions => "ends_at > '#{DateTime.now.to_s(:db)}'", :order => "starts_at", :limit => limit)
+    end
+  end
+  
+  def self.ongoing
+    now = Time.now.to_s(:db)
+    return find_all_by_published(true, :conditions => "starts_at < '#{now}' AND ends_at > '#{now}'", :order => "starts_at")
+  end
+  
+  def self.past
+    find_all_by_published(true, :conditions => "ends_at < '#{now}'", :order => "starts_at DESC")
   end
   
   def all_day?
