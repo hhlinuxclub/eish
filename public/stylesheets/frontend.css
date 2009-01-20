@@ -2,7 +2,7 @@ body {
 	margin: 0px;
 	padding: 0px;
 	font-family: Verdana, sans-serif;
-	background: #000000;
+	background: #000000 url('../images/background_stripes.png') repeat 0px 0px;
 }
 
 #container {
