@@ -6,13 +6,8 @@ class EventsController < ApplicationController
   # GET /events.xml
   # GET /events.ics
   def index
-    today = Date.today.to_s(:db)
-    now = DateTime.now.to_s(:db)
-    
-    condition_for_ongoing = "starts_at < '" + now  + "' AND ends_at > '" + now + "'"
-    
-    @upcoming_events = Event.find_all_by_published(true, :conditions => "starts_at > '#{today} 00:00:00'", :order => "starts_at")
-    @ongoing_events = Event.find_all_by_published(true, :conditions => condition_for_ongoing, :order => "starts_at")
+    @upcoming_events = Event.upcoming
+    @ongoing_events = Event.ongoing
     
     respond_to do |format|
       format.html # index.html.erb
@@ -24,8 +19,7 @@ class EventsController < ApplicationController
   # GET /events/past
   # GET /events/past.xml
   def past
-    now = DateTime.now.to_s(:db)
-    @past_events = Event.find_all_by_published(true, :conditions => "ends_at < '#{now}'", :order => "starts_at DESC")
+    @past_events = Event.past
     
     respond_to do |format|
       format.html # past.html.erb
