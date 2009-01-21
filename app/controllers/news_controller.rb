@@ -19,7 +19,7 @@ class NewsController < ApplicationController
 
     respond_to do |format|
       format.html # show.html.erb
-      format.xml  { render :xml => @news }
+      format.xml  { render :xml => @news_article }
     end
   end
 end
