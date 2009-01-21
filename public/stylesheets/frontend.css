@@ -24,7 +24,7 @@ body {
 }
 
 #navigation {
-	background: #282828 url('../images/nav_left_green.png') repeat-y 0px 0px;
+	background: #00264B url('../images/nav_left_green.png') repeat-y 0px 0px;
 	padding: 5px 20px 5px 0px;
 	text-align: left;
 }
@@ -49,12 +49,12 @@ body {
 }
 
 #navigation a:hover {
-	color: #818181;
+	color: #0066cb;
 }
 
 #sidebars {
 	width: 200px;
-	margin: 25px 5px 5px 5px;
+	margin: 25px 5px;
 	float: right;
 }
 
@@ -91,6 +91,8 @@ body {
 	margin-right: 0px;
 	margin-top: 7px;
 	background: #ffffff;
+	float: left;
+	width: 860px;
 }
 
 #footer {
