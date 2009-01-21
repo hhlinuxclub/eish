@@ -2,7 +2,7 @@ body {
 	margin: 0px;
 	padding: 0px;
 	font-family: Verdana, sans-serif;
-	background: #000000 url('../images/background_stripes.png') repeat 0px 0px;
+	background: #141414 url('../images/bg_stripes2.png') repeat-x 0px 0px;
 }
 
 #container {
@@ -10,8 +10,8 @@ body {
 	width: 900px;
 	margin-left: auto;
 	margin-right: auto;
-	margin-top: 5px;
-	background: #ffffff;
+	margin-top: 7px;
+	background: none;
 }
 
 #header {
@@ -25,7 +25,7 @@ body {
 
 #navigation {
 	background: #282828 url('../images/nav_left_green.png') repeat-y 0px 0px;
-	padding: 5px 20px 0px 0px;
+	padding: 5px 20px 5px 0px;
 	text-align: left;
 }
 
@@ -89,8 +89,8 @@ body {
 #content {
 	padding: 20px;
 	margin-right: 0px;
-	margin-top: 0px;
-	border-top: #000000 solid 5px;
+	margin-top: 7px;
+	background: #ffffff;
 }
 
 #footer {
