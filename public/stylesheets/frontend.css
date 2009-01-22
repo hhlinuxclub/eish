@@ -90,16 +90,17 @@ body {
 	padding: 20px;
 	margin-right: 0px;
 	margin-top: 7px;
+	margin-bottom:7px;
 	background: #ffffff;
 	float: left;
 	width: 860px;
 }
 
 #footer {
-	font-family: Georgia, "Bitstream Vera Serif", serif;
+	font-family: "Bitstream Vera Sans", Verdana, sans-serif;
 	text-align: center;
 	color: #f1f1f1;
-	background-color: #282828;
+	background: #00264B url('../images/nav_left_green.png') repeat-y 0px 0px;
 	padding: 10px;
 	margin-bottom: 20px;
 	clear: both;
@@ -107,7 +108,16 @@ body {
 
 #footer p {
 	margin: 0px;
-	font-size: 9pt;
+	font-size: 8pt;
+}
+
+#footer a {
+	color: #ffffff;
+	text-decoration: underline;
+}
+
+#footer a:hover {
+	text-decoration: none;
 }
 
 .title {
