@@ -28,12 +28,12 @@ module ApplicationHelper
     xhtml << "<ul>\n"
     
     controllers.each do |c|
-      if c == controller.controller_name
+      if c.downcase == controller.controller_name
         xhtml << "<li class=\"active_link\">"
       else
         xhtml << "<li>"
       end
-      xhtml << link_to(c.capitalize, send(c + "_path"))
+      xhtml << link_to(c.capitalize, send(c.downcase + "_path"))
       xhtml << "</li>\n"
     end
     
