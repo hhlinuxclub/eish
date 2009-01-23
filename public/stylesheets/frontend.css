@@ -1,7 +1,7 @@
 body {
 	margin: 0px;
 	padding: 0px;
-	font-family: Verdana, sans-serif;
+	font-family: "Bitstream Vera Sans", sans-serif;
 	background: #141414 url('../images/bg_stripes2.png') repeat-x 0px 0px;
 }
 
@@ -36,11 +36,10 @@ body {
 
 #navigation li {
 	font-family: Georgia, "Bitstream Vera Serif", serif;
-	font-weight: normal;
-	font-size: 13pt;
+	font-weight: bold;
+	font-size: 12pt;
 	display: inline;
 	padding: 5px 10px;
-	margin-right: 20px;
 }
 
 #navigation a:link,
