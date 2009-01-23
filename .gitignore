@@ -8,3 +8,4 @@ tmp/*
 .project
 public/tmp
 config/database.yml
+public/events.ics
