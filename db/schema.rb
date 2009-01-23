@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20090123001044) do
+ActiveRecord::Schema.define(:version => 20090123184140) do
 
   create_table "articles", :force => true do |t|
     t.string   "title"
@@ -84,6 +84,8 @@ ActiveRecord::Schema.define(:version => 20090123001044) do
     t.integer  "role_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "remember_token"
+    t.datetime "remember_token_expires"
   end
 
 end

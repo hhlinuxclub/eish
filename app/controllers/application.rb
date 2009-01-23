@@ -2,7 +2,8 @@
 # Likewise, all the methods added will be available for all controllers.
 
 class ApplicationController < ActionController::Base
-  before_filter :authorize, :except => { :controller => "news" }
+  before_filter :authorize
+  before_filter :login_from_cookie
   
   helper :all # include all helpers, all the time
 
@@ -22,6 +23,14 @@ class ApplicationController < ActionController::Base
         session[:original_uri] = request.request_uri
         flash[:notice] = "Please log in with enough privileges"
         redirect_to :controller => "/users", :action => "login"
+      end
+    end
+    
+    def login_from_cookie
+      return unless cookies[:auth_token] && session[:user_id].nil?
+      user = User.find_by_remember_token(cookies[:auth_token])
+      if user && !user.remember_token_expires.nil? && Time.now < user.remember_token_expires
+        session[:user_id] = user.id
       end
     end
 end

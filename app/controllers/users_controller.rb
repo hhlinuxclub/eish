@@ -8,6 +8,11 @@ class UsersController < ApplicationController
         session[:user_id] = user.id
         original_uri = session[:original_uri]
         session[:original_uri] = nil
+        flash[:notice] = "Login successful!"
+        if params[:remember_me] == "on"
+          user.remember_me
+          cookies[:auth_token] = { :value => user.remember_token, :expires => user.remember_token_expires }
+        end
         redirect_to(original_uri || :root)
       else
         flash.now[:notice] = "Invalid user/password combination"
@@ -16,8 +21,9 @@ class UsersController < ApplicationController
   end
 
   def logout
+    User.find(session[:user_id]).forget_me
     session[:user_id] = nil
-    flash[:notice] = "Logged out"
+    flash[:notice] = "Logged out."
     redirect_to :root
   end
 
