@@ -11,17 +11,7 @@
                 <h1>HAAGA-HELIA Linux Club</h1>
             </div>
             <div id="navigation">
-                <ul>
-                    <li>
-                        <%= link_to "news", news_path %>
-                    </li>
-                    <li>
-                        <%= link_to "articles", articles_path %>
-                    </li>
-                    <li>
-                        <%= link_to "events", events_path %>
-                    </li>
-                </ul>
+                <%= navigation("news", "articles", "events") %>
             </div>
             <div id="content">
                 <div id="sidebars">
