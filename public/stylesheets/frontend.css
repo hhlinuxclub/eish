@@ -39,7 +39,8 @@ body {
 	font-weight: normal;
 	font-size: 13pt;
 	display: inline;
-	padding: 5px 20px 0px 0px;
+	padding: 5px 10px;
+	margin-right: 20px;
 }
 
 #navigation a:link,
@@ -48,8 +49,10 @@ body {
 	color: #f1f1f1;
 }
 
-#navigation a:hover {
-	color: #0066cb;
+#navigation a:hover,
+#navigation ul li:hover,
+#navigation .active_link {
+	background-color: #0066cb;
 }
 
 #sidebars {
