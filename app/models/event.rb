@@ -21,7 +21,7 @@ class Event < ActiveRecord::Base
   end
   
   def self.past
-    find_all_by_published(true, :conditions => "ends_at < '#{now}'", :order => "starts_at DESC")
+    find_all_by_published(true, :conditions => "ends_at < '#{Time.now.to_s(:db)}'", :order => "starts_at DESC")
   end
   
   def all_day?
