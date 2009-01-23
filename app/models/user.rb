@@ -13,6 +13,7 @@ class User < ActiveRecord::Base
   
   attr_accessor :password_confirmation
   attr_accessor :current_password
+  attr_accessor :remember_me
   
   validates_confirmation_of :password
   
@@ -38,6 +39,21 @@ class User < ActiveRecord::Base
       end
     end
     return user
+  end
+  
+  def remember_me
+    self.remember_token_expires = 2.weeks.from_now
+    string_to_hash = salt + self.email + self.remember_token_expires.to_s
+    self.remember_token = Digest::SHA1.hexdigest(string_to_hash)
+    self.password = ""
+    self.save_with_validation(false)
+  end
+  
+  def forget_me
+    self.remember_token_expires = nil
+    self.remember_token = nil
+    self.password = ""
+    self.save_with_validation(false)
   end
   
   private
