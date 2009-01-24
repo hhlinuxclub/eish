@@ -8,3 +8,5 @@
 		<%= RedCloth.new(news_article.body).to_html %>
 	</div>
 <% end %>
+
+<p><%= will_paginate @news %></p>
