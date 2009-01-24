@@ -9,6 +9,7 @@ class NewsController < ApplicationController
     respond_to do |format|
       format.html # index.html.erb
       format.xml  { render :xml => @news }
+      format.rss { @news = News.find_all_by_published(true) }
     end
   end
 
