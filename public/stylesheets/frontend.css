@@ -1,3 +1,33 @@
+@font-face {
+	font-family: "Bitstream Vera Sans Bold";
+	src: url("../fonts/bitstream/VeraBd.ttf");
+}
+
+@font-face {
+	font-family: "Bitstream Vera Sans Italic";
+	src: url("../fonts/bitstream/VeraIt.ttf");
+}
+
+@font-face {
+	font-family: "Bitstream Vera Mono";
+	src: url("../fonts/bitstream/VeraMono.ttf");
+}
+
+@font-face {
+	font-family: "Bitstream Vera Serif Bold";
+	src: url("../fonts/bitstream/VeraSeBd.ttf");
+}
+
+@font-face {
+	font-family: "Bitstream Vera Serif";
+	src: url("../fonts/bitstream/VeraSe.ttf");
+}
+
+@font-face {
+	font-family: "Bitstream Vera Sans";
+	src: url("../fonts/bitstream/Vera.ttf");
+}
+
 body {
 	margin: 0px;
 	padding: 0px;
@@ -15,8 +45,9 @@ body {
 }
 
 #header {
-	height: 115px;
+	height: 29px;
 	background: #0066cb url('../images/header.png') no-repeat 0px 0px;
+	padding-top:115px;
 }
 
 #header h1 {
@@ -24,7 +55,7 @@ body {
 }
 
 #navigation {
-	background: #00264B url('../images/nav_left_green.png') repeat-y 0px 0px;
+	background: #00264B url('../images/nav_left_green.png') repeat-y 0px 0px;;
 	padding: 5px 20px 5px 0px;
 	text-align: left;
 }
@@ -35,6 +66,7 @@ body {
 }
 
 #navigation li {
+	background: #00264B;
 	font-family: Georgia, "Bitstream Vera Serif", serif;
 	font-weight: bold;
 	font-size: 12pt;
@@ -51,7 +83,7 @@ body {
 #navigation a:hover,
 #navigation ul li:hover,
 #navigation .active_link {
-	background-color: #0066cb;
+	background: #0066cb;
 }
 
 #sidebars {
