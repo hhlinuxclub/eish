@@ -40,6 +40,12 @@
 		<%= f.password_field :password_confirmation, :size => 40 %>
 	</p>
 	
+	<% if recaptcha? %>
+	<p>
+		<%= get_captcha %>
+	</p>
+	<% end %>
+	
 	<p>
 		<%= f.submit "Register", :class => "submit" %>
 	</p>
