@@ -10,6 +10,10 @@ RAILS_GEM_VERSION = '2.2.2' unless defined? RAILS_GEM_VERSION
 # Bootstrap the Rails environment, frameworks, and default configuration
 require File.join(File.dirname(__FILE__), 'boot')
 
+# Public and Private keys for reCAPTCHA. Uncomment to enable.
+# RCC_PUB = ""
+# RCC_PRIV = ""
+
 Rails::Initializer.run do |config|
   # Settings in config/environments/* take precedence over those specified here.
   # Application configuration should go into files in config/initializers
@@ -32,6 +36,7 @@ Rails::Initializer.run do |config|
   config.gem "faker"
   config.gem "populator"
   config.gem "mislav-will_paginate", :lib => "will_paginate", :source => "http://gems.github.com"
+  config.gem "recaptcha", :source => "http://www.loonsoft.com/recaptcha/pkg/"
 
   # Only load the plugins named here, in the order given. By default, all plugins 
   # in vendor/plugins are loaded in alphabetical order.

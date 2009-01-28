@@ -15,6 +15,7 @@ h1. Required Gems
 * "faker":http://faker.rubyforge.org/
 * "Populator":http://populator.rubyforge.org/
 * "mislav-will_paginate":http://wiki.github.com/mislav/will_paginate
+* "recaptcha":http://www.loonsoft.com/recaptcha/
 
 
 h1. Copyright
@@ -26,6 +27,9 @@ The above copyright notice applies to all files of this program, unless stated o
 h2. Exceptions
 
 * Files under the directory "public/images/icons" are a part of the "Tango Icon Library":http://tango.freedesktop.org/ and released under the "Creative Commons Attribution Share-Alike license":http://creativecommons.org/licenses/by-sa/2.5/.
+
+* Fonts found under the "public/fonts/bitstream" directory are part of the "GNOME project":http://www.gnome.org/fonts/ and have been released by "Bitstream, Inc.":http://www.bitstream.com/font_rendering/products/dev_fonts/vera.html under an open source license.  You can find a copy of the license in the same directory, and embedded within each font file.
+
 
 h1. Bug Tracker
 

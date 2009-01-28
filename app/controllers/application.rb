@@ -1,11 +1,15 @@
 # Filters added to this controller apply to all controllers in the application.
 # Likewise, all the methods added will be available for all controllers.
 
+gem "recaptcha"
+
 class ApplicationController < ActionController::Base
   before_filter :authorize
   before_filter :login_from_cookie
   
   helper :all # include all helpers, all the time
+  
+  include ReCaptcha::AppHelper
 
   # See ActionController::RequestForgeryProtection for details
   # Uncomment the :secret if you're not using the cookie session store
@@ -32,5 +36,9 @@ class ApplicationController < ActionController::Base
       if user && !user.remember_token_expires.nil? && Time.now < user.remember_token_expires
         session[:user_id] = user.id
       end
+    end
+    
+    def recaptcha?
+      return !(defined? RCC_PUB && RCC_PRIV).nil?
     end
 end

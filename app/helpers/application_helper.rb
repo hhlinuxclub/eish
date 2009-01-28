@@ -1,5 +1,8 @@
 # Methods added to this helper will be available to all templates in the application.
 module ApplicationHelper
+  require "recaptcha"
+  include ReCaptcha::ViewHelper
+  
   def format_date(time)
     date = time.to_date
     if (date === Date.today)
@@ -38,5 +41,9 @@ module ApplicationHelper
     end
     
     xhtml << "</ul>"
+  end
+  
+  def recaptcha?
+    return !(defined? RCC_PUB && RCC_PRIV).nil?
   end
 end
