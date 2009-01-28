@@ -31,6 +31,10 @@ class UsersController < ApplicationController
     @user = User.find(session[:user_id])
   end
   
+  def show
+    @user = User.find_by_username(params[:username])
+  end
+  
   def register
     @user = User.new
     
@@ -45,13 +49,13 @@ class UsersController < ApplicationController
     @user.role_id = 5
     
     respond_to do |format|
-      if @user.save
+      if recaptcha? && validate_recap(params, @user.errors) && @user.save || @user.save
         session[:user_id] = @user.id
         flash[:notice] = "User #{@user.username} was successfully created."
         format.html { redirect_to :root }
         format.xml { render :xml => @user, :status => :created, :location => @user }
       else
-        format.html { render :action => "new" }
+        format.html { render :action => "register" }
         format.xml { render :xml => @user.errors, :status => :unprocessable_entity }
       end
     end
