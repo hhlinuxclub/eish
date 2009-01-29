@@ -7,9 +7,15 @@ class User < ActiveRecord::Base
   has_many :galleries
   has_many :images
   has_many :news
-  
+
+  validates_presence_of :first_name
+  validates_presence_of :last_name
   validates_presence_of :username
+  validates_presence_of :email
   validates_uniqueness_of :username
+  validates_uniqueness_of :email
+#  validates_size_of :username, :minimum => 4
+#  validates_size_of :password, :minimum => 6
   
   attr_accessor :password_confirmation
   attr_accessor :current_password
