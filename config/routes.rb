@@ -1,5 +1,6 @@
 ActionController::Routing::Routes.draw do |map|
   map.connect "events/past", :controller => "events", :action => "past"
+  map.connect "events/past.:format", :controller => "events", :action => "past"
   
   map.resources :news, :singular => :news_article
   map.resources :articles
@@ -51,6 +52,9 @@ ActionController::Routing::Routes.draw do |map|
   # Note: These default routes make all actions in every controller accessible via GET requests. You should
   # consider removing the them or commenting them out if you're using named routes and resources.
   map.connect "admin", :namespace => "admin", :controller => "news"
+  map.connect "profile", :controller => "users", :action => "profile"
+  map.connect "profile/me", :controller => "users", :action => "profile"
+  map.connect "profile/:username", :controller => "users", :action => "show"
   
   map.connect ':controller/:action/:id'
   map.connect ':controller/:action/:id.:format'
