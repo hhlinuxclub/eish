@@ -1,3 +1,12 @@
+/*	hhlc.eish! web application CSS
+
+	Homepage: http://hhlinuxclub.org/
+	Repository: http://github.com/jcxplorer/hhlc/tree/master
+*/
+
+
+/* Begin CSS 3 web font descriptions
+   See: http://www.w3.org/TR/css3-webfonts/#font-descriptions */
 @font-face {
 	font-family: "Bitstream Vera Sans Bold";
 	src: url("../fonts/bitstream/VeraBd.ttf");
@@ -27,7 +36,11 @@
 	font-family: "Bitstream Vera Sans";
 	src: url("../fonts/bitstream/Vera.ttf");
 }
+/* End font descriptions */
 
+
+
+/* Everything else from now on... */
 body {
 	margin: 0px;
 	padding: 0px;
@@ -45,9 +58,9 @@ body {
 }
 
 #header {
-	height: 29px;
+	height: 21px;
 	background: #0066cb url('../images/header.png') no-repeat 0px 0px;
-	padding-top:115px;
+	padding-top: 126px;
 }
 
 #header h1 {
@@ -55,8 +68,8 @@ body {
 }
 
 #navigation {
-	background: #00264B url('../images/nav_left_green.png') repeat-y 0px 0px;;
-	padding: 5px 20px 5px 0px;
+	background: none;
+	padding: 0px 20px 0px 0px;
 	text-align: left;
 }
 
@@ -66,24 +79,31 @@ body {
 }
 
 #navigation li {
-	background: #00264B;
+	background: none;
 	font-family: Georgia, "Bitstream Vera Serif", serif;
 	font-weight: bold;
 	font-size: 12pt;
 	display: inline;
-	padding: 5px 10px;
 }
 
 #navigation a:link,
 #navigation a:visited {
 	text-decoration: none;
-	color: #f1f1f1;
+	padding: 2px 10px;
+	color: #ffffff;
+}
+
+#navigation .active_link a:link,
+#navigation .active_link a:visited {
+	text-decoration: none;
+	color: #00264b;
 }
 
 #navigation a:hover,
 #navigation ul li:hover,
 #navigation .active_link {
-	background: #0066cb;
+	background: #ffffff;
+	color: #00264b;
 }
 
 #sidebars {
@@ -122,9 +142,7 @@ body {
 
 #content {
 	padding: 20px;
-	margin-right: 0px;
-	margin-top: 7px;
-	margin-bottom:7px;
+	margin: 0;
 	background: #ffffff;
 	float: left;
 	width: 860px;
@@ -178,7 +196,7 @@ body {
 
 .sidebar {	
 	float: right;
-	background-color: #f6efe0;
+	background: #f6efe0;
 	border: 1px solid #eee4cb;
 	width: 180px;
 	margin-bottom: 20px;
@@ -200,7 +218,7 @@ td {
 }
 
 th {
-	background-color: #f6efe0;
+	background: #f6efe0;
 	border: 1px solid #eee4cb;
 	padding: 5px 10px;
 	color: #282828;
@@ -218,7 +236,7 @@ th {
 	border: 3px solid #400000;
 	padding: 0px 20px;
 	margin-bottom: 20px;
-	background-color: #8C2A2A;
+	background: #8C2A2A;
 	color: #ffffff;
 }
 
@@ -250,3 +268,5 @@ dd {
 img {
 	border: none;
 }
+
+/* End everything else */
