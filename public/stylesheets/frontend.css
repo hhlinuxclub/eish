@@ -44,7 +44,7 @@
 body {
 	margin: 0px;
 	padding: 0px;
-	font-family: "Bitstream Vera Sans", sans-serif;
+	font-family: "Helvetica Neue", Helvetica, "Bitstream Vera Sans", "Trebuchet MS", sans-serif;
 	background: #141414 url('../images/background_stripes.png') repeat-x 0px 0px;
 }
 
@@ -153,7 +153,6 @@ body {
 }
 
 #footer {
-	font-family: "Bitstream Vera Sans", Verdana, sans-serif;
 	text-align: center;
 	color: #f1f1f1;
 	background: #00264B url('../images/nav_left_green.png') repeat-y 0px 0px;
@@ -271,6 +270,11 @@ dd {
 
 img {
 	border: none;
+}
+
+.pagination {
+	font-size: 10pt;
+	font-weight: bold;
 }
 
 /* End everything else */
