@@ -36,7 +36,7 @@ module ApplicationHelper
       else
         xhtml << "<li>"
       end
-      xhtml << link_to(c.capitalize, send(c.downcase + "_path"))
+      xhtml << link_to(c.capitalize, :controller => c)
       xhtml << "</li>\n"
     end
     
