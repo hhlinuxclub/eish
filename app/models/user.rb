@@ -62,6 +62,10 @@ class User < ActiveRecord::Base
     self.save_with_validation(false)
   end
   
+  def before_create
+    Mailer.deliver_welcome(self)
+  end
+  
   private
     
     def password_non_blank
