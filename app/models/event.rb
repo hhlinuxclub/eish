@@ -3,7 +3,7 @@ class Event < ActiveRecord::Base
   
   attr_accessor :all_day
   
-  def is_ongoing?
+  def ongoing?
     return self.starts_at < DateTime.now
   end
   

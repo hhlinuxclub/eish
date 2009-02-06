@@ -7,7 +7,7 @@
 		<% for event in Event.upcoming(2) %>
 			<p title="<%= format_event_dates(event) %>">
 				<%= link_to(event.name, event_path(event)) %>
-				<% if event.is_ongoing? %>
+				<% if event.ongoing? %>
 					<span class="classifier">Ongoing</span>
 				<% end %>
 			</p>
