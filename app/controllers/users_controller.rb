@@ -13,9 +13,14 @@ class UsersController < ApplicationController
           user.remember_me
           cookies[:auth_token] = { :value => user.remember_token, :expires => user.remember_token_expires }
         end
-        redirect_to(original_uri || :root)
+        
+        respond_to do |format|
+          format.html { redirect_to(original_uri || :root) }
+          format.js
+        end
       else
         flash.now[:notice] = "Invalid user/password combination"
+        @wrong_password = true
       end
     end
   end

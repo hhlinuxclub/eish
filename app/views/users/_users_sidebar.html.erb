@@ -11,7 +11,7 @@
 	
 <% else %>
 
-	<% form_tag("/users/login") do %>
+	<% form_remote_tag :url => "/users/login" do %>
 		<p>
 			<label for="username">Username</label>
 			<%= text_field_tag :username, params[:username], :class => "field" %>

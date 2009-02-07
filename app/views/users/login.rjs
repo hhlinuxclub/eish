@@ -1,0 +1,12 @@
+page.replace_html :notice, flash[:notice]
+if @wrong_password ||= false
+  page.visual_effect :shake, :users_sidebar
+else
+  page.visual_effect :pulsate, :notice, :pulses => 2, :duration => 2.0
+  page.remove :users_sidebar
+  page.insert_html :bottom, :sidebars, :partial => "users/users_sidebar"
+  page.delay 2 do
+    page.hide :notice
+  end
+end
+flash.discard
