@@ -66,6 +66,17 @@ class User < ActiveRecord::Base
     Mailer.deliver_welcome(self)
   end
   
+  def has_content?
+    [Article, Event, News].each do |model|
+      return true if !model.find_by_user_id(self.id).nil?
+    end
+    return false
+  end
+  
+  def before_destroy
+    return false if self.has_content?
+  end
+  
   private
     
     def password_non_blank
