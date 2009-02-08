@@ -86,4 +86,29 @@ class UsersController < ApplicationController
       end
     end
   end
+  
+  def remove
+    @user = User.find(session[:user_id])
+  end
+  
+  def destroy
+    user = User.find(session[:user_id])
+    current_hashed_password = User.encrypted_password(params[:user][:current_password], user.salt)
+    
+    respond_to do |format|
+      if current_hashed_password == user.hashed_password
+        if user.safe_destroy
+          session[:user_id] = nil
+          flash[:notice] = "Your account was deleted successfully."
+          format.html { redirect_to :root }
+        else
+          flash[:notice] = "We weren't able to delete your account. Please contact an administrator about this."
+          format.html { redirect_to :controller => "users", :action => "remove" }
+        end
+      else
+        flash[:notice] = "The password you entered is incorrect."
+        format.html { redirect_to :controller => "users", :action => "remove" }
+      end
+    end
+  end
 end

@@ -1,0 +1,21 @@
+<h2 class="title">Account removal</h2>
+
+<% if @user.has_content? %>
+	<p>We have noticed that you have some content (e.g. comments) on our website. In order to keep our website and database consistent, we cannot fully remove your account. What happens in this situation is that we erase all your information besides your real name. All the content in our website is always shown associated with a real name. This way, we keep consistency, and only your real name.</p>
+	<p>If you feel that this violates your privacy, please contact an administrator before removing the account and we will deal with the situation accordingly.</p>
+<% else %>
+	<p>All your information will be deleted from our database. This operation is not reversible, but you can always register again.</p>
+<% end %>
+
+<p>Please provide us with your current password in order to proceed. There will be no other confirmation of removal.</p>
+
+<% form_for :user, @user, :url => { :action => "destroy" } do |f| %>
+	<%= f.error_messages %>
+	
+	<p>
+		<%= f.label :current_password %><br />
+		<%= f.password_field :current_password %>
+	</p>
+	
+	<%= f.submit "Remove Account" %>
+<% end %>
