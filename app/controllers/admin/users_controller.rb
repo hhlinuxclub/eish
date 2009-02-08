@@ -1,6 +1,6 @@
 class Admin::UsersController < ApplicationController
   def index
-    @users = User.find(:all, :order => :role_id)
+    @users = User.all_current_users
     
     respond_to do |format|
       format.html
@@ -61,7 +61,7 @@ class Admin::UsersController < ApplicationController
   def destroy
     @user = User.find(params[:id])
     if !@user.role.can_administer?
-      @user.destroy
+      @user.safe_destroy
     end
 
     respond_to do |format|
