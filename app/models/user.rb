@@ -74,7 +74,26 @@ class User < ActiveRecord::Base
   end
   
   def before_destroy
-    return false if self.has_content?
+    !self.has_content?
+  end
+  
+  def safe_destroy
+    if self.has_content?
+      self.username = nil 
+      self.email = nil
+      self.hashed_password = nil
+      self.salt = nil
+      self.role_id = nil
+      self.remember_token = nil
+      self.remember_token_expires = nil
+      self.save_with_validation(false)
+    else
+      self.destroy
+    end
+  end
+  
+  def self.all_current_users
+    find(:all, :conditions => "username IS NOT NULL", :order => "role_id")
   end
   
   private
