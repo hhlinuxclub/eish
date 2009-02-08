@@ -5,7 +5,7 @@
         <title>HHLC: <%= controller.controller_name.capitalize %></title>
         <%= stylesheet_link_tag 'screen' %>
 				<%= javascript_include_tag :defaults %>
-				<%= auto_discovery_link_tag(:rss, "news.rss") if controller.controller_name == "news" %>
+				<%= auto_discovery_link_tag(:atom, "/news.atom") if controller.controller_name == "news" %>
 				<link rel="icon" type="image/png" href="favicon.ico" />
     </head>
     <body>
