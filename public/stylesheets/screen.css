@@ -282,4 +282,9 @@ img {
 	padding-left: 17px;
 }
 
+fieldset {
+	border: solid 1px #cccccc;
+	width: 620px;
+}
+
 /* End everything else */
