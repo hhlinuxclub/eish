@@ -20,9 +20,7 @@
 		<td><%=h event.location %></td>
 		<td><%=h event.description %></td>
 		<td>
-			<%= link_to image_tag("icons/show.png", :alt => "Show"), admin_event_path(event) %>
-	    <%= link_to image_tag("icons/edit.png", :alt => "Edit"), edit_admin_event_path(event) %>
-	    <%= link_to image_tag("icons/destroy.png", :alt => "Destroy"), admin_event_path(event), :confirm => 'Are you sure?', :method => :delete %>
+			<%= render :partial => "admin/actions", :locals => { :content => event } %>
 		</td>
 	</tr>
 <% end %>

@@ -16,9 +16,7 @@
 		  <td><%=h news_article.created_at %></td>
 		  <td><%= truncate(strip_tags(RedCloth.new(news_article.body).to_html), 80, "&hellip;") %></td>
 		  <td>
-				<%= link_to image_tag("icons/show.png", :alt => "Show"), admin_news_article_path(news_article) %>
-		    <%= link_to image_tag("icons/edit.png", :alt => "Edit"), edit_admin_news_article_path(news_article) %>
-		    <%= link_to image_tag("icons/destroy.png", :alt => "Destroy"), admin_news_article_path(news_article), :confirm => 'Are you sure?', :method => :delete %>
+				<%= render :partial => "admin/actions", :locals => { :content => news_article } %>
 			</td>
 	  </tr>
 	<% end %>
