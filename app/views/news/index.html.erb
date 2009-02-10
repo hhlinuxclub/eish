@@ -3,7 +3,7 @@
 		<h3 class="title"><%= link_to(news_article.title, :controller => :news, :action => :show, :id => news_article.id) %></h3>
 		<p class="metadata">
 			<%=h format_date(news_article.created_at) %>
-			by <%=h news_article.user.first_name + " " + news_article.user.last_name %>
+			by <%= link_to_profile news_article.user %>
 		</p>
 		<%= RedCloth.new(news_article.body).to_html %>
 	</div>
