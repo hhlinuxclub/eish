@@ -4,7 +4,7 @@ module UsersHelper
     if user.username.nil?
       return h(name)
     else
-      return link_to name, "/profile/#{user.username}"
+      return link_to(name, "/profile/#{user.username}")
     end
   end
 end
