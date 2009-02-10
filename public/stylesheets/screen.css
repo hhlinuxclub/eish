@@ -287,4 +287,12 @@ fieldset {
 	width: 620px;
 }
 
+#sidebar_legend{
+	width: 100%;
+}
+
+#sidebar_legend td, #sidebar_legend th {
+	border-width: 0;
+}
+
 /* End everything else */
