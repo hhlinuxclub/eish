@@ -3,11 +3,11 @@
 	
 <% if logged_in? %>
 
-	<p>Logged in as <%= link_to(User.find(session[:user_id]).username, :controller => "/users", :action => "profile") %></p>
-	<p><%= link_to "Logout", :controller => "/users", :action => "logout" %></p>
+	<p>Logged in as <%= link_to(User.find(session[:user_id]).username, :controller => "/users", :action => "profile") %>.</p>
 	<% if User.find(session[:user_id]).role.can_administer? && !admin_namespace? %>
 		<p><%= link_to "Go to administration", :controller => "/admin" %></p>
 	<% end %>
+	<p><%= link_to "Logout", :controller => "/users", :action => "logout" %></p>
 	
 <% else %>
 
