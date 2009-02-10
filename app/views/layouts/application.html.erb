@@ -27,6 +27,9 @@
                     <% end %>
                     <%= render :partial => "events/events_sidebar" %>
                     <%= render :partial => "users/users_sidebar" %>
+                    <% if admin_namespace? %>
+                    <%= render :partial => "admin/admin_sidebar_legend" %>
+                    <% end %>
                 </div>
                 <p id="notice" style="color: green">
                     <%= flash[:notice] %>
