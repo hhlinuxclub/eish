@@ -5,14 +5,14 @@
 <table>
   <tr>
     <th>Title</th>
-    <th>Created at</th>
+    <th>Created</th>
 		<th>Actions</th>
   </tr>
 
 	<% for article in @articles %>
 		<tr<%= " class=\"unpublished\"" unless article.published? %>>
 	    <td><%=h article.title %></td>
-		  <td><%=h article.created_at %></td>
+		  <td><%=h format_date(article.created_at) %></td>
 		  <td>
 				<%= render :partial => "admin/actions", :locals => { :content => article } %>
 			</td>
