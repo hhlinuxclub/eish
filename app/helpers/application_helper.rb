@@ -4,14 +4,7 @@ module ApplicationHelper
   include ReCaptcha::ViewHelper
   
   def format_date(time)
-    date = time.to_date
-    if (date === Date.today)
-      return "Today"
-    elsif (Date.today - 1 === date)
-      return "Yesterday"
-    else
-      return date.strftime("%d %B %Y")
-    end
+    return time.strftime("%d %B %Y at %H:%M")
   end
   
   def admin_namespace?
