@@ -1,45 +1,42 @@
 <% form_for :user, @user, :url => { :action => "create" } do |f| %>
 	<%= f.error_messages %>
 	
-	<fieldset>
-	<legend>Enter Your Details</legend>
-	
 	<p>
 		<%= f.label :first_name %>
 		<br />
-		<%= f.text_field :first_name, :size => 40 %>
+		<%= f.text_field :first_name, :size => 30 %>
 	</p>
 	
 	<p>
 		<%= f.label :last_name %>
 		<br />
-		<%= f.text_field :last_name, :size => 40 %>
+		<%= f.text_field :last_name, :size => 30 %>
 	</p>
 	
 	<p>
 		<%= f.label :username %>
 		<br />
-		<%= f.text_field :username, :size => 40 %>
+		<%= f.text_field :username, :size => 30 %>
 	</p>
 	
 	<p>
 		<%= f.label :email %>
 		<br />
-		<%= f.text_field :email, :size => 40 %>
+		<%= f.text_field :email, :size => 30 %>
 	</p>
 	
 	<p>
 		<%= f.label :password %>
 		<br />
-		<%= f.password_field :password, :size => 40 %>
+		<%= f.password_field :password, :size => 30 %>
 	</p>
 	
 	<p>
 		<%= f.label :password_confirmation %>
 		<br />
-		<%= f.password_field :password_confirmation, :size => 40 %>
+		<%= f.password_field :password_confirmation, :size => 30 %>
 	</p>
-	
+
 	<% if recaptcha? %>
 	<p>
 		<%= get_captcha %>

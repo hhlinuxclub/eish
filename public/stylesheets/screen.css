@@ -282,17 +282,36 @@ img {
 	padding-left: 17px;
 }
 
-fieldset {
-	border: solid 1px #cccccc;
-	width: 620px;
-}
-
 #sidebar_legend{
 	width: 100%;
 }
 
 #sidebar_legend td, #sidebar_legend th {
 	border-width: 0;
+}
+
+label {
+	font-size: 9pt;
+	font-weight: bold;
+}
+
+.fieldWithErrors {
+	display: inline;
+	color: #ee0000;
+}
+
+#errorExplanation {
+	width: 600px;
+	background-color: #ffb3b3;
+	border: solid #ff8080 1px;
+}
+
+#errorExplanation h2 {
+	font-size: 12pt;
+}
+
+#errorExplanation ul {
+	font-size: 10pt;
 }
 
 /* End everything else */
