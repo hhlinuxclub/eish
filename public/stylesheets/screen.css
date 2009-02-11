@@ -112,7 +112,7 @@ body {
 
 #sidebars {
 	width: 200px;
-	margin: 25px 5px;
+	margin: 20px 5px;
 	float: right;
 }
 
@@ -145,7 +145,7 @@ body {
 }
 
 #content {
-	padding: 20px;
+	padding: 0px 20px;
 	margin: 0;
 	background: #ffffff;
 	float: left;
@@ -301,9 +301,11 @@ label {
 }
 
 #errorExplanation {
-	width: 600px;
+	width: 590px;
 	background-color: #ffb3b3;
 	border: solid #ff8080 1px;
+	padding: 0px 20px;
+	margin: 20px 0px;
 }
 
 #errorExplanation h2 {
