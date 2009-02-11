@@ -8,10 +8,7 @@ class User < ActiveRecord::Base
   has_many :images
   has_many :news
 
-  validates_presence_of :first_name
-  validates_presence_of :last_name
-  validates_presence_of :username
-  validates_presence_of :email
+  validates_presence_of :first_name, :last_name, :username, :email
   validates_uniqueness_of :username, :case_sensitive => false
   validates_uniqueness_of :email, :case_sensitive => false
 #  validates_size_of :username, :minimum => 4
