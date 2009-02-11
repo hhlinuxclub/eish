@@ -2,7 +2,7 @@
 	<div class="news_article">
 		<h3 class="title"><%= link_to(news_article.title, :controller => :news, :action => :show, :id => news_article.id) %></h3>
 		<p class="metadata">
-			<%=h format_date(news_article.created_at) %>
+			<%=h distance_of_time_in_words(news_article.created_at, Time.now) %> ago
 			by <%= link_to_profile news_article.user %>
 		</p>
 		<%= RedCloth.new(news_article.body).to_html %>

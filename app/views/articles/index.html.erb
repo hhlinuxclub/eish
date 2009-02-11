@@ -2,7 +2,7 @@
 	<div class="article">
 		<h3 class="title"><%= link_to(article.title, :controller => :articles, :action => :show, :id => article.id) %></h3>
 		<p class="metadata">
-			<%=h format_date(article.created_at) %>
+			<%=h distance_of_time_in_words(article.created_at, Time.now) %> ago
 			by <%= link_to_profile article.user %>
 		</p>
 		<p><%=h article.description %></p>
