@@ -6,7 +6,6 @@
   <tr>
     <th>Title</th>
     <th>Created at</th>
-    <th>Description</th>
 		<th>Actions</th>
   </tr>
 
@@ -14,7 +13,6 @@
 		<tr<%= " class=\"unpublished\"" unless article.published? %>>
 	    <td><%=h article.title %></td>
 		  <td><%=h article.created_at %></td>
-		  <td><%=h article.description %></td>
 		  <td>
 				<%= render :partial => "admin/actions", :locals => { :content => article } %>
 			</td>
