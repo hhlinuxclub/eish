@@ -8,7 +8,6 @@
 		<th>Start</th>
 		<th>End</th>
 		<th>Location</th>
-		<th>Description</th>
 		<th>Actions</th>
 	</tr>
 
@@ -18,7 +17,6 @@
 		<td><%=h event.starts_at %></td>
 		<td><%=h event.ends_at %></td>
 		<td><%=h event.location %></td>
-		<td><%=h event.description %></td>
 		<td>
 			<%= render :partial => "admin/actions", :locals => { :content => event } %>
 		</td>
