@@ -1,0 +1,24 @@
+	<div class="box" id="featuredArticle">
+		<p style="font-size: x-small; color: red;">Featured</p>
+		<h2>Header</h2>
+		<p>
+		Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec ante leo, mattis et, viverra vel, consectetur non, nisl.
+		</p>
+		<p>
+		Cuum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Ut interdum mattis quam. Ut vel tortor nec lorem dignissim adipiscing. Maecenas eros quam, tincidunt quis, condimentum nec, tincidunt eu. 
+		</p>
+		<p style="text-align: right;">
+		<a href="#"><span style="font-size: x-small;">More...</span></a>
+		</p>
+	</div>
+	
+	<div class="box" id="latestNews">
+		<p style="font-size: x-small; color: red;">Latest</p>
+		<h2>News</h2>
+		<ul>
+		<% for news_article in @news %>
+			<li class="date"><%= distance_of_time_in_words(news_article.created_at, Time.now) %> ago</li>
+			<li class="newsItem"><%= link_to news_article.title, news_article_url(news_article) %></li>
+		<% end %>	
+		</ul>
+	</div>
