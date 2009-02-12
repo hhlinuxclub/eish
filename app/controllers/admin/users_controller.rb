@@ -60,7 +60,9 @@ class Admin::UsersController < ApplicationController
   
   def destroy
     @user = User.find(params[:id])
-    if !@user.role.can_administer?
+    if @user.role.can_administer?
+      flash[:notice] = "Cannot delete an administrator."
+    else
       @user.safe_destroy
     end
 
