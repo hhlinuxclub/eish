@@ -282,11 +282,11 @@ img {
 	padding-left: 17px;
 }
 
-#sidebar_legend{
+#sidebar_legend {
 	width: 100%;
 }
 
-#sidebar_legend td, #sidebar_legend th {
+#sidebar_legend td, #sidebar_legend th, #sidebar_feeds td, #sidebar_feeds th {
 	border-width: 0;
 }
 
