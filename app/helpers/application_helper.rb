@@ -25,7 +25,7 @@ module ApplicationHelper
     
     controllers.each do |c|
       if c.downcase == controller.controller_name
-        xhtml << "<li class=\"active_link\">"
+        xhtml << "<li class=\"activeLink\">"
       else
         xhtml << "<li>"
       end
