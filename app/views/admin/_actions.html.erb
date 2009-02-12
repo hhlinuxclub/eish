@@ -6,5 +6,7 @@
 		<%= link_to image_tag("icons/publish_16.png", :alt => "Publish"), { :id => content.id, :action => "publish" }, { :title => "Publish" } %>
 	<% end %>
 <% end %>
-<%= link_to image_tag("icons/edit_16.png", :alt => "Edit"), { :id => content.id, :action => "edit" }, { :title => "Edit" } %>
-<%= link_to image_tag("icons/delete_16.png", :alt => "Destroy"), polymorphic_url([:admin, content]), :confirm => 'Are you sure?', :method => :delete, :title => "Delete" %>
+<% unless defined?(content.username) && content.role.can_administer? && content.id != session[:user_id] %>
+	<%= link_to image_tag("icons/edit_16.png", :alt => "Edit"), { :id => content.id, :action => "edit" }, { :title => "Edit" } %>
+	<%= link_to image_tag("icons/delete_16.png", :alt => "Destroy"), polymorphic_url([:admin, content]), :confirm => 'Are you sure?', :method => :delete, :title => "Delete" %>
+<% end %>
