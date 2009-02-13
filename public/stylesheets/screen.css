@@ -5,26 +5,9 @@
 */
 
 
-/* Begin CSS 3 web font descriptions
-   See: http://www.w3.org/TR/css3-webfonts/#font-descriptions */
-@font-face {
-	font-family: "Bitstream Vera Sans Bold";
-	src: url("../fonts/bitstream/VeraBd.ttf");
-}
-
-@font-face {
-	font-family: "Bitstream Vera Sans Italic";
-	src: url("../fonts/bitstream/VeraIt.ttf");
-}
-
 @font-face {
 	font-family: "Bitstream Vera Mono";
 	src: url("../fonts/bitstream/VeraMono.ttf");
-}
-
-@font-face {
-	font-family: "Bitstream Vera Serif Bold";
-	src: url("../fonts/bitstream/VeraSeBd.ttf");
 }
 
 @font-face {
@@ -39,8 +22,6 @@
 /* End font descriptions */
 
 
-
-/* Everything else from now on... */
 body {
 	margin: 0px;
 	padding: 0px;
@@ -348,16 +329,12 @@ label {
 }
 
 #featuredArticleBox {
-	margin-top: 5px;
-	margin-left: 0px;
-	margin-right: 0px;
+	margin: 5px 0 0 0;
 	float: left;
 }
 
 #latestNewsBox {
-	margin-top: 5px;
-	margin-right: 0px;
-	margin-bottom: 20px;
+	margin: 5px 0 20px;
 	float: right;
 }
 
@@ -411,8 +388,5 @@ label {
 
 .feedLink {
 	background: url('../images/feed_16.png') no-repeat 0px 1px;
-	padding-right: 20px;
-	padding-left: 18px;
+	padding: 0 20px 0 18px;
 }
-
-/* End everything else */
