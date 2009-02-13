@@ -101,7 +101,7 @@ body {
 	font-size: 10pt;
 	text-transform: lowercase;
 	text-align: center;
-	border-bottom: 1px solid #eee4cb;
+	border-bottom: 1px solid #D9D9D9;
 	margin: 5px 10px;
 	color: #666666;
 }
@@ -117,7 +117,7 @@ body {
 
 #userSidebar .field {
 	width: 160px;
-	border: 1px solid #eee4cb;
+	border: 1px solid #D9D9D9;
 }
 
 #userSidebar label {
@@ -197,13 +197,13 @@ table {
 }
 
 td {
-	border: 1px solid #eee4cb;
+	border: 1px solid #D9D9D9;
 	padding: 5px 5px;
 }
 
 th {
-	background: #f6efe0;
-	border: 1px solid #eee4cb;
+	background: #F0F0F0;
+	border: 1px solid #D9D9D9;
 	padding: 5px 10px;
 	color: #282828;
 	font-weight: bold;
