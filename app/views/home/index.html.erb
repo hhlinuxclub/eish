@@ -49,9 +49,9 @@
 <p id="homeRegisterLink"><%= link_to "Register", :controller => "users", :action => "register" %></p>
 	<h3>Login</h3>
 	<% form_remote_tag :url => "/users/login" do %>
-		<%= text_field_tag :username, params[:username], :size => 12, :value => "Username" %>
-		<%= password_field_tag :password, params[:password], :size => 12, :value => "password" %>
-		<%= submit_tag "Login" %><p>
+		<%= text_field_tag :username, params[:username], :size => 12, :value => "Username", :tabindex => 1 %>
+		<%= password_field_tag :password, params[:password], :size => 12, :value => "password", :tabindex => 2 %>
+		<%= submit_tag "Login", :tabindex => 3 %><p>
 		<%= check_box_tag :remember_me, params[:remember_me] %>
 		<label for="remember_me">Remember me</label></p>
 	<% end %>
