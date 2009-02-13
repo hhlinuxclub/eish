@@ -372,10 +372,46 @@ label {
 	float: left;
 }
 
-#feedsBox {
+#feedsBox, #loginBox {
 	float: left;
-	width: 178px;
+	height: 74px;
 	margin-left: 20px;
+}
+
+#loginBox {
+	border-top: 0;
+	padding-top: 11px;
+}
+
+#loginBox p {
+	padding-top: 3px;
+}
+
+#homeRegisterLink {
+	float: right;
+	font-size: small;
+}
+
+#feedsBox h3, #loginBox h3 {
+	padding: 0 0 5px;
+	margin: 0;
+}
+
+#feedsBox p {
+	float: none;
+	text-align: center;
+	padding-top: 5px;
+	font-size: 11pt;
+}
+
+#feedsBox img {
+	margin-top: -1px;
+}
+
+.feedLink {
+	background: url('../images/feed_16.png') no-repeat 0px 1px;
+	padding-right: 20px;
+	padding-left: 18px;
 }
 
 /* End everything else */

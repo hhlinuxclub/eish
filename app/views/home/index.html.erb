@@ -35,32 +35,24 @@
 </div>
 
 <div class="box" id="feedsBox">
-	<p style="font-size: x-small; color: red;">Atom</p>
-	<h2>Feeds</h2>
-	<table id="sidebarFeeds">
-		<tr>
-			<td><%= link_to ( image_tag "feed_16.png", :alt => "News feed" ), :controller => "news", :action => "index", :format => "atom" %></td>
-			<td><%= link_to "News", :controller => "news", :action => "index", :format => "atom" %></td>
-		</tr>
-		<tr>
-			<td><%= link_to ( image_tag "feed_16.png", :alt => "Articles feed" ), :controller => "articles", :action => "index", :format => "atom" %></td>
-			<td><%= link_to "Articles", :controller => "articles", :action => "index", :format => "atom" %></td>
-		</tr>
-		<tr>
-			<td><%= image_tag "feed_16.png", :alt => "Events feed" %></td>
-			<td>Events</td>
-		</tr>
-	</table>
+	<h3>Feeds</h3>
+	<p>
+			<%= link_to "News", { :controller => "news", :action => "index", :format => "atom" }, { :class => "feedLink" } %>
+
+			<%= link_to "Articles", { :controller => "articles", :action => "index", :format => "atom" }, { :class => "feedLink" } %>
+
+			Events
+	<p>
 </div>
 
-<div class="box" id="feedsBox">
-	<p style="font-size: x-small; color: red;">User</p>
-	<h2>Login</h2>
-	<dl>
-		<dt>Member?</dt>
-		<dd><%= link_to "Login", :controller => "users", :action => "register" %>.</dd>
-		<p style="text-align: center; padding-bottom: 10px; color: #999999">or</p>
-		<dt>New User?</dt>
-		<dd><%= link_to "Create an account", :controller => "users", :action => "register" %>.</dd>
-	</dl>
+<div class="box" id="loginBox">
+<p id="homeRegisterLink"><%= link_to "Register", :controller => "users", :action => "register" %></p>
+	<h3>Login</h3>
+	<% form_remote_tag :url => "/users/login" do %>
+		<%= text_field_tag :username, params[:username], :size => 12, :value => "Username" %>
+		<%= password_field_tag :password, params[:password], :size => 12, :value => "password" %>
+		<%= submit_tag "Login" %><p>
+		<%= check_box_tag :remember_me, params[:remember_me] %>
+		<label for="remember_me">Remember me</label></p>
+	<% end %>
 </div>
