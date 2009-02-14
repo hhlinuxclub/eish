@@ -6,37 +6,37 @@
 	<p>
 		<%= f.label :first_name %>
 		<br />
-		<%= f.text_field :first_name, :size => 30, :tabindex => 1 %>
+		<%= f.text_field :first_name, :size => 30, :tabindex => 1, :class => "textField" %>
 	</p>
 	
 	<p>
 		<%= f.label :last_name %>
 		<br />
-		<%= f.text_field :last_name, :size => 30, :tabindex => 2 %>
+		<%= f.text_field :last_name, :size => 30, :tabindex => 2, :class => "textField"  %>
 	</p>
 	
 	<p>
 		<%= f.label :email %>
 		<br />
-		<%= f.text_field :email, :size => 30, :tabindex => 3 %>
+		<%= f.text_field :email, :size => 30, :tabindex => 3, :class => "textField"  %>
 	</p>
 
 	<p>
 		<%= f.label :username, "Desired Username" %>
 		<br />
-		<%= f.text_field :username, :size => 30, :tabindex => 4 %>
+		<%= f.text_field :username, :size => 30, :tabindex => 4, :class => "textField"  %>
 	</p>
 	
 	<p>
 		<%= f.label :password %>
 		<br />
-		<%= f.password_field :password, :size => 30, :tabindex => 5 %>
+		<%= f.password_field :password, :size => 30, :tabindex => 5, :class => "textField"  %>
 	</p>
 	
 	<p>
 		<%= f.label :password_confirmation %>
 		<br />
-		<%= f.password_field :password_confirmation, :size => 30, :tabindex => 6 %>
+		<%= f.password_field :password_confirmation, :size => 30, :tabindex => 6, :class => "textField"  %>
 	</p>
 
 	<% if recaptcha? %> 
