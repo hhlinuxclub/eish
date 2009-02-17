@@ -399,3 +399,8 @@ label {
 	background: url('../images/feed_16.png') no-repeat 0px 1px;
 	padding: 0 20px 0 18px;
 }
+
+#notice {
+	color: #000;
+	font-weight: 700;
+}
