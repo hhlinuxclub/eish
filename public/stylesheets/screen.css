@@ -333,6 +333,15 @@ label {
 	list-style-type: none;
 }
 
+#welcomeBox {
+	background-color: #CCDAFF;
+	border: solid #94C9FF 1px;
+	margin: 10px 0 15px;
+	float: left;
+	width: 840px;
+	height: auto;
+}
+
 #featuredArticleBox {
 	margin: 5px 0 0 0;
 	float: left;

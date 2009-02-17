@@ -1,4 +1,7 @@
-<h2 class="title">Welcome to HHLC</h2>
+<div class="box" id="welcomeBox">
+	<h2 class="title">Welcome</h2>
+	<p>This the the web site of the HAAGA-HELIA Linux Club.  I don't really know what we're supposed to say here, but it really should be possible to set this text through a setting of some sort (as opposed to manually editing the source file).</p>
+</div>
 
 <div class="box" id="featuredArticleBox">
 	<p style="font-size: x-small; color: red;">Featured</p>
@@ -44,17 +47,18 @@
 			<%= link_to "Articles", { :controller => "articles", :action => "index", :format => "atom" }, { :class => "feedLink" } %>
 
 			Events
-	<p>
+	</p>
 </div>
 
 <div class="box" id="loginBox">
 <p id="homeRegisterLink"><%= link_to "Register", :controller => "users", :action => "register" %></p>
 	<h3>Login</h3>
 	<% form_remote_tag :url => "/users/login" do %>
+		<p>
 		<%= text_field_tag :username, params[:username], :size => 12, :value => "Username", :tabindex => 1, :class => "field" %>
 		<%= password_field_tag :password, params[:password], :size => 12, :value => "password", :tabindex => 2, :class => "field" %>
-		<%= submit_tag "Login", :tabindex => 3 %><p>
-		<%= check_box_tag :remember_me, params[:remember_me] %>
+		<%= submit_tag "Login", :tabindex => 3 %></p>
+		<p><%= check_box_tag :remember_me, params[:remember_me] %>
 		<label for="remember_me">Remember me</label></p>
 	<% end %>
 </div>
