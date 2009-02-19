@@ -1,12 +1,12 @@
 <% if @ongoing_events.size > 0 %>
-	<h2 class="title">Ongoing events</h2>
+	<h2 class="title">Ongoing Events</h2>
 	<% for event in @ongoing_events %>
 		<h3 class="title"><%= link_to event.name, event %></h3>
 		<p class="metadata"><%=h format_event_dates(event) %></p>
 	<% end %>
 <% end %>
 
-<h2 class="title">Upcoming events</h2>
+<h2 class="title">Upcoming Events</h2>
 <% if @upcoming_events.size > 0 %>
 	<% for event in @upcoming_events %>
 		<h3 class="title"><%= link_to event.name, event %></h3>
