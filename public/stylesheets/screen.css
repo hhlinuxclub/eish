@@ -366,13 +366,17 @@ label {
 
 #feedsBox, #loginBox {
 	float: left;
-	height: 74px;
 	margin-left: 20px;
 }
 
-#loginBox {
+#feedsBox {
 	border-top: 0;
+	height: 48px;
+}
+
+#loginBox {
 	padding-top: 11px;
+	height: 100px;;
 }
 
 #loginBox p {
@@ -393,10 +397,14 @@ label {
 	margin: 0;
 }
 
+#feedsBox h3 {
+	padding: 0;
+	margin: 0;
+}
+
 #feedsBox p {
 	float: none;
 	text-align: center;
-	padding-top: 5px;
 	font-size: 11pt;
 }
 
