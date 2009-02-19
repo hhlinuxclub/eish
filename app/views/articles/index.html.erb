@@ -1,3 +1,4 @@
+<h2 class="title">Articles</h2>
 <% for article in @articles %>
 	<div class="article">
 		<h3 class="title"><%= link_to(article.title, :controller => :articles, :action => :show, :id => article.id) %></h3>

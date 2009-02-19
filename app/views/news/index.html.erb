@@ -1,3 +1,4 @@
+<h2 class="title">Latest News</h2>
 <% for news_article in @news %>
 	<div class="news_article">
 		<h3 class="title"><%= link_to(news_article.title, :controller => :news, :action => :show, :id => news_article.id) %></h3>
