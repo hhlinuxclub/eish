@@ -370,11 +370,11 @@ label {
 }
 
 #feedsBox {
-	border-top: 0;
 	height: 48px;
 }
 
 #loginBox {
+	border-top: 0;
 	padding-top: 11px;
 	height: 100px;;
 }
