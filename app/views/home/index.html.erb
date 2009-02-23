@@ -51,14 +51,23 @@
 </div>
 
 <div class="box" id="loginBox">
-<p id="homeRegisterLink"><%= link_to "Register", :controller => "users", :action => "register" %></p>
-	<h3>Login</h3>
-	<% form_remote_tag :url => "/users/login" do %>
-		<p>
-		<%= text_field_tag :username, params[:username], :size => 12, :value => "Username", :tabindex => 1, :class => "field" %>
-		<%= password_field_tag :password, params[:password], :size => 12, :value => "password", :tabindex => 2, :class => "field" %>
-		<%= submit_tag "Login", :tabindex => 3 %></p>
-		<p><%= check_box_tag :remember_me, params[:remember_me] %>
-		<label for="remember_me">Remember me</label></p>
-	<% end %>
+<% if logged_in? %>
+	<p id="homeRegisterLink"><%= link_to "Logout", :controller => "users", :action => "logout" %></p>
+	<h3>Logged in as <em><%= @user.username %></em></h3>
+	<ul>
+		<li><%= link_to "Profile", :controller => "users", :action => "profile" %></li>
+		<li><%= link_to "Administration", :controller => "/admin" %></li>
+	</ul>
+<% else %>
+	<p id="homeRegisterLink"><%= link_to "Register", :controller => "users", :action => "register" %></p>
+		<h3>Login</h3>
+		<% form_remote_tag :url => "/users/login" do %>
+			<p>
+			<%= text_field_tag :username, params[:username], :size => 12, :value => "Username", :tabindex => 1, :class => "field" %>
+			<%= password_field_tag :password, params[:password], :size => 12, :value => "password", :tabindex => 2, :class => "field" %>
+			<%= submit_tag "Login", :tabindex => 3 %></p>
+			<p><%= check_box_tag :remember_me, params[:remember_me] %>
+			<label for="remember_me">Remember me</label></p>
+		<% end %>
+<% end %>
 </div>
