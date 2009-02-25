@@ -13,6 +13,7 @@ class EventsController < ApplicationController
       format.html # index.html.erb
       format.xml { render :xml => @upcoming_events }
       format.ics # index.ics.erb
+      format.atom
     end
   end
   
