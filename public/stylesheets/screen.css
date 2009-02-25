@@ -387,6 +387,10 @@ label {
 	border: 1px solid #D9D9D9;
 }
 
+#loginBox li {
+	list-style: none;
+}
+
 #homeRegisterLink {
 	float: right;
 	font-size: small;
