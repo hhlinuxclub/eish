@@ -3,24 +3,11 @@ class UsersController < ApplicationController
   
   def login
     if request.post?
-      user = User.authenticate(params[:username], params[:password])
-      if user
-        session[:user_id] = user.id
-        original_uri = session[:original_uri]
-        session[:original_uri] = nil
-        flash[:notice] = "Login successful!"
-        if params[:remember_me] == "on"
-          user.remember_me
-          cookies[:auth_token] = { :value => user.remember_token, :expires => user.remember_token_expires }
-        end
+      login_with_credentials(params[:username], params[:password], params[:remember_me])
         
-        respond_to do |format|
-          format.html { redirect_to(original_uri || :root) }
-          format.js
-        end
-      else
-        flash.now[:notice] = "Invalid user/password combination"
-        @wrong_password = true
+      respond_to do |format|
+        format.html { redirect_to(:root) }
+        format.js
       end
     end
   end

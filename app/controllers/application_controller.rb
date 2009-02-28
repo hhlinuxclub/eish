@@ -30,6 +30,20 @@ class ApplicationController < ActionController::Base
       end
     end
     
+    def login_with_credentials(username, password, remember_me)
+      @user = User.authenticate(username, password)
+      if @user
+        session[:user_id] = @user.id
+        flash[:notice] = "Login successful!"
+        if remember_me == "on"
+          @user.remember_me
+          cookies[:auth_token] = { :value => @user.remember_token, :expires => @user.remember_token_expires }
+        end
+      else
+        flash.now[:notice] = "Invalid user/password combination"
+      end
+    end
+    
     def login_from_cookie
       return unless cookies[:auth_token] && session[:user_id].nil?
       user = User.find_by_remember_token(cookies[:auth_token])

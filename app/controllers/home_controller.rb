@@ -6,4 +6,13 @@ class HomeController < ApplicationController
     @events = Event.upcoming(4)
     @user = User.find(session[:user_id]) unless session[:user_id].nil?
   end
+  
+  def login
+    login_with_credentials(params[:username], params[:password], params[:remember_me])
+        
+    respond_to do |format|
+      format.html { redirect_to(:root) }
+      format.js
+    end
+  end
 end
