@@ -8,16 +8,16 @@ module EventsHelper
         return event.starts_at.strftime("%d %B %Y")
       # If several days
       else
-        return event.starts_at.strftime("%d %B %Y") + " – " + event.ends_at.strftime("%d %B %Y")
+        return event.starts_at.strftime("%d %B %Y") + " &mdash; " + event.ends_at.strftime("%d %B %Y")
       end
     # If not all day
     else
       # If one day
       if event.starts_at.to_date == event.ends_at.to_date
-        return event.starts_at.strftime("%d %B %Y, %H:%M") + " – " + event.ends_at.strftime("%H:%M")
+        return event.starts_at.strftime("%d %B %Y, %H:%M") + " &mdash; " + event.ends_at.strftime("%H:%M")
       # If several days
       else
-        return event.starts_at.strftime("%d %B %Y, %H:%M") + " – " + event.ends_at.strftime("%d %B %Y, %H:%M")
+        return event.starts_at.strftime("%d %B %Y, %H:%M") + " &mdash; " + event.ends_at.strftime("%d %B %Y, %H:%M")
       end
     end
   end
