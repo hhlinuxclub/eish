@@ -1,5 +1,5 @@
 page.replace_html :notice, flash[:notice]
-if @wrong_password ||= false
+if @user.nil?
   page.visual_effect :shake, :userSidebar
   page << "$('userSidebar').morph('background: #FFB3B3; border: #FF8080;');"
   page << "$('notice').morph('color: #ee0000;');"
