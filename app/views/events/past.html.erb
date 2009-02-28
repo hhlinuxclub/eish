@@ -2,7 +2,7 @@
 <% if @past_events.size > 0 %>
 	<% for event in @past_events %>
 		<h3 class="title"><%= link_to event.name, event %></h3>
-		<p class="metadata"><%=h format_event_dates(event) %></p>
+		<p class="metadata"><%= format_event_dates(event) %></p>
 	<% end %>
 <% else %>
 	<p>There are no past events at this point.</p>
