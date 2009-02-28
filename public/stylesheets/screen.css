@@ -371,10 +371,10 @@ label {
 
 #feedsBox {
 	height: 48px;
+	border-bottom: 0;
 }
 
 #loginBox {
-	border-top: 0;
 	padding-top: 11px;
 	height: 100px;;
 }
