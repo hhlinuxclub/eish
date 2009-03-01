@@ -1,4 +1,5 @@
-page.replace_html :notice, flash[:notice]
+page.replace_html :flashNotice, flash[:notice]
+page.replace_html :flashError, flash[:error]
 if @user.nil?
   page << "$('loginBox').morph('background: #FFB3B3; border: #FF8080;');"
 else

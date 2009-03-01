@@ -39,8 +39,9 @@
 										<%= render :partial => "/feeds_sidebar" %>
 									</div>
 								<% end %>	
-                <p id="notice">
-                    <%= flash[:notice] %>
+                <p id="flash">
+                    <span id="flashNotice"><%= flash[:notice] %></span>
+										<span id="flashError"><%= flash[:error] %></span>
                 </p>
                 <%= yield %>
             </div>

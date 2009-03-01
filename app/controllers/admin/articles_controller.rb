@@ -74,7 +74,7 @@ class Admin::ArticlesController < ApplicationController
         flash[:notice] = "The article is now published."
         format.html { redirect_to(admin_article_path(article)) }
       else
-        flash[:notice] = "Some error occurred. Nothing was changed."
+        flash[:error] = "Some error occurred. Nothing was changed."
         format.html { render :action => "show", :id => article.id }
       end
     end
@@ -89,7 +89,7 @@ class Admin::ArticlesController < ApplicationController
         flash[:notice] = "The article is now unpublished."
         format.html { redirect_to(admin_article_path(article)) }
       else
-        flash[:notice] = "Some error occurred. Nothing was changed."
+        flash[:error] = "Some error occurred. Nothing was changed."
         format.html { render :action => "show", :id => article.id }
       end
     end

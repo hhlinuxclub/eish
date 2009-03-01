@@ -422,7 +422,14 @@ label {
 	padding: 0 20px 0 18px;
 }
 
-#notice {
-	color: #000;
+#flash {
 	font-weight: 700;
+}
+
+#flashNotice {
+	color: green;
+}
+
+#flashError {
+	color: red;
 }

@@ -80,7 +80,7 @@ class Admin::EventsController < ApplicationController
       if event.save
         flash[:notice] = "The event is now published."
       else
-        flash[:notice] = "Some error occurred. Nothing was changed."
+        flash[:error] = "Some error occurred. Nothing was changed."
       end
       format.html { redirect_to(admin_event_path(event)) }
     end
@@ -94,7 +94,7 @@ class Admin::EventsController < ApplicationController
       if event.save
         flash[:notice] = "The event is now unpublished."
       else
-        flash[:notice] = "Some error occurred. Nothing was changed."
+        flash[:error] = "Some error occurred. Nothing was changed."
       end
       format.html { redirect_to(admin_event_path(event)) }
     end

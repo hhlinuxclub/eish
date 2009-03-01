@@ -25,7 +25,7 @@ class ApplicationController < ActionController::Base
     def authorize
       unless User.find_by_id(session[:user_id]).role.can_administer?
         session[:original_uri] = request.request_uri
-        flash[:notice] = "Please log in with enough privileges"
+        flash[:error] = "Please log in with enough privileges"
         redirect_to :controller => "/users", :action => "login"
       end
     end
@@ -40,7 +40,7 @@ class ApplicationController < ActionController::Base
           cookies[:auth_token] = { :value => @user.remember_token, :expires => @user.remember_token_expires }
         end
       else
-        flash.now[:notice] = "Invalid user/password combination"
+        flash.now[:error] = "Invalid user/password combination"
       end
     end
     

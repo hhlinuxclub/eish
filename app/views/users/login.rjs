@@ -1,15 +1,13 @@
-page.replace_html :notice, flash[:notice]
+page.replace_html :flashNotice, flash[:notice]
+page.replace_html :flashError, flash[:error]
 if @user.nil?
   page.visual_effect :shake, :userSidebar
   page << "$('userSidebar').morph('background: #FFB3B3; border: #FF8080;');"
-  page << "$('notice').morph('color: #ee0000;');"
 else
-  page << "$('notice').morph('color: #00cc00;');"
-  page.visual_effect :pulsate, :notice, :pulses => 2, :duration => 2.0
   page.remove :userSidebar
   page.insert_html :bottom, :sidebars, :partial => "users/users_sidebar"
   page.delay 2 do
-    page.hide :notice
+    page.hide :flashNotice
   end
 end
 flash.discard

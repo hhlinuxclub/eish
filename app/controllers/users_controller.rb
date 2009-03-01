@@ -68,7 +68,7 @@ class UsersController < ApplicationController
           format.xml  { render :xml => @user.errors, :status => :unprocessable_entity }
         end
       else
-        flash[:notice] = "Old password is incorrect."
+        flash[:error] = "Old password is incorrect."
         format.html { redirect_to :action => "profile" }
       end
     end
@@ -89,11 +89,11 @@ class UsersController < ApplicationController
           flash[:notice] = "Your account was deleted successfully."
           format.html { redirect_to :root }
         else
-          flash[:notice] = "We weren't able to delete your account. Please contact an administrator about this."
+          flash[:error] = "We weren't able to delete your account. Please contact an administrator about this."
           format.html { redirect_to :controller => "users", :action => "remove" }
         end
       else
-        flash[:notice] = "The password you entered is incorrect."
+        flash[:error] = "The password you entered is incorrect."
         format.html { redirect_to :controller => "users", :action => "remove" }
       end
     end

@@ -47,7 +47,7 @@ class Admin::UsersController < ApplicationController
 
     respond_to do |format|
       if @user.role.can_administer? && @user.id != session[:user_id]
-        flash[:notice] = "Cannot update another administrator."
+        flash[:error] = "Cannot update another administrator."
         format.html { redirect_to(:action=>:index) }
       elsif @user.update_attributes(params[:user])
         flash[:notice] = "User #{@user.username} was successfully updated."
@@ -61,7 +61,7 @@ class Admin::UsersController < ApplicationController
   def destroy
     @user = User.find(params[:id])
     if @user.role.can_administer?
-      flash[:notice] = "Cannot delete an administrator."
+      flash[:error] = "Cannot delete an administrator."
     else
       @user.safe_destroy
     end
