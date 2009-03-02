@@ -4,7 +4,7 @@ atom_feed do |feed|
  
   for event in @upcoming_events
     feed.entry(event, :url => event_url(:id => event.id, :format => nil)) do |entry|
-      entry.title(event.name + " [" + format_date(event.starts_at) + "]")
+      entry.title(event.name + " [" + long_date(event.starts_at) + "]")
       entry.content(event.description, :type => 'html')
        
       entry.author do |author|
