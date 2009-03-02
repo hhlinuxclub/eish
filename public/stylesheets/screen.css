@@ -225,8 +225,12 @@ th {
 	color: #ffffff;
 }
 
+.published {
+	background-color: #D1FFEC;
+}
+
 .unpublished {
-	color: #cc0000;
+	background-color: #FFB5D3;
 }
 
 a:link,

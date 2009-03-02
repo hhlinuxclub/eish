@@ -7,12 +7,6 @@
 </p>
 <%= RedCloth.new(@news_article.body).to_html %>
 
-<% if @news_article.published %>
-	<p>This article is published. <%= link_to "Unpublish", :action => "unpublish", :id => @news_article.id %>.</p>
-<% else %>
-	<p>This article is unpublished. <%= link_to "Publish", :action => "publish", :id => @news_article.id %>.</p>
-<% end %>
-
 <p>
 	<%= link_to 'Edit', edit_admin_news_article_path(@news_article) %> |
 	<%= link_to 'Index', admin_news_path %>

@@ -10,7 +10,7 @@
   </tr>
 
 	<% for news_article in @news %>
-		<tr<%= " class=\"unpublished\"" unless news_article.published? %>>
+		<tr class="<%= news_article.published? ? "published" : "unpublished" %>">
 	    <td><%=h news_article.title %></td>
 		  <td><%=h short_date(news_article.created_at) %></td>
 		  <td>

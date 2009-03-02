@@ -11,7 +11,7 @@
 	</tr>
 
 <% for event in @events %>
-	<tr<%= " class=\"unpublished\"" unless event.published? %>>
+	<tr class="<%= event.published? ? "published" : "unpublished" %>">
 		<td><%=h event.name %></td>
 		<td><%= format_event_dates(event) %></td>
 		<td><%=h event.location %></td>

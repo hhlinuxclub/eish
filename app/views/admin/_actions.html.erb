@@ -1,9 +1,9 @@
 <%= link_to image_tag("icons/view_16.png", :alt => "Show"), { :id => content.id, :action => "show" }, { :title => "Show" } %>
 <% if defined? content.published %>
 	<% if content.published? %>
-		<%= link_to image_tag("icons/unpublish_16.png", :alt => "Unpublish"), { :id => content.id, :action => "unpublish" }, { :title => "Unpublish" } %>
+		<%= link_to image_tag("icons/unpublish_16.png", :alt => "Unpublish"), { :id => content.id, :action => "toggle_publish" }, { :title => "Unpublish" } %>
 	<% else %>
-		<%= link_to image_tag("icons/publish_16.png", :alt => "Publish"), { :id => content.id, :action => "publish" }, { :title => "Publish" } %>
+		<%= link_to image_tag("icons/publish_16.png", :alt => "Publish"), { :id => content.id, :action => "toggle_publish" }, { :title => "Publish" } %>
 	<% end %>
 <% end %>
 <% unless defined?(content.username) && content.role.can_administer? && content.id != session[:user_id] %>
