@@ -13,7 +13,7 @@
 <% for event in @events %>
 	<tr<%= " class=\"unpublished\"" unless event.published? %>>
 		<td><%=h event.name %></td>
-		<td><%=h format_event_dates(event) %></td>
+		<td><%= format_event_dates(event) %></td>
 		<td><%=h event.location %></td>
 		<td>
 			<%= render :partial => "admin/actions", :locals => { :content => event } %>
