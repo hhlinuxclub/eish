@@ -11,7 +11,7 @@ class Event < ActiveRecord::Base
     if limit == :all
       return find_all_by_published(true, :conditions => "starts_at > '#{Date.today.to_s(:db)} 00:00:00'", :order => "starts_at")
     else
-      return find_all_by_published(true, :conditions => "ends_at > '#{DateTime.now.to_s(:db)}'", :order => "starts_at", :limit => limit)
+      return find_all_by_published(true, :conditions => "starts_at > '#{DateTime.now.to_s(:db)}'", :order => "starts_at", :limit => limit)
     end
   end
   

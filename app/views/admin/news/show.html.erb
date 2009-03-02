@@ -1,6 +1,6 @@
 <h2 class="title"><%=h @news_article.title %></h2>
 <p class="metadata">
-	<%=h format_date(@news_article.created_at) %>
+	<%=h long_date(@news_article.created_at) %>
 	<% if @news_article.user.nil? == false %>
 		by <%=h @news_article.user.first_name + " " + @news_article.user.last_name %>
 	<% end %>

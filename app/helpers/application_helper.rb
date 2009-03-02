@@ -3,8 +3,12 @@ module ApplicationHelper
   require "recaptcha"
   include ReCaptcha::ViewHelper
   
-  def format_date(time)
+  def long_date(time)
     return time.strftime("%d %B %Y at %H:%M")
+  end
+  
+  def short_date(time)
+    return time.strftime("%d.%m.%Y %H:%M")
   end
   
   def admin_namespace?
