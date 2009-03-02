@@ -7,6 +7,10 @@ module ApplicationHelper
     return time.strftime("%d %B %Y at %H:%M")
   end
   
+  def short_date(time)
+    return time.strftime("%d.%m.%Y %H:%M")
+  end
+  
   def admin_namespace?
     if (controller.controller_path =~ /admin\// )
       return true
