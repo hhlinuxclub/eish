@@ -65,33 +65,17 @@ class Admin::NewsController < ApplicationController
     end
   end
   
-  def publish
+  def toggle_publish
     news_article = News.find(params[:id])
-    news_article.published = true
+    news_article.published = !news_article.published
     
     respond_to do |format|
       if news_article.save
-        flash[:notice] = "The news article is now published."
-        format.html { redirect_to(admin_news_article_path(news_article)) }
+        flash[:notice] = news_article.published ? "The news article is now published." : "The news article is now unpublished."
       else
         flash[:error] = "Some error occurred. Nothing was changed."
-        format.html { render :action => "show", :id => news_article.id }
       end
-    end
-  end
-  
-  def unpublish
-    news_article = News.find(params[:id])
-    news_article.published = false
-    
-    respond_to do |format|
-      if news_article.save
-        flash[:notice] = "The news article is now unpublished."
-        format.html { redirect_to(admin_news_article_path(news_article)) }
-      else
-        flash[:error] = "Some error occurred. Nothing was changed."
-        format.html { render :action => "show", :id => news_article.id }
-      end
+      format.html { redirect_to(admin_news_url) }
     end
   end
 end

@@ -72,31 +72,17 @@ class Admin::EventsController < ApplicationController
     end
   end
   
-  def publish
+  def toggle_publish
     event = Event.find(params[:id])
-    event.published = true
+    event.published = !event.published
     
     respond_to do |format|
       if event.save
-        flash[:notice] = "The event is now published."
+        flash[:notice] = event.published ? "The event is now published." : "The event is now unpublished."
       else
         flash[:error] = "Some error occurred. Nothing was changed."
       end
-      format.html { redirect_to(admin_event_path(event)) }
-    end
-  end
-  
-  def unpublish
-    event = Event.find(params[:id])
-    event.published = false
-    
-    respond_to do |format|
-      if event.save
-        flash[:notice] = "The event is now unpublished."
-      else
-        flash[:error] = "Some error occurred. Nothing was changed."
-      end
-      format.html { redirect_to(admin_event_path(event)) }
+      format.html { redirect_to(admin_events_url) }
     end
   end
 end

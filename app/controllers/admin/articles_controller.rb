@@ -1,6 +1,6 @@
 class Admin::ArticlesController < ApplicationController
   def index
-    @articles = Article.find(:all)
+    @articles = Article.find(:all, :order => "created_at DESC")
 
     respond_to do |format|
       format.html
@@ -65,33 +65,17 @@ class Admin::ArticlesController < ApplicationController
     end
   end
   
-  def publish
+  def toggle_publish
     article = Article.find(params[:id])
-    article.published = true
+    article.published = !article.published
     
     respond_to do |format|
       if article.save
-        flash[:notice] = "The article is now published."
-        format.html { redirect_to(admin_article_path(article)) }
+        flash[:notice] = article.published ? "The article is now published." : "The article is now unpublished."
       else
         flash[:error] = "Some error occurred. Nothing was changed."
-        format.html { render :action => "show", :id => article.id }
       end
-    end
-  end
-  
-  def unpublish
-    article = Article.find(params[:id])
-    article.published = false
-    
-    respond_to do |format|
-      if article.save
-        flash[:notice] = "The article is now unpublished."
-        format.html { redirect_to(admin_article_path(article)) }
-      else
-        flash[:error] = "Some error occurred. Nothing was changed."
-        format.html { render :action => "show", :id => article.id }
-      end
+      format.html { redirect_to(admin_articles_url) }
     end
   end
 end
