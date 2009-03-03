@@ -1,6 +1,7 @@
 class Admin::ArticlesController < ApplicationController
   def index
     @articles = Article.find(:all, :order => "created_at DESC")
+    @featured_article = Setting.option("featured_article").to_i
 
     respond_to do |format|
       format.html
@@ -76,6 +77,24 @@ class Admin::ArticlesController < ApplicationController
         flash[:error] = "Some error occurred. Nothing was changed."
       end
       format.html { redirect_to(admin_articles_url) }
+    end
+  end
+  
+  def feature
+    setting = Setting.find_by_option("featured_article")
+    article_to_feature = params[:id]
+    
+    respond_to do |format|
+      if Article.find(article_to_feature).published?
+        if setting.update_attribute("value", article_to_feature)
+          flash[:notice] = "Article is now featured."
+        else
+          flash[:error] = "Something went wrong..."
+        end
+      else
+        flash[:error] = "Cannot feature an unpublished article."
+      end
+      format.html { redirect_to admin_articles_url }
     end
   end
 end

@@ -1,20 +1,17 @@
 <div class="box" id="welcomeBox">
 	<h2 class="title">Welcome</h2>
-	<p>This the the web site of the HAAGA-HELIA Linux Club.  I don't really know what we're supposed to say here, but it really should be possible to set this text through a setting of some sort (as opposed to manually editing the source file).</p>
+	<p><%= @welcome_message %></p>
 </div>
 
 <div class="box" id="featuredArticleBox">
 	<p style="font-size: x-small; color: red;">Featured</p>
-	<h2>Header</h2>
-	<p>
-	Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec ante leo, mattis et, viverra vel, consectetur non, nisl.
-	</p>
-	<p>
-	Cuum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Ut interdum mattis quam. Ut vel tortor nec lorem dignissim adipiscing. Maecenas eros quam, tincidunt quis, condimentum nec, tincidunt eu. 
-	</p>
+<% unless @featured_article.nil? %>
+	<h2><%=h @featured_article.title %></h2>
+	<p><%=h @featured_article.description %></p>
 	<p style="text-align: right;">
-	<a href="#"><span style="font-size: x-small;">More...</span></a>
+		<%= link_to	"More...", @featured_article %>
 	</p>
+<% end %>
 </div>
 
 <div class="box" id="latestNewsBox">

@@ -12,6 +12,12 @@ task :setup do
   Role.create(:id => 5, :name => "Normal User", :can_create => false, :can_update => false, :can_delete => false, :can_publish => false, :can_administer => false)
   puts "Roles successfully added to the database!\n\n"
   
+  puts "Adding settings to the database..."
+  Setting.create(:option => "welcome_message", :value => "Welcome to our website.")
+  Setting.create(:option => "about", :value => "About us...")
+  Setting.create(:option => "featured_article")
+  puts "Settings successfully added to the database!\n\n"
+  
   puts "Create the initial administrator:"
   values = []
   ["Username", "Password", "First name", "Last name", "Email"].each do |option|
