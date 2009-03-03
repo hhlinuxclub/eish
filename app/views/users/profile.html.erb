@@ -16,30 +16,30 @@
 	
 	<p>
 		<%= f.label :current_password %><br />
-		<%= f.password_field :current_password, :size => 40 %>
+		<%= f.password_field :current_password, :size => 40, :tabindex => 1 %>
 	</p>
 	
 	<p>
 		<%= f.label :username %><br />
-		<%= f.text_field :username %>
+		<%= f.text_field :username, :tabindex => 2 %>
 	</p>
 	
 	<p>
 		<%= f.label :email %><br />
-		<%= f.text_field :email, :size => 40 %>
+		<%= f.text_field :email, :size => 40, :tabindex => 3 %>
 	</p>
 	
 	<p>
 		<%= f.label :password, "New password" %><br />
-		<%= f.password_field :password, :size => 40 %>
+		<%= f.password_field :password, :size => 40, :tabindex => 4 %>
 	</p>
 	
 	<p>
 		<%= f.label :password_confirmation %><br />
-		<%= f.password_field :password_confirmation, :size => 40 %>
+		<%= f.password_field :password_confirmation, :size => 40, :tabindex => 5 %>
 	</p>
 	
-	<p><%= f.submit "Update", :class => "submit" %></p>
+	<p><%= f.submit "Update", :class => "submit", :tabindex => 6 %></p>
 <% end %>
 
 <p>

@@ -14,12 +14,12 @@
 	<% form_remote_tag :url => "/users/login" do %>
 		<p>
 			<label for="username">Username</label>
-			<%= text_field_tag :username, params[:username], :class => "field" %>
+			<%= text_field_tag :username, params[:username], :class => "field", :tabindex => 1 %>
 		</p>
 	
 		<p>
 			<label for="password">Password</label>
-			<%= password_field_tag :password, params[:password], :class => "field" %>
+			<%= password_field_tag :password, params[:password], :class => "field", :tabindex => 2 %>
 		</p>
 		
 		<p>

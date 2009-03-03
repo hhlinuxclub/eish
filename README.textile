@@ -17,10 +17,27 @@ h1. Required Gems
 * "mislav-will_paginate":http://wiki.github.com/mislav/will_paginate
 * "recaptcha":http://www.loonsoft.com/recaptcha/
 
+h1. Initial Setup
+
+* Clone the git repository to a local directory
+<code>
+	git clone git://github.com/jcxplorer/hhlc.git
+</code>
+* Create the config/database.yml
+E.g.
+<code>
+development:
+    adapter: sqlite3
+    database: db/development.sqlite3
+    pool: 5
+    timeout: 5000
+</code>
+* Run 'rake setup' in the local directory
+* Run 'rake db:populate' to add test data to the database (optional)
 
 h1. Copyright
 
-Copyright 2008, 2009 João Carlos Cardoso and Matias Korhonen.
+Copyright 2008 ‒ 2009 João Carlos Cardoso and Matias Korhonen.
 
 The above copyright notice applies to all files of this program, unless stated otherwise in the file itself or in the section "Exceptions" below. 
 
