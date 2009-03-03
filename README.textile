@@ -19,13 +19,13 @@ h1. Required Gems
 
 h1. Initial Setup
 
-1. Clone the git repository to a local directory
+1. Clone the git repository to a local directory<br />
 <code>
 	git clone git://github.com/jcxplorer/hhlc.git
 </code>
-2. Create the config/database.yml
+2. Create the config/database.yml<br />
 
-E.g.
+E.g.<br />
 <code>
 development:
     adapter: sqlite3
@@ -33,9 +33,9 @@ development:
     pool: 5
     timeout: 5000
 </code>
-3. Run 'rake setup' in the local directory
+3. Run 'rake setup' in the local directory<br />
 
-4. Run 'rake db:populate' to add test data to the database (optional)
+4. Run 'rake db:populate' to add test data to the database (optional)<br />
 
 h1. Copyright
 
