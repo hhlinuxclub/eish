@@ -1,4 +1,4 @@
-<% if content.published && defined?(article) %>
+<% if defined? content.published && content.published && defined? article %>
 	<% if content.id != @featured_article %>
 		<%= link_to image_tag("icons/not_featured_16.png", :alt => "Feature"), { :id => content.id, :action => "feature" }, { :title => "Feature" }%>
 	<% else %>
