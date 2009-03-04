@@ -1,6 +1,5 @@
 # Methods added to this helper will be available to all templates in the application.
 module ApplicationHelper
-  require "recaptcha"
   include ReCaptcha::ViewHelper
   
   def long_date(time)
