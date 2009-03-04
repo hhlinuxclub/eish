@@ -27,7 +27,7 @@ task :setup do
     end while value.empty?
     values << value
   end
-  User.create(:username => values[0], :password => values[1], :first_name => values[2], :last_name => values[3], :email => values[4], :role_id => Role.find_by_can_administer(true).id)
+  User.create(:username => values[0], :password => values[1], :first_name => values[2], :last_name => values[3], :email => values[4], :role_id => Role.find_by_can_administer(true).id, :contactable => true)
   puts "User '#{values[0]}' successfully created!\n\n"
   
   puts "Setup is finished! You are now ready to run the web application."
