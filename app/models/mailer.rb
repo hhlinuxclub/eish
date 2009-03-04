@@ -7,4 +7,14 @@ class Mailer < ActionMailer::Base
     content_type  "text/plain"
     body          :user => user
   end
+  
+  def contact(recipient, user, contact_subject, message, ip_address, user_agent)
+    recipients    recipient
+    from          "HHLC Contact Form <do-not-reply@hhlinuxclub.fi>"
+    reply_to      user.email
+    subject       contact_subject
+    sent_on       Time.now
+    content_type  "text/plain"
+    body          :message => message, :ip_address => ip_address, :user_agent => user_agent, :user => user
+  end
 end

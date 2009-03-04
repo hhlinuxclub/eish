@@ -1,0 +1,40 @@
+<h2 class="title">Contact</h2>
+
+<% form_tag :action => "send_email" do %>
+	<p>
+		<label for="contact">Contact:</label><br />
+		<%= collection_select(:user, :user_id, @contacts, :id, :name_with_role) %>
+	</p>
+	
+	<% unless logged_in? %>
+	<div id="fieldsForUnregisteredUsers">
+		<p>
+			<label for="name">Your name:</label><br />
+			<%= text_field_tag :name, params[:name], :size => 30 %>
+		</p>
+	
+		<p>
+			<label for="email">Your email:</label><br />
+			<%= text_field_tag :email, params[:email], :size => 30 %>
+		</p>
+	</div>
+	<% end %>
+	
+	<p>
+		<label for="subject">Subject:</label><br />
+		<%= text_field_tag :subject, params[:subject], :size => 60 %>
+	</p>
+
+	<p>
+		<label for="message">Message:</label><br />
+		<%= text_area_tag :message, params[:message], :cols => 60, :rows => 10 %>
+	</p>
+	
+	<% if !logged_in? && recaptcha? %>
+		<p>
+			<%= get_captcha %>
+		</p>
+	<% end %>
+	
+	<p><%= submit_tag "Send" %></p>
+<% end %>
