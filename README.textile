@@ -17,6 +17,12 @@ h1. Required Gems
 * "mislav-will_paginate":http://wiki.github.com/mislav/will_paginate
 * "recaptcha":http://www.loonsoft.com/recaptcha/
 
+h1. Plugins Used
+
+This project uses the "Textile Editor Helper":http://github.com/felttippin/textile-editor-helper/tree/master, which is published under the MIT license.
+Textile Editor Helper was created by Dave Olsen (Javascript) and Chris Scharf (Ruby/Rails) of West Virginia University 
+Web Services.
+
 h1. Initial Setup
 
 * Clone the git repository to a local directory
