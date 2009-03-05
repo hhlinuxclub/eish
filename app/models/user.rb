@@ -93,6 +93,10 @@ class User < ActiveRecord::Base
     find(:all, :conditions => "username IS NOT NULL", :order => "role_id")
   end
   
+  def name_with_role
+    return first_name + " " + last_name + ", " + Role.find(role_id).name
+  end
+  
   private
     
     def password_non_blank

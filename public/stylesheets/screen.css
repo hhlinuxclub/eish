@@ -428,6 +428,8 @@ label {
 
 #flash {
 	font-weight: 700;
+	float: right;
+	padding-top: 5px;
 }
 
 #flashNotice {
