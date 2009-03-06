@@ -26,19 +26,24 @@ Web Services.
 h1. Initial Setup
 
 * Clone the git repository to a local directory
+
 <code>
 	git clone git://github.com/jcxplorer/hhlc.git
 </code>
+
 * Create the config/database.yml
+
 E.g.
-<code>
+<pre>
 development:
     adapter: sqlite3
     database: db/development.sqlite3
     pool: 5
     timeout: 5000
-</code>
+</pre>
+
 * Run 'rake setup' in the local directory
+
 * Run 'rake db:populate' to add test data to the database (optional)
 
 h1. Copyright
