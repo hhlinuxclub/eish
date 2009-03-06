@@ -34,16 +34,13 @@ h1. Initial Setup
 * Create the config/database.yml
 
 E.g.
-
-<code>
-<pre>
+<code><pre>
 development:
     adapter: sqlite3
     database: db/development.sqlite3
     pool: 5
     timeout: 5000
-</pre>
-</code>
+</pre></code>
 
 * Run 'rake setup' in the local directory
 
