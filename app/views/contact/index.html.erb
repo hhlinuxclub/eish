@@ -30,7 +30,7 @@
 		<%= text_area_tag :message, params[:message], :cols => 60, :rows => 10 %>
 	</p>
 	
-	<% if !logged_in? && recaptcha? %>
+	<% if !logged_in? && RCC_ENABLED %>
 		<p>
 			<%= get_captcha %>
 		</p>

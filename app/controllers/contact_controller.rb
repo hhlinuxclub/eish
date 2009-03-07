@@ -9,12 +9,17 @@ class ContactController < ApplicationController
     recipient = User.find(params[:user][:user_id]).email
     logged_in = !session[:user_id].nil?
     user = logged_in ? User.find(session[:user_id]) : User.new(:first_name => params[:name], :email => params[:email])
+    valid_captcha = RCC_ENABLED && !logged_in ? validate_recap(params, ActiveRecord::Errors.new(nil)) : true
     
     respond_to do |format|
-      if Mailer.deliver_contact(recipient, user, params[:subject], params[:message], request.remote_ip, request.env["HTTP_USER_AGENT"])
-        flash[:notice] = "Your email was sent successfully."
+      if valid_captcha
+        if Mailer.deliver_contact(recipient, user, params[:subject], params[:message], request.remote_ip, request.env["HTTP_USER_AGENT"])
+          flash[:notice] = "Your email was sent successfully."
+        else
+          flash[:error] = "We weren't able to send your email. Please try again later."
+        end
       else
-        flash[:error] = "We weren't able to send your email. Please try again later."
+        flash[:error] = "Captcha failed. Please try again."
       end
       format.html { redirect_to :controller => "contact" }
     end

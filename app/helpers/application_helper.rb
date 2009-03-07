@@ -38,8 +38,4 @@ module ApplicationHelper
     
     xhtml << "</ul>"
   end
-  
-  def recaptcha?
-    return !(defined? RCC_PUB && RCC_PRIV).nil?
-  end
 end
