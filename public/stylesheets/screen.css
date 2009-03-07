@@ -40,9 +40,18 @@ body {
 }
 
 #header {
-	height: 20px;
-	background: #0066cb url('../images/header.png') no-repeat 0px 0px;
-	padding-top: 126px;
+	height: 40px;
+	background: #fff url('../images/header.png') no-repeat 0px 0px;
+	padding-top: 120px;
+	padding-bottom: 1px;
+	/* Browser specific rounded corners (Mozilla & WebKit) */
+	-moz-border-radius-topleft: 10px;
+	-webkit-border-radius-topleft: 10px;
+	-moz-border-radius-topright: 10px;
+	-webkit-border-radius-topright: 10px;
+	/* CSS3 rounded corners */
+	border-top-left-radius: 10px 10px;
+	border-top-right-radius: 10px 10px;
 }
 
 #header h1 {
@@ -51,8 +60,12 @@ body {
 
 #navigation {
 	background: none;
-	padding: 0px 20px 0px 0px;
+	padding: 0;
 	text-align: left;
+	border-top: 1px dotted #0066cb;
+	border-bottom: 1px dotted #0066cb;
+	height: auto;
+	padding: 10px;
 }
 
 #navigation ul {
@@ -64,32 +77,31 @@ body {
 	background: none;
 	font-family: Georgia, "Bitstream Vera Serif", serif;
 	font-weight: bold;
-	font-size: 11pt;
+	font-size: 12pt;
 	display: inline;
+	padding: 10px 10px;
 }
 
 #navigation a:link,
 #navigation a:visited {
 	text-decoration: none;
-	padding: 2px 10px;
-	color: #ffffff;
+	padding: 10px 10px;
+	color: #529be2;
 }
 
 #navigation .activeLink a:link,
 #navigation .activeLink a:visited {
+	background: #0066cb;
 	text-decoration: none;
-	padding: 2px 10px;
-	color: #00264b;
+	color: #fff;
 }
 
 #navigation a:hover,
 #navigation ul li:hover,
 #navigation .activeLink {
+	background: #0066cb;
 	text-decoration: none;
-	background: #ffffff;
-	color: #00264b;
-	padding-bottom: 2px;
-	padding-top: 2px;
+	color: #fff;
 }
 
 #sidebars {
@@ -136,11 +148,20 @@ body {
 
 #footer {
 	text-align: center;
-	color: #f1f1f1;
-	background: #00264B;
+	color: #000;
+	background: #fff;
 	padding: 10px;
 	margin-bottom: 20px;
 	clear: both;
+	border-top: 1px solid #0066cb;
+	/* Browser specific rounded corners (Mozilla & WebKit) */
+	-moz-border-radius-bottomleft: 10px;
+	-webkit-border-radius-bottomleft: 10px;
+	-moz-border-radius-bottomright: 10px;
+	-webkit-border-radius-bottomright: 10px;
+	/* CSS3 rounded corners */
+	border-bottom-left-radius: 10px 10px;
+	border-bottom-right-radius: 10px 10px;
 }
 
 #footer p {
@@ -149,7 +170,7 @@ body {
 }
 
 #footer a {
-	color: #ffffff;
+	color: #000;
 	text-decoration: underline;
 }
 
@@ -340,7 +361,7 @@ label {
 #welcomeBox {
 	background-color: #CCDAFF;
 	border: solid #94C9FF 1px;
-	margin: 10px 0 15px;
+	margin: 20px 0 15px;
 	float: left;
 	width: 840px;
 	height: auto;
