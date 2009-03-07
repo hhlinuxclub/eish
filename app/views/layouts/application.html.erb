@@ -5,7 +5,7 @@
         <title><%= controller.controller_name.capitalize %> &#8211; HHLC</title>
         <%= stylesheet_link_tag 'screen' %>
 				<%= javascript_include_tag :defaults %>	
-				<%= textile_editor_initialize unless !%w(create edit).include?(@controller.action_name) -%>		
+				<%= textile_editor_initialize unless !%w(edit new).include?(@controller.action_name) -%>		
 				<% if controller.controller_name == "home" %>
 					<%= auto_discovery_link_tag(:atom, "/news.atom", {:title => "News"}) %>
 					<%= auto_discovery_link_tag(:atom, "/articles.atom", {:title => "Articles"}) %>
