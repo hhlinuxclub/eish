@@ -149,10 +149,10 @@ body {
 	text-align: center;
 	color: #000;
 	background: #fff;
-	padding: 10px;
+	padding: 5px;
 	margin-bottom: 20px;
 	clear: both;
-	border-top: 1px solid #0066cb;
+	border-top: 1px dotted #0066cb;
 	/* Browser specific rounded corners (Mozilla & WebKit) */
 	-moz-border-radius-bottomleft: 10px;
 	-webkit-border-radius-bottomleft: 10px;
