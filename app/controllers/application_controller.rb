@@ -49,8 +49,4 @@ class ApplicationController < ActionController::Base
         session[:user_id] = user.id
       end
     end
-    
-    def recaptcha?
-      return !(defined? RCC_PUB && RCC_PRIV).nil?
-    end
 end

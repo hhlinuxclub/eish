@@ -39,7 +39,7 @@
 		<%= f.password_field :password_confirmation, :size => 30, :tabindex => 6, :class => "textField"  %>
 	</p>
 
-	<% if recaptcha? %> 
+	<% if RCC_ENABLED %> 
 	<p>
 		<%= get_captcha(:options => {:tabindex => 7}) %>
 	</p>
