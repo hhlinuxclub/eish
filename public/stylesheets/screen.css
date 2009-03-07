@@ -137,7 +137,7 @@ body {
 #footer {
 	text-align: center;
 	color: #f1f1f1;
-	background: #00264B url('../images/nav_left_green.png') repeat-y 0px 0px;
+	background: #00264B;
 	padding: 10px;
 	margin-bottom: 20px;
 	clear: both;
