@@ -3,7 +3,7 @@ atom_feed do |feed|
   feed.updated(@latest_update)
  
   for event in @upcoming_events
-    feed.entry(event, :url => event_url(:id => event.id, :format => nil)) do |entry|
+    feed.entry(event, :url => event_details_path(:id => event.id, :name => urlify(event.name), :format => nil)) do |entry|
       entry.title(event.name + " [" + long_date(event.starts_at) + "]")
       entry.content(event.description, :type => 'html')
        

@@ -3,7 +3,7 @@ atom_feed do |feed|
   feed.updated(@articles.first ? @articles.first.created_at : Time.now.utc)
  
   for article in @articles
-    feed.entry(article, :url => article_url(:id => article.id, :format => nil)) do |entry|
+    feed.entry(article, :url => article_details_path(:id => article.id, :title => urlify(article.title), :format => nil)) do |entry|
       entry.title(article.title)
       entry.content(article.description, :type => 'html')
        

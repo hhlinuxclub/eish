@@ -38,4 +38,8 @@ module ApplicationHelper
     
     xhtml << "</ul>"
   end
+  
+  def urlify(title)
+    return title.gsub(" ", "-").gsub(/[^a-z0-9\-]+/i, "").downcase
+  end
 end
