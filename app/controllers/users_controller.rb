@@ -15,7 +15,7 @@ class UsersController < ApplicationController
   def logout
     User.find(session[:user_id]).forget_me
     session[:user_id] = nil
-    flash[:notice] = "Logged out."
+    flash[:login_notice] = "Logged out."
     redirect_to :root
   end
 

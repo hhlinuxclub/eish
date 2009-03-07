@@ -8,6 +8,7 @@
 		<p><%= link_to "Go to administration", :controller => "/admin/#{controller.controller_name}" %></p>
 	<% end %>
 	<p><%= link_to "Logout", :controller => "/users", :action => "logout" %></p>
+	<p id="flashLoginNotice"><%= flash[:login_notice] %></p>
 	
 <% else %>
 
@@ -31,6 +32,11 @@
 			<%= submit_tag "Login" %>
 		</p>
 	<% end %>
+	
+	<p id="flashLogin">
+		<span id="flashLoginNotice"><%= flash[:login_notice] %></span>
+		<span id="flashLoginError"><%= flash[:login_error] %></span>
+	</p>
 	
 	<p><%= link_to "Register New User", :controller => "users", :action => "register" %></p>
 <% end %>

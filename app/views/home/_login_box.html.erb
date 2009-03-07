@@ -3,8 +3,11 @@
 	<h3>Logged in as <em><%= @user.username %></em></h3>
 	<ul>
 		<li><%= link_to "Profile", :controller => "users", :action => "profile" %></li>
-		<li><%= link_to "Administration", :controller => "/admin" %></li>
+		<% if User.find(session[:user_id]).role.can_administer? %>
+			<li><%= link_to "Administration", :controller => "/admin" %></li>
+		<% end %>
 	</ul>
+	<p id="flashLoginNotice"><%= flash[:login_notice] %></span>
 <% else %>
 	<p id="homeRegisterLink"><%= link_to "Register", :controller => "users", :action => "register" %></p>
 		<h3 id="loginBoxTitle">Login</h3>
@@ -16,4 +19,8 @@
 			<p><%= check_box_tag :remember_me, params[:remember_me] %>
 			<label for="remember_me">Remember me</label></p>
 		<% end %>
+		<p id="flashLogin">
+			<span id="flashLoginNotice"><%= flash[:login_notice] %></span>
+			<span id="flashLoginError"><%= flash[:login_error] %></span>
+		</p>
 <% end %>

@@ -452,11 +452,13 @@ label {
 	padding-top: 5px;
 }
 
-#flashNotice {
+#flashNotice,
+#flashLoginNotice {
 	color: green;
 }
 
-#flashError {
+#flashError,
+#flashLoginError {
 	color: red;
 }
 

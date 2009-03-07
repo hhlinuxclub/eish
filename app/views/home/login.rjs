@@ -1,5 +1,5 @@
-page.replace_html :flashNotice, flash[:notice]
-page.replace_html :flashError, flash[:error]
+page.replace_html :flashLoginNotice, ""
+page.replace_html :flashLoginError, flash[:login_error]
 if @user.nil?
   page << "$('loginBox').morph('background: #FFB3B3; border: #FF8080;');"
 else
@@ -8,6 +8,7 @@ else
   page.delay 0.5 do
     page.replace_html :loginBoxInternal, :partial => "login_box"
     page.visual_effect :appear, :loginBoxInternal
+    page.replace_html :flashLoginNotice, flash[:login_notice]
   end
 end
 flash.discard

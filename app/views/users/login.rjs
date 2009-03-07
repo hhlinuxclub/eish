@@ -1,8 +1,7 @@
-page.replace_html :flashNotice, flash[:notice]
-page.replace_html :flashError, flash[:error]
 if @user.nil?
   page.visual_effect :shake, :userSidebar
   page << "$('userSidebar').morph('background: #FFB3B3; border: #FF8080;');"
+  page.replace_html :flashLoginError, flash[:login_error]
 else
   page << "if ($('fieldsForUnregisteredUsers')) {"
     page.visual_effect :fade, :fieldsForUnregisteredUsers, :duration => 0.5
@@ -11,9 +10,7 @@ else
     end
   page << "}"
   page.remove :userSidebar
-  page.insert_html :bottom, :sidebars, :partial => "users/users_sidebar"
-  page.delay 2 do
-    page.hide :flashNotice
-  end
+  page.insert_html :top, :sidebars, :partial => "users/users_sidebar"
+  page.replace_html :flashLoginNotice, flash[:login_notice]
 end
 flash.discard
