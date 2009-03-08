@@ -9,7 +9,7 @@
 	</ul>
 	<p id="flashLoginNotice"><%= flash[:login_notice] %></span>
 <% else %>
-	<p id="homeRegisterLink"><%= link_to "Register", :controller => "users", :action => "register" %></p>
+	<p id="homeRegisterLink"><%= link_to "Register", :controller => "users", :action => "register" %> / <%= link_to "Forgot?", :controller => "users", :action => "request_credentials" %></p>
 		<h3 id="loginBoxTitle">Login</h3>
 		<% form_remote_tag :url => "/home/login", :html => { :id => "loginBoxForm" } do %>
 			<p>
