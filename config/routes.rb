@@ -13,7 +13,7 @@ ActionController::Routing::Routes.draw do |map|
   # Sample of named route:
   #   map.purchase 'products/:id/purchase', :controller => 'catalog', :action => 'purchase'
   # This route can be invoked with purchase_url(:id => product.id)
-  
+  map.admin "admin", :namespace => "admin", :controller => "home"
   map.news_article_details "news/:id-:title*path", :controller => "news", :action => "show"
   map.article_details "articles/:id-:title*path", :controller => "articles", :action => "show"
   map.event_details "events/:id-:name*path", :controller => "events", :action => "show"
@@ -57,7 +57,6 @@ ActionController::Routing::Routes.draw do |map|
   # Install the default routes as the lowest priority.
   # Note: These default routes make all actions in every controller accessible via GET requests. You should
   # consider removing the them or commenting them out if you're using named routes and resources.
-  map.connect "admin", :namespace => "admin", :controller => "home"
   map.connect "profile", :controller => "users", :action => "profile"
   map.connect "profile/me", :controller => "users", :action => "profile"
   map.connect "profile/:username", :controller => "users", :action => "show"
