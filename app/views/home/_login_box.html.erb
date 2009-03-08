@@ -4,7 +4,7 @@
 	<ul>
 		<li><%= link_to "Profile", :controller => "users", :action => "profile" %></li>
 		<% if User.find(session[:user_id]).role.can_administer? %>
-			<li><%= link_to "Administration", :controller => "/admin" %></li>
+			<li><%= link_to "Administration", admin_url %></li>
 		<% end %>
 	</ul>
 	<p id="flashLoginNotice"><%= flash[:login_notice] %></span>
