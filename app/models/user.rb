@@ -83,6 +83,8 @@ class User < ActiveRecord::Base
       self.role_id = nil
       self.remember_token = nil
       self.remember_token_expires = nil
+      self.reset_hash = nil
+      self.reset_hash_password = nil
       self.save_with_validation(false)
     else
       self.destroy
@@ -95,6 +97,23 @@ class User < ActiveRecord::Base
   
   def name_with_role
     return first_name + " " + last_name + ", " + Role.find(role_id).name
+  end
+  
+  def generate_reset_hash
+    self.reset_hash = Digest::SHA1.hexdigest(username + self.object_id.to_s + rand.to_s)
+    self.reset_hash_expires = 24.hours.from_now
+    self.save
+  end
+  
+  def reset_password(new_password, reset_hash)
+    if reset_hash == self.reset_hash && reset_hash_expires > Time.now
+      self.password = new_password
+      self.reset_hash = nil
+      self.reset_hash_expires = nil
+      self.save
+    else
+      return false
+    end
   end
   
   private

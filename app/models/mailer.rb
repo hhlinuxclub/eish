@@ -17,4 +17,13 @@ class Mailer < ActionMailer::Base
     content_type  "text/plain"
     body          :message => message, :ip_address => ip_address, :user_agent => user_agent, :user => user
   end
+  
+  def credentials(user, host)
+    recipients    user.email
+    from          "HAAGA-HELIA Linux Club <do-not-reply@hhlinuxclub.fi>"
+    subject       "Credentials request for the HAAGA-HELIA Linux Club"
+    sent_on       Time.now
+    content_type  "text/plain"
+    body          :user => user, :host => host
+  end
 end

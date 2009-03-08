@@ -99,4 +99,56 @@ class UsersController < ApplicationController
       end
     end
   end
+  
+  def request_credentials
+    respond_to do |format|
+      if session[:user_id].nil?
+        format.html
+      else
+        format.html { redirect_to :root }
+      end
+    end
+  end
+  
+  def send_credentials
+    user = User.find_by_email(params[:email])
+    user.generate_reset_hash
+    
+    respond_to do |format|
+      if user.nil?
+        flash[:error] = "The email you entered is not associated with any user."
+        format.html { redirect_to :action => "request_credentials" }
+      else
+        if Mailer.deliver_credentials(user, request.host_with_port)
+          flash[:notice] = "The credentials were sent to your email."
+          format.html { redirect_to :root }
+        else
+          flash[:error] = "We could not send the email. Please try again later."
+          format.html { redirect_to :action => "request_credentials" }
+        end
+      end
+    end
+  end
+  
+  def password_reset
+    @user = User.find_by_username(params[:username])
+    @reset_hash = params[:reset_hash]
+  end
+  
+  def update_password
+    user = User.find_by_username(params[:username])
+    
+    respond_to do |format|
+      if params[:password] == params[:password_confirmation]
+        if user.reset_password(params[:password], params[:reset_hash])
+          flash[:notice] = "The password reset was successful. You may now log in."
+        else
+          flash[:error] = "The reset hash was either wrong or expired."
+        end
+        format.html { redirect_to :root }
+      else
+        flash[:error] = "The password do not match. Please try again."
+      end
+    end
+  end
 end
