@@ -1,0 +1,3 @@
+[submodule "vendor/plugins/textile-editor-helper"]
+	path = vendor/plugins/textile-editor-helper
+	url = git://github.com/felttippin/textile-editor-helper.git
