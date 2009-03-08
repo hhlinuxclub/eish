@@ -1,19 +1,19 @@
 <% if defined?(content.published) && content.published && defined?(article) %>
 	<% if content.id != @featured_article %>
-		<%= link_to image_tag("icons/not_featured_16.png", :alt => "Feature"), { :id => content.id, :action => "feature" }, { :title => "Feature" }%>
+		<%= link_to image_tag("picol/not_featured_16.png", :alt => "Feature"), { :id => content.id, :action => "feature" }, { :title => "Feature" }%>
 	<% else %>
-		<%= image_tag("icons/featured_16.png", :alt => "Currently featured") %>
+		<%= image_tag("picol/featured_16.png", :alt => "Currently featured") %>
 	<% end %>
 <% end %>
-<%= link_to image_tag("icons/view_16.png", :alt => "Show"), { :id => content.id, :action => "show" }, { :title => "Show" } %>
+<%= link_to image_tag("picol/view_16.png", :alt => "Show"), { :id => content.id, :action => "show" }, { :title => "Show" } %>
 <% if defined? content.published %>
 	<% if content.published? %>
-		<%= link_to image_tag("icons/unpublish_16.png", :alt => "Unpublish"), { :id => content.id, :action => "toggle_publish" }, { :title => "Unpublish" } %>
+		<%= link_to image_tag("picol/unpublish_16.png", :alt => "Unpublish"), { :id => content.id, :action => "toggle_publish" }, { :title => "Unpublish" } %>
 	<% else %>
-		<%= link_to image_tag("icons/publish_16.png", :alt => "Publish"), { :id => content.id, :action => "toggle_publish" }, { :title => "Publish" } %>
+		<%= link_to image_tag("picol/publish_16.png", :alt => "Publish"), { :id => content.id, :action => "toggle_publish" }, { :title => "Publish" } %>
 	<% end %>
 <% end %>
 <% unless defined?(content.username) && content.role.can_administer? && content.id != session[:user_id] %>
-	<%= link_to image_tag("icons/edit_16.png", :alt => "Edit"), { :id => content.id, :action => "edit" }, { :title => "Edit" } %>
-	<%= link_to image_tag("icons/delete_16.png", :alt => "Destroy"), polymorphic_url([:admin, content]), :confirm => 'Are you sure?', :method => :delete, :title => "Delete" %>
+	<%= link_to image_tag("picol/edit_16.png", :alt => "Edit"), { :id => content.id, :action => "edit" }, { :title => "Edit" } %>
+	<%= link_to image_tag("picol/delete_16.png", :alt => "Destroy"), polymorphic_url([:admin, content]), :confirm => 'Are you sure?', :method => :delete, :title => "Delete" %>
 <% end %>
