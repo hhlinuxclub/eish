@@ -6,7 +6,7 @@
 <div class="box" id="featuredArticleBox">
 	<p style="font-size: x-small; color: red;">Featured</p>
 <% unless @featured_article.nil? %>
-	<h2><%=h @featured_article.title %></h2>
+	<h3><%=h @featured_article.title %></h3>
 	<p><%=h @featured_article.description %></p>
 	<p style="text-align: right;">
 		<%= link_to	"More...", article_details_path(:id => @featured_article.id, :title => urlify(@featured_article.title)) %>
@@ -16,7 +16,7 @@
 
 <div class="box" id="latestNewsBox">
 	<p style="font-size: x-small; color: red;">Latest</p>
-	<h2>News</h2>
+	<h3>News</h3>
 	<ul>
 	<% for news_article in @news %>
 		<li class="date"><%= distance_of_time_in_words(news_article.created_at, Time.now) %> ago</li>
@@ -27,7 +27,7 @@
 
 <div class="box" id="upcomingEventsBox">
 	<p style="font-size: x-small; color: red;">Upcoming</p>
-	<h2>Events</h2>
+	<h3>Events</h3>
 	<ul>
 	<% for event in @events %>
 		<li class="date"><%= format_event_dates(event) %></li>

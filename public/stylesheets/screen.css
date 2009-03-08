@@ -336,7 +336,7 @@ label {
 	overflow: auto;
 }
 
-.box h2 {
+.box h2, .box h3 {
 	padding: 0;
 	margin: 0;
 }
