@@ -328,7 +328,7 @@ label {
 
 .box {
 	background-color: #F0F0F0;
-	border: 1px solid #D9D9D9;
+	border: 1px solid #B1C1D1;
 	padding:10px;
 	width: 398px;
 	height: 170px;
@@ -359,11 +359,15 @@ label {
 
 #welcomeBox {
 	background-color: #CCDAFF;
-	border: solid #94C9FF 1px;
+	border: solid #0066CB 1px;
 	margin: 20px 0 15px;
 	float: left;
 	width: 840px;
 	height: auto;
+}
+
+#welcomeBox h2 {
+	color: #0066CB;
 }
 
 #featuredArticleBox {
