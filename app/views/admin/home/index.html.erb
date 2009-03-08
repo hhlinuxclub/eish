@@ -1,8 +1,10 @@
 <h2 class="title">Home administration</h2>
 
 <% form_tag :action => "update" do %>
-	<label for="welcome_message">Welcome message:</label><br />
-	<%= text_area_tag :welcome_message, @welcome_message, :cols => 85, :rows => 10 %>
+	<p>
+		<label for="welcome_message">Welcome message:</label><br />
+		<%= text_area_tag :welcome_message, @welcome_message, :cols => 85, :rows => 10 %>
+	</p>
 	
 	<%= submit_tag "Save" %>
 <% end %>
