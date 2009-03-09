@@ -3,6 +3,8 @@ class Mailer < ActionMailer::Base
     recipients    user.email
     from          "HAAGA-HELIA Linux Club <do-not-reply@hhlinuxclub.fi>"
     subject       "Welcome to the HAAGA-HELIA Linux Club"
+    sent_on       Time.now
+    content_type  "multipart/alternative"
     
     part  :content_type => "text/html",
           :body => render_message("welcome.html.erb",
