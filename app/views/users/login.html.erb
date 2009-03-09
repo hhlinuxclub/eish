@@ -1,18 +1,17 @@
-<fieldset>
-<legend>Login</legend>
-	<% form_tag do %>
-		<p>
-			<label for="username">Username:</label>
-			<%= text_field_tag :username, params[:username] %>
-		</p>
+<h2 class="title">Login</h2>
 
-		<p>
-			<label for="password">Password:</label>
-			<%= password_field_tag :password, params[:password] %>
-		</p>
+<% form_tag do %>
+	<p>
+		<label for="username">Username:</label>
+		<%= text_field_tag :username, params[:username] %>
+	</p>
 
-		<p>
-			<%= submit_tag "Login" %>
-		</p>
-	<% end %>
-</fieldset>
+	<p>
+		<label for="password">Password:</label>
+		<%= password_field_tag :password, params[:password] %>
+	</p>
+
+	<p>
+		<%= submit_tag "Login" %>
+	</p>
+<% end %>
