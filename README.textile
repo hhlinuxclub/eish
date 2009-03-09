@@ -21,15 +21,21 @@ h1. Plugins Used
 
 This project uses the "Textile Editor Helper":http://github.com/felttippin/textile-editor-helper/tree/master, which is published under the MIT license.
 Textile Editor Helper was created by Dave Olsen (Javascript) and Chris Scharf (Ruby/Rails) of West Virginia University 
-Web Services.
+Web Services.  The Textile Editor Helper is included as a git submodule (See *Initial Setup*)
 
 h1. Initial Setup
 
-* Clone the git repository to a local directory
+* Clone the git repository to a local directory, and clone the Textile Editor Helper.  To do this, execute the following four command in a terminal
 
-<code>
+<pre>
 	git clone git://github.com/jcxplorer/hhlc.git
-</code>
+
+	cd hhlc
+
+	git submodule init
+
+	git submodule update
+</pre>
 
 * Create the config/database.yml
 

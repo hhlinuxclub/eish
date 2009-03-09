@@ -15,12 +15,12 @@
 	<% form_remote_tag :url => "/users/login" do %>
 		<p>
 			<label for="username">Username</label>
-			<%= text_field_tag :username, params[:username], :class => "field", :tabindex => 0 %>
+			<%= text_field_tag :username, params[:username], :class => "field", :tabindex => 1 %>
 		</p>
 	
 		<p>
 			<label for="password">Password</label>
-			<%= password_field_tag :password, params[:password], :class => "field", :tabindex => 0 %>
+			<%= password_field_tag :password, params[:password], :class => "field", :tabindex => 2 %>
 		</p>
 		
 		<p>
@@ -39,6 +39,6 @@
 	</p>
 	
 	<p><%= link_to "Register New User", :controller => "users", :action => "register" %></p>
-	<p><%= link_to "Forgot username/password?", :controller => "users", :action => "request_credentials" %>
+	<p id="sidebarForgotLink"><%= link_to "Forgot username/password?", :controller => "users", :action => "request_credentials" %>
 <% end %>
 </div>
