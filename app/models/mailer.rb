@@ -3,9 +3,16 @@ class Mailer < ActionMailer::Base
     recipients    user.email
     from          "HAAGA-HELIA Linux Club <do-not-reply@hhlinuxclub.fi>"
     subject       "Welcome to the HAAGA-HELIA Linux Club"
-    sent_on       Time.now
-    content_type  "text/plain"
-    body          :user => user
+    
+    part  :content_type => "text/html",
+          :body => render_message("welcome.html.erb",
+          :user => user)
+    
+    part  "text/plain" do |p|
+      p.body = render_message("welcome.plain.erb",
+      :user => user)
+      p.transfer_encoding = "base64"
+    end
   end
   
   def contact(recipient, user, contact_subject, message, ip_address, user_agent)
