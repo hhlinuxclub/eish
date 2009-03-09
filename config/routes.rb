@@ -18,6 +18,7 @@ ActionController::Routing::Routes.draw do |map|
   map.article_details "articles/:id-:title*path", :controller => "articles", :action => "show"
   map.event_details "events/:id-:name*path", :controller => "events", :action => "show"
   map.password_reset "users/:username/reset/:reset_hash", :controller => "users", :action => "password_reset"
+  map.login "login", :controller => "users", :action => "login"
 
   # Sample resource route (maps HTTP verbs to controller actions automatically):
   #   map.resources :products
