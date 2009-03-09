@@ -145,9 +145,10 @@ class UsersController < ApplicationController
         else
           flash[:error] = "The reset hash was either wrong or expired."
         end
-        format.html { redirect_to :root }
+        format.html { redirect_to :action => "request_credentials" }
       else
         flash[:error] = "The password do not match. Please try again."
+        format.html { redirect_to :action => "password_reset" }
       end
     end
   end
