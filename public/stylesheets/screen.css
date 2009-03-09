@@ -137,6 +137,10 @@ body {
 	text-transform: lowercase;
 }
 
+#sidebarForgotLink {
+	font-size: x-small;
+}
+
 #content {
 	padding: 0px 20px 20px;
 	margin: 0;
@@ -429,7 +433,7 @@ label {
 
 #homeRegisterLink {
 	float: right;
-	font-size: small;
+	font-size: x-small;
 }
 
 #feedsBox h3, #loginBox h3 {
