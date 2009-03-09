@@ -23,9 +23,12 @@ class ApplicationController < ActionController::Base
     def authorize
       unless User.find_by_id(session[:user_id]).role.can_administer?
         session[:original_uri] = request.request_uri
-        flash[:error] = "Please log in with enough privileges"
+        flash[:error] = "Please log in with enough privileges."
         redirect_to :controller => "/users", :action => "login"
       end
+    rescue
+      flash[:error] = "Login first with enough privileges."
+      redirect_to :login
     end
     
     def login_with_credentials(username, password, remember_me)
