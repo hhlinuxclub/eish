@@ -32,7 +32,19 @@ class Mailer < ActionMailer::Base
     from          "HAAGA-HELIA Linux Club <do-not-reply@hhlinuxclub.fi>"
     subject       "Credentials request for the HAAGA-HELIA Linux Club"
     sent_on       Time.now
-    content_type  "text/plain"
-    body          :user => user, :host => host
+    content_type  "multipart/alternative"
+    
+    part  :content_type => "text/html",
+          :body => render_message("credentials.html.erb",
+          :user => user,
+          :host => host)
+    
+    part  "text/plain" do |p|
+      p.body = render_message("credentials.plain.erb",
+      :user => user,
+      :host => host)
+      p.transfer_encoding = "base64"
+    end
   end
 end
+

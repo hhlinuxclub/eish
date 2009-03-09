@@ -1,17 +1,12 @@
 <p>Dear <%= @user.first_name %> <%= @user.last_name%>,</p>
 
-<p>
-Thank you for creating an account at hhlinuxclub.org
-</p>
-<p>
-Your account is now active and you can login using the username and password you chose during the registration.
-</p>
-<p>
-Your username is: <%= @user.username %>
-</p>
-<p>
-Please do NOT reply to this email as it is sent automatically by our web application.  If you need assistance you can contact us through the web site, or by emailing <i.am.lost@hhlinuxclub.org>.
-</p>
-<p>
-Sincerely,<br />
+<p>Thank you for creating an account at <a href="http://hhlinuxclub.org" title="HHLinuxClub.org">hhlinuxclub.org</a></p>
+
+<p>Your account is now active and you can login using the username and password you chose during the registration.</p>
+
+<p>Your username is: <b><%= @user.username %></b></p>
+
+<p>Please do NOT reply to this email as it is sent automatically by our web application.  <br>If you require assistance you can contact us through the web site, or by emailing <a href="mailto:i.am.lost@hhlinuxclub.org" title="I am lost">i.am.lost@hhlinuxclub.org</a>.</p>
+
+<p>Sincerely,<br />
 The HHLC Server</p>
