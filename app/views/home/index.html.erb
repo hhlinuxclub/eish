@@ -37,6 +37,12 @@
 	</ul>
 </div>
 
+<div class="box" id="loginBox">
+	<div id="loginBoxInternal">
+		<%= render :partial => "login_box" %>
+	</div>
+</div>
+
 <div class="box" id="feedsBox">
 	<h3>Feeds</h3>
 	<p>
@@ -46,10 +52,4 @@
 
 			<%= link_to "Events", { :controller => "events", :action => "index", :format => "atom" }, { :class => "feedLink" } %>
 	</p>
-</div>
-
-<div class="box" id="loginBox">
-	<div id="loginBoxInternal">
-		<%= render :partial => "login_box" %>
-	</div>
 </div>
