@@ -2,11 +2,13 @@ h1. Welcome to the hhlc.eish!
 
 This program is tailored to the needs of the HHLC (HAAGA-HELIA Linux Club). However, if found useful for any other situation, feel free to use, modify and redistribute. If so, please make sure that the HHLC logo and name are removed.
 
-
 h1. Project Status
 
 The project is still under heavy development and is lacking most of its features. Not recommended for any use besides development.
 
+h2. Releases
+
+At the moment we officially have a release numbered 0.1, but it is no less buggy than the working tree.  Really, we mean it; we only created it for our internal organization of the project.  Let me stress this once more: *do not download v.0.1!*
 
 h1. Required Gems
 
