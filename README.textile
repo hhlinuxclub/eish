@@ -19,9 +19,15 @@ h1. Required Gems
 
 h1. Plugins Used
 
-This project uses the "Textile Editor Helper":http://github.com/felttippin/textile-editor-helper/tree/master, which is published under the MIT license.
-Textile Editor Helper was created by Dave Olsen (Javascript) and Chris Scharf (Ruby/Rails) of West Virginia University 
-Web Services.  The Textile Editor Helper is included as a git submodule (See *Initial Setup*)
+* "Textile Editor Helper":http://github.com/felttippin/textile-editor-helper/tree/master
+* "JRails":http://ennerchi.com/projects/jrails
+
+The *Textile Editor Helper* was created by Dave Olsen (Javascript) and Chris Scharf (Ruby/Rails) of West Virginia University 
+Web Services.
+
+*jRails* is a drop-in jQuery replacement for Prototype/script.aculo.us on Rails. Using jRails, you can get all of the same default Rails helpers for javascript functionality using the lighter jQuery library. It is maintained by user "aaronchi":http://github.com/aaronchi.
+
+Both plugins are included as git submodules (See *Initial Setup*) and both are published under the MIT license.
 
 h1. Initial Setup
 
