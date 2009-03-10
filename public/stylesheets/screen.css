@@ -21,10 +21,8 @@ body {
 }
 
 #header {
-	height: 40px;
+	height: 150px;
 	background: #fff url('../images/header.png') no-repeat 0px 0px;
-	padding-top: 120px;
-	padding-bottom: 1px;
 }
 
 #header h1 {
@@ -84,22 +82,36 @@ body {
 
 #sidebars {
 	width: 200px;
-	margin: 20px 0 0 20px;
+	margin: 0 -20px 0 20px;
 	float: right;
+	background: #000 url('../images/box_stripe.png') repeat;
+	-moz-border-radius-bottomleft: 5px;
+	-webkit-border-bottom-left-radius: 5px;
+	border-left: 2px solid #404447;
+	border-bottom: 2px solid #404447;
 }
 
 #sidebars h2 {
+	display:none;
 	font-size: 10pt;
 	text-transform: lowercase;
 	text-align: center;
-	border-bottom: 1px solid #D9D9D9;
+	border-bottom: 1px solid #CCCCCC;
 	margin: 5px 10px;
-	color: #666666;
+	color: #848C93;
 }
 
 #sidebars li {
 	list-style: none;
 	font-size: 10pt;
+}
+
+#sidebars a:hover {
+	color: #848C93;
+}
+
+#sidebars label {
+	color: #848C93;
 }
 
 #userSidebar {
@@ -108,7 +120,7 @@ body {
 
 #userSidebar .field {
 	width: 160px;
-	border: 1px solid #D9D9D9;
+	border: 1px solid #848C93;
 }
 
 #userSidebar label {
@@ -128,6 +140,10 @@ body {
 	width: 860px;
 }
 
+#content.home {
+	background: #181C21;
+}
+
 #footer {
 	text-align: center;
 	color: #ccc;
@@ -136,6 +152,10 @@ body {
 	margin-bottom: 20px;
 	clear: both;
 	border-top: 5px solid #404447;
+	-moz-border-radius-bottomleft: 5px;
+	-webkit-border-bottom-left-radius: 5px;
+	-moz-border-radius-bottomright: 5px;
+	-webkit-border-bottom-right-radius: 5px;
 }
 
 #footer p {
@@ -176,10 +196,10 @@ body {
 
 .sidebar {	
 	float: right;
-	background-color:#F0F0F0;
-	border:1px solid #D9D9D9;
+	background: none;
+	border: none;
 	width: 180px;
-	margin-bottom: 20px;
+	margin-bottom: 5px;
 	padding: 0 10px;
 }
 
@@ -267,10 +287,6 @@ img {
 	width: 100%;
 }
 
-#sidebarLegend td, #sidebarLegend th, #sidebarFeeds td, #sidebarFeeds th {
-	border-width: 0;
-}
-
 .textField {
 	border: 1px solid #D9D9D9;
 }
@@ -302,18 +318,20 @@ label {
 }
 
 .box {
-	background-color: #F0F0F0;
-	border: 1px solid #B1C1D1;
+	background: #000 url('../images/box_stripe.png') repeat;
+	border: 1px solid #404447;
 	padding:10px;
 	width: 398px;
 	height: 170px;
 	position: relative;
 	overflow: auto;
+	color:#ccc;
 }
 
 .box h2, .box h3 {
 	padding: 0;
 	margin: 0;
+	color: #589ad3;
 }
 
 .box p {
@@ -333,12 +351,18 @@ label {
 }
 
 #welcomeBox {
-	background-color: #CCDAFF;
-	border: solid #0066CB 1px;
-	margin: 20px 0 15px;
+	background: #000 url('../images/welcomebox_stripe.png') repeat;
+	border: 1px solid #589ad3;
+	margin: 0 0 15px;
 	float: left;
 	width: 840px;
 	height: auto;
+	color: #ccc;
+	border-top: none;
+	-moz-border-radius-bottomleft: 5px;
+	-webkit-border-bottom-left-radius: 5px;
+	-moz-border-radius-bottomright: 5px;
+	-webkit-border-bottom-right-radius: 5px;
 }
 
 #welcomeBox h2 {
@@ -351,10 +375,11 @@ label {
 }
 
 #featuredArticleBox img {
-	margin: 5px 5px 5px 5px;
+	margin: 5px;
 	float: left;
 	border: 1px solid #B1C1D1;
-	padding: 5px 5px 5px 5px;
+	padding: 5px;
+	background: #333;
 }
 
 #latestNewsBox {
@@ -381,12 +406,12 @@ label {
 
 #feedsBox {
 	height: 48px;
-	border-bottom: 0;
 }
 
 #loginBox {
 	padding-top: 11px;
-	height: 100px;;
+	height: 100px;
+	border-bottom: 0;
 }
 
 #loginBox p {
@@ -430,6 +455,10 @@ label {
 .feedLink {
 	background: url('../images/feed_16.png') no-repeat 0px 1px;
 	padding: 0 20px 0 18px;
+}
+
+#sidebars .feedLink {
+	margin-left: 50px;
 }
 
 #flash {
