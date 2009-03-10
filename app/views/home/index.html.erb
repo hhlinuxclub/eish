@@ -3,6 +3,12 @@
 	<p><%= @welcome_message %></p>
 </div>
 
+<div class="box" id="loginBox">
+	<div id="loginBoxInternal">
+		<%= render :partial => "login_box" %>
+	</div>
+</div>
+
 <div class="box" id="featuredArticleBox">
 	<p style="font-size: x-small; color: red;">Featured</p>
 <% unless @featured_article.nil? %>
@@ -35,12 +41,6 @@
 		<li class="boxItem"><%= link_to event.name, event_details_path(:id => event.id, :name => urlify(event.name)) %></li>
 	<% end %>	
 	</ul>
-</div>
-
-<div class="box" id="loginBox">
-	<div id="loginBoxInternal">
-		<%= render :partial => "login_box" %>
-	</div>
 </div>
 
 <div class="box" id="feedsBox">

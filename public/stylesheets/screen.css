@@ -351,22 +351,22 @@ label {
 }
 
 #welcomeBox {
-	background: #000 url('../images/welcomebox_stripe.png') repeat;
-	border: 1px solid #589ad3;
+	background: none;
 	margin: 0 0 15px;
+	padding-right: 0;
 	float: left;
-	width: 840px;
-	height: auto;
+	width: 500px;
+	height: 100px;
 	color: #ccc;
-	border-top: none;
-	-moz-border-radius-bottomleft: 5px;
-	-webkit-border-bottom-left-radius: 5px;
-	-moz-border-radius-bottomright: 5px;
-	-webkit-border-bottom-right-radius: 5px;
+	border: none;
 }
 
 #welcomeBox h2 {
 	color: #0066CB;
+}
+
+#welcomeBox p {
+	font-size: 12pt;
 }
 
 #featuredArticleBox {
@@ -409,9 +409,19 @@ label {
 }
 
 #loginBox {
-	padding-top: 11px;
+	background: #000 url('../images/welcomebox_stripe.png') repeat;
+	border: 1px solid #589ad3;
 	height: 100px;
-	border-bottom: 0;
+	padding: 10px;
+	float: right;
+	width: 310px;
+	margin: 0;
+	color: #ccc;
+	border-top: none;
+	-moz-border-radius-bottomleft: 5px;
+	-webkit-border-bottom-left-radius: 5px;
+	-moz-border-radius-bottomright: 5px;
+	-webkit-border-bottom-right-radius: 5px;
 }
 
 #loginBox p {
