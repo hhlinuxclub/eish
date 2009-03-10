@@ -6,15 +6,15 @@ class Mailer < ActionMailer::Base
     sent_on       Time.now
     content_type  "multipart/alternative"
     
-    part  :content_type => "text/html",
-          :body => render_message("welcome.html.erb",
-          :user => user)
-    
     part  "text/plain" do |p|
       p.body = render_message("welcome.plain.erb",
       :user => user)
       p.transfer_encoding = "base64"
     end
+    
+    part  :content_type => "text/html",
+          :body => render_message("welcome.html.erb",
+          :user => user)
   end
   
   def contact(recipient, user, contact_subject, message, ip_address, user_agent)
@@ -34,17 +34,17 @@ class Mailer < ActionMailer::Base
     sent_on       Time.now
     content_type  "multipart/alternative"
     
-    part  :content_type => "text/html",
-          :body => render_message("credentials.html.erb",
-          :user => user,
-          :host => host)
-    
     part  "text/plain" do |p|
       p.body = render_message("credentials.plain.erb",
       :user => user,
       :host => host)
       p.transfer_encoding = "base64"
     end
+    
+    part  :content_type => "text/html",
+          :body => render_message("credentials.html.erb",
+          :user => user,
+          :host => host)
   end
 end
 
