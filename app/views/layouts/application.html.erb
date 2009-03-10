@@ -23,7 +23,7 @@
 		        <%= navigation("home", "news", "articles", "events", "about", "contact") %>
 		    </div>
             </div>
-            <div id="content">
+            <div id="content" class="<%= controller.controller_name.to_s %>">
 						<% unless controller.controller_path == "home" %>
                 <div id="sidebars">
                     <% if admin_namespace? %>
