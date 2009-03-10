@@ -2,32 +2,13 @@
  * 
  * Homepage: http://hhlinuxclub.org/
  * Repository: http://github.com/jcxplorer/hhlc/tree/master	
- * 
- * Valid CSS level 3
-*/
-
-
-@font-face {
-	font-family: "Bitstream Vera Mono";
-	src: url("../fonts/bitstream/VeraMono.ttf");
-}
-
-@font-face {
-	font-family: "Bitstream Vera Serif";
-	src: url("../fonts/bitstream/VeraSe.ttf");
-}
-
-@font-face {
-	font-family: "Bitstream Vera Sans";
-	src: url("../fonts/bitstream/Vera.ttf");
-}
-
+ */
 
 body {
 	margin: 0px;
 	padding: 0px;
 	font-family: "Helvetica Neue", Helvetica, "Bitstream Vera Sans", "Trebuchet MS", sans-serif;
-	background: #141414 url('../images/background_stripes.png') repeat-x 0px 0px;
+	background: #bbcdde url('../images/background.png') repeat-x 0px 0px;
 }
 
 #container {
@@ -35,7 +16,7 @@ body {
 	width: 900px;
 	margin-left: auto;
 	margin-right: auto;
-	margin-top: 7px;
+	margin-top: 0;
 	background: none;
 }
 
@@ -44,14 +25,6 @@ body {
 	background: #fff url('../images/header.png') no-repeat 0px 0px;
 	padding-top: 120px;
 	padding-bottom: 1px;
-	/* Browser specific rounded corners (Mozilla & WebKit) */
-	-moz-border-radius-topleft: 10px;
-	-webkit-border-top-left-radius: 10px;
-	-moz-border-radius-topright: 10px;
-	-webkit-border-top-right-radius: 10px;
-	/* CSS3 rounded corners */
-	border-top-left-radius: 10px 10px;
-	border-top-right-radius: 10px 10px;
 }
 
 #header h1 {
@@ -59,46 +32,52 @@ body {
 }
 
 #navigation {
-	background: none;
-	padding: 0;
-	text-align: left;
-	border-top: 1px dotted #0066cb;
-	border-bottom: 1px dotted #0066cb;
-	height: auto;
-	padding: 10px;
+	background: #2d67b2;
+	position: absolute;
+	top: 0px;
+	right: 0px;
+	padding: 5px 20px 5px 5px;
+	text-align: right;
+	-moz-border-radius-bottomleft: 5px;
+	-webkit-border-bottom-left-radius: 5px;
+	-moz-border-radius-bottomright: 5px;
+	-webkit-border-bottom-right-radius: 5px;
+	border: 1px solid #589ad3;
+	border-top: none;
 }
 
 #navigation ul {
 	list-style: none;
 	display: inline;
+	margin: 0;
+	padding: 0;
 }
 
 #navigation li {
 	background: none;
-	font-family: Georgia, "Bitstream Vera Serif", serif;
-	font-weight: bold;
-	font-size: 12pt;
+	font-size: 10pt;
 	display: inline;
+	font-family: "Helvetica Neue", Helvetica, "Bitstream Vera Sans", "Trebuchet MS", sans-serif;
+	margin-left: 15px;
 }
 
 #navigation a:link,
 #navigation a:visited {
 	text-decoration: none;
-	padding: 10px 20px;
-	color: #529be2;
+	color: #b0c1d1;
 }
 
 #navigation .activeLink a:link,
 #navigation .activeLink a:visited {
-	background: #0066cb;
 	text-decoration: none;
 	color: #fff;
+	border-bottom: 3px solid #589ad3;
+	padding-bottom: 2px;
 }
 
 #navigation a:hover,
 #navigation ul li:hover,
 #navigation .activeLink {
-	background: #0066cb;
 	text-decoration: none;
 	color: #fff;
 }
@@ -151,20 +130,12 @@ body {
 
 #footer {
 	text-align: center;
-	color: #000;
-	background: #fff;
+	color: #ccc;
+	background: #141414;
 	padding: 5px;
 	margin-bottom: 20px;
 	clear: both;
-	border-top: 1px dotted #0066cb;
-	/* Browser specific rounded corners (Mozilla & WebKit) */
-	-moz-border-radius-bottomleft: 10px;
-	-webkit-border-bottom-left-radius: 10px;
-	-moz-border-radius-bottomright: 10px;
-	-webkit-border-bottom-right-radius: 10px;
-	/* CSS3 rounded corners */
-	border-bottom-left-radius: 10px 10px;
-	border-bottom-right-radius: 10px 10px;
+	border-top: 5px solid #404447;
 }
 
 #footer p {
@@ -173,7 +144,7 @@ body {
 }
 
 #footer a {
-	color: #000;
+	color: #ccc;
 	text-decoration: underline;
 }
 
