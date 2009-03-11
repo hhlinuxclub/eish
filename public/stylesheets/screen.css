@@ -318,14 +318,14 @@ label {
 }
 
 .box {
-	background: #000 url('../images/box_stripe.png') repeat;
-	border: 1px solid #404447;
-	padding:10px;
-	width: 398px;
-	height: 170px;
+	background: none;
+	border: none;
 	position: relative;
 	overflow: auto;
 	color:#ccc;
+	width: 398px;
+	height: 100%;
+	padding-bottom: 20px;
 }
 
 .box h2, .box h3 {
@@ -350,10 +350,20 @@ label {
 	list-style-type: none;
 }
 
+#leftColumn {
+	float: left;
+}
+
+#rightColumn {
+	background: #ccc url('../images/light_stripe.png') repeat;
+	float: right;
+	padding:10px;
+}
+
 #welcomeBox {
 	background: none;
 	margin: 0 0 15px;
-	padding-right: 0;
+	padding: 10px;
 	float: left;
 	width: 500px;
 	height: 100px;
@@ -375,8 +385,9 @@ label {
 }
 
 #featuredArticleBox {
-	margin: 5px 0 0 0;
-	float: left;
+	margin: 0;
+	background: none;
+	border: none;
 }
 
 #featuredArticleBox img {
@@ -388,8 +399,27 @@ label {
 }
 
 #latestNewsBox {
-	margin: 5px 0 20px;
-	float: right;
+	margin: 0;
+	background: none;
+	border: none;
+}
+
+#latestNewsBox p {
+	color: #000;
+	font-size: 8pt;
+}
+
+#latestNewsBox h4 {
+	font-size: 8pt;
+}
+
+#latestNewsBox a {
+	text-decoration: none;
+}
+
+#latestNewsBox a:hover {
+	text-decoration: none;
+	color: #000;
 }
 
 .boxItem {
@@ -400,17 +430,18 @@ label {
 }
 
 #upcomingEventsBox {
-	clear: both;
-	float: left;
+	border: none;
+	background: none;
 }
 
 #feedsBox, #loginBox {
-	float: left;
-	margin-left: 20px;
+	background: none;
+	border: none;
 }
 
 #feedsBox {
-	height: 48px;
+	padding-top: 20px;
+	border-top: 1px dashed #333;
 }
 
 #loginBox {
@@ -470,10 +501,6 @@ label {
 .feedLink {
 	background: url('../images/feed_16.png') no-repeat 0px 1px;
 	padding: 0 20px 0 18px;
-}
-
-#sidebars .feedLink {
-	margin-left: 50px;
 }
 
 #flash {

@@ -9,47 +9,52 @@
 	</div>
 </div>
 
-<div class="box" id="featuredArticleBox">
-	<p style="font-size: x-small; color: red;">Featured</p>
-<% unless @featured_article.nil? %>
-	<h3><%=h @featured_article.title %></h3>
-	<%= image_tag "picol/picture_100.png", :alt => "Image Placeholder" %>
-	<p><%=h @featured_article.description %></p>
-	<p style="text-align: right;">
-		<%= link_to	"More...", article_details_path(:id => @featured_article.id, :title => urlify(@featured_article.title)) %>
-	</p>
-<% end %>
+
+<div class="box" id="leftColumn">
+	<div class="box" id="featuredArticleBox">
+		<p style="font-size: x-small; color: red;">Featured</p>
+	<% unless @featured_article.nil? %>
+		<h3><%=h @featured_article.title %></h3>
+		<%= image_tag "picol/picture_100.png", :alt => "Image Placeholder" %>
+		<p><%=h @featured_article.description %></p>
+		<p style="text-align: right;">
+			<%= link_to	"More...", article_details_path(:id => @featured_article.id, :title => urlify(@featured_article.title)) %>
+		</p>
+	<% end %>
+	</div>
+
+	<div class="box" id="upcomingEventsBox">
+		<p style="font-size: x-small; color: red;">Upcoming</p>
+		<h3>Events</h3>
+		<ul>
+		<% for event in @events %>
+			<li class="date"><%= format_event_dates(event) %></li>
+			<li class="boxItem"><%= link_to event.name, event_details_path(:id => event.id, :name => urlify(event.name)) %></li>
+		<% end %>	
+		</ul>
+	</div>
+	
+	<div class="box" id="feedsBox">
+		<h3>Feeds</h3>
+		<p>
+				<%= link_to "News", { :controller => "news", :action => "index", :format => "atom" }, { :class => "feedLink" } %>
+
+				<%= link_to "Articles", { :controller => "articles", :action => "index", :format => "atom" }, { :class => "feedLink" } %>
+
+				<%= link_to "Events", { :controller => "events", :action => "index", :format => "atom" }, { :class => "feedLink" } %>
+		</p>
+	</div>
 </div>
 
-<div class="box" id="latestNewsBox">
-	<p style="font-size: x-small; color: red;">Latest</p>
-	<h3>News</h3>
-	<ul>
-	<% for news_article in @news %>
-		<li class="date"><%= distance_of_time_in_words(news_article.created_at, Time.now) %> ago</li>
-		<li class="boxItem"><%= link_to news_article.title, news_article_details_path(:id => news_article.id, :title => urlify(news_article.title)) %></li>
-	<% end %>	
-	</ul>
-</div>
-
-<div class="box" id="upcomingEventsBox">
-	<p style="font-size: x-small; color: red;">Upcoming</p>
-	<h3>Events</h3>
-	<ul>
-	<% for event in @events %>
-		<li class="date"><%= format_event_dates(event) %></li>
-		<li class="boxItem"><%= link_to event.name, event_details_path(:id => event.id, :name => urlify(event.name)) %></li>
-	<% end %>	
-	</ul>
-</div>
-
-<div class="box" id="feedsBox">
-	<h3>Feeds</h3>
-	<p>
-			<%= link_to "News", { :controller => "news", :action => "index", :format => "atom" }, { :class => "feedLink" } %>
-
-			<%= link_to "Articles", { :controller => "articles", :action => "index", :format => "atom" }, { :class => "feedLink" } %>
-
-			<%= link_to "Events", { :controller => "events", :action => "index", :format => "atom" }, { :class => "feedLink" } %>
-	</p>
+<div class="box" id="rightColumn">
+	<div class="box" id="latestNewsBox">
+		<p style="font-size: x-small; color: red;">Latest</p>
+		<h3>News</h3>
+		<% for news_article in @news %>
+			<h4><%= link_to news_article.title, news_article_details_path(:id => news_article.id, :title => urlify(news_article.title)) %></h4>
+			<% if @news.first.id == news_article.id %>
+				<p><%=h news_article.body %></p>
+			<% end %>
+		<% end %>	
+	</div>
 </div>
