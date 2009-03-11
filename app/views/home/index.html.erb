@@ -1,14 +1,15 @@
-<div class="box" id="welcomeBox">
-	<h2 class="title">Welcome to <span class="h2Logo">HHLinuxClub</span></h2>
-	<p><%= @welcome_message %></p>
-</div>
+<div id="homeTop">
+	<div class="box" id="welcomeBox">
+		<h2 class="title">Welcome to <span class="h2Logo">HHLinuxClub</span></h2>
+		<p><%= @welcome_message %></p>
+	</div>
 
-<div class="box" id="loginBox">
-	<div id="loginBoxInternal">
-		<%= render :partial => "login_box" %>
+	<div class="box" id="loginBox">
+		<div id="loginBoxInternal">
+			<%= render :partial => "login_box" %>
+		</div>
 	</div>
 </div>
-
 
 <div class="box" id="leftColumn">
 	<div class="box" id="featuredArticleBox">

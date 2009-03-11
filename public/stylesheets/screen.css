@@ -366,7 +366,7 @@ label {
 	padding: 10px;
 	float: left;
 	width: 500px;
-	height: 100px;
+	height: auto;
 	color: #ccc;
 	border: none;
 }
@@ -447,8 +447,9 @@ label {
 #loginBox {
 	background: #000 url('../images/welcomebox_stripe.png') repeat;
 	border: 1px solid #589ad3;
-	height: 100px;
+	height: auto;
 	padding: 10px;
+	margin-bottom: 20px;
 	float: right;
 	width: 310px;
 	margin: 0;
@@ -536,4 +537,9 @@ label {
 
 input[type=text], textarea {
 	border: 1px solid #D9D9D9;
+}
+
+#homeTop {
+	display: table-cell;
+	padding-bottom: 20px;
 }
