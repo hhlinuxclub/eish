@@ -27,6 +27,7 @@ body {
 
 #header h1 {
 	display: none;
+	color: #589ad3;
 }
 
 #navigation {
@@ -355,9 +356,10 @@ label {
 }
 
 #rightColumn {
-	background: #ccc url('../images/light_stripe.png') repeat;
+	background: #A6C1E3;
 	float: right;
 	padding:10px;
+	border: 1px solid #3F4A57;
 }
 
 #welcomeBox {
