@@ -5,6 +5,11 @@ body {
 	background: #fff;
 }
 
+#wrapper {
+	padding-top: 0px;
+	margin-top: 0px;
+}
+
 #header {
 	height: 50px;
 	background: #141414;
@@ -16,19 +21,29 @@ body {
 #header h1 {
 	color: #589ad3;
 	display: inline;
+	margin-bottom: 0;
 }
 
 #content {
 	float: none;
 	background: #ffffff;
 	width: 100%;
-	padding-left: 180px;
+	margin-left: 200px;
 }
 
 #adminNavigation {
 	float: left;
 	width: 150px;
-	background: #ddd;
+	margin-right: 20px;
+	margin-left: -1px;
+	background: #141414;
+	border: 1px solid #ccc;
+	border-top: none;
+	-moz-border-radius-bottomright: 7px;
+	-webkit-border-bottom-right-radius: 7px;
+	list-style: none;
+	padding: 10px 0px 10px 20px;
+	margin-top: 0px;
 }
 
 #footer {
@@ -45,6 +60,8 @@ img {
 	color: #282828;
 	margin-bottom: 0px;
 	padding-bottom: 0px;
+	padding-top: 0;
+	margin-top: 0;
 }
 
 .title a:link,
@@ -181,4 +198,20 @@ label {
 
 #errorExplanation ul {
 	font-size: 10pt;
+}
+
+#flash {
+	font-weight: 700;
+	float: right;
+	padding-top: 5px;
+}
+
+#flashNotice,
+#flashLoginNotice {
+	color: green;
+}
+
+#flashError,
+#flashLoginError {
+	color: red;
 }

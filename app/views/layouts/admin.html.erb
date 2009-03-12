@@ -12,22 +12,22 @@
             <div id="header">
                 <h1>HAAGA-HELIA Linux Club</h1>
             </div>
-            <div id="adminNavigation">
-							<ul>
-								<li><%= link_to "Home", :controller => "home", :action => "index" %></li>
-								<li><%= link_to "News", admin_news_path %></li>
-								<li><%= link_to "Articles", admin_articles_path %></li>
-								<li><%= link_to "Events", admin_events_path %></li>
-								<li><%= link_to "Users", admin_users_path %></li>
-								<li><%= link_to "About", :controller => "about", :action => "index"%></li>
-							</ul>
-            </div>
-            <div id="content">
-                <p id="flash">
-                    <span id="flashNotice"><%= flash[:notice] %></span>
-					<span id="flashError"><%= flash[:error] %></span>
-                </p>
-                <%= yield %>
+            <div id="wrapper">
+								<ul id="adminNavigation">
+									<li><%= link_to "Home", :controller => "home", :action => "index" %></li>
+									<li><%= link_to "News", admin_news_path %></li>
+									<li><%= link_to "Articles", admin_articles_path %></li>
+									<li><%= link_to "Events", admin_events_path %></li>
+									<li><%= link_to "Users", admin_users_path %></li>
+									<li><%= link_to "About", :controller => "about", :action => "index"%></li>
+								</ul>
+		          	<div id="content">
+		              <p id="flash">
+		                  <span id="flashNotice"><%= flash[:notice] %></span>
+											<span id="flashError"><%= flash[:error] %></span>
+		              </p>
+		              <%= yield %>
+		          	</div>
             </div>
             <div id="footer">
                 <p>
