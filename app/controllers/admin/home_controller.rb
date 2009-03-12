@@ -1,4 +1,6 @@
 class Admin::HomeController < ApplicationController
+  layout "admin"
+ 
   def index
     @welcome_message = Setting.option("welcome_message")
   end

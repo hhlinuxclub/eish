@@ -1,4 +1,6 @@
 class Admin::ArticlesController < ApplicationController
+  layout "admin"
+ 
   def index
     @articles = Article.find(:all, :order => "created_at DESC")
     @featured_article = Setting.option("featured_article").to_i

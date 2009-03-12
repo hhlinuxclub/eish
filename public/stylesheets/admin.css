@@ -1,0 +1,184 @@
+body {
+	margin: 0px;
+	padding: 0px;
+	font-family: "Helvetica Neue", Helvetica, "Bitstream Vera Sans", "Trebuchet MS", sans-serif;
+	background: #fff;
+}
+
+#header {
+	height: 50px;
+	background: #141414;
+	width: 100%;
+	padding: 0;
+	margin: 0;
+}
+
+#header h1 {
+	color: #589ad3;
+	display: inline;
+}
+
+#content {
+	float: none;
+	background: #ffffff;
+	width: 100%;
+	padding-left: 180px;
+}
+
+#adminNavigation {
+	float: left;
+	width: 150px;
+	background: #ddd;
+}
+
+#footer {
+	clear: both;
+	background: #ff0000;
+}
+
+img {
+	border: none;
+}
+
+.title {
+	font-family: Georgia, "Bitstream Vera Serif", serif;
+	color: #282828;
+	margin-bottom: 0px;
+	padding-bottom: 0px;
+}
+
+.title a:link,
+.title a:visited {
+	text-decoration: none;
+}
+
+.title a:hover {
+	text-decoration: underline;
+}
+
+.metadata {
+	color: #666666;
+	margin-top: 0px;
+	padding-top: 0px;
+}
+
+.sidebar {	
+	float: right;
+	background: none;
+	border: none;
+	width: 180px;
+	margin-bottom: 5px;
+	padding: 0 10px;
+}
+
+p {
+	font-size: 10pt;
+}
+
+table {
+	width: 80%;
+	font-size: 9pt;
+	border-collapse: collapse;
+}
+
+td {
+	border: 1px solid #D9D9D9;
+	padding: 5px 5px;
+}
+
+th {
+	background: #F0F0F0;
+	border: 1px solid #D9D9D9;
+	padding: 5px 10px;
+	color: #282828;
+	font-weight: bold;
+}
+
+.classifier {
+	text-transform: uppercase;
+	font-size: 7pt;
+	color: #666666;
+	font-weight: bold;
+}
+
+.errors {
+	border: 3px solid #400000;
+	padding: 0px 20px;
+	margin-bottom: 20px;
+	background: #8C2A2A;
+	color: #ffffff;
+}
+
+.published {
+	background-color: #D1FFEC;
+}
+
+.unpublished {
+	background-color: #FFB5D3;
+}
+
+a:link,
+a:visited {
+	color: #0066cb;
+}
+
+a:hover {
+	color: #282828;
+}
+
+dl {
+	font-size: 10pt;
+}
+
+dt {
+	font-weight: bold;
+}
+
+dd {
+	margin-bottom: 10px;
+}
+
+img {
+	border: none;
+}
+
+.pagination {
+	font-size: 10pt;
+	font-weight: bold;
+}
+
+.add {
+	background: url('../images/icons/add_16.png') no-repeat 0px 1px;
+	padding-left: 17px;
+}
+
+
+.textField {
+	border: 1px solid #D9D9D9;
+}
+
+label {
+	font-size: 9pt;
+	font-weight: bold;
+}
+
+.fieldWithErrors {
+	display: inline;
+	color: #ee0000;
+}
+
+#errorExplanation {
+	width: 590px;
+	background-color: #ffb3b3;
+	border: solid #ff8080 1px;
+	padding: 0px 20px;
+	margin: 20px 0px;
+}
+
+#errorExplanation h2 {
+	font-size: 12pt;
+}
+
+#errorExplanation ul {
+	font-size: 10pt;
+}

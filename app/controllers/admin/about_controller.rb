@@ -1,4 +1,6 @@
 class Admin::AboutController < ApplicationController
+  layout "admin"
+  
   def index
     @about = Setting.option("about")
   end

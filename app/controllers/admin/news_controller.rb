@@ -1,4 +1,6 @@
 class Admin::NewsController < ApplicationController
+  layout "admin"
+ 
   def index
     @news = News.find(:all)
 
