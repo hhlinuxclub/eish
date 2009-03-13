@@ -1,21 +1,23 @@
 <h2 class="title">Listing articles</h2>
 
 <p><%= link_to "Add article", new_admin_article_path, :class => 'add' %></p>
-
+<form>
 <table>
   <tr>
+	  <th><input type="checkbox" /></th>
     <th>Title</th>
     <th>Created</th>
-		<th>Actions</th>
+    <th>Status</th>
   </tr>
 
 	<% for article in @articles %>
 		<tr class="<%= article.published? ? "published" : "unpublished" %>">
-	    <td><%=h article.title %></td>
+			<td><input type="checkbox" /></td>
+	    <td><%= link_to article.title, { :id => article.id, :action => "edit" }, { :title => "Edit" } %></td>
 		  <td><%=h short_date(article.created_at) %></td>
-		  <td>
-				<%= render :partial => "admin/actions", :locals => { :content => article, :article => true } %>
-			</td>
+		  <td><%= article.published? ? "published" : "unpublished" %></td>
 	  </tr>
 	<% end %>
 </table>
+
+</form>
