@@ -11,17 +11,18 @@ body {
 }
 
 #header {
-	height: 50px;
+	height: 40px;
 	background: #141414;
 	width: 100%;
 	padding: 0;
-	margin: 0;
+	padding-left: 20px;;
 }
 
-#header h1 {
-	color: #589ad3;
+#header h2 {
 	display: inline;
 	margin-bottom: 0;
+	background: transparent url('../images/h2Logo.png') no-repeat left center;
+	color: transparent;
 }
 
 #content {
@@ -35,15 +36,46 @@ body {
 	float: left;
 	width: 150px;
 	margin-right: 20px;
-	margin-left: -1px;
-	background: #141414;
-	border: 1px solid #ccc;
-	border-top: none;
-	-moz-border-radius-bottomright: 7px;
-	-webkit-border-bottom-right-radius: 7px;
 	list-style: none;
 	padding: 10px 0px 10px 20px;
 	margin-top: 0px;
+}
+
+#adminNavigation li {
+	margin-top: 10px;
+}
+
+#adminNavigation a {
+	text-decoration: none;
+	padding: 0 20px 0 20px;
+}
+
+#adminNavigation a:hover {
+	text-decoration: none;
+}
+
+.aboutLink{
+	background: url('../images/picol/about_16.png') no-repeat 0px 1px;
+}
+
+.usersLink{
+	background: url('../images/picol/users_16.png') no-repeat 0px 1px;
+}
+
+.homeLink{
+	background: url('../images/picol/home_16.png') no-repeat 0px 1px;
+}
+
+.articlesLink{
+	background: url('../images/picol/articles_16.png') no-repeat 0px 1px;
+}
+
+.eventsLink{
+	background: url('../images/picol/events_16.png') no-repeat 0px 1px;
+}
+
+.newsLink{
+	background: url('../images/picol/news_16.png') no-repeat 0px 1px;
 }
 
 #footer {
@@ -60,8 +92,6 @@ img {
 	color: #282828;
 	margin-bottom: 0px;
 	padding-bottom: 0px;
-	padding-top: 0;
-	margin-top: 0;
 }
 
 .title a:link,

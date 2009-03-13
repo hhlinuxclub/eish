@@ -10,16 +10,16 @@
     </head>
     <body>
             <div id="header">
-                <h1>HAAGA-HELIA Linux Club</h1>
+                <h2>HAAGA-HELIA Linux Club</h2
             </div>
             <div id="wrapper">
 								<ul id="adminNavigation">
-									<li><%= link_to "Home", :controller => "home", :action => "index" %></li>
-									<li><%= link_to "News", admin_news_path %></li>
-									<li><%= link_to "Articles", admin_articles_path %></li>
-									<li><%= link_to "Events", admin_events_path %></li>
-									<li><%= link_to "Users", admin_users_path %></li>
-									<li><%= link_to "About", :controller => "about", :action => "index"%></li>
+									<li class="homeLink"><%= link_to "Home", :controller => "home", :action => "index" %></li>
+									<li class="newsLink"><%= link_to "News", admin_news_path %></li>
+									<li class="articlesLink"><%= link_to "Articles", admin_articles_path %></li>
+									<li class="eventsLink"><%= link_to "Events", admin_events_path %></li>
+									<li class="usersLink"><%= link_to "Users", admin_users_path %></li>
+									<li class="aboutLink"><%= link_to "About", :controller => "about", :action => "index"%></li>
 								</ul>
 		          	<div id="content">
 		              <p id="flash">
@@ -28,11 +28,6 @@
 		              </p>
 		              <%= yield %>
 		          	</div>
-            </div>
-            <div id="footer">
-                <p>
-                    This is the admin section.  Your actions WILL affect the front end view.
-                </p>
             </div>
         </div>
     </body>
