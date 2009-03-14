@@ -24,18 +24,6 @@
 		    </div>
             </div>
             <div id="content" class="<%= controller.controller_name.to_s unless admin_namespace? %>">
-						<% unless controller.controller_path == "home" %>
-                <div id="sidebars">
-                    <% if admin_namespace? %>
-                    <%= render :partial => "admin/admin_sidebar" %>
-                    <% end %>
-                    <%= render :partial => "users/users_sidebar" %>
-                    <% if admin_namespace? %>
-                    <%= render :partial => "admin/admin_sidebar_legend" %>
-                    <% end %>
-										<%= render :partial => "/feeds_sidebar" %>
-									</div>
-								<% end %>	
                 <p id="flash">
                     <span id="flashNotice"><%= flash[:notice] %></span>
 										<span id="flashError"><%= flash[:error] %></span>
