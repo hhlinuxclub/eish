@@ -2,6 +2,11 @@
 
 <p><%= link_to "Add article", new_admin_article_path, :class => 'add' %></p>
 <form>
+	<label for="actions">Bulk actions:</label> 	<select name="actions">
+									<option value="publish">Publish</option>
+									<option value="unpublish">Unpublish</option>
+									<option value="delete">Delete</option>
+								</select>
 <table>
   <tr>
 	  <th><input type="checkbox" /></th>
@@ -12,8 +17,10 @@
 
 	<% for article in @articles %>
 		<tr class="<%= article.published? ? "published" : "unpublished" %>">
-			<td><input type="checkbox" /></td>
-	    <td><%= link_to article.title, { :id => article.id, :action => "edit" }, { :title => "Edit" } %></td>
+			<td class="checkbox"><input type="checkbox" /></td>
+	    <td><%= link_to article.title, { :id => article.id, :action => "edit" }, { :title => "Edit", :class => "listingTitle" } %><br />
+	    		<%=h truncate(article.description, 50, "...") %>
+	    </td>
 		  <td><%=h short_date(article.created_at) %></td>
 		  <td><%= article.published? ? "published" : "unpublished" %></td>
 	  </tr>
