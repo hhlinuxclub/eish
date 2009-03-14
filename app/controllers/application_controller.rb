@@ -21,7 +21,7 @@ class ApplicationController < ActionController::Base
   protected
   
     def authorize
-      unless User.find_by_id(session[:user_id]).role.can_administer?
+      unless !User.find_by_id(session[:user_id]).normal_user?
         session[:original_uri] = request.request_uri
         flash[:error] = "Please log in with enough privileges."
         redirect_to :controller => "/users", :action => "login"
