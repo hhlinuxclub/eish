@@ -1,23 +1,30 @@
 <h2 class="title">Events</h2>
 
 <p><%= link_to "Add event", new_admin_event_path, :class => 'add' %></p>
-
+<form>
+	<label for="actions">Bulk actions:</label> 	<select name="actions">
+									<option value="publish">Publish</option>
+									<option value="unpublish">Unpublish</option>
+									<option value="delete">Delete</option>
+								</select>
 <table>
 	<tr>
+		<th><input type="checkbox" /></th>
 		<th>Name</th>
 		<th>Date</th>
 		<th>Location</th>
-		<th>Actions</th>
+		<th>Status</th>
 	</tr>
 
 <% for event in @events %>
 	<tr class="<%= event.published? ? "published" : "unpublished" %>">
-		<td><%=h event.name %></td>
+		<td class="checkbox"><input type="checkbox" /></td>
+		<td><%= link_to event.name, { :id => event.id, :action => "edit" }, { :title => "Edit", :class => "listingTitle" } %><br />
+	    		<%=h truncate(event.description, 50, "...") %>
 		<td><%= format_event_dates(event) %></td>
 		<td><%=h event.location %></td>
-		<td>
-			<%= render :partial => "admin/actions", :locals => { :content => event } %>
-		</td>
+			<td><%= event.published? ? "published" : "unpublished" %></td>
 	</tr>
 <% end %>
 </table>
+</form>
