@@ -116,6 +116,10 @@ class User < ActiveRecord::Base
     end
   end
   
+  def normal_user?
+    return self.role.id == Role.no_privileges.id
+  end
+  
   private
     
     def password_non_blank

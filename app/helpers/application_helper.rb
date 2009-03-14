@@ -42,4 +42,14 @@ module ApplicationHelper
   def urlify(title)
     return title.gsub(" ", "-").gsub(/[^a-z0-9\-]+/i, "").downcase
   end
+  
+  def can_edit?(item)
+    if logged_in?
+      user = User.find(session[:user_id])
+      if user.role.can_administer? || user.role.can_update? || (user.id == item.user_id && !user.normal_user?)
+        return true
+      end
+    end
+    return false
+  end
 end
