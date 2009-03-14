@@ -4,24 +4,21 @@
 
 <table>
 	<tr>
-		<th>Username</th>
-		<th>First name</th>
-		<th>Last name</th>
+		<th></th>
+		<th>User</th>
 		<th>Email</th>
 		<th>Role</th>
-		<th>Actions</th>
+		<th></th>
 	</tr>
 
 <% for user in @users %>
 	<tr>
-		<td><%=h user.username %></td>
-		<td><%=h user.first_name %></td>
-		<td><%=h user.last_name %></td>
+		<td class="radio"><input type="radio" name="user" value="<%=h user.id %>" /></td>
+		<td><%= link_to user.username, { :id => user.id, :action => "edit" }, { :title => "Edit", :class => "listingTitle" } %><br />
+	    		<%=h user.last_name %>, <%=h user.first_name %>
+	    </td>
 		<td><%=h user.email %></td>
 		<td><%=h user.role.name %></td>
-		<td>
-			<%= render :partial => "admin/actions", :locals => { :content => user } %>
-		</td>
 	</tr>
 <% end %>
 
