@@ -25,6 +25,10 @@ body {
 	color: transparent;
 }
 
+.visitSite {
+	font-weight: bold;
+}
+
 #content {
 	float: none;
 	background: #ffffff;

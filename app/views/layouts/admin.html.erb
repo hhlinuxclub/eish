@@ -10,7 +10,7 @@
     </head>
     <body>
             <div id="header">
-                <h2>HAAGA-HELIA Linux Club</h2
+                <h2>HAAGA-HELIA Linux Club</h2>
             </div>
             <div id="wrapper">
 								<ul id="adminNavigation">
@@ -20,6 +20,7 @@
 									<li class="eventsLink"><%= link_to "Events", admin_events_path %></li>
 									<li class="usersLink"><%= link_to "Users", admin_users_path %></li>
 									<li class="aboutLink"><%= link_to "About", :controller => "about", :action => "index"%></li>
+									<li class="visitSite"><%= link_to "(visit site)", :root, :class => "visitSite" %></li>
 								</ul>
 		          	<div id="content">
 		              <p id="flash">
