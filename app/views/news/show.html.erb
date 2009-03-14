@@ -3,4 +3,11 @@
 	<%=h long_date(@news_article.created_at) %>
 	by <%= link_to_profile @news_article.user %>
 </p>
+
+<% if can_edit?(@news_article) %>
+	<p class="adminLinks">
+		<%= link_to "[ edit this news article ]", edit_admin_news_article_path(@news_article) %>
+	</p>
+<% end %>
+
 <%= RedCloth.new(@news_article.body).to_html %>

@@ -1,6 +1,14 @@
 <h2 class="title"><%=h @event.name %></h2>
 <p class="metadata"><%= format_event_dates(@event) %></p>
+
+<% if can_edit?(@event) %>
+	<p class="adminLinks">
+		<%= link_to "[ edit this event ]", edit_admin_event_path(@event) %>
+	</p>
+<% end %>
+
 <p>
 	<b>Location: </b><%=h @event.location %>
 </p>
+
 <%= RedCloth.new(@event.description).to_html %>
