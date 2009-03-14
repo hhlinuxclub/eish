@@ -346,20 +346,21 @@ label {
 
 .date {
 	font-size: x-small;
-	color: green;
-	margin-left:10px;
+	color: #ccc;
+	margin-left: 10px;
 	list-style-type: none;
 }
 
 #leftColumn {
 	float: left;
+	padding-right: 30px;
 }
 
 #rightColumn {
-	background: #A6C1E3;
+	background: ;
 	float: right;
-	padding:10px;
-	border: 1px solid #3F4A57;
+	padding: 0 16px;
+	text-align: justify;
 }
 
 #welcomeBox {
@@ -407,12 +408,12 @@ label {
 }
 
 #latestNewsBox p {
-	color: #000;
-	font-size: 8pt;
+	color: #ccc;
+	font-size: 9pt;
 }
 
 #latestNewsBox h4 {
-	font-size: 8pt;
+	font-size: 10pt;
 }
 
 #latestNewsBox a {
@@ -421,7 +422,7 @@ label {
 
 #latestNewsBox a:hover {
 	text-decoration: none;
-	color: #000;
+	color: #ccc;
 }
 
 .boxItem {
@@ -537,11 +538,18 @@ label {
 	font-weight: bold;
 }
 
-input[type=text], textarea {
+input[type=text],
+input[type=password],
+textarea {
 	border: 1px solid #D9D9D9;
 }
 
 #homeTop {
 	display: table-cell;
 	padding-bottom: 20px;
+}
+
+.adminLinks a:link,
+.adminLinks a:visited {
+	text-decoration: none;
 }
