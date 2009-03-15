@@ -21,14 +21,11 @@ class ApplicationController < ActionController::Base
   protected
   
     def authorize
-      unless !User.find_by_id(session[:user_id]).normal_user?
+      if session[:user_id].nil? || (!session[:user_id].nil? && User.find(session[:user_id]).normal_user?)
         session[:original_uri] = request.request_uri
         flash[:error] = "Please log in with enough privileges."
-        redirect_to :controller => "/users", :action => "login"
+        redirect_to :login
       end
-    rescue
-      flash[:error] = "Login first with enough privileges."
-      redirect_to :login
     end
     
     def login_with_credentials(username, password, remember_me)
@@ -50,6 +47,13 @@ class ApplicationController < ActionController::Base
       user = User.find_by_remember_token(cookies[:auth_token])
       if user && !user.remember_token_expires.nil? && Time.now < user.remember_token_expires
         session[:user_id] = user.id
+      end
+    end
+    
+    def check_for_admin
+      unless User.find(session[:user_id]).role.can_administer?
+        flash[:error] = "You do not have enough privileges."
+        redirect_to :admin
       end
     end
 end

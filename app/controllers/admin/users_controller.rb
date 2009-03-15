@@ -1,4 +1,6 @@
 class Admin::UsersController < ApplicationController
+  before_filter :check_for_admin
+  
   layout "admin"
  
   def index
