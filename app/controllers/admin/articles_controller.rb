@@ -2,7 +2,12 @@ class Admin::ArticlesController < ApplicationController
   layout "admin"
  
   def index
-    @articles = Article.find(:all, :order => "created_at DESC")
+    user = User.find(session[:user_id], :include => :role)
+    if user.role.can_update? || user.role.can_delete? || user.role.can_publish? || user.role.can_administer?
+      @articles = Article.find(:all, :order => "created_at DESC")
+    else
+      @articles = Article.find_all_by_user_id(user.id)
+    end
     @featured_article = Setting.option("featured_article").to_i
 
     respond_to do |format|

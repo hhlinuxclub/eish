@@ -4,7 +4,12 @@ class Admin::EventsController < ApplicationController
   cache_sweeper :event_sweeper, :only => [:create, :update, :destroy, :publish, :unpublish]
   
   def index
-    @events = Event.find(:all)
+    user = User.find(session[:user_id], :include => :role)
+    if user.role.can_update? || user.role.can_delete? || user.role.can_publish? || user.role.can_administer?
+      @events = Event.find(:all)
+    else
+      @events = Event.find_all_by_user_id(user.id)
+    end
 
     respond_to do |format|
       format.html
