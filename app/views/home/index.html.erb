@@ -51,7 +51,7 @@
 		<% for news_article in @news %>
 			<h4><%= link_to news_article.title, news_article_details_path(:id => news_article.id, :title => urlify(news_article.title)) %></h4>
 			<% if @news.first.id == news_article.id %>
-				<p><%=h news_article.body %></p>
+				<p><%= RedCloth.new(news_article.body).to_html %></p>
 			<% end %>
 		<% end %>	
 	</div>
