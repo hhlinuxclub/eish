@@ -2,7 +2,12 @@ class Admin::NewsController < ApplicationController
   layout "admin"
  
   def index
-    @news = News.find(:all)
+    user = User.find(session[:user_id], :include => :role)
+    if user.role.can_update? || user.role.can_delete? || user.role.can_publish? || user.role.can_administer?
+      @news = News.find(:all)
+    else
+      @news = News.find_all_by_user_id(user.id)
+    end
 
     respond_to do |format|
       format.html # index.html.erb
