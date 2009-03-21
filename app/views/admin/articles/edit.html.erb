@@ -8,6 +8,10 @@
 			modal: true
 		});
 	});
+ /* jQuery textarea resizer plugin usage */
+	$(document).ready(function() {
+		$('textarea.resizable:not(.processed)').TextAreaResizer();
+	});
 </script>
 
 <h2>Editing article</h2>
@@ -28,7 +32,7 @@
 	<p>
 		<%= f.label :body %><br />
 	<span id="textileEditor">
-		<%= f.textile_editor :body, :cols => 85, :rows => 20 %>
+		<%= f.textile_editor :body, :cols => 85, :rows => 20, :class => "resizable" %>
 	</span>	
 	</p>
 
