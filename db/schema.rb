@@ -9,7 +9,18 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20090308192206) do
+ActiveRecord::Schema.define(:version => 20090320214610) do
+
+  create_table "article_revisions", :force => true do |t|
+    t.integer  "revision"
+    t.string   "title"
+    t.string   "description"
+    t.string   "body"
+    t.integer  "article_id"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "articles", :force => true do |t|
     t.string   "title"
@@ -18,7 +29,17 @@ ActiveRecord::Schema.define(:version => 20090308192206) do
     t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.boolean  "published",   :default => false
+    t.boolean  "published",           :default => false
+    t.integer  "current_revision_id"
+  end
+
+  create_table "drafts", :force => true do |t|
+    t.string   "body"
+    t.boolean  "ready",      :default => false
+    t.integer  "news_id"
+    t.integer  "article_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "events", :force => true do |t|

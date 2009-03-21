@@ -13,6 +13,7 @@
     <th>Title</th>
     <th>Created</th>
     <th>Status</th>
+		<th>Revision</th>
   </tr>
 
 	<% for article in @articles %>
@@ -23,6 +24,7 @@
 	    </td>
 		  <td><%=h short_date(article.created_at) %></td>
 		  <td><%= article.published? ? "published" : "unpublished" %></td>
+			<td><%= article.current_revision_id %></td>
 	  </tr>
 	<% end %>
 </table>

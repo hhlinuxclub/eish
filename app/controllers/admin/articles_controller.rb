@@ -4,9 +4,9 @@ class Admin::ArticlesController < ApplicationController
   def index
     user = User.find(session[:user_id], :include => :role)
     if user.role.can_update? || user.role.can_delete? || user.role.can_publish? || user.role.can_administer?
-      @articles = Article.find(:all, :order => "created_at DESC")
+      @articles = Article.find(:all, :order => "created_at DESC", :include => :article_revisions)
     else
-      @articles = Article.find_all_by_user_id(user.id)
+      @articles = Article.find_all_by_user_id(user.id, :include => :article_revisions)
     end
     @featured_article = Setting.option("featured_article").to_i
 
@@ -103,5 +103,12 @@ class Admin::ArticlesController < ApplicationController
       end
       format.html { redirect_to admin_articles_url }
     end
+  end
+  
+  def preview
+    @title = params[:title]
+    @description = params[:description]
+    @body = RedCloth.new(params[:body]).to_html
+    render :layout => false
   end
 end

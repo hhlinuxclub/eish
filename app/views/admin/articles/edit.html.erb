@@ -1,3 +1,15 @@
+<script type="text/javascript">
+	$(function() {
+		$("#preview").dialog({
+			autoOpen: false,
+			bgiframe: true,
+			height: 400,
+			width: 700,
+			modal: true
+		});
+	});
+</script>
+
 <h2>Editing article</h2>
 
 <% form_for [:admin, @article] do |f| %>
@@ -27,8 +39,12 @@
 	
 	<p>
 		<%= f.submit "Update" %>
+		<%= button_to_remote "Preview", :url => { :action => "preview" }, :update => "preview", :method => :post, :with => "'body=' + $('#article_body').val() + '&amp;title=' + $('#article_title').val() + '&amp;description=' + $('#article_description').val()" %>
 	</p>
 <% end %>
+
+<div id="preview" title="Preview">
+</div>
 
 <p>
 	<%= link_to 'Show', admin_article_path(@article) %> |
