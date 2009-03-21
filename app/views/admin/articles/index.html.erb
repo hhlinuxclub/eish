@@ -1,15 +1,29 @@
-<h2 class="title">Listing articles</h2>
+<script type="text/javascript">  
+	$(document).ready(function() {
+		$("#bulk_check").click(function() {
+			this.checked = !(this.checked == true);
+			var ischecked = !(this.checked == true);
+			$("input:checkbox").attr("checked", function() {
+				this.checked = ischecked;
+			});
+		});
+	});
+</script>
 
 <p><%= link_to "Add article", new_admin_article_path, :class => 'add' %></p>
-<form>
-	<label for="actions">Bulk actions:</label> 	<select name="actions">
-									<option value="publish">Publish</option>
-									<option value="unpublish">Unpublish</option>
-									<option value="delete">Delete</option>
-								</select>
+
+<% form_tag("articles/bulk_action") do %>
+	<label for="actions">Bulk actions:</label>
+	<select name="actions">
+		<option value="publish">Publish</option>
+		<option value="unpublish">Unpublish</option>
+		<option value="delete">Delete</option>
+	</select>
+	<%= submit_tag "Do action" %>
+
 <table>
   <tr>
-	  <th><input type="checkbox" /></th>
+	  <th><input type="checkbox" id="bulk_check" /></th>
     <th>Title</th>
     <th>Created</th>
     <th>Status</th>
@@ -18,7 +32,7 @@
 
 	<% for article in @articles %>
 		<tr class="<%= article.published? ? "published" : "unpublished" %>">
-			<td class="checkbox"><input type="checkbox" /></td>
+			<td class="checkbox"><input type="checkbox" name="articles[<%= article.id %>]" class="check_me" /></td>
 	    <td><%= link_to article.title, { :id => article.id, :action => "edit" }, { :title => "Edit", :class => "listingTitle" } %><br />
 	    		<%=h truncate(article.description, 50, "...") %>
 	    </td>
@@ -28,5 +42,4 @@
 	  </tr>
 	<% end %>
 </table>
-
-</form>
+<% end %>

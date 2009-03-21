@@ -73,20 +73,6 @@ class Admin::ArticlesController < ApplicationController
     end
   end
   
-  def toggle_publish
-    article = Article.find(params[:id])
-    article.published = !article.published
-    
-    respond_to do |format|
-      if article.save
-        flash[:notice] = article.published ? "The article is now published." : "The article is now unpublished."
-      else
-        flash[:error] = "Some error occurred. Nothing was changed."
-      end
-      format.html { redirect_to(admin_articles_url) }
-    end
-  end
-  
   def feature
     setting = Setting.find_by_option("featured_article")
     article_to_feature = params[:id]
@@ -110,5 +96,40 @@ class Admin::ArticlesController < ApplicationController
     @description = params[:description]
     @body = RedCloth.new(params[:body]).to_html
     render :layout => false
+  end
+  
+  def diff
+    @revisions = ArticleRevision.find_all_by_article_id_and_revision(params[:id], [params[:rev_a], params[:rev_b]])
+    
+    respond_to do |format|
+      format.html
+    end
+  end
+  
+  def change_revision
+    article = Article.find(params[:id]).change_to_revision(params[:revision])
+    
+    respond_to do |format|
+      format.html { redirect_to edit_admin_article_path(params[:id]) }
+    end
+  end
+  
+  def bulk_action
+    selected = []
+    params[:articles].each { |k,v| selected << k if v == "on" }
+    articles = Article.find(selected)
+    
+    case params[:actions]
+      when "delete"
+        articles.each { |a| a.destroy }
+      when "publish"
+        articles.each { |a| a.publish }
+      when "unpublish"
+        articles.each { |a| a.publish(false) }
+    end
+    
+    respond_to do |format|
+      format.html { redirect_to admin_articles_path }
+    end
   end
 end
