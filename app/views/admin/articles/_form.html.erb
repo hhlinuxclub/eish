@@ -1,0 +1,49 @@
+<script type="text/javascript">
+	$(function() {
+		$("#preview").dialog({
+			autoOpen: false,
+			bgiframe: true,
+			height: 400,
+			width: 700,
+			modal: true
+		});
+	});
+ /* jQuery textarea resizer plugin usage */
+	$(document).ready(function() {
+		$('textarea.resizable:not(.processed)').TextAreaResizer();
+	});
+</script>
+
+<% form_for [:admin, @article] do |f| %>
+  <%= f.error_messages%>
+
+	<p>
+		<%= f.label :title %><br />
+		<%= f.text_field :title, :class => "titleField", :size => 39 %>
+	</p>
+	
+	<p>
+		<%= f.label :description %><br />
+		<%= f.text_field :description, :size => 75 %>
+	</p>
+	
+	<p>
+		<%= f.label :body %><br />
+	<span id="textileEditor">
+		<%= f.textile_editor :body, :cols => 85, :rows => 20, :class => "resizable" %>
+	</span>	
+	</p>
+
+	<p>
+		<%= f.label :published %><br />
+		<%= f.check_box :published %>
+	</p>
+	
+	<p>
+		<%= f.submit submit_value ||= "Submit" %>
+		<%= button_to_remote "Preview", :url => { :action => "preview" }, :update => "preview", :method => :post, :with => "'body=' + $('#article_body').val() + '&amp;title=' + $('#article_title').val() + '&amp;description=' + $('#article_description').val()" %>
+	</p>
+<% end %>
+
+<div id="preview" title="Preview">
+</div>
