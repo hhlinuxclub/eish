@@ -273,3 +273,8 @@ div.grippie {
 	display:block;
 	margin-bottom:0pt;
 }
+
+.titleField {
+	font-size: 16pt;
+	font-weight: bold;
+}
