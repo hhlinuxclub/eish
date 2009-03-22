@@ -81,7 +81,22 @@ body {
 	color: #fff;
 }
 
+#userLinks {
+	position: absolute;
+	top: 0px;
+	right: 0px;
+	color: #666;
+	padding-top: 20px;
+}
 
+#userLinks a {
+	text-decoration: none;
+}
+
+#userLinks a:hover {
+	text-decoration: underline;
+	color: #0066cb;
+}
 
 #content {
 	padding: 0px 20px 20px;
