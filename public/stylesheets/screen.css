@@ -81,57 +81,7 @@ body {
 	color: #fff;
 }
 
-#sidebars {
-	width: 200px;
-	margin: 0 -20px 0 20px;
-	float: right;
-	background: #000 url('../images/box_stripe.png') repeat;
-	-moz-border-radius-bottomleft: 5px;
-	-webkit-border-bottom-left-radius: 5px;
-	border-left: 2px solid #404447;
-	border-bottom: 2px solid #404447;
-}
 
-#sidebars h2 {
-	display:none;
-	font-size: 10pt;
-	text-transform: lowercase;
-	text-align: center;
-	border-bottom: 1px solid #CCCCCC;
-	margin: 5px 10px;
-	color: #848C93;
-}
-
-#sidebars li {
-	list-style: none;
-	font-size: 10pt;
-}
-
-#sidebars a:hover {
-	color: #848C93;
-}
-
-#sidebars label {
-	color: #848C93;
-}
-
-#userSidebar {
-	text-align: center;
-}
-
-#userSidebar .field {
-	width: 160px;
-	border: 1px solid #848C93;
-}
-
-#userSidebar label {
-	font-size: 9pt;
-	text-transform: lowercase;
-}
-
-#sidebarForgotLink {
-	font-size: x-small;
-}
 
 #content {
 	padding: 0px 20px 20px;
