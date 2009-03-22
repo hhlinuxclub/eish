@@ -1,3 +1,10 @@
+<script type="text/javascript">
+ /* jQuery textarea resizer plugin usage */
+	$(document).ready(function() {
+		$('textarea.resizable:not(.processed)').TextAreaResizer();
+	});
+</script>
+
 <% form_for [:admin, @event] do |f| %>
 	<%= f.error_messages %>
 	
@@ -27,7 +34,7 @@
 	
 	<p>
 		<%= f.label :description %><br />
-		<%= f.text_area :description %>
+		<%= f.text_area :description, :cols => 85, :rows => 10, :class => "resizable"  %>
 	</p>
 	
 	<p>
