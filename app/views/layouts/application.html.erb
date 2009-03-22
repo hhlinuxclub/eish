@@ -32,7 +32,7 @@
 							<% end %>
 								&brvbar; <%= link_to "Logout", :controller => "users", :action => "logout" %> </p>
 						<% else %>
-							<p><%= link_to "Login", :controller => "users", :action => "login" %></p>
+							<p><%= link_to "Login", :controller => "users", :action => "login" %> &brvbar; <%= link_to "Register", :controller => "users", :action => "register" %></p>
 						<% end %>
 					<% end %>
 		    </div>
