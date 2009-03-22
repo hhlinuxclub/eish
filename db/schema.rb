@@ -33,15 +33,6 @@ ActiveRecord::Schema.define(:version => 20090320214610) do
     t.integer  "current_revision_id"
   end
 
-  create_table "drafts", :force => true do |t|
-    t.string   "body"
-    t.boolean  "ready",      :default => false
-    t.integer  "news_id"
-    t.integer  "article_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
   create_table "events", :force => true do |t|
     t.string   "name"
     t.datetime "starts_at"
