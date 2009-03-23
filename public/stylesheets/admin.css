@@ -278,3 +278,12 @@ div.grippie {
 	font-size: 16pt;
 	font-weight: bold;
 }
+
+input[type=text],
+input[type=password],
+input[type=checkbox],
+input[type=radio],
+textarea,
+select {
+	border: 1px solid #999;
+}
