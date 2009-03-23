@@ -41,6 +41,7 @@ class Admin::EventsController < ApplicationController
 
   def create
     @event = Event.new(params[:event])
+    @event.user_id = session[:user_id]
     
     if params[:event][:all_day] == "1"
       @event.starts_at = Time.local(@event.starts_at.year, @event.starts_at.month, @event.starts_at.day, 0, 0, 0)
