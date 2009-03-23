@@ -1,7 +1,12 @@
 class Event < ActiveRecord::Base
   belongs_to :user
   
-  attr_accessor :all_day
+  attr_accessor :all_day, :starts_at_date, :starts_at_time, :ends_at_date, :ends_at_time
+  
+  validates_presence_of :name, :description
+  validates_presence_of :starts_at, :if => Proc.new { |event| event.starts_at_date.nil? || event.starts_at_time.nil? }
+  validates_presence_of :starts_at_date, :if => Proc.new { |event| event.starts_at.nil? }
+  validates_presence_of :starts_at_time, :if => Proc.new { |event| event.starts_at.nil? }
   
   def ongoing?
     return self.starts_at < DateTime.now
@@ -88,5 +93,14 @@ class Event < ActiveRecord::Base
     end
     
     save
+  end
+  
+  def before_save
+    if !self.starts_at_date.nil? && !self.starts_at_time.nil?
+      self.starts_at = DateTime.strptime(self.starts_at_date.strip + " " + self.starts_at_time.strip, "%d.%m.%Y %H:%M")
+    end
+    if !self.ends_at_date.nil? && !self.ends_at_time.nil?
+      self.ends_at = DateTime.strptime(self.ends_at_date.strip + " " + self.ends_at_time.strip, "%d.%m.%Y %H:%M")
+    end
   end
 end
