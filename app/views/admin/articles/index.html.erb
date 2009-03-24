@@ -34,7 +34,7 @@
 
 	<% for article in @articles %>
 		<tr class="<%= article.published? ? "published" : "unpublished" %>">
-			<td class="checkbox"><input type="checkbox" name="articles[<%= article.id %>]" class="check_me" /></td>
+			<td class="checkbox"><input type="checkbox" name="articles[<%= article.id %>]" /></td>
 	    <td><%= link_to article.title, { :id => article.id, :action => "edit" }, { :title => "Edit", :class => "listingTitle" } %><br />
 	    		<%=h truncate(article.description, 50, "...") %>
 	    </td>
