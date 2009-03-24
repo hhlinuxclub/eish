@@ -2,7 +2,7 @@ class Admin::ArticlesController < ApplicationController
   layout "admin"
  
   def index
-    user = User.find(session[:user_id], :include => :role)
+    user = User.find(session[:user_id])
     if user.role.can_update? || user.role.can_delete? || user.role.can_publish? || user.role.can_administer?
       @articles = Article.find(:all, :order => "created_at DESC", :include => :article_revisions)
     else
@@ -27,49 +27,81 @@ class Admin::ArticlesController < ApplicationController
 
   def new
     @article = Article.new
+    user = User.find(session[:user_id])
 
     respond_to do |format|
-      format.html
+      if user.role.can_create?
+        format.html
+      else
+        format.html { redirect_to admin_articles_path }
+      end
     end
   end
 
   def edit
     @article = Article.find(params[:id])
+    user = User.find(session[:user_id])
+    
+    respond_to do |format|
+      if user.role.can_update? || user.id == @article.user_id
+        format.html
+      else
+        format.html { redirect_to admin_articles_path }
+      end
+    end
   end
 
   def create
     @article = Article.new(params[:article])
     @article.user_id = session[:user_id]
+    user = User.find(session[:user_id])
 
     respond_to do |format|
-      if @article.save
-        flash[:notice] = 'Article was successfully created.'
-        format.html { redirect_to(admin_article_path(@article)) }
+      if user.role.can_create?
+        if @article.save
+          flash[:notice] = "Article was successfully created."
+          format.html { redirect_to(admin_article_path(@article)) }
+        else
+          format.html { render :action => "new" }
+        end
       else
-        format.html { render :action => "new" }
+        format.html { redirect_to admin_articles_path }
       end
     end
   end
 
   def update
     @article = Article.find(params[:id])
+    user = User.find(session[:user_id])
 
     respond_to do |format|
-      if @article.update_attributes(params[:article])
-        flash[:notice] = 'Article was successfully updated.'
-        format.html { redirect_to(admin_article_path(@article)) }
+      if user.role.can_update? || @article.user_id == user.id
+        if @article.update_attributes(params[:article])
+          flash[:notice] = "Article was successfully updated."
+          format.html { redirect_to admin_article_path(@article) }
+        else
+          format.html { render :action => "edit" }
+        end
       else
-        format.html { render :action => "edit" }
+        format.html { redirect_to admin_articles_path }
       end
     end
   end
 
   def destroy
     @article = Article.find(params[:id])
-    @article.destroy
+    user = User.find(session[:user_id])
+    
+    if user.role.can_delete?
+      if @article.destroy
+        flash[:notice] = "Article was successfully deleted."
+      else
+        flash[:error] = "Some error happened. The article was not deleted."
+      end
+    end
 
     respond_to do |format|
-      format.html { redirect_to(admin_articles_url) }
+      format.html { redirect_to admin_articles_path }
     end
   end
   
@@ -116,16 +148,17 @@ class Admin::ArticlesController < ApplicationController
   
   def bulk_action
     selected = []
-    params[:articles].each { |k,v| selected << k if v == "on" }
+    params[:articles].each { |id, value| selected << id if value == "on" }
     articles = Article.find(selected)
+    user = User.find(session[:user_id])
     
     case params[:actions]
       when "delete"
-        articles.each { |a| a.destroy }
+        articles.each { |a| a.destroy } if user.role.can_delete?
       when "publish"
-        articles.each { |a| a.publish }
+        articles.each { |a| a.publish } if user.role.can_publish?
       when "unpublish"
-        articles.each { |a| a.publish(false) }
+        articles.each { |a| a.publish(false) } if user.role.can_publish?
     end
     
     respond_to do |format|
