@@ -138,10 +138,11 @@ td {
 }
 
 th {
-	background: #F0F0F0;
-	border: 1px solid #D9D9D9;
+	background: #141414;
+	border: 1px solid #141414;
 	padding: 5px 0px;
-	color: #282828;
+	color: #ccc;
+	font-size: 10pt;
 	font-weight: bold;
 }
 
@@ -171,11 +172,11 @@ th {
 }
 
 .published {
-	background-color: #D1FFEC;
+	background-color: #fff;
 }
 
 .unpublished {
-	background-color: #FFB5D3;
+	background-color: #eee;
 }
 
 a:link,
