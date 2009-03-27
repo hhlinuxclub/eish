@@ -6,7 +6,7 @@ class Admin::ArticlesController < ApplicationController
     if user.role.can_update? || user.role.can_delete? || user.role.can_publish? || user.role.can_administer?
       @articles = Article.find(:all, :order => "created_at DESC", :include => :article_revisions)
     else
-      @articles = Article.find_all_by_user_id(user.id, :include => :article_revisions)
+      @articles = Article.find_all_by_user_id(user.id, :order => "created_at DESC", :include => :article_revisions)
     end
     @featured_article = Setting.option("featured_article").to_i
 
@@ -124,9 +124,6 @@ class Admin::ArticlesController < ApplicationController
   end
   
   def preview
-    @title = params[:title]
-    @description = params[:description]
-    @body = RedCloth.new(params[:body]).to_html
     render :layout => false
   end
   
@@ -147,18 +144,20 @@ class Admin::ArticlesController < ApplicationController
   end
   
   def bulk_action
-    selected = []
-    params[:articles].each { |id, value| selected << id if value == "on" }
-    articles = Article.find(selected)
-    user = User.find(session[:user_id])
+    unless params[:articles].nil?
+      selected = []
+      params[:articles].each { |id, value| selected << id if value == "on" }
+      articles = Article.find(selected)
+      user = User.find(session[:user_id])
     
-    case params[:actions]
-      when "delete"
-        articles.each { |a| a.destroy } if user.role.can_delete?
-      when "publish"
-        articles.each { |a| a.publish } if user.role.can_publish?
-      when "unpublish"
-        articles.each { |a| a.publish(false) } if user.role.can_publish?
+      case params[:actions]
+        when "delete"
+          articles.each { |a| a.destroy } if user.role.can_delete?
+        when "publish"
+          articles.each { |a| a.publish } if user.role.can_publish?
+        when "unpublish"
+          articles.each { |a| a.publish(false) } if user.role.can_publish?
+      end
     end
     
     respond_to do |format|
