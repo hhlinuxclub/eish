@@ -1,23 +1,29 @@
+<%= render :partial => "admin/index_js" %>
+
 <h2 class="title">Listing news</h2>
 
 <p><%= link_to "Add news article", new_admin_news_article_path, :class => 'add' %></p>
-<form>
-	<label for="actions">Bulk actions:</label> 	<select name="actions">
-									<option value="publish">Publish</option>
-									<option value="unpublish">Unpublish</option>
-									<option value="delete">Delete</option>
-								</select>
+
+<% form_tag("news/bulk_action") do %>
+	<label for="actions">Bulk actions:</label>
+	<select name="actions">
+		<option value="publish">Publish</option>
+		<option value="unpublish">Unpublish</option>
+		<option value="delete">Delete</option>
+	</select>
+	<%= submit_tag "Do action" %>
+	
 <table>
   <tr>
-	  <th><input type="checkbox" /></th>
+	  <th><input type="checkbox" id="bulk_check" /></th>
     <th>Title</th>
     <th>Created</th>
-    <th>Status</th>
+		<th>Status</th>
   </tr>
 
 	<% for news_article in @news %>
 		<tr class="<%= news_article.published? ? "published" : "unpublished" %>">
-			<td class="checkbox"><input type="checkbox" /></td>
+			<td class="checkbox"><input type="checkbox" name="news[<%= news_article.id %>]" /></td>
 	    <td><%= link_to news_article.title, { :id => news_article.id, :action => "edit" }, { :title => "Edit", :class => "listingTitle" } %><br />
 	    		<%=h truncate(news_article.body, 50, "...") %>
 	    </td>
@@ -27,4 +33,4 @@
 	<% end %>
 </table>
 
-</form>
+<% end %>

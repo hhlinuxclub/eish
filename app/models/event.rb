@@ -5,18 +5,22 @@ class Event < ActiveRecord::Base
   
   validates_presence_of :name, :description
   validates_presence_of :starts_at, :if => Proc.new { |event| event.starts_at_date.nil? || event.starts_at_time.nil? }
+  validates_presence_of :ends_at, :if => Proc.new { |event| event.ends_at_date.nil? || event.ends_at_time.nil? }
   validates_presence_of :starts_at_date, :if => Proc.new { |event| event.starts_at.nil? }
   validates_presence_of :starts_at_time, :if => Proc.new { |event| event.starts_at.nil? }
+  validates_presence_of :ends_at_date, :if => Proc.new { |event| event.ends_at.nil? }
+  validates_presence_of :ends_at_time, :if => Proc.new { |event| event.ends_at.nil? }
+  validate :date_range_and_format
   
   def ongoing?
-    return self.starts_at < DateTime.now
+    return self.starts_at < Time.now
   end
   
   def self.upcoming(limit=:all)
     if limit == :all
       return find_all_by_published(true, :conditions => "starts_at > '#{Date.today.to_s(:db)} 00:00:00'", :order => "starts_at")
     else
-      return find_all_by_published(true, :conditions => "starts_at > '#{DateTime.now.to_s(:db)}'", :order => "starts_at", :limit => limit)
+      return find_all_by_published(true, :conditions => "starts_at > '#{Time.now.to_s(:db)}'", :order => "starts_at", :limit => limit)
     end
   end
   
@@ -95,12 +99,43 @@ class Event < ActiveRecord::Base
     save
   end
   
-  def before_save
-    if !self.starts_at_date.nil? && !self.starts_at_time.nil?
-      self.starts_at = DateTime.strptime(self.starts_at_date.strip + " " + self.starts_at_time.strip, "%d.%m.%Y %H:%M")
-    end
-    if !self.ends_at_date.nil? && !self.ends_at_time.nil?
-      self.ends_at = DateTime.strptime(self.ends_at_date.strip + " " + self.ends_at_time.strip, "%d.%m.%Y %H:%M")
-    end
+  def publish(status=true)
+    self.published = status
+    self.save_without_validation
   end
+    
+  private
+  
+    def date_range_and_format
+      starts = []
+      ends = [] 
+      starts_at_date = self.starts_at_date.split(/[\.|\/]/).reverse
+      starts_at_time = self.starts_at_time.split(":")
+      ends_at_date = self.ends_at_date.split(/[\.|\/]/).reverse
+      ends_at_time = self.ends_at_time.split(":")
+      starts = starts + starts_at_date if starts_at_date.count == 3
+      starts = starts + starts_at_time if starts_at_time.count == 2
+      ends = ends + ends_at_date if ends_at_date.count == 3
+      ends = ends + ends_at_time if ends_at_time.count == 2
+      
+      if !self.starts_at_date.nil? && !self.starts_at_time.nil?
+        begin
+          self.starts_at = Time.local(starts[0], starts[1], starts[2], starts[3], starts[4])
+        rescue
+          errors.add_to_base("Invalid start date and/or time")
+        end
+      end
+      
+      if !self.ends_at_date.nil? && !self.ends_at_time.nil?
+        begin
+          self.ends_at = Time.local(ends[0], ends[1], ends[2], ends[3], ends[4])
+        rescue
+          errors.add_to_base("Invalid end date and/or time")
+        end
+      end
+      
+      if !starts_at.nil? && !ends_at.nil? && ends_at < starts_at
+        errors.add_to_base("The event cannot end before it starts")
+      end
+    end
 end

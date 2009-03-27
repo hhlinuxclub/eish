@@ -1,5 +1,7 @@
 <h2>Editing news article</h2>
 
+<%= render :partial => "admin/form_js" %>
+
 <% form_for(:news_article, @news_article, :controller => "admin/news", :url => { :action => "update"}, :html => { :method => :put }) do |f| %>
   <%= f.error_messages %>
 
@@ -7,20 +9,22 @@
     <%= f.label :title %><br />
     <%= f.text_field :title, :class => "titleField", :size => 39 %>
   </p>
+
   <p>
     <%= f.label :body %><br />
     <span id="textileEditor">
-       <%= f.textile_editor :body, :cols => 85, :rows => 20 %>
-    </span>	
+       <%= f.textile_editor :body, :cols => 85, :rows => 20, :class => "resizable" %>
+    </span>
   </p>
-	<p>
-		<%= f.label :published %>
-		<%= f.check_box :published %>
-	</p>
+
   <p>
-    <%= f.submit "Update" %>
+    <%= f.submit submit_value ||= "Submit" %>
+		<%= button_to_remote "Preview", :url => { :action => "preview" }, :update => "preview", :method => :post, :with => "'title=' + $('#news_article_title').val() + '&amp;body=' + $('#news_article_body').val()" %>
   </p>
 <% end %>
+
+<div id="preview" title="Preview">
+</div>
 
 <p>
 	<%= link_to 'Show', admin_news_article_path(@news_article) %> |

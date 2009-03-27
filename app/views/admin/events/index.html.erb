@@ -1,30 +1,36 @@
+<%= render :partial => "admin/index_js" %>
+
 <h2 class="title">Events</h2>
 
 <p><%= link_to "Add event", new_admin_event_path, :class => 'add' %></p>
-<form>
-	<label for="actions">Bulk actions:</label> 	<select name="actions">
-									<option value="publish">Publish</option>
-									<option value="unpublish">Unpublish</option>
-									<option value="delete">Delete</option>
-								</select>
+
+<% form_tag("events/bulk_action") do %>
+	<label for="actions">Bulk actions:</label> 
+	<select name="actions">
+		<option value="publish">Publish</option>
+		<option value="unpublish">Unpublish</option>
+		<option value="delete">Delete</option>
+	</select>
+	<%= submit_tag "Do action" %>
+	
 <table>
 	<tr>
-		<th><input type="checkbox" /></th>
+		<th><input type="checkbox" id="bulk_check" /></th>
 		<th>Name</th>
 		<th>Date</th>
 		<th>Location</th>
 		<th>Status</th>
 	</tr>
 
-<% for event in @events %>
-	<tr class="<%= event.published? ? "published" : "unpublished" %>">
-		<td class="checkbox"><input type="checkbox" /></td>
-		<td><%= link_to event.name, { :id => event.id, :action => "edit" }, { :title => "Edit", :class => "listingTitle" } %><br />
-	    		<%=h truncate(event.description, 50, "...") %>
-		<td><%= format_event_dates(event) %></td>
-		<td><%=h event.location %></td>
-			<td><%= event.published? ? "published" : "unpublished" %></td>
-	</tr>
-<% end %>
+	<% for event in @events %>
+		<tr class="<%= event.published? ? "published" : "unpublished" %>">
+			<td class="checkbox"><input type="checkbox" name="events[<%= event.id %>]" /></td>
+			<td><%= link_to event.name, { :id => event.id, :action => "edit" }, { :title => "Edit", :class => "listingTitle" } %><br />
+		    		<%=h truncate(event.description, 50, "...") %>
+			<td><%= format_event_dates(event) %></td>
+			<td><%=h event.location %></td>
+				<td><%= event.published? ? "published" : "unpublished" %></td>
+		</tr>
+	<% end %>
 </table>
-</form>
+<% end %>

@@ -7,12 +7,9 @@
 			showButtonPanel: true,
 		});
 	});
-
- /* jQuery textarea resizer plugin usage */
-	$(document).ready(function() {
-		$('textarea.resizable:not(.processed)').TextAreaResizer();
-	});
 </script>
+
+<%= render :partial => "admin/form_js" %>
 
 <% form_for [:admin, @event] do |f| %>
 	<%= f.error_messages %>
@@ -55,5 +52,9 @@
 	
 	<p>
 		<%= f.submit submit_value ||= "Submit" %>
+		<%= button_to_remote "Preview", :url => { :action => "preview" }, :update => "preview", :method => :post, :with => "'name=' + $('#event_name').val() + '&amp;starts_at_date=' + $('#event_starts_at_date').val() + '&amp;starts_at_time=' + $('#event_starts_at_time').val() + '&amp;ends_at_date=' + $('#event_ends_at_date').val() + '&amp;ends_at_time=' + $('#event_ends_at_time').val() + '&amp;location=' + $('#event_location').val() + '&amp;description=' + $('#event_description').val()" %>
 	</p>
 <% end %>
+
+<div id="preview" title="Preview">
+</div>
