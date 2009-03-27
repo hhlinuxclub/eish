@@ -4,6 +4,6 @@
 	});
 </script>
 
-<h1 class="title"><%= @title %></h1>
-<p><b><%= @description %></b></p>
-<%= @body %>
+<h1 class="title"><%= params[:title] %></h1>
+<p><b><%= params[:description] %></b></p>
+<%= RedCloth.new(params[:body]).to_html %>
