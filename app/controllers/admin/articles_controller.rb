@@ -72,6 +72,7 @@ class Admin::ArticlesController < ApplicationController
 
   def update
     @article = Article.find(params[:id])
+    @article.updated_by_user_id = session[:user_id]
     user = User.find(session[:user_id])
 
     respond_to do |format|

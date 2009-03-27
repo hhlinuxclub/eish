@@ -4,6 +4,8 @@ class Article < ActiveRecord::Base
   
   named_scope :all_published, :conditions => { :published => true }
   
+  attr_accessor :updated_by_user_id
+  
   def before_create
     self.current_revision_id = 1
   end
@@ -24,7 +26,7 @@ class Article < ActiveRecord::Base
   def after_validation_on_update
     latest_revision = ArticleRevision.maximum(:revision, :conditions => "article_id = #{id}") || 0
     self.current_revision_id = latest_revision + 1
-    ArticleRevision.create :revision => latest_revision + 1, :title => title, :description => description, :body => body, :user_id => user_id, :article_id => id
+    ArticleRevision.create :revision => latest_revision + 1, :title => title, :description => description, :body => body, :user_id => updated_by_user_id, :article_id => id
   end
   
   def publish(status=true)
