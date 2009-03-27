@@ -1,9 +1,3 @@
-/* hhlc.eish! web application CSS
- * 
- * Homepage: http://hhlinuxclub.org/
- * Repository: http://github.com/jcxplorer/hhlc/tree/master	
- */
-
 body {
 	margin: 0px;
 	padding: 0px;
@@ -86,7 +80,7 @@ body {
 	top: 0px;
 	right: 0px;
 	color: #666;
-	padding-top: 20px;
+	margin-top: 20px;
 }
 
 #userLinks a {
