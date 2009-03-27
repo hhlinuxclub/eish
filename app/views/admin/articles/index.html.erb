@@ -1,14 +1,4 @@
-<script type="text/javascript">  
-	$(document).ready(function() {
-		$("#bulk_check").click(function() {
-			this.checked = !(this.checked == true);
-			var ischecked = !(this.checked == true);
-			$("input:checkbox").attr("checked", function() {
-				this.checked = ischecked;
-			});
-		});
-	});
-</script>
+<%= render :partial => "admin/index_js" %>
 
 <h2 class="title">Listing articles</h2>
 

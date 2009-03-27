@@ -1,18 +1,4 @@
-<script type="text/javascript">
-	$(function() {
-		$("#preview").dialog({
-			autoOpen: false,
-			bgiframe: true,
-			height: 400,
-			width: 700,
-			modal: true
-		});
-	});
- /* jQuery textarea resizer plugin usage */
-	$(document).ready(function() {
-		$('textarea.resizable:not(.processed)').TextAreaResizer();
-	});
-</script>
+<%= render :partial => "admin/form_js" %>
 
 <% form_for [:admin, @article] do |f| %>
   <%= f.error_messages%>
