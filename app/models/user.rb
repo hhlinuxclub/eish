@@ -3,6 +3,7 @@ require 'digest/sha1'
 class User < ActiveRecord::Base
   belongs_to :role
   has_many :articles
+  has_many :article_revisions
   has_many :events
   has_many :galleries
   has_many :images
