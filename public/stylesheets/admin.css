@@ -12,15 +12,16 @@ body {
 
 #header {
 	background: #141414;
-	height: 40px;
-	padding: 0 0 0 20px;
+	height: auto;
 }
 
-#header h2 {
-	background: transparent url('../images/h2Logo.png') no-repeat left center;
-	color: transparent;
-	display: inline;
-	margin-bottom: 0;
+#header img {
+	padding: 10px 20px 10px 20px;
+}
+
+#header p {
+	color: #0066cb;
+	margin: 0;
 }
 
 #content {
