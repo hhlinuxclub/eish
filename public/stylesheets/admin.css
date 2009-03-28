@@ -273,3 +273,13 @@ p,dl,#errorExplanation ul {
 	float: right;
 	margin-right: 5%;
 }
+
+del {
+	text-decoration: line-through;
+	color: red;
+}
+
+ins {
+	text-decoration: underline;
+	color: green;
+}
