@@ -7,7 +7,7 @@ namespace :db do
     names = %w[Abigail Andrew Anthony Ava Christopher Daniel Elizabeth Emily Emma Ethan Hannah Isabella Jacob Joshua Madison Matthew Michael Olivia Sophia William]
     admin_users = []
     
-    [News, Article, Event, User].each(&:delete_all)
+    [News, Article, ArticleRevision, Event, User].each(&:delete_all)
     
     20.times do |i|
       user = User.new
@@ -37,6 +37,8 @@ namespace :db do
       article.user_id = User.all[Populator.value_in_range(0..19)].id
       article.published = true
       article.created_at = Populator.value_in_range(1.year.ago..Time.now)
+      article.current_revision_id = 1
+      ArticleRevision.create :revision => 1, :title => article.title, :description => article.description, :body => article.body, :user_id => article.user_id, :article_id => article.id
     end
     
     Event.populate 30 do |event|
