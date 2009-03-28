@@ -128,16 +128,24 @@ class Admin::ArticlesController < ApplicationController
     render :layout => false
   end
   
-  def diff
-    @revisions = ArticleRevision.find_all_by_article_id_and_revision(params[:id], [params[:rev_a], params[:rev_b]])
+  def compare
+    @revision_a = ArticleRevision.find_by_article_id_and_revision(params[:id], params[:rev_a])
+    @revision_b = ArticleRevision.find_by_article_id_and_revision(params[:id], params[:rev_b])
     
     respond_to do |format|
-      format.html
+      if !@revision_a.nil? && !@revision_b.nil?
+        format.html
+      else
+        format.html { redirect_to edit_admin_article_path(:id => params[:id]) }
+      end
     end
   end
   
   def change_revision
-    article = Article.find(params[:id]).change_to_revision(params[:revision])
+    article = Article.find(params[:id])
+    user = User.find(session[:user_id])
+    
+    article.change_to_revision(params[:revision]) if user.role.can_update? || user.id == article.user_id
     
     respond_to do |format|
       format.html { redirect_to edit_admin_article_path(params[:id]) }

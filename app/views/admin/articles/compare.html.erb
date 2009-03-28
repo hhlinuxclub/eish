@@ -1,0 +1,13 @@
+<div id="revisionA" class="revision">
+	<h2>Revision <%= params[:rev_a] %></h2>
+	<h3 class="title"><%= @revision_a.title %></h3>
+	<p><b><%= @revision_a.description %></b></p>
+	<%= RedCloth.new(@revision_a.body).to_html %>
+</div>
+
+<div id="revisionB" class="revision">
+	<h2>Revision <%= params[:rev_b] %></h2>
+	<h3 class="title"><%= @revision_b.title %></h3>
+	<p><b><%= @revision_b.description %></b></p>
+	<%= RedCloth.new(@revision_b.body).to_html %>
+</div>
