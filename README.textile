@@ -30,6 +30,16 @@ The *bundle-fu* plugin combines bundles separate CSS and JS files in to single f
 
 Both plugins are included as git submodules (See *Initial Setup*) and both are published under the MIT license.
 
+h1. Javascript
+
+* "JQuery":http://jquery.com/
+* "JQueryUI":http://jqueryui.com/
+* "SyntaxHighlighter":http://alexgorbatchev.com/wiki/SyntaxHighlighter
+
+The *JQuery* and "JQuery UI" libraries are dual licensed under both MIT and GPL licenses.
+
+The *SyntaxHighlighter* by Alex Gorbatchev is licensed under "LGPL 3":http://www.gnu.org/licenses/lgpl.html.
+
 h1. Initial Setup
 
 * Clone the git repository to a local directory, and clone the Textile Editor Helper and jQuery plugins.  To do this, execute the following four commands in a terminal.
