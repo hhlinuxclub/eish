@@ -1,46 +1,42 @@
 body {
-	margin: 0px;
-	padding: 0px;
-	font-family: "Helvetica Neue", Helvetica, "Bitstream Vera Sans", "Trebuchet MS", sans-serif;
 	background: #fff;
+	font-family: "Helvetica Neue", Helvetica, "Bitstream Vera Sans", "Trebuchet MS", sans-serif;
+	margin: 0;
+	padding: 0;
 }
 
 #wrapper {
-	padding-top: 0px;
-	margin-top: 0px;
+	margin-top: 0;
+	padding-top: 0;
 }
 
 #header {
-	height: 40px;
 	background: #141414;
-	padding: 0;
-	padding-left: 20px;;
+	height: auto;
 }
 
-#header h2 {
-	display: inline;
-	margin-bottom: 0;
-	background: transparent url('../images/h2Logo.png') no-repeat left center;
-	color: transparent;
+#header img {
+	padding: 10px 20px 10px 20px;
 }
 
-.visitSite {
-	font-weight: bold;
+#header p {
+	color: #0066cb;
+	margin: 0;
 }
 
 #content {
+	background: #fff;
 	float: none;
-	background: #ffffff;
 	margin-left: 200px;
 }
 
 #adminNavigation {
 	float: left;
-	width: 150px;
-	margin-right: 20px;
 	list-style: none;
-	padding: 10px 0px 10px 20px;
-	margin-top: 0px;
+	margin-right: 20px;
+	margin-top: 0;
+	padding: 10px 0 10px 20px;
+	width: 150px;
 }
 
 #adminNavigation li {
@@ -48,41 +44,37 @@ body {
 }
 
 #adminNavigation a {
-	text-decoration: none;
-	padding: 0 20px 0 20px;
-}
-
-#adminNavigation a:hover {
+	padding: 0 20px;
 	text-decoration: none;
 }
 
-.aboutLink{
-	background: url('../images/picol/about_16.png') no-repeat 0px 1px;
+.aboutLink {
+	background: url('../images/picol/about_16.png') no-repeat 0 1px;
 }
 
-.usersLink{
-	background: url('../images/picol/users_16.png') no-repeat 0px 1px;
+.usersLink {
+	background: url('../images/picol/users_16.png') no-repeat 0 1px;
 }
 
-.homeLink{
-	background: url('../images/picol/home_16.png') no-repeat 0px 1px;
+.homeLink {
+	background: url('../images/picol/home_16.png') no-repeat 0 1px;
 }
 
-.articlesLink{
-	background: url('../images/picol/articles_16.png') no-repeat 0px 1px;
+.articlesLink {
+	background: url('../images/picol/articles_16.png') no-repeat 0 1px;
 }
 
-.eventsLink{
-	background: url('../images/picol/events_16.png') no-repeat 0px 1px;
+.eventsLink {
+	background: url('../images/picol/events_16.png') no-repeat 0 1px;
 }
 
-.newsLink{
-	background: url('../images/picol/news_16.png') no-repeat 0px 1px;
+.newsLink {
+	background: url('../images/picol/news_16.png') no-repeat 0 1px;
 }
 
 #footer {
+	background: red;
 	clear: both;
-	background: #ff0000;
 }
 
 img {
@@ -90,85 +82,72 @@ img {
 }
 
 .title {
-	font-family: Georgia, "Bitstream Vera Serif", serif;
 	color: #282828;
-	margin-bottom: 0px;
-	padding-bottom: 0px;
+	font-family: Georgia, "Bitstream Vera Serif", serif;
+	margin-bottom: 0;
+	padding-bottom: 0;
 }
 
-.title a:link,
-.title a:visited {
-	text-decoration: none;
-}
-
-.title a:hover {
+.title a: hover {
 	text-decoration: underline;
 }
 
 .metadata {
-	color: #666666;
-	margin-top: 0px;
-	padding-top: 0px;
+	color: #666;
+	margin-top: 0;
+	padding-top: 0;
 }
 
-.sidebar {	
-	float: right;
+.sidebar {
 	background: none;
 	border: none;
-	width: 180px;
+	float: right;
 	margin-bottom: 5px;
 	padding: 0 10px;
-}
-
-p {
-	font-size: 10pt;
+	width: 180px;
 }
 
 table {
-	width: 80%;
-	font-size: 8pt;
 	border-collapse: collapse;
-	margin-top: 10px;
+	font-size: 8pt;
 	margin-bottom: 10px;
+	margin-top: 10px;
+	width: 80%;
 }
 
 td {
-	border: 1px solid #D9D9D9;
-	padding: 5px 5px;
+	border: 1px solid #d9d9d9;
+	padding: 5px;
 }
 
 th {
-	background: #141414;
-	border: 1px solid #141414;
-	padding: 5px 0px;
-	color: #ccc;
+	background: #eee;
+	border: 1px solid #d9d9d9;
+	color: #444;
 	font-size: 10pt;
 	font-weight: bold;
+	padding: 5px 0;
 }
 
-.checkbox, .radio {
-	text-align: center;
-	padding: 0;
+.checkbox,.radio {
 	margin: 0;
-}
-
-.listingTitle {
-	font-weight: bold;
+	padding: 0;
+	text-align: center;
 }
 
 .classifier {
-	text-transform: uppercase;
+	color: #666;
 	font-size: 7pt;
-	color: #666666;
 	font-weight: bold;
+	text-transform: uppercase;
 }
 
 .errors {
-	border: 3px solid #400000;
-	padding: 0px 20px;
-	margin-bottom: 20px;
 	background: #8C2A2A;
-	color: #ffffff;
+	border: 3px solid #400000;
+	color: #fff;
+	margin-bottom: 20px;
+	padding: 0 20px;
 }
 
 .published {
@@ -179,29 +158,16 @@ th {
 	background-color: #eee;
 }
 
-a:link,
-a:visited {
+a: link,a: visited {
 	color: #0066cb;
 }
 
-a:hover {
-	color: #282828;
-}
-
-dl {
-	font-size: 10pt;
-}
-
-dt {
-	font-weight: bold;
+a: hover {
+color: #282828;
 }
 
 dd {
 	margin-bottom: 10px;
-}
-
-img {
-	border: none;
 }
 
 .pagination {
@@ -210,13 +176,12 @@ img {
 }
 
 .add {
-	background: url('../images/icons/add_16.png') no-repeat 0px 1px;
+	background: url('../images/icons/add_16.png') no-repeat 0 1px;
 	padding-left: 17px;
 }
 
-
 .textField {
-	border: 1px solid #D9D9D9;
+	border: 1px solid #d9d9d9;
 }
 
 label {
@@ -225,66 +190,69 @@ label {
 }
 
 .fieldWithErrors {
+	color: #e00;
 	display: inline;
-	color: #ee0000;
 }
 
 #errorExplanation {
-	width: 590px;
 	background-color: #ffb3b3;
 	border: solid #ff8080 1px;
-	padding: 0px 20px;
-	margin: 20px 0px;
+	margin: 20px 0;
+	padding: 0 20px;
+	width: 590px;
 }
 
 #errorExplanation h2 {
-	font-size: 12pt;
-}
-
-#errorExplanation ul {
-	font-size: 10pt;
+font-size: 12pt;
 }
 
 #flash {
-	font-weight: 700;
 	float: right;
+	font-weight: 700;
 	padding-top: 5px;
 }
 
-#flashNotice,
-#flashLoginNotice {
+#flashNotice,#flashLoginNotice {
 	color: green;
 }
 
-#flashError,
-#flashLoginError {
+#flashError,#flashLoginError {
 	color: red;
 }
 
 div.grippie {
-	background:#EEEEEE url('../images/grippie.png') no-repeat scroll center 2px;
-	border-color:#DDDDDD;
-	border-style:solid;
-	border-width:0pt 1px 1px;
-	cursor:s-resize;
-	height:9px;
-	overflow:hidden;
+	background: #eee url('../images/grippie.png') no-repeat scroll center 2px;
+	border-color: #ddd;
+	border-style: solid;
+	border-width: 0 1px 1px;
+	cursor: s-resize;
+	height: 9px;
+	overflow: hidden;
 }
+
 .resizable-textarea textarea {
-	display:block;
-	margin-bottom:0pt;
+	display: block;
+	margin-bottom: 0;
 }
 
 .titleField {
+	color: #444;
 	font-size: 16pt;
 	font-weight: bold;
 }
 
-input[type=text],
-input[type=password],
-input[type=checkbox],
-input[type=radio],
-textarea,
-select {
+input[type=text],input[type=password],input[type=checkbox],input[type=radio],textarea,select {
 	border: 1px solid #999;
+}
+
+.visitSite,.listingTitle,dt {
+	font-weight: bold;
+}
+
+#adminNavigation a: hover,.title a: link,.title a: visited {
+	text-decoration: none;
+}
+
+p,dl,#errorExplanation ul {
+	font-size: 10pt;
 }
