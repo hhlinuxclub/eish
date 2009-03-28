@@ -3,7 +3,7 @@
 <% form_tag :action => "update" do %>
 	<p>
 	<label for="about">About the club:</label><br />
-		<%= text_area_tag :about, @about, :class => "markItUp" %>
+		<%= text_area_tag :about, @about, :class => "resizeable" %>
 	</p>
 	
 	<%= submit_tag "Save" %>
