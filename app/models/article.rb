@@ -24,13 +24,19 @@ class Article < ActiveRecord::Base
   end
   
   def after_validation_on_update
-    latest_revision = ArticleRevision.maximum(:revision, :conditions => "article_id = #{id}") || 0
-    self.current_revision_id = latest_revision + 1
-    ArticleRevision.create :revision => latest_revision + 1, :title => title, :description => description, :body => body, :user_id => updated_by_user_id, :article_id => id
+    if title != current_revision.title || description != current_revision.description || body != current_revision.body
+      latest_revision = ArticleRevision.maximum(:revision, :conditions => "article_id = #{id}") || 0
+      self.current_revision_id = latest_revision + 1
+      ArticleRevision.create :revision => latest_revision + 1, :title => title, :description => description, :body => body, :user_id => updated_by_user_id, :article_id => id
+    end
   end
   
   def publish(status=true)
     self.published = status
     self.save_without_validation
+  end
+  
+  def current_revision
+    return ArticleRevision.find_by_article_id_and_revision(id, current_revision_id)
   end
 end
