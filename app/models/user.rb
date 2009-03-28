@@ -63,7 +63,7 @@ class User < ActiveRecord::Base
   end
   
   def has_content?
-    [Article, Event, News].each do |model|
+    [Article, ArticleRevision, Event, News].each do |model|
       return true if !model.find_by_user_id(self.id).nil?
     end
     return false
@@ -95,7 +95,11 @@ class User < ActiveRecord::Base
   end
   
   def name_with_role
-    return first_name + " " + last_name + ", " + Role.find(role_id).name
+    if !role_id.nil?
+      return first_name + " " + last_name + ", " + Role.find(role_id).name
+    else
+      return first_name + " " + last_name
+    end
   end
   
   def generate_reset_hash
