@@ -129,12 +129,12 @@ class Admin::ArticlesController < ApplicationController
   end
   
   def compare
-    @revision_a = ArticleRevision.find_by_article_id_and_revision(params[:id], params[:rev_a])
-    @revision_b = ArticleRevision.find_by_article_id_and_revision(params[:id], params[:rev_b])
+    @rev_a = ArticleRevision.find_by_article_id_and_revision(params[:id], params[:rev_a])
+    @rev_b = ArticleRevision.find_by_article_id_and_revision(params[:id], params[:rev_b])
     
     respond_to do |format|
-      if !@revision_a.nil? && !@revision_b.nil?
-        format.html
+      if !@rev_a.nil? && !@rev_b.nil?
+        format.html { @diff = diff(@rev_a.body, @rev_b.body) }
       else
         format.html { redirect_to edit_admin_article_path(:id => params[:id]) }
       end
