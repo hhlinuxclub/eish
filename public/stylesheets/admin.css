@@ -256,3 +256,20 @@ input[type=text],input[type=password],input[type=checkbox],input[type=radio],tex
 p,dl,#errorExplanation ul {
 	font-size: 10pt;
 }
+
+.revision {
+	width: 45%;
+}
+
+.revision h2 {
+	border-bottom: 1px solid #141414;
+}
+
+#revisionA {
+	float: left;
+}
+
+#revisionB {
+	float: right;
+	margin-right: 5%;
+}
