@@ -10,3 +10,5 @@ public/tmp
 config/database.yml
 public/events.ics
 doc/diagrams
+public/javascripts/cache/*
+public/stylesheets/cache/*

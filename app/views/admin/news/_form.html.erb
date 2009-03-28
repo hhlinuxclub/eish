@@ -10,9 +10,7 @@
 
   <p>
     <%= f.label :body %><br />
-    <span id="textileEditor">
-       <%= f.textile_editor :body, :cols => 85, :rows => 20, :class => "resizable" %>
-    </span>
+    <%= f.text_area :body, :cols => 85, :rows => 20, :class => "resizable" %>
   </p>
 
   <p>

@@ -3,9 +3,7 @@
 <% form_tag :action => "update" do %>
 	<p>
 	<label for="about">About the club:</label><br />
-		<span id="textileEditor">
-		<%= textile_editor_tag :about, @about, :cols => 85, :rows => 30 %>
-	</span>	
+		<%= text_area_tag :about, @about, :cols => 85, :rows => 20, :class => "resizeable" %>
 	</p>
 	
 	<%= submit_tag "Save" %>
