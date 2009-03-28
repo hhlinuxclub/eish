@@ -8,7 +8,7 @@ The project is still under heavy development and is lacking most of its features
 
 h2. Releases
 
-At the moment we officially have a release numbered 0.1, but it is no less buggy than the working tree.  Really, we mean it; we only created it for our internal organization of the project.  Let me stress this once more: *do not download v.0.1!*
+At the moment we officially have two releases numbered 0.1 and 0.2, but they are no less buggy than the working tree.  Really, we mean it; we only created them for our internal organization of the project.  *Always download the working tree* until we have a stable release.
 
 h1. Required Gems
 
@@ -33,7 +33,7 @@ Both plugins are included as git submodules (See *Initial Setup*) and both are p
 
 h1. Initial Setup
 
-* Clone the git repository to a local directory, and clone the Textile Editor Helper.  To do this, execute the following four command in a terminal
+* Clone the git repository to a local directory, and clone the Textile Editor Helper and jQuery plugins.  To do this, execute the following four commands in a terminal.
 
 <pre>
 	git clone git://github.com/jcxplorer/hhlc.git
