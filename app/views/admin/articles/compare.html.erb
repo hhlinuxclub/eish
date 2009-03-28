@@ -1,41 +1,15 @@
-<script>
-	$(document).ready(function(){
-		var revisionA_title = $("#revisionA_title").text();
-		var revisionB_title = $("#revisionB_title").text();
-		var revisionA_description = $("#revisionA_description").text();
-		var revisionB_description = $("#revisionB_description").text();
-		var revisionA_body = $("#revisionA_body").html();
-		var revisionB_body = $("#revisionB_body").html();
+<h2 class="title">
+	<%= @rev_a.title %>
+	<% if @rev_a.title.strip != @rev_b.title.strip %>
+		-> <%= @rev_b.title %>
+	<% end %>
+</h2>
 
-    $("#diff_title").html(diffString(revisionA_title, revisionB_title));
-    $("#diff_description").html(diffString(revisionA_description, revisionB_description));
-    $("#diff_body").html(diffString(revisionA_body, revisionB_body));
-    
-    $("#revisionA").remove();
-    $("#revisionB").remove();
-  });
-</script>
+<p><b>
+	<%= @rev_a.description %>
+	<% if @rev_a.description.strip != @rev_b.description.strip %>
+		-> <%= @rev_b.description %>
+	<% end %>
+</b></p>
 
-<div id="diff">
-	<h3 class="title" id="diff_title"></h3>
-	<p id="diff_description" style="font-weight: bold;"></p>
-	<span id="diff_body"></span>
-</div>
-
-<div id="revisionA" class="revision">
-	<h2>Revision <%= params[:rev_a] %></h2>
-	<div id="revisionA_content">
-	<h3 class="title" id="revisionA_title"><%= @revision_a.title %></h3>
-	<p id="revisionA_description" style="font-weight: bold;"><%= @revision_a.description %></p>
-	<span id="revisionA_body"><%= RedCloth.new(@revision_a.body).to_html %></span>
-	</div>
-</div>
-
-<div id="revisionB" class="revision">
-	<h2>Revision <%= params[:rev_b] %></h2>
-	<div id="revisionB_content">
-	<h3 class="title" id="revisionB_title"><%= @revision_b.title %></h3>
-	<p id="revisionB_description" style="font-weight: bold;"><%= @revision_b.description %></p>
-	<span id="revisionB_body"><%= RedCloth.new(@revision_b.body).to_html %></span>
-	</div>
-</div>
+<pre class="brush: diff"><%= @diff %></pre>
