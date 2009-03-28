@@ -21,22 +21,18 @@ h1. Required Gems
 
 h1. Plugins Used
 
-* "Textile Editor Helper":http://github.com/felttippin/textile-editor-helper/tree/master
 * "JRails":http://ennerchi.com/projects/jrails
 * "bundle-fu":http://code.google.com/p/bundle-fu/
-
-The *Textile Editor Helper* was created by Dave Olsen (Javascript) and Chris Scharf (Ruby/Rails) of West Virginia University 
-Web Services.
 
 *jRails* is a drop-in jQuery replacement for Prototype/script.aculo.us on Rails. Using jRails, you can get all of the same default Rails helpers for javascript functionality using the lighter jQuery library. It is maintained by user "aaronchi":http://github.com/aaronchi.
 
 The *bundle-fu* plugin combines bundles separate CSS and JS files in to single files for faster transfer from server to client.  It was created by Timothy Harper.  We are using the fork by "zinf":http://github.com/zinf/bundle-fu/tree/master.
 
-All plugins are included as git submodules (See *Initial Setup*) and all are published under the MIT license.
+Both plugins are included as git submodules (See *Initial Setup*) and both are published under the MIT license.
 
 h1. Initial Setup
 
-* Clone the git repository to a local directory, and clone the Textile Editor Helper.  To do this, execute the following four command in a terminal
+* Clone the git repository to a local directory, and clone the included plugins.  To do this, execute the following four command in a terminal
 
 <pre>
 	git clone git://github.com/jcxplorer/hhlc.git
