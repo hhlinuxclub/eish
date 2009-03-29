@@ -22,7 +22,7 @@
   </tr>
 
 	<% for news_article in @news %>
-		<tr class="<%= news_article.published? ? "published" : "unpublished" %>">
+		<tr class="<%= cycle("odd", "even") %>">
 			<td class="checkbox"><input type="checkbox" name="news[<%= news_article.id %>]" /></td>
 	    <td><%= link_to news_article.title, { :id => news_article.id, :action => "edit" }, { :title => "Edit", :class => "listingTitle" } %><br />
 	    		<%=h truncate(news_article.body, 50, "...") %>

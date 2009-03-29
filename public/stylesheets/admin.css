@@ -121,12 +121,21 @@ td {
 }
 
 th {
-	background: #eee;
-	border: 1px solid #d9d9d9;
-	color: #444;
+	background: #0066cb url('../images/th_background.png') repeat 0 0;
+	border: 1px solid #0066cb;
+	color: #fff;
 	font-size: 10pt;
 	font-weight: bold;
 	padding: 5px 0;
+	height: 35px;
+}
+
+.odd {
+	background: #fff;
+}
+
+.even {
+	background: #eee;
 }
 
 .checkbox,.radio {

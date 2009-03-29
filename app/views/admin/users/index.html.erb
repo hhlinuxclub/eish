@@ -18,7 +18,7 @@
 	</tr>
 
 <% for user in @users %>
-	<tr>
+	<tr class="<%= cycle("odd", "even") %>">
 		<td class="radio"><input type="radio" name="user" value="<%=h user.id %>" /></td>
 		<td><%= link_to user.username, { :id => user.id, :action => "edit" }, { :title => "Edit", :class => "listingTitle" } %><br />
 	    		<%=h user.last_name %>, <%=h user.first_name %>
