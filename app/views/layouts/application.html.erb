@@ -5,7 +5,9 @@
         <title><%= controller.controller_name.capitalize %> &#8211; HHLinuxClub.org</title>
         <% bundle do %>
 		      <%= stylesheet_link_tag 'screen' %>
+		      <%= stylesheet_link_tag 'thickbox' %>
 					<%= javascript_include_tag :defaults %>	
+					<%= javascript_include_tag 'thickbox.js' %>	
 				<% end %>
 				<% if controller.controller_name == "home" %>
 					<%= auto_discovery_link_tag(:atom, "/news.atom", {:title => "News"}) %>
