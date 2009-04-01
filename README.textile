@@ -34,10 +34,9 @@ h1. Javascript
 
 * "JQuery":http://jquery.com/
 * "JQueryUI":http://jqueryui.com/
-* "ThickBox":http://jquery.com/demo/thickbox/
 * "SyntaxHighlighter":http://alexgorbatchev.com/wiki/SyntaxHighlighter
 
-The *JQuery*, *JQuery UI*, and *ThickBox* libraries are dual licensed under both "MIT":http://www.opensource.org/licenses/mit-license.php and "GPL":http://www.gnu.org/licenses/gpl.html licenses.
+The *JQuery* and *JQuery UI* libraries are dual licensed under both "MIT":http://www.opensource.org/licenses/mit-license.php and "GPL":http://www.gnu.org/licenses/gpl.html licenses.
 
 The *SyntaxHighlighter* by Alex Gorbatchev is licensed under "LGPL 3":http://www.gnu.org/licenses/lgpl.html.
 
