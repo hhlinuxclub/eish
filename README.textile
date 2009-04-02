@@ -35,10 +35,13 @@ h1. Javascript
 * "JQuery":http://jquery.com/
 * "JQueryUI":http://jqueryui.com/
 * "SyntaxHighlighter":http://alexgorbatchev.com/wiki/SyntaxHighlighter
+* "jQuery-Lighbox":http://github.com/krewenki/jquery-lightbox/
 
 The *JQuery* and *JQuery UI* libraries are dual licensed under both "MIT":http://www.opensource.org/licenses/mit-license.php and "GPL":http://www.gnu.org/licenses/gpl.html licenses.
 
 The *SyntaxHighlighter* by Alex Gorbatchev is licensed under "LGPL 3":http://www.gnu.org/licenses/lgpl.html.
+
+*jQuery-Lightbox* is licensed under the "BSD license":http://www.opensource.org/licenses/bsd-license.php.  It was ported to jQuery (from Prototype and Scriptaculous) by Warren Krewenki.
 
 h1. Initial Setup
 
