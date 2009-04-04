@@ -13,15 +13,15 @@
 		<% for revision in @article.revisions.reverse %>
 			<tr>
 				<td>
-					<%= revision.revision %>
-					<% if revision.revision == @article.current_revision_id %>
+					<%= revision.number %>
+					<% if revision.number == @article.current_revision_id %>
 						<strong>current</strong>
 					<% else %>
-						<%= link_to "change to", change_revision_path(:id => @article.id, :revision => revision.revision) %>
+						<%= link_to "change to", change_revision_path(:id => @article.id, :revision => revision.number) %>
 					<% end %>
 				</td>
-				<td><input type="radio" name="rev_a" value="<%=h revision.revision %>" /></td>
-				<td><input type="radio" name="rev_b" value="<%=h revision.revision %>" /></td>
+				<td><input type="radio" name="rev_a" value="<%=h revision.number %>" /></td>
+				<td><input type="radio" name="rev_b" value="<%=h revision.number %>" /></td>
 				<td><%= short_date(revision.created_at) %></td>
 				<td><%= revision.user.name_with_role %></td>
 			</tr>

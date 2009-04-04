@@ -129,8 +129,8 @@ class Admin::ArticlesController < ApplicationController
   end
   
   def compare
-    @rev_a = Revision.find_by_article_id_and_revision(params[:id], params[:rev_a])
-    @rev_b = Revision.find_by_article_id_and_revision(params[:id], params[:rev_b])
+    @rev_a = Revision.find_by_article_id_and_number(params[:id], params[:rev_a])
+    @rev_b = Revision.find_by_article_id_and_number(params[:id], params[:rev_b])
     
     respond_to do |format|
       if !@rev_a.nil? && !@rev_b.nil?

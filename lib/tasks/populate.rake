@@ -38,7 +38,7 @@ namespace :db do
       article.published = true
       article.created_at = Populator.value_in_range(1.year.ago..Time.now)
       article.current_revision_id = 1
-      ArticleRevision.create :revision => 1, :title => article.title, :description => article.description, :body => article.body, :user_id => article.user_id, :article_id => article.id
+      ArticleRevision.create :number => 1, :title => article.title, :description => article.description, :body => article.body, :user_id => article.user_id, :article_id => article.id
     end
     
     Event.populate 30 do |event|
