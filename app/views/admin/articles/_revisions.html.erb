@@ -10,7 +10,7 @@
 			<th>User</th>
 		</tr>
 		
-		<% for revision in @article.article_revisions.reverse %>
+		<% for revision in @article.revisions.reverse %>
 			<tr>
 				<td>
 					<%= revision.revision %>

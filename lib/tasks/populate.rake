@@ -7,7 +7,7 @@ namespace :db do
     names = %w[Abigail Andrew Anthony Ava Christopher Daniel Elizabeth Emily Emma Ethan Hannah Isabella Jacob Joshua Madison Matthew Michael Olivia Sophia William]
     admin_users = []
     
-    [News, Article, ArticleRevision, Event, User].each(&:delete_all)
+    [News, Article, Revision, Event, User].each(&:delete_all)
     
     20.times do |i|
       user = User.new

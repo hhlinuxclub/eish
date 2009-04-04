@@ -4,9 +4,9 @@ class Admin::ArticlesController < ApplicationController
   def index
     user = User.find(session[:user_id])
     if user.role.can_update? || user.role.can_delete? || user.role.can_publish? || user.role.can_administer?
-      @articles = Article.find(:all, :order => "created_at DESC", :include => :article_revisions)
+      @articles = Article.find(:all, :order => "created_at DESC", :include => :revisions)
     else
-      @articles = Article.find_all_by_user_id(user.id, :order => "created_at DESC", :include => :article_revisions)
+      @articles = Article.find_all_by_user_id(user.id, :order => "created_at DESC", :include => :revisions)
     end
     @featured_article = Setting.option("featured_article").to_i
 
@@ -129,8 +129,8 @@ class Admin::ArticlesController < ApplicationController
   end
   
   def compare
-    @rev_a = ArticleRevision.find_by_article_id_and_revision(params[:id], params[:rev_a])
-    @rev_b = ArticleRevision.find_by_article_id_and_revision(params[:id], params[:rev_b])
+    @rev_a = Revision.find_by_article_id_and_revision(params[:id], params[:rev_a])
+    @rev_b = Revision.find_by_article_id_and_revision(params[:id], params[:rev_b])
     
     respond_to do |format|
       if !@rev_a.nil? && !@rev_b.nil?

@@ -1,4 +1,4 @@
-class ArticleRevision < ActiveRecord::Base
+class Revision < ActiveRecord::Base
   belongs_to :article
   belongs_to :user
 end

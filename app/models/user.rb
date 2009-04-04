@@ -3,7 +3,7 @@ require 'digest/sha1'
 class User < ActiveRecord::Base
   belongs_to :role
   has_many :articles
-  has_many :article_revisions
+  has_many :revisions
   has_many :events
   has_many :galleries
   has_many :images
@@ -63,7 +63,7 @@ class User < ActiveRecord::Base
   end
   
   def has_content?
-    [Article, ArticleRevision, Event, News].each do |model|
+    [Article, Revision, Event, News].each do |model|
       return true if !model.find_by_user_id(self.id).nil?
     end
     return false
