@@ -21,23 +21,20 @@ h1. Required Gems
 
 h1. Plugins Used
 
-* "JRails":http://ennerchi.com/projects/jrails
 * "bundle-fu":http://code.google.com/p/bundle-fu/
-
-*jRails* is a drop-in jQuery replacement for Prototype/script.aculo.us on Rails. Using jRails, you can get all of the same default Rails helpers for javascript functionality using the lighter jQuery library. It is maintained by user "aaronchi":http://github.com/aaronchi.
 
 The *bundle-fu* plugin combines bundles separate CSS and JS files in to single files for faster transfer from server to client.  It was created by Timothy Harper.  We are using the fork by "zinf":http://github.com/zinf/bundle-fu/tree/master.
 
-Both plugins are included as git submodules (See *Initial Setup*) and both are published under the MIT license.
+The plugin is included as a git submodule (See *Initial Setup*) and is published under the MIT license.
 
 h1. Javascript
 
-* "JQuery":http://jquery.com/
-* "JQueryUI":http://jqueryui.com/
+* "jQuery":http://jquery.com/
+* "jQueryUI":http://jqueryui.com/
 * "SyntaxHighlighter":http://alexgorbatchev.com/wiki/SyntaxHighlighter
 * "jQuery-Lighbox":http://github.com/krewenki/jquery-lightbox/
 
-The *JQuery* and *JQuery UI* libraries are dual licensed under both "MIT":http://www.opensource.org/licenses/mit-license.php and "GPL":http://www.gnu.org/licenses/gpl.html licenses.
+The *jQuery* and *jQuery UI* libraries are dual licensed under both "MIT":http://www.opensource.org/licenses/mit-license.php and "GPL":http://www.gnu.org/licenses/gpl.html licenses.
 
 The *SyntaxHighlighter* by Alex Gorbatchev is licensed under "LGPL 3":http://www.gnu.org/licenses/lgpl.html.
 
@@ -45,7 +42,7 @@ The *SyntaxHighlighter* by Alex Gorbatchev is licensed under "LGPL 3":http://www
 
 h1. Initial Setup
 
-* Clone the git repository to a local directory, and clone the Textile Editor Helper and jQuery plugins.  To do this, execute the following four commands in a terminal.
+* Clone the git repository to a local directory, and clone the bundle-fu plugin.  To do this, execute the following four commands in a terminal.
 
 <pre>
 	git clone git://github.com/jcxplorer/hhlc.git
