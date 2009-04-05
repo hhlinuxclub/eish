@@ -1,5 +1,5 @@
-$("#loginBox").hide("blind", 1000, function() {
+$("#loginBox").hide("slide", { direction: 'up' }, 500, function() {
 	$("#loginBox").replaceWith('<%= escape_javascript(render(:partial => "home/login_box")) %>');
-	$("#loginBox").show("blind", 1000);
+	$("#loginBox").show("slide", { direction: 'up' }, 500);
 });
 <% flash.discard %>
