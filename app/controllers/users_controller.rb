@@ -3,10 +3,21 @@ class UsersController < ApplicationController
   
   def login
     if request.post?
-      login_with_credentials(params[:username], params[:password], params[:remember_me])
+      @user = User.authenticate(params[:username], params[:password])
+      if @user
+        session[:user_id] = @user.id
+        flash[:login_notice] = "Login successful!"
+        if params[:remember_me] == "on"
+          @user.remember_me
+          cookies[:auth_token] = { :value => @user.remember_token, :expires => @user.remember_token_expires }
+        end
+      else
+        flash[:login_error] = "Invalid user/password combination."
+      end
         
       respond_to do |format|
         format.html { redirect_to(:root) }
+        format.js
       end
     end
   end
@@ -15,7 +26,10 @@ class UsersController < ApplicationController
     User.find(session[:user_id]).forget_me
     session[:user_id] = nil
     flash[:login_notice] = "Logged out."
-    redirect_to :root
+    
+    respond_to do |format|
+      format.html { redirect_to :root }
+    end
   end
 
   def profile

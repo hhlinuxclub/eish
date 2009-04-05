@@ -9,13 +9,4 @@ class HomeController < ApplicationController
     featured_article_id = Setting.option("featured_article").to_i
     @featured_article = Article.find(featured_article_id) unless featured_article_id == 0
   end
-  
-  def login
-    login_with_credentials(params[:username], params[:password], params[:remember_me])
-        
-    respond_to do |format|
-      format.html { redirect_to(:root) }
-      format.js
-    end
-  end
 end
