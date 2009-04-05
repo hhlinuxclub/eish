@@ -1,26 +1,42 @@
+<div class="box" id="loginBox">
 <% if logged_in? %>
-	<p id="homeRegisterLink"><%= link_to "Logout", :controller => "users", :action => "logout" %></p>
+
+	<p id="homeRegisterLink"><%= link_to "Logout", { :controller => "users", :action => "logout" }, :id => "logoutLink" %></p>
+	
 	<h3>Logged in as <em><%= @user.username %></em></h3>
+	
 	<ul>
 		<li><%= link_to "Profile", :controller => "users", :action => "profile" %></li>
 		<% if !User.find(session[:user_id]).normal_user? %>
 			<li><%= link_to "Administration", admin_url %></li>
 		<% end %>
 	</ul>
+	
 	<p id="flashLoginNotice"><%= flash[:login_notice] %></span>
+		
 <% else %>
+
 	<p id="homeRegisterLink"><%= link_to "Register", :controller => "users", :action => "register" %> / <%= link_to "Forgot?", :controller => "users", :action => "request_credentials" %></p>
+	
 		<h3 id="loginBoxTitle">Login</h3>
-		<% form_remote_tag :url => "/home/login", :html => { :id => "loginBoxForm" } do %>
+		
+		<% form_tag "/users/login", :id => "loginBoxForm" do %>
 			<p>
-			<%= text_field_tag :username, params[:username], :size => 12, :value => "Username", :tabindex => 1, :class => "field" %>
-			<%= password_field_tag :password, params[:password], :size => 12, :value => "password", :tabindex => 2, :class => "field" %>
-			<%= submit_tag "Login", :tabindex => 3 %></p>
-			<p><%= check_box_tag :remember_me, params[:remember_me] %>
-			<label for="remember_me">Remember me</label></p>
+				<%= text_field_tag :username, params[:username], :size => 12, :value => "Username", :tabindex => 1, :class => "field" %>
+				<%= password_field_tag :password, params[:password], :size => 12, :value => "password", :tabindex => 2, :class => "field" %>
+				<%= submit_tag "Login", :tabindex => 3 %>
+			</p>
+		
+			<p>
+				<%= check_box_tag :remember_me, params[:remember_me] %>
+				<label for="remember_me">Remember me</label>
+			</p>	
 		<% end %>
+		
 		<p id="flashLogin">
 			<span id="flashLoginNotice"><%= flash[:login_notice] %></span>
 			<span id="flashLoginError"><%= flash[:login_error] %></span>
 		</p>
+		
 <% end %>
+</div>

@@ -15,6 +15,7 @@ jQuery.fn.submitWithAjax = function() {
 
 $(document).ready(function() {
 	$("#new_category").submitWithAjax();
+	$("#loginBoxForm").submitWithAjax();
 	
 	$("#bulk_check").click(function() {
 		this.checked = !(this.checked == true);
