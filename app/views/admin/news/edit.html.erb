@@ -10,14 +10,12 @@
 
   <p>
     <%= f.label :body %><br />
-    <span id="textileEditor">
-       <%= f.textile_editor :body, :cols => 85, :rows => 20, :class => "resizable" %>
-    </span>
+    <%= f.text_area :body, :cols => 85, :rows => 20, :class => "resizable" %>
   </p>
 
   <p>
     <%= f.submit submit_value ||= "Submit" %>
-		<%= button_to_remote "Preview", :url => { :action => "preview" }, :update => "preview", :method => :post, :with => "'title=' + $('#news_article_title').val() + '&amp;body=' + $('#news_article_body').val()" %>
+		<%= preview_button "/admin/news/preview", :title => "news_article_title", :body => "news_article_body" %>
   </p>
 <% end %>
 

@@ -26,7 +26,7 @@
 	<% end %>
 	<p>
 		<%= f.submit submit_value ||= "Submit" %>
-		<%= button_to_remote "Preview", :url => { :action => "preview" }, :update => "preview", :method => :post, :with => "'body=' + $('#article_body').val() + '&amp;title=' + $('#article_title').val() + '&amp;description=' + $('#article_description').val()" %>
+		<%= preview_button "/admin/articles/preview", :body => "article_body", :title => "article_title", :description => "article_description" %>
 	</p>
 <% end %>
 

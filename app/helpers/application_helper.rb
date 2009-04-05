@@ -52,4 +52,12 @@ module ApplicationHelper
     end
     return false
   end
+  
+  def preview_button(url, data={})
+    xhtml = "<input onclick=\"$.ajax({data:'"
+    data.each { |key, value| xhtml << "#{key}=' + $('#" + value + "').val() + '&amp;" }
+    xhtml << "#{request_forgery_protection_token}=' + encodeURIComponent('#{escape_javascript form_authenticity_token}')"
+    xhtml << ", success:function(request){$('#preview').html(request);}, type:'post', url:'" + url + "'});\" "
+    xhtml << "type=\"button\" value=\"Preview\" />"
+  end
 end
