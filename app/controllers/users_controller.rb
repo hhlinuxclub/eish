@@ -7,7 +7,6 @@ class UsersController < ApplicationController
         
       respond_to do |format|
         format.html { redirect_to(:root) }
-        format.js
       end
     end
   end
