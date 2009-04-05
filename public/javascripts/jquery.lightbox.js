@@ -7,7 +7,7 @@
  * For full license information, see LICENSE.TXT
  *
  * Based on Lightbox 2 by Lokesh Dhakar (http://www.huddletogether.com/projects/lightbox2/)
- * Originally written to make use of the Prototype framework, and Script.acalo.us, now altered to use jQuery.
+ * Originally written to make use of the Prototype framework, and Script.aculo.us, now altered to use jQuery.
  *
  *
  **/
