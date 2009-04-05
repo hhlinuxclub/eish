@@ -1,6 +1,8 @@
 class Article < ActiveRecord::Base
   belongs_to :user
   has_many :revisions
+  has_many :categorizations
+  has_many :categories, :through => :categorizations
   
   named_scope :all_published, :conditions => { :published => true }
   

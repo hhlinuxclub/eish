@@ -27,6 +27,8 @@ class Admin::ArticlesController < ApplicationController
 
   def new
     @article = Article.new
+    @category = Category.new
+    @categories = Category.all
     user = User.find(session[:user_id])
 
     respond_to do |format|
@@ -39,7 +41,9 @@ class Admin::ArticlesController < ApplicationController
   end
 
   def edit
-    @article = Article.find(params[:id])
+    @article = Article.find(params[:id], :include => :categories)
+    @category = Category.new
+    @categories = Category.all
     user = User.find(session[:user_id])
     
     respond_to do |format|
@@ -53,6 +57,7 @@ class Admin::ArticlesController < ApplicationController
 
   def create
     @article = Article.new(params[:article])
+    @article.category_ids = params[:categories].keys.to_a
     @article.user_id = session[:user_id]
     user = User.find(session[:user_id])
 
@@ -72,6 +77,7 @@ class Admin::ArticlesController < ApplicationController
 
   def update
     @article = Article.find(params[:id])
+    @article.category_ids = params[:categories].keys.to_a
     @article.updated_by_user_id = session[:user_id]
     user = User.find(session[:user_id])
 

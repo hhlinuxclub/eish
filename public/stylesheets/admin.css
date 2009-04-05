@@ -292,3 +292,7 @@ ins {
 	text-decoration: underline;
 	color: green;
 }
+
+#categories li {
+	list-style: none;
+}
