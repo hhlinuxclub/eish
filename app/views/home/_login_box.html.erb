@@ -3,7 +3,7 @@
 
 	<p id="homeRegisterLink"><%= link_to "Logout", { :controller => "users", :action => "logout" }, :id => "logoutLink" %></p>
 	
-	<h3>Logged in as <em><%= @user.username %></em></h3>
+	<h3 class="title">Logged in as <em><%= @user.username %></em></h3>
 	
 	<ul>
 		<li><%= link_to "Profile", :controller => "users", :action => "profile" %></li>
@@ -12,13 +12,13 @@
 		<% end %>
 	</ul>
 	
-	<p id="flashLoginNotice"><%= flash[:login_notice] %></span>
+	<p id="flashLoginNotice"><%= flash[:login_notice] %><p>
 		
 <% else %>
 
 	<p id="homeRegisterLink"><%= link_to "Register", :controller => "users", :action => "register" %> / <%= link_to "Forgot?", :controller => "users", :action => "request_credentials" %></p>
 	
-		<h3 id="loginBoxTitle">Login</h3>
+		<h3 class="title" id="loginBoxTitle">Login</h3>
 		
 		<% form_tag "/users/login", :id => "loginBoxForm" do %>
 			<p>

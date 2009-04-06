@@ -282,15 +282,15 @@ label {
 	border: none;
 	position: relative;
 	overflow: auto;
-	color:#ccc;
+	color: #ccc;
 	width: 398px;
 	height: 100%;
 	padding-bottom: 20px;
 }
 
 .box h2, .box h3 {
+	margin: 0 0 20px 0;
 	padding: 0;
-	margin: 0;
 	color: #589ad3;
 }
 
@@ -316,7 +316,6 @@ label {
 }
 
 #rightColumn {
-	background: ;
 	float: right;
 	padding: 0 16px;
 	text-align: justify;
@@ -364,13 +363,22 @@ label {
 
 #latestNewsBox {
 	margin: 0;
-	background: none;
-	border: none;
+	background: #fff;
+	border: 1px solid #fff;
+	-moz-border-radius: 20px;
+	-webkit-border-radius: 20px;
+	padding: 20px;
+	width: 360px;
 }
 
 #latestNewsBox p {
-	color: #ccc;
+	color: #333;
 	font-size: 9pt;
+}
+
+#latestNewsBox h3 {
+	text-align: center;
+	color: #2d67b2;
 }
 
 #latestNewsBox h4 {
@@ -379,6 +387,7 @@ label {
 
 #latestNewsBox a {
 	text-decoration: none;
+	color: #2d67b2;
 }
 
 #latestNewsBox a:hover {
@@ -403,26 +412,27 @@ label {
 	border: none;
 }
 
-#feedsBox {
+#feedsBox,
+#upcomingEventsBox {
 	padding-top: 20px;
 	border-top: 1px dashed #333;
 }
 
 #loginBox {
-	background: #000 url('../images/welcomebox_stripe.png') repeat;
-	border: 1px solid #589ad3;
+	background: #404447;
+	border: 1px solid #404447;
 	height: auto;
 	padding: 10px;
 	margin-bottom: 20px;
 	float: right;
-	width: 310px;
+	width: 305px;
 	margin: 0;
 	color: #ccc;
 	border-top: none;
-	-moz-border-radius-bottomleft: 5px;
-	-webkit-border-bottom-left-radius: 5px;
-	-moz-border-radius-bottomright: 5px;
-	-webkit-border-bottom-right-radius: 5px;
+	-moz-border-radius-bottomleft: 20px;
+	-webkit-border-bottom-left-radius: 20px;
+	-moz-border-radius-bottomright: 20px;
+	-webkit-border-bottom-right-radius: 20px;
 }
 
 #loginBox p {
@@ -443,14 +453,19 @@ label {
 	font-size: x-small;
 }
 
-#feedsBox h3, #loginBox h3 {
+#loginBox h3 {
 	padding: 0 0 5px;
 	margin: 0;
+	color: #fff;
 }
 
-#feedsBox h3 {
-	padding: 0;
-	margin: 0;
+#loginBox a:link,
+#loginBox a:visited {
+	color: #ccc;
+}
+
+#loginBox a:hover {
+	color: #2d67b2;
 }
 
 #feedsBox p {
@@ -482,16 +497,6 @@ label {
 #flashError,
 #flashLoginError {
 	color: red;
-}
-
-#textileEditor {
-	width: 620px;
-	height: auto;
-	background-color: #f0f0ee;
-	border: 1px solid #cccccc;
-	padding: 0 0 5px 5px;
-	margin: 0;
-	display: block;
 }
 
 .titleField {
