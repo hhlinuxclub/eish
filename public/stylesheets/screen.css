@@ -291,7 +291,6 @@ label {
 .box h2, .box h3 {
 	margin: 0 0 20px 0;
 	padding: 0;
-	color: #589ad3;
 }
 
 .box p {
@@ -339,6 +338,11 @@ label {
 #welcomeBox p {
 	font-size: 12pt;
 	color: #fff;
+}
+
+.homeTitle {
+	color: #fff;
+	font-size: 11pt;
 }
 
 .h2Logo {
