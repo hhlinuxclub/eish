@@ -31,7 +31,7 @@
 		<h3 class="homeTitle">Latest News</h3>
 		<ul>
 		<% for news_article in @news %>
-			<li class="date"><%= news_article.created_at.to_s %></li>
+			<li class="date"><%=h distance_of_time_in_words(news_article.created_at, Time.now) %> ago</li>
 			<li class="boxItem"><%= link_to news_article.title, news_article_details_path(:id => news_article.id, :title => urlify(news_article.title)) %></li>
 		<% end %>	
 		</ul>
