@@ -7,7 +7,7 @@ namespace :db do
     names = %w[Abigail Andrew Anthony Ava Christopher Daniel Elizabeth Emily Emma Ethan Hannah Isabella Jacob Joshua Madison Matthew Michael Olivia Sophia William]
     admin_users = []
     
-    [News, Article, Revision, Event, User].each(&:delete_all)
+    [News, Article, Revision, Category, Categorization, Event, User].each(&:delete_all)
     
     20.times do |i|
       user = User.new
@@ -30,6 +30,10 @@ namespace :db do
       news_article.created_at = Populator.value_in_range(1.year.ago..Time.now)
     end
     
+    Category.populate 10 do |category|
+      category.name = Populator.words(1..2).capitalize
+    end
+    
     Article.populate 40 do |article|
       article.title = Populator.words(2..5).titleize
       article.description = Populator.words(10..20).capitalize + "."
@@ -39,6 +43,15 @@ namespace :db do
       article.created_at = Populator.value_in_range(1.year.ago..Time.now)
       article.current_revision_id = 1
       Revision.create :number => 1, :title => article.title, :description => article.description, :body => article.body, :user_id => article.user_id, :article_id => article.id
+    end
+    
+    categories = Category.all
+    articles = Article.all
+    (0..39).each do |i|
+      categorization = Categorization.new
+      categorization.category_id = categories[Populator.value_in_range(0..9)].id
+      categorization.article_id = articles[i].id
+      categorization.save
     end
     
     Event.populate 30 do |event|

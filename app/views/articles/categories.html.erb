@@ -1,0 +1,5 @@
+<h2 class="title">Articles under <em><%= @category.name %></em></h2>
+
+<%= render :partial => "listing" %>
+
+<%= will_paginate @news %>
