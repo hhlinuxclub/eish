@@ -40,3 +40,11 @@ $(document).ready(function() {
 		showButtonPanel: true,
 	});
 })
+
+
+$(document).ready( function() {
+	$("#user_password").passStrength({
+		messageloc:		1,
+		userid:	"#user_username"
+	});
+});

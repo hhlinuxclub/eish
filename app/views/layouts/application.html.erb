@@ -6,7 +6,8 @@
         <% bundle :name => "frontend" do %>
 		      <%= stylesheet_link_tag 'screen' %>
 		      <%= stylesheet_link_tag 'lightbox' %>
-					<%= javascript_include_tag 'jquery', 'jquery-ui', 'jquery.lightbox', 'application' %>
+		      <%= stylesheet_link_tag 'password_strength_plugin' %>
+					<%= javascript_include_tag 'jquery', 'jquery-ui', 'jquery.lightbox', 'password_strength_plugin', 'application' %>
 				<% end %>
 				<% if controller.controller_name == "home" %>
 					<%= auto_discovery_link_tag(:atom, "/news.atom", {:title => "News"}) %>
