@@ -419,20 +419,20 @@ label {
 }
 
 #loginBox {
-	background: #404447;
-	border: 1px solid #404447;
-	height: auto;
-	padding: 10px;
-	margin-bottom: 20px;
-	float: right;
-	width: 305px;
-	margin: 0;
-	color: #ccc;
-	border-top: none;
-	-moz-border-radius-bottomleft: 20px;
-	-webkit-border-bottom-left-radius: 20px;
-	-moz-border-radius-bottomright: 20px;
-	-webkit-border-bottom-right-radius: 20px;
+  background: #000 url('../images/welcomebox_stripe.png') repeat;
+  border: 1px solid #589ad3;
+  height: auto;
+  padding: 10px;
+  margin-bottom: 20px;
+  float: right;
+  width: 310px;
+  margin: 0;
+  color: #ccc;
+  border-top: none;
+  -moz-border-radius-bottomleft: 5px;
+  -webkit-border-bottom-left-radius: 5px;
+  -moz-border-radius-bottomright: 5px;
+  -webkit-border-bottom-right-radius: 5px;
 }
 
 #loginBox p {
