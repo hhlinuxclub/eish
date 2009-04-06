@@ -24,18 +24,7 @@
 		    <div id="navigation">
 		        <%= navigation("home", "news", "articles", "events", "about", "contact") %>
 		    </div>
-		    <div id="userLinks">
-			  	<% @user = User.find(session[:user_id]) unless session[:user_id].nil? %>
-					<% if logged_in? %>
-						<p>Logged in as <em><%= link_to @user.username, :controller => "users", :action => "profile" %></em>
-						<% if !User.find(session[:user_id]).normal_user? %>
-							&brvbar; <%= link_to "Administration", admin_url %>
-						<% end %>
-							&brvbar; <%= link_to "Logout", :controller => "users", :action => "logout" %> </p>
-					<% else %>
-						<p><%= link_to "Login", :controller => "users", :action => "login" %> &brvbar; <%= link_to "Register", :controller => "users", :action => "register" %></p>
-					<% end %>
-		    </div>
+		    <%= render :partial => "/users/userlinks" %>
             </div>
             <div id="content" class="<%= controller.controller_name.to_s unless admin_namespace? %>">
                 <p id="flash">

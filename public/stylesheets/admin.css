@@ -24,6 +24,26 @@ body {
 	margin: 0;
 }
 
+#userLinks {
+	position: absolute;
+	top: 0px;
+	right: 0px;
+	color: #666;
+	margin-top: 5px;
+	margin-right: 5px;
+	color: #0066cb;
+}
+
+#userLinks p, #userLinks a {
+	text-decoration: none;
+	font-size: 11pt;
+}
+
+#userLinks a:hover {
+	text-decoration: underline;
+	color: #0066cb;
+}
+
 #content {
 	background: #fff;
 	float: none;
@@ -167,11 +187,11 @@ th {
 	background-color: #eee;
 }
 
-a: link,a: visited {
+a:link, a:visited {
 	color: #0066cb;
 }
 
-a: hover {
+a:hover {
 color: #282828;
 }
 
