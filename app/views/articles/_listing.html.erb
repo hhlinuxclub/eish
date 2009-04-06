@@ -1,0 +1,21 @@
+<div id="categories">
+	<h3 class="title">Categories</h3>
+	<ul>
+	<% for category in @categories %>
+		<% unless category.articles.empty? %>
+			<li><%= link_to category.name, categories_path(:id => category.id) %> (<%= category.articles.count %>)</li>
+		<% end %>
+	<% end %>
+	</ul>
+</div>
+
+<% for article in @articles %>
+	<div class="article">
+		<h3 class="title"><%= link_to article.title, article_details_path(:id => article.id, :title => urlify(article.title)) %></h3>
+		<p class="metadata">
+			<%=h distance_of_time_in_words(article.created_at, Time.now) %> ago
+			by <%= link_to_profile article.user %>
+		</p>
+		<p><%=h article.description %></p>
+	</div>
+<% end %>

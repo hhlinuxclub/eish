@@ -434,3 +434,30 @@ textarea {
 .adminLinks a:visited {
 	text-decoration: none;
 }
+
+#categories {
+	width: 140px;
+	border-left: 1px dashed #404447;
+	float: right;
+	margin-left: 20px;
+	padding: 0 20px;
+	text-align: center;
+}
+
+#categories ul
+{
+  margin: 20px 0;
+  padding: 0;
+}
+
+#categories li {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+	font-size: 10pt;
+}
+
+.article {
+	width: 600px;
+	margin-bottom: 40px;
+}
