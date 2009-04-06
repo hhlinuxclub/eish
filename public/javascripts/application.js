@@ -39,6 +39,4 @@ $(document).ready(function() {
 		dateFormat: 'dd.mm.yy',
 		showButtonPanel: true,
 	});
-	
-	$('textarea.resizable:not(.processed)').TextAreaResizer();
 })
