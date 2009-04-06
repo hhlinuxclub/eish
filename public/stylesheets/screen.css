@@ -291,7 +291,6 @@ label {
 .box h2, .box h3 {
 	margin: 0 0 20px 0;
 	padding: 0;
-	color: #589ad3;
 }
 
 .box p {
@@ -326,9 +325,8 @@ label {
 	margin: 0 0 15px;
 	padding: 10px;
 	float: left;
-	width: 500px;
+	width: 99%;
 	height: auto;
-	color: #ccc;
 	border: none;
 }
 
@@ -337,9 +335,13 @@ label {
 }
 
 #welcomeBox p {
-	font-size: 10pt;
-	font-weight: bold;
-	color: #ccc;
+	font-size: 12pt;
+	color: #fff;
+}
+
+.homeTitle {
+	color: #fff;
+	font-size: 11pt;
 }
 
 .h2Logo {
@@ -361,40 +363,6 @@ label {
 	background: #333;
 }
 
-#latestNewsBox {
-	margin: 0;
-	background: #fff;
-	border: 1px solid #fff;
-	-moz-border-radius: 20px;
-	-webkit-border-radius: 20px;
-	padding: 20px;
-	width: 360px;
-}
-
-#latestNewsBox p {
-	color: #333;
-	font-size: 9pt;
-}
-
-#latestNewsBox h3 {
-	text-align: center;
-	color: #2d67b2;
-}
-
-#latestNewsBox h4 {
-	font-size: 10pt;
-}
-
-#latestNewsBox a {
-	text-decoration: none;
-	color: #2d67b2;
-}
-
-#latestNewsBox a:hover {
-	text-decoration: none;
-	color: #ccc;
-}
-
 .boxItem {
 	margin-left: 15px;
 	padding-bottom: 5px;
@@ -402,7 +370,7 @@ label {
 	font-size: 9pt;
 }
 
-#upcomingEventsBox {
+#upcomingEventsBox, latestNewsBox {
 	border: none;
 	background: none;
 }
@@ -413,59 +381,11 @@ label {
 }
 
 #feedsBox,
-#upcomingEventsBox {
+#upcomingEventsBox, 
+#latestNewsBox,
+#featuredArticleBox {
 	padding-top: 20px;
 	border-top: 1px dashed #333;
-}
-
-#loginBox {
-	background: #404447;
-	border: 1px solid #404447;
-	height: auto;
-	padding: 10px;
-	margin-bottom: 20px;
-	float: right;
-	width: 305px;
-	margin: 0;
-	color: #ccc;
-	border-top: none;
-	-moz-border-radius-bottomleft: 20px;
-	-webkit-border-bottom-left-radius: 20px;
-	-moz-border-radius-bottomright: 20px;
-	-webkit-border-bottom-right-radius: 20px;
-}
-
-#loginBox p {
-	padding-top: 3px;
-}
-
-#loginBox .field {
-	border: 1px solid #D9D9D9;
-}
-
-#loginBox li {
-	list-style: none;
-	padding-top: 10px;
-}
-
-#homeRegisterLink {
-	float: right;
-	font-size: x-small;
-}
-
-#loginBox h3 {
-	padding: 0 0 5px;
-	margin: 0;
-	color: #fff;
-}
-
-#loginBox a:link,
-#loginBox a:visited {
-	color: #ccc;
-}
-
-#loginBox a:hover {
-	color: #2d67b2;
 }
 
 #feedsBox p {
@@ -508,11 +428,6 @@ input[type=text],
 input[type=password],
 textarea {
 	border: 1px solid #D9D9D9;
-}
-
-#homeTop {
-	display: table-cell;
-	padding-bottom: 20px;
 }
 
 .adminLinks a:link,

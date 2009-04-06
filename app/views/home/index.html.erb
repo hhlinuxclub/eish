@@ -1,26 +1,11 @@
-<div id="homeTop">
-	<div class="box" id="welcomeBox">
-		<h2 class="title">Welcome to <span class="h2Logo">HHLinuxClub</span></h2>
-		<p><%= @welcome_message %></p>
-	</div>
-
-	<%= render :partial => "login_box" %>
+<div class="box" id="welcomeBox">
+	<h2 class="title">Welcome to <span class="h2Logo">HHLinuxClub</span></h2>
+	<p><%= @welcome_message %></p>
 </div>
-
+	
 <div class="box" id="leftColumn">
-	<div class="box" id="featuredArticleBox">
-	<% unless @featured_article.nil? %>
-		<h3 class="title"><%=h @featured_article.title %></h3>
-		<%= image_tag "picol/picture_100.png", :alt => "Image Placeholder" %>
-		<p><%=h @featured_article.description %></p>
-		<p style="text-align: right;">
-			<%= link_to	"More...", article_details_path(:id => @featured_article.id, :title => urlify(@featured_article.title)) %>
-		</p>
-	<% end %>
-	</div>
-
 	<div class="box" id="upcomingEventsBox">
-		<h3 class="title">Events</h3>
+		<h3 class="homeTitle">Events</h3>
 		<ul>
 		<% for event in @events %>
 			<li class="date"><%= format_event_dates(event) %></li>
@@ -30,7 +15,7 @@
 	</div>
 	
 	<div class="box" id="feedsBox">
-		<h3 class="title">Feeds</h3>
+		<h3 class="homeTitle">Feeds</h3>
 		<p>
 				<%= link_to "News", { :controller => "news", :action => "index", :format => "atom" }, { :class => "feedLink" } %>
 
@@ -43,12 +28,23 @@
 
 <div class="box" id="rightColumn">
 	<div class="box" id="latestNewsBox">
-		<h3 class="title">Latest News</h3>
+		<h3 class="homeTitle">Latest News</h3>
+		<ul>
 		<% for news_article in @news %>
-			<h4><%= link_to news_article.title, news_article_details_path(:id => news_article.id, :title => urlify(news_article.title)) %></h4>
-			<% if @news.first.id == news_article.id %>
-				<%= RedCloth.new(news_article.body).to_html %>
-			<% end %>
+			<li class="date"><%= news_article.created_at.to_s %></li>
+			<li class="boxItem"><%= link_to news_article.title, news_article_details_path(:id => news_article.id, :title => urlify(news_article.title)) %></li>
 		<% end %>	
+		</ul>
+	</div>
+	
+		<div class="box" id="featuredArticleBox">
+	<% unless @featured_article.nil? %>
+		<h3 class="homeTitle"><%=h @featured_article.title %></h3>
+		<%= image_tag "picol/picture_100.png", :alt => "Image Placeholder" %>
+		<p><%=h @featured_article.description %></p>
+		<p style="text-align: right;">
+			<%= link_to	"More...", article_details_path(:id => @featured_article.id, :title => urlify(@featured_article.title)) %>
+		</p>
+	<% end %>
 	</div>
 </div>
