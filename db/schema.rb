@@ -73,7 +73,7 @@ ActiveRecord::Schema.define(:version => 20090407175104) do
     t.integer  "number"
     t.string   "title"
     t.string   "description"
-    t.string   "body"
+    t.text     "body"
     t.integer  "article_id"
     t.integer  "user_id"
     t.datetime "created_at"

@@ -4,5 +4,6 @@ class RenameArticleRevisionsToRevisions < ActiveRecord::Migration
   end
 
   def self.down
+    rename_table :revisions, :article_revisions
   end
 end
