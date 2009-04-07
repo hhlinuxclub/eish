@@ -4,7 +4,7 @@ class CreateArticleRevisions < ActiveRecord::Migration
       t.integer :revision
       t.string :title
       t.string :description
-      t.string :body
+      t.text :body
       t.integer :article_id
       t.integer :user_id
       t.timestamps
