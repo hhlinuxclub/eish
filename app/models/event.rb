@@ -18,9 +18,9 @@ class Event < ActiveRecord::Base
   
   def self.upcoming(limit=:all)
     if limit == :all
-      return find_all_by_published(true, :conditions => "starts_at > '#{Date.today.to_s(:db)} 00:00:00'", :order => "starts_at")
+      return find_all_by_published(true, :conditions => ["starts_at > ?", Time.now.to_s(:db)], :order => "starts_at")
     else
-      return find_all_by_published(true, :conditions => "starts_at > '#{Time.now.to_s(:db)}'", :order => "starts_at", :limit => limit)
+      return find_all_by_published(true, :conditions => ["starts_at > ?", Time.now.to_s(:db)], :order => "starts_at", :limit => limit)
     end
   end
   
