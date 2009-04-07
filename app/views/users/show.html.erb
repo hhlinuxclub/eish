@@ -1,6 +1,51 @@
 <h2 class="title"><%=h @user.username %></h2>
-<p>
-	<b>Name: </b><%=h @user.last_name %>, <%=h @user.first_name %><br />
-	<b>Role: </b><%=h @user.role.name %>
-</p>
+
+<% if logged_in? %>
+	<h3 class="title">Personal Information</h3>
+	<p>
+		<b>Name: </b><%=h @user.last_name %>, <%=h @user.first_name %><br />
+		<b>Role: </b><%=h @user.role.name %>
+	</p>
+
+	<p>
+		<% if !@user.profile.degree_programme.nil? && !@user.profile.degree_programme.empty? %>
+			<b>Degree Programme: </b><%= @user.profile.degree_programme %><br />
+		<% end %>
 	
+		<% if !@user.profile.graduation_year.nil? %>
+			<b>Graduation Year: </b><%= @user.profile.graduation_year %><br />
+		<% end %>
+	</p>
+<% end %>
+
+<p>
+	<% if !@user.profile.url.nil? && !@user.profile.url.empty? %>
+		<b>URL: </b><%= link_to @user.profile.url, @user.profile.url %><br />
+	<% end %>
+</p>
+
+<% if !@user.profile.distribution.nil? && !@user.profile.distribution.empty? || !@user.profile.desktop_environment.nil? && !@user.profile.desktop_environment.empty? || !@user.profile.text_editor.nil? && !@user.profile.text_editor.empty? || !@user.profile.programming_language.nil? && !@user.profile.programming_language.empty? %>
+	<h3 class="title">My Favourites</h3>
+	<p>
+		<% if !@user.profile.distribution.nil? && !@user.profile.distribution.empty? %>
+			<b>Distribution: </b><%= @user.profile.distribution %><br />
+		<% end %>
+	
+		<% if !@user.profile.desktop_environment.nil? && !@user.profile.desktop_environment.empty? %>
+			<b>Desktop Environment: </b><%= @user.profile.desktop_environment %><br />
+		<% end %>
+	
+		<% if !@user.profile.text_editor.nil? && !@user.profile.text_editor.empty? %>
+			<b>Text Editor: </b><%= @user.profile.text_editor %><br />
+		<% end %>
+	
+		<% if !@user.profile.programming_language.nil? && !@user.profile.programming_language.empty? %>
+			<b>Programming Language: </b><%= @user.profile.programming_language %><br />
+		<% end %>
+	</p>
+<% end %>
+
+<% if !@user.profile.about.nil? && !@user.profile.about.empty? %>
+	<h3 class="title">About Me</h3>
+	<%= RedCloth.new(@user.profile.about).to_html %>
+<% end %>

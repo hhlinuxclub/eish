@@ -8,18 +8,18 @@ class User < ActiveRecord::Base
   has_many :galleries
   has_many :images
   has_many :news
+  has_one :profile
 
   validates_presence_of :first_name, :last_name, :username, :email
   validates_uniqueness_of :username, :case_sensitive => false
   validates_uniqueness_of :email, :case_sensitive => false
+  validates_confirmation_of :password
+  validate :password_non_blank
+  validate :correct_current_password, :if => Proc.new { |user| !user.current_password.nil? && user.changed? }
 #  validates_size_of :username, :minimum => 4
 #  validates_size_of :password, :minimum => 6
   
   attr_accessor :password_confirmation, :current_password, :remember_me
-  
-  validates_confirmation_of :password
-  
-  validate :password_non_blank
   
   def password
     @password
@@ -127,6 +127,10 @@ class User < ActiveRecord::Base
     
     def password_non_blank
       errors.add_to_base("Missing password") if hashed_password.blank?
+    end
+    
+    def correct_current_password
+        errors.add_to_base("Current password is incorrect") if User.encrypted_password(current_password, salt) != hashed_password
     end
     
     def self.encrypted_password(password, salt)

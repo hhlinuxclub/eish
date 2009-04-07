@@ -16,7 +16,7 @@ class UsersController < ApplicationController
       end
         
       respond_to do |format|
-        format.html { redirect_to(:root) }
+        format.html { redirect_to :root }
         format.js
       end
     end
@@ -34,6 +34,11 @@ class UsersController < ApplicationController
 
   def profile
     @user = User.find(session[:user_id])
+    @profile = @user.profile || Profile.new
+    
+    respond_to do |format|
+      format.html
+    end
   end
   
   def show
@@ -69,21 +74,16 @@ class UsersController < ApplicationController
   
   def update
     @user = User.find(session[:user_id])
-    current_hashed_password = User.encrypted_password(params[:user][:current_password], @user.salt)
+    @user.profile ||= Profile.new
 
     respond_to do |format|
-      if current_hashed_password == @user.hashed_password
-        if @user.update_attributes(params[:user])
-          flash[:notice] = "User #{@user.username} was successfully updated."
-          format.html { redirect_to :action => "profile" }
-          format.xml  { head :ok }
-        else
-          format.html { render :action => "profile" }
-          format.xml  { render :xml => @user.errors, :status => :unprocessable_entity }
-        end
-      else
-        flash[:error] = "Old password is incorrect."
+      if @user.profile.update_attributes(params[:profile]) && @user.update_attributes(params[:user])
+        flash[:notice] = "User #{@user.username} was successfully updated."
         format.html { redirect_to :action => "profile" }
+        format.xml  { head :ok }
+      else
+        format.html { render :action => "profile" }
+        format.xml  { render :xml => @user.errors, :status => :unprocessable_entity }
       end
     end
   end

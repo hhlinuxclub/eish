@@ -23,6 +23,7 @@ ActionController::Routing::Routes.draw do |map|
   map.article_comparison "admin/articles/:id/compare", :namespace => "admin", :controller => "articles", :action => "compare"
   map.change_revision "admin/articles/:id/change_revision/:revision", :namespace => "admin", :controller => "articles", :action => "change_revision"
   map.categories "articles/categories/:id", :controller => "articles", :action => "categories"
+  map.profile "profiles/:username", :controller => "users", :action => "show"
   
   # Sample resource route (maps HTTP verbs to controller actions automatically):
   #   map.resources :products
@@ -65,8 +66,6 @@ ActionController::Routing::Routes.draw do |map|
   # Note: These default routes make all actions in every controller accessible via GET requests. You should
   # consider removing the them or commenting them out if you're using named routes and resources.
   map.connect "profile", :controller => "users", :action => "profile"
-  map.connect "profile/me", :controller => "users", :action => "profile"
-  map.connect "profile/:username", :controller => "users", :action => "show"
   
   map.connect ':controller/:action/:id'
   map.connect ':controller/:action/:id.:format'

@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20090404205731) do
+ActiveRecord::Schema.define(:version => 20090407175104) do
 
   create_table "articles", :force => true do |t|
     t.string   "title"
@@ -46,35 +46,25 @@ ActiveRecord::Schema.define(:version => 20090404205731) do
     t.datetime "updated_at"
   end
 
-  create_table "galleries", :force => true do |t|
-    t.string   "title"
-    t.text     "description"
-    t.integer  "user_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "galleries_images", :id => false, :force => true do |t|
-    t.integer "gallery_id"
-    t.integer "image_id"
-  end
-
-  add_index "galleries_images", ["gallery_id", "image_id"], :name => "index_galleries_images_on_gallery_id_and_image_id", :unique => true
-  add_index "galleries_images", ["gallery_id"], :name => "index_galleries_images_on_gallery_id"
-  add_index "galleries_images", ["image_id"], :name => "index_galleries_images_on_image_id"
-
-  create_table "images", :force => true do |t|
-    t.string   "name"
-    t.integer  "user_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
   create_table "news", :force => true do |t|
     t.string   "title"
     t.text     "body"
     t.integer  "user_id"
     t.boolean  "published",  :default => false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "profiles", :force => true do |t|
+    t.string   "url"
+    t.text     "about"
+    t.string   "degree_programme"
+    t.integer  "graduation_year"
+    t.string   "distribution"
+    t.string   "desktop_environment"
+    t.string   "text_editor"
+    t.string   "programming_language"
+    t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
