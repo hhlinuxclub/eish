@@ -1,8 +1,8 @@
 <h3 class="title">Categories</h3>
-<p style="font-size: 8pt;">
+<p>
 	<% for category in @categories %>
 		<% unless category.articles.empty? %>
-			<%= link_to category.name, categories_path(:id => category.id) %> (<%= category.articles.count %>)&nbsp;
+			<span style="font-size: 8pt;"><%= link_to category.name, categories_path(:id => category.id) %> (<%= category.articles.count %>)&nbsp;</span>
 		<% end %>
 	<% end %>
 </p>
