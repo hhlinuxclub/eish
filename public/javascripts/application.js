@@ -54,11 +54,15 @@ $(document).ready( function() {
           href: "#"
         });
         
-    $('.login').click(function() {
-		$("#loginDialog").dialog({
-			bgiframe: true,
-			height: 140,
-			modal: true
+    $("#loginDialog").dialog({
+    		autoOpen: false,
+				bgiframe: true,
+				height: 140,
+				modal: true,
+				title: "Login"
 		});
-});
+
+    $('.login').click(function() {
+			$("#loginDialog").dialog('open')
+		});
 });
