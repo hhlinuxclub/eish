@@ -48,3 +48,17 @@ $(document).ready( function() {
 		userid:	"#user_username"
 	});
 });
+
+$(document).ready( function() {
+    $("a.login").attr({ 
+          href: "#"
+        });
+        
+    $('.login').click(function() {
+		$("#loginDialog").dialog({
+			bgiframe: true,
+			height: 140,
+			modal: true
+		});
+});
+});
