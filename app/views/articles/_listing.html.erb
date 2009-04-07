@@ -1,13 +1,11 @@
-<div id="categories">
-	<h3 class="title">Categories</h3>
-	<ul>
+<h3 class="title">Categories</h3>
+<p style="font-size: 8pt;">
 	<% for category in @categories %>
 		<% unless category.articles.empty? %>
-			<li><%= link_to category.name, categories_path(:id => category.id) %> (<%= category.articles.count %>)</li>
+			<%= link_to category.name, categories_path(:id => category.id) %> (<%= category.articles.count %>)&nbsp;
 		<% end %>
 	<% end %>
-	</ul>
-</div>
+</p>
 
 <% for article in @articles %>
 	<div class="article">
