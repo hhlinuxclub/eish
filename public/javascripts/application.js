@@ -59,7 +59,8 @@ $(document).ready( function() {
 				bgiframe: true,
 				height: 140,
 				modal: true,
-				title: "Login"
+				title: "Login",
+				resizable: false
 		});
 
     $('.login').click(function() {
