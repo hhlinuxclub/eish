@@ -1,4 +1,4 @@
-<% form_tag('/login') do %>
+<% form_tag '/login', :id => form_id ||= nil do %>
 	<p>
 		<label for="username">Username:</label>
 		<%= text_field_tag :username, params[:username] %>
@@ -7,6 +7,11 @@
 	<p>
 		<label for="password">Password:</label>
 		<%= password_field_tag :password, params[:password] %>
+	</p>
+	
+	<p>
+		<%= check_box_tag :remember_me, params[:remember_me] %>
+		<label for="remember_me">Remember me</label>
 	</p>
 
 	<p>

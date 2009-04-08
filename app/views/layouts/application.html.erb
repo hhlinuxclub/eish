@@ -17,8 +17,8 @@
 				<link rel="icon" type="image/png" href="/favicon.ico" />
     </head>
     <body>
-    <div id="loginDialog" title="Basic modal dialog" style="display: none;">
-				<%= render :partial => "/users/login_form" %>
+    <div id="loginDialog" style="display: none;">
+				<%= render :partial => "/users/login_form", :locals => { :form_id => "jsLogin" } %>
 		</div>
 
         <div id="container">

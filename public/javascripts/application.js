@@ -16,6 +16,7 @@ jQuery.fn.submitWithAjax = function() {
 $(document).ready(function() {
 	$("#new_category").submitWithAjax();
 	$("#loginBoxForm").submitWithAjax();
+	$("#jsLogin").submitWithAjax();
 	
 	$("#bulk_check").click(function() {
 		this.checked = !(this.checked == true);
@@ -39,31 +40,25 @@ $(document).ready(function() {
 		dateFormat: 'dd.mm.yy',
 		showButtonPanel: true,
 	});
-})
+	
+	$("a.login").attr({ 
+		href: "#"
+    });
 
-
-$(document).ready( function() {
-	$("#user_password").passStrength({
-		messageloc:		1,
-		userid:	"#user_username"
-	});
-});
-
-$(document).ready( function() {
-    $("a.login").attr({ 
-          href: "#"
-        });
-        
     $("#loginDialog").dialog({
     		autoOpen: false,
-				bgiframe: true,
-				height: 140,
-				modal: true,
-				title: "Login",
-				resizable: false
-		});
+			bgiframe: true,
+			modal: true,
+			title: "Login",
+			resizable: false
+	});
 
     $('.login').click(function() {
-			$("#loginDialog").dialog('open')
-		});
-});
+		$("#loginDialog").dialog('open')
+	});
+		
+	$("#user_password").passStrength({
+		messageloc: 1,
+		userid:	"#user_username"
+	});
+})

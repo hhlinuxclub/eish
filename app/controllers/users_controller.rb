@@ -6,17 +6,17 @@ class UsersController < ApplicationController
       @user = User.authenticate(params[:username], params[:password])
       if @user
         session[:user_id] = @user.id
-        flash[:login_notice] = "Login successful!"
+        flash[:notice] = "Login successful!"
         if params[:remember_me] == "on"
           @user.remember_me
           cookies[:auth_token] = { :value => @user.remember_token, :expires => @user.remember_token_expires }
         end
       else
-        flash[:login_error] = "Invalid user/password combination."
+        flash[:error] = "Invalid user/password combination."
       end
         
       respond_to do |format|
-        format.html { redirect_to :root }
+        format.html { redirect_to @user ? :root : :login }
         format.js
       end
     end
@@ -25,7 +25,7 @@ class UsersController < ApplicationController
   def logout
     User.find(session[:user_id]).forget_me
     session[:user_id] = nil
-    flash[:login_notice] = "Logged out."
+    flash[:notice] = "Logged out."
     
     respond_to do |format|
       format.html { redirect_to :root }

@@ -1,5 +1,7 @@
-$("#loginBox").hide("slide", { direction: 'up' }, 500, function() {
-	$("#loginBox").replaceWith('<%= escape_javascript(render(:partial => "home/login_box")) %>');
-	$("#loginBox").show("slide", { direction: 'up' }, 500);
-});
+<% if @user.nil? %>
+	$("#username").addClass('ui-state-error');
+	$("#password").addClass('ui-state-error');
+<% else %>
+	window.location.reload();
+<% end %>
 <% flash.discard %>
