@@ -142,12 +142,13 @@ td {
 
 th {
 	background: #0066cb url('../images/th_background.png') repeat 0 0;
-	border: 1px solid #0066cb;
-	color: #fff;
+	border: 1px solid #d9d9d9;
+	border-bottom: none;
+	color: #000;
 	font-size: 10pt;
 	font-weight: bold;
-	padding: 5px 0;
-	height: 35px;
+	padding: 0;
+	height: 28px;
 }
 
 .odd {
@@ -316,3 +317,4 @@ ins {
 #categories li {
 	list-style: none;
 }
+
