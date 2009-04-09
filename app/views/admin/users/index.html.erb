@@ -3,10 +3,11 @@
 <p><%= link_to "Add user", new_admin_user_path, :class => 'add' %></p>
 
 <form>
-	<label for="actions">Actions:</label> 	<select name="actions">
-									<option value="delete">Delete</option>
-									<option value="something">Something</option>
-									<option value="else">Else</option>
+	<label for="actions">Actions:</label>
+								<select name="actions">
+									<option value="delete" class="delete">Delete</option>
+									<option value="make_contactable">Add to contacts</option>
+									<option value="make_uncontacable">Remove from contacts</option>
 								</select>
 <table>
 	<tr>

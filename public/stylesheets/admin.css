@@ -319,3 +319,22 @@ ins {
 	list-style: none;
 }
 
+.add {
+	background: url('../images/picol/add_16.png') no-repeat 0px 1px;
+	padding-left: 17px;
+}
+
+.publish {
+	background: url('../images/picol/publish_16.png') no-repeat 0px 1px;
+	padding-left: 17px;
+}
+
+.unpublish {
+	background: url('../images/picol/unpublish_16.png') no-repeat 0px 1px;
+	padding-left: 17px;
+}
+
+.delete {
+	background: url('../images/picol/delete_16.png') no-repeat 0px 1px;
+	padding-left: 17px;
+}

@@ -5,9 +5,9 @@
 <% form_tag("articles/bulk_action") do %>
 	<label for="actions">Bulk actions:</label>
 	<select name="actions">
-		<option value="publish">Publish</option>
-		<option value="unpublish">Unpublish</option>
-		<option value="delete">Delete</option>
+		<option value="publish" class="publish">Publish</option>
+		<option value="unpublish" class="unpublish">Unpublish</option>
+		<option value="delete" class="delete">Delete</option>
 	</select>
 	<%= submit_tag "Do action" %>
 
