@@ -7,4 +7,9 @@ module UsersHelper
       return link_to(name, profile_path(:username => user.username))
     end
   end
+  
+  def gravatar(email)
+    require 'digest/md5'
+    return "http://www.gravatar.com/avatar/" + Digest::MD5.hexdigest(email) + "?r=pg&d=" + request.protocol + request.host_with_port + "/images/avatar.png"
+  end
 end

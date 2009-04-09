@@ -461,3 +461,12 @@ textarea {
 	width: 600px;
 	margin-bottom: 40px;
 }
+
+#avatar {
+	float: right;
+	margin: 5px;
+	border: 1px solid #B1C1D1;
+	padding: 5px;
+	background: #fff;
+	margin-top: 20px;
+}

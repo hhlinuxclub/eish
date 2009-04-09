@@ -1,3 +1,5 @@
+<%= image_tag gravatar(@user.email), :id => "avatar"%>
+
 <h2 class="title"><%=h @user.username %></h2>
 
 <% if logged_in? %>
