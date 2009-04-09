@@ -60,6 +60,7 @@ class User < ActiveRecord::Base
   
   def before_create
     Mailer.deliver_welcome(self)
+    self.profile = Profile.new
   end
   
   def has_content?
