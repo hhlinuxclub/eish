@@ -32,14 +32,11 @@ h1. Javascript
 * "jQuery":http://jquery.com/
 * "jQueryUI":http://jqueryui.com/
 * "SyntaxHighlighter":http://alexgorbatchev.com/wiki/SyntaxHighlighter
-* "jQuery-Lighbox":http://github.com/krewenki/jquery-lightbox/
 * "Password Strength Plugin":http://www.mypocket-technologies.com (modified)
 
 The *jQuery* and *jQuery UI* libraries are dual licensed under both "MIT":http://www.opensource.org/licenses/mit-license.php and "GPL":http://www.gnu.org/licenses/gpl.html licenses.
 
 The *SyntaxHighlighter* by Alex Gorbatchev is licensed under "LGPL 3":http://www.gnu.org/licenses/lgpl.html.
-
-*jQuery-Lightbox* is licensed under the "BSD license":http://www.opensource.org/licenses/bsd-license.php.  It was ported to jQuery (from Prototype and Scriptaculous) by Warren Krewenki.
 
 The *Password Strength Plugin* is authored by Darren Mason, based on the plugin by "Firas Kassem":http://phiras.wordpress.com/2007/04/08/password-strength-meter-a-jquery-plugin/.  It is GPL licensed.  We have made some small modifications to plugin.
 
