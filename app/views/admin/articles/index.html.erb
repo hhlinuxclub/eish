@@ -26,9 +26,9 @@
 	    <td><%= link_to article.title, { :id => article.id, :action => "edit" }, { :title => "Edit", :class => "listingTitle" } %><br />
 	    		<%=h truncate(article.description, 50, "...") %>
 	    </td>
-		  <td><%=h short_date(article.created_at) %></td>
-		  <td><%= article.published? ? "published" : "unpublished" %></td>
-			<td><%= article.current_revision_id %></td>
+		  <td style="text-align: center;"><%=h short_date(article.created_at) %></td>
+		  <td style="text-align: center;"><%= article.published? ? "published" : "unpublished" %></td>
+			<td style="text-align: center;"><%= article.current_revision_id %></td>
 	  </tr>
 	<% end %>
 </table>

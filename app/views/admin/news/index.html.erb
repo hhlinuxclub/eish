@@ -25,8 +25,8 @@
 	    <td><%= link_to news_article.title, { :id => news_article.id, :action => "edit" }, { :title => "Edit", :class => "listingTitle" } %><br />
 	    		<%=h truncate(news_article.body, 50, "...") %>
 	    </td>
-		  <td><%=h short_date(news_article.created_at) %></td>
-		  <td><%= news_article.published? ? "published" : "unpublished" %></td>
+		  <td style="text-align: center;"><%=h short_date(news_article.created_at) %></td>
+		  <td style="text-align: center;"><%= news_article.published? ? "published" : "unpublished" %></td>
 	  </tr>
 	<% end %>
 </table>

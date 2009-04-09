@@ -23,9 +23,9 @@
 		<td><%= link_to user.username, { :id => user.id, :action => "edit" }, { :title => "Edit", :class => "listingTitle" } %><br />
 	    		<%=h user.last_name %>, <%=h user.first_name %>
 	    </td>
-		<td><%=h user.email %></td>
-		<td><%=h user.role.name %></td>
-		<td><%=h user.contactable %></td>
+		<td style="text-align: center;"><%=h user.email %></td>
+		<td style="text-align: center;"><%=h user.role.name %></td>
+		<td style="text-align: center;"><%=h user.contactable %></td>
 	</tr>
 <% end %>
 
