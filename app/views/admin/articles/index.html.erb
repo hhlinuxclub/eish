@@ -18,6 +18,9 @@
     <th>Created</th>
     <th>Status</th>
 		<th>Revision</th>
+		<% if User.find(session[:user_id]).role.can_administer? %>
+			<th>Featured</th>
+		<% end %>
   </tr>
 
 	<% for article in @articles %>
@@ -29,6 +32,17 @@
 		  <td style="text-align: center;"><%=h short_date(article.created_at) %></td>
 		  <td style="text-align: center;"><%= article.published? ? "published" : "unpublished" %></td>
 			<td style="text-align: center;"><%= article.current_revision_id %></td>
+			<% if User.find(session[:user_id]).role.can_administer? %>
+				<td style="text-align: center;">
+					<% if defined? article.published && article.published %>
+  					<% if article.id != @featured_article %>
+    						<%= link_to image_tag("picol/not_featured_16.png", :alt => "Feature"), { :id => article.id, :action => "feature" }, { :title => "Feature" }%>
+  					<% else %>
+    						<%= image_tag("picol/featured_16.png", :alt => "Currently featured") %>
+ 						<% end %>
+					<% end %>
+					</td>
+			<% end %>
 	  </tr>
 	<% end %>
 </table>
