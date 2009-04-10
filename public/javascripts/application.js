@@ -45,15 +45,18 @@ $(document).ready(function() {
 		href: "#"
     });
 
-    $("#loginDialog").dialog({
-    		autoOpen: false,
-			bgiframe: true,
-			modal: true,
-			title: "Login",
-			resizable: false
+  $("#loginDialog").dialog({
+    autoOpen: false,
+		bgiframe: true,
+		modal: true,
+		title: "Login",
+		resizable: false
 	});
-
-    $('.login').click(function() {
+	
+	$("#loginDialog input[type=text]").addClass("ui-widget-content ui-corner-all");
+	$("#loginDialog input[type=password]").addClass("ui-widget-content ui-corner-all");
+	
+  $('.login').click(function() {
 		$("#loginDialog").dialog('open')
 	});
 		
