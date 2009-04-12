@@ -1,6 +1,6 @@
 class Admin::ArticlesController < ApplicationController
   layout "admin"
- 
+   
   def index
     user = User.find(session[:user_id])
     if user.role.can_update? || user.role.can_delete? || user.role.can_publish? || user.role.can_administer?
@@ -17,12 +17,7 @@ class Admin::ArticlesController < ApplicationController
   end
 
   def show
-    @article = Article.find(params[:id])
-
-    respond_to do |format|
-      format.html
-      format.xml  { render :xml => @article }
-    end
+    redirect_to :action => "edit"
   end
 
   def new
@@ -45,6 +40,7 @@ class Admin::ArticlesController < ApplicationController
     @category = Category.new
     @categories = Category.all
     user = User.find(session[:user_id])
+    flash[:object] = { :id => @article.id, :class => @article.class.name }
     
     respond_to do |format|
       if user.role.can_update? || user.id == @article.user_id
@@ -57,17 +53,26 @@ class Admin::ArticlesController < ApplicationController
 
   def create
     @article = Article.new(params[:article])
-    @article.category_ids = params[:categories].keys.to_a
+    @article.category_ids = params[:categories].keys.to_a unless params[:categories].nil?
     @article.user_id = session[:user_id]
     user = User.find(session[:user_id])
+    
+    if params[:create_category]
+      category = Category.create!(params[:category])
+      @article.categories << category
+    else
+      if user.role.can_create?
+        @article.save
+        @article.assets.create params[:asset].merge! :user_id => user.id if params[:upload]
+      end
+    end
 
     respond_to do |format|
       if user.role.can_create?
-        if @article.save
-          flash[:notice] = "Article was successfully created."
-          format.html { redirect_to(admin_article_path(@article)) }
-        else
+        if params[:create_category]
           format.html { render :action => "new" }
+        else
+          format.html { redirect_to edit_admin_article_path @article }
         end
       else
         format.html { redirect_to admin_articles_path }
@@ -77,20 +82,33 @@ class Admin::ArticlesController < ApplicationController
 
   def update
     @article = Article.find(params[:id])
-    @article.category_ids = params[:categories].keys.to_a
-    @article.updated_by_user_id = session[:user_id]
+    @article.category_ids = params[:categories].keys.to_a unless params[:categories].nil?
     user = User.find(session[:user_id])
+    
+    if params[:upload] || params[:create_category]
+      if params[:upload]
+        @article.assets.create params[:asset].merge! :user_id => user.id
+      end
+      
+      if params[:create_category]
+        category = Category.create!(params[:category])
+        @article.categories << category
+      end
+      
+      @article[:title] = params[:article][:title]
+      @article[:description] = params[:article][:description]
+      @article[:body] = params[:article][:body]      
+    else
+      @article.updated_by_user_id = session[:user_id]
+      @article.update_attributes(params[:article]) if user.role.can_update? || @article.user_id == user.id
+    end
 
     respond_to do |format|
-      if user.role.can_update? || @article.user_id == user.id
-        if @article.update_attributes(params[:article])
-          flash[:notice] = "Article was successfully updated."
-          format.html { redirect_to admin_article_path(@article) }
-        else
-          format.html { render :action => "edit" }
-        end
+      if !params[:upload] && !params[:create_category]
+        flash[:notice] = "Article was successfully updated."
+        format.html { redirect_to admin_article_path(@article) }
       else
-        format.html { redirect_to admin_articles_path }
+        format.html { render :action => "edit" }
       end
     end
   end

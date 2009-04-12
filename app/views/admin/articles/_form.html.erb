@@ -1,4 +1,4 @@
-<% form_for [:admin, @article] do |f| %>
+<% form_for [:admin, @article], :html => { :multipart => true, :id => "form" } do |f| %>
   <%= f.error_messages%>
 
 	<p>
@@ -16,14 +16,54 @@
 		<%= f.text_area :body, :cols => 85, :rows => 20, :class => "resizable" %>
 	</p>
 	
-	<h4 class="title">Categories:</h4>
-	<% if @categories.empty? %>
-		<p>There are no categories at the moment. Please create one.</p>
-	<% else %>
-		<ul id="categories">
-			<%= render :partial => @categories %>
-		</ul>
-	<% end %>
+	<div id="accordion">
+		<h3><a href="#">Categories</a></h3>
+		<div>
+			<% if Category.all.empty? %>
+				<p>There are no categories at the moment. Please create one.</p>
+			<% else %>
+				<ul id="categories">
+					<%= render :partial => Category.all %>
+				</ul>
+			<% end %>
+			
+			<h4>Add new category</h4>
+			<% fields_for :category do |c| %>
+				<p>
+					<%= c.label :name %><br />
+					<%= c.text_field :name %>
+				</p>
+
+				<p>
+					<%= submit_tag "Create category", :name => "create_category" %>
+				</p>
+			<% end %>
+		</div>
+
+		<h3><a href="#">Assets</a></h3>
+		<div>
+			<ul>
+				<% for asset in @article.assets %>
+					<li><%= asset.description %></li>
+				<% end %>
+			</ul>
+			
+			<h4>Add new asset</h4>
+			<% fields_for :asset do |a| %>
+				<p>
+					<%= a.label :description %><br />
+					<%= a.text_field :description %>
+				</p>
+
+				<p>
+					<%= a.label :file, "File" %><br />
+					<%= a.file_field :upload %>
+				</p>
+			<% end %>
+			<p><%= submit_tag "Upload", :name => "upload" %></p>
+		</div>
+	</div>
+	
 	<p>
 		<%= f.submit submit_value ||= "Submit" %>
 		<%= preview_button "/admin/articles/preview", :body => "article_body", :title => "article_title", :description => "article_description" %>
@@ -33,14 +73,15 @@
 <div id="preview" title="Preview">
 </div>
 
-<h3 class="title">Add Category</h3>
-<% form_for [:admin, @category] do |f| %>
-	<p>
-		<%= f.label :name %><br />
-		<%= f.text_field :name %>
-	</p>
-	
-	<p>
-		<%= f.submit "Create category" %>
-	</p>
-<% end %>
+<div id="addCategory" style="display: none;">
+	<% form_for [:admin, Category.new] do |f| %>
+		<p>
+			<%= f.label :name %><br />
+			<%= f.text_field :name %>
+		</p>
+
+		<p>
+			<%= f.submit "Create category" %>
+		</p>
+	<% end %>
+</div>
