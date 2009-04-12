@@ -2,7 +2,7 @@
 
 <p><%= link_to "Add news article", new_admin_news_article_path, :class => 'add' %></p>
 
-<% form_tag("news/bulk_action") do %>
+<% form_tag("/admin/news/bulk_action") do %>
 	<label for="actions">Bulk actions:</label>
 	<select name="actions">
 		<option value="publish" class="publish">Publish</option>

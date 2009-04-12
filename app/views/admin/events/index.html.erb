@@ -2,7 +2,7 @@
 
 <p><%= link_to "Add event", new_admin_event_path, :class => 'add' %></p>
 
-<% form_tag("events/bulk_action") do %>
+<% form_tag("/admin/events/bulk_action") do %>
 	<label for="actions">Bulk actions:</label> 
 	<select name="actions">
 		<option value="publish" class="publish">Publish</option>
