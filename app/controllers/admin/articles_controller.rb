@@ -40,7 +40,6 @@ class Admin::ArticlesController < ApplicationController
     @category = Category.new
     @categories = Category.all
     user = User.find(session[:user_id])
-    flash[:object] = { :id => @article.id, :class => @article.class.name }
     
     respond_to do |format|
       if user.role.can_update? || user.id == @article.user_id
