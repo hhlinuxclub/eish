@@ -2,13 +2,15 @@
 
 <p><%= link_to "Add user", new_admin_user_path, :class => 'add' %></p>
 
-<form>
+<% form_tag("/admin/users/action") do %>
 	<label for="actions">Actions:</label>
-								<select name="actions">
-									<option value="delete" class="delete">Delete</option>
-									<option value="make_contactable">Add to contacts</option>
-									<option value="make_uncontacable">Remove from contacts</option>
-								</select>
+	<select name="actions">
+		<option value="delete" class="delete">Delete</option>
+		<option value="make_contactable">Add to contacts</option>
+		<option value="make_uncontactable">Remove from contacts</option>
+	</select>
+	<%= submit_tag "Do action" %>
+	
 <table>
 	<tr>
 		<th></th>
@@ -31,5 +33,5 @@
 <% end %>
 
 </table>
-</form>
+<% end %>
 

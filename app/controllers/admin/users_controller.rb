@@ -62,16 +62,23 @@ class Admin::UsersController < ApplicationController
     end
   end
   
-  def destroy
-    @user = User.find(params[:id])
-    if @user.role.can_administer?
-      flash[:error] = "Cannot delete an administrator."
-    else
-      @user.safe_destroy
+  def action
+    user = User.find(params[:user])
+    case params[:actions]
+      when "delete"
+        if user.role.can_administer?
+          flash[:error] = "Cannot delete an administrator."
+        else
+          user.safe_destroy
+        end
+      when "make_contactable"
+        user.update_attribute("contactable", true)
+      when "make_uncontactable"
+        user.update_attribute("contactable", false)
     end
-
+    
     respond_to do |format|
-      format.html { redirect_to(admin_users_url) }
+      format.html { redirect_to :action => "index" }
     end
   end
 end
