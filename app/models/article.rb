@@ -3,6 +3,7 @@ class Article < ActiveRecord::Base
   has_many :revisions
   has_many :categorizations
   has_many :categories, :through => :categorizations
+  has_many :assets, :as => :attachable
   
   named_scope :all_published, :conditions => { :published => true }
   
