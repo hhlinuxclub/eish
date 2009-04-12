@@ -18,6 +18,13 @@ $(document).ready(function() {
 	$("#loginBoxForm").submitWithAjax();
 	$("#jsLogin").submitWithAjax();
 	
+	$("#accordion").accordion({
+		collapsible: true,
+		autoHeight: false
+	});
+	
+	$("#accordion").accordion("activate", -1);
+	
 	$("#bulk_check").click(function() {
 		this.checked = !(this.checked == true);
 		var ischecked = !(this.checked == true);
@@ -45,8 +52,8 @@ $(document).ready(function() {
 		href: "#"
     });
 
-  $("#loginDialog").dialog({
-    autoOpen: false,
+	$("#loginDialog").dialog({
+    	autoOpen: false,
 		bgiframe: true,
 		modal: true,
 		title: "Login",
@@ -56,7 +63,7 @@ $(document).ready(function() {
 	$("#loginDialog input[type=text]").addClass("ui-widget-content ui-corner-all");
 	$("#loginDialog input[type=password]").addClass("ui-widget-content ui-corner-all");
 	
-  $('.login').click(function() {
+	$('.login').click(function() {
 		$("#loginDialog").dialog('open')
 	});
 		
