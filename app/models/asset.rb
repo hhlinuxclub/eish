@@ -6,7 +6,7 @@ class Asset < ActiveRecord::Base
     :styles => { :large => "600x600>", :medium => "300x300>", :thumb => "100x100>" },
     :url => "/uploads/:id/:style/:basename.:extension",
     :path => ":rails_root/public/uploads/:id/:style/:basename.:extension"
-  
+    
   def filename
     upload_file_name
   end
@@ -26,5 +26,13 @@ class Asset < ActiveRecord::Base
   
   def before_save
     self.description = self.filename if self.description.empty?
+  end
+  
+  def self.images(attachable_type, attachable_id)
+    find_all_by_attachable_type_and_attachable_id(attachable_type, attachable_id, :conditions => "upload_content_type LIKE 'image/%'")
+  end
+  
+  def self.files(attachable_type, attachable_id)
+    find_all_by_attachable_type_and_attachable_id(attachable_type, attachable_id, :conditions => "upload_content_type NOT LIKE 'image/%'")
   end
 end

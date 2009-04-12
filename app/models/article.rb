@@ -42,4 +42,12 @@ class Article < ActiveRecord::Base
   def current_revision
     return Revision.find_by_article_id_and_number(id, current_revision_id)
   end
+  
+  def images
+    Asset.images("Article", id)
+  end
+  
+  def files
+    Asset.files("Article", id)
+  end
 end

@@ -42,12 +42,8 @@
 
 		<h3><a href="#">Assets</a></h3>
 		<div>
-			<ul>
-				<% for asset in @article.assets %>
-					<li><%= asset.description %></li>
-				<% end %>
-			</ul>
-			
+			<%= render :partial => @article.images %>
+			<%= render :partial => @article.files %>			
 			<h4>Add new asset</h4>
 			<% fields_for :asset do |a| %>
 				<p>
