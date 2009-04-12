@@ -17,6 +17,10 @@ class Article < ActiveRecord::Base
     Revision.create :number => 1, :title => title, :description => description, :body => body, :user_id => user_id, :article_id => id
   end
   
+  def before_destroy
+    return false if Setting.option("featured_article").to_i == id
+  end
+  
   def change_to_revision(number)
     revision = Revision.find_by_article_id_and_number(self.id, number)
     self.title = revision.title
@@ -49,5 +53,14 @@ class Article < ActiveRecord::Base
   
   def files
     Asset.files("Article", id)
+  end
+  
+  def self.featured
+    featured_article_id = Setting.option("featured_article")
+    if featured_article_id.nil? || featured_article_id.empty?
+      return nil
+    else
+      return Article.find(featured_article_id)
+    end
   end
 end

@@ -6,7 +6,6 @@ class HomeController < ApplicationController
     @events = Event.upcoming(4)
     @user = User.find(session[:user_id]) unless session[:user_id].nil?
     @welcome_message = Setting.option("welcome_message")
-    featured_article_id = Setting.option("featured_article").to_i
-    @featured_article = Article.find(featured_article_id) unless featured_article_id == 0
+    @featured_article = Article.featured
   end
 end
