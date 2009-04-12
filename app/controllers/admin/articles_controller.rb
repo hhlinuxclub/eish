@@ -181,14 +181,23 @@ class Admin::ArticlesController < ApplicationController
       params[:articles].each { |id, value| selected << id if value == "on" }
       articles = Article.find(selected)
       user = User.find(session[:user_id])
+      featured_article = Article.featured
     
       case params[:actions]
         when "delete"
-          articles.each { |a| a.destroy } if user.role.can_delete?
+          if articles.include? featured_article
+            flash[:error] = "Cannot delete the featured article."
+          else
+            articles.each { |a| a.destroy } if user.role.can_delete?
+          end
         when "publish"
           articles.each { |a| a.publish } if user.role.can_publish?
         when "unpublish"
-          articles.each { |a| a.publish(false) } if user.role.can_publish?
+          if articles.include? featured_article
+            flash[:error] = "Cannot unpublish the featured article."
+          else
+            articles.each { |a| a.publish(false) } if user.role.can_publish?
+          end
       end
     end
     
