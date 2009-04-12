@@ -338,3 +338,12 @@ ins {
 	background: url('../images/picol/delete_16.png') no-repeat 0px 1px;
 	padding-left: 17px;
 }
+
+#form {
+	width: 80%;
+}
+
+#form input[type=text],
+#form textarea {
+	width: 100%;
+}
