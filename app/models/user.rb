@@ -8,6 +8,7 @@ class User < ActiveRecord::Base
   has_many :galleries
   has_many :images
   has_many :news
+  has_many :assets
   has_one :profile
 
   validates_presence_of :first_name, :last_name, :username, :email
