@@ -28,12 +28,12 @@
 		        <%= navigation("home", "news", "articles", "events", "about", "contact") %>
 		    </div>
 		    <%= render :partial => "/users/userlinks" %>
+		    <div id="flash">
+          <span id="flashNotice"><%= flash[:notice] %></span>
+					<span id="flashError"><%= flash[:error] %></span>
+        </div>
             </div>
             <div id="content" class="<%= controller.controller_name.to_s unless admin_namespace? %>">
-                <p id="flash">
-                    <span id="flashNotice"><%= flash[:notice] %></span>
-										<span id="flashError"><%= flash[:error] %></span>
-                </p>
                 <%= yield %>
             </div>
             <div id="footer">

@@ -142,7 +142,7 @@ td {
 }
 
 th {
-	background: #0066cb url('../images/th_background.png') repeat 0 0;
+	background: #d9d9d9 url('../images/th_background.png') repeat 0 0;
 	border: 1px solid #d9d9d9;
 	border-bottom: none;
 	color: #000;

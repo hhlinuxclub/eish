@@ -80,7 +80,7 @@ body {
 	top: 0px;
 	right: 0px;
 	color: #666;
-	margin-top: 30px;
+	margin-top: 25px;
 }
 
 #userLinks a {
@@ -400,8 +400,13 @@ label {
 
 #flash {
 	font-weight: 700;
-	float: right;
-	padding-top: 5px;
+	width: 150px;
+	position: absolute;
+	right: 0;
+	top: 0;
+	margin-top: 110px;
+	text-align: right;
+	font-size: 9pt;
 }
 
 #flashNotice,
