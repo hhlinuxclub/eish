@@ -40,7 +40,6 @@
 		<div class="box" id="featuredArticleBox">
 	<% unless @featured_article.nil? %>
 		<h3 class="homeTitle"><%=h @featured_article.title %></h3>
-		<%= image_tag "picol/picture_100.png", :alt => "Image Placeholder" %>
 		<p><%=h @featured_article.description %></p>
 		<p style="text-align: right;">
 			<%= link_to	"More...", article_details_path(:id => @featured_article.id, :title => urlify(@featured_article.title)) %>
