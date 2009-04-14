@@ -9,4 +9,8 @@ class Category < ActiveRecord::Base
   def to_param
     "#{id}-#{name.parameterize}"
   end
+  
+  def published_articles
+    articles.find(:all, :conditions => { :published => true })
+  end
 end
