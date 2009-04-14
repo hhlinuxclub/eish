@@ -16,12 +16,7 @@ class Admin::NewsController < ApplicationController
   end
 
   def show
-    @news_article = News.find(params[:id])
-
-    respond_to do |format|
-      format.html
-      format.xml  { render :xml => @news_article }
-    end
+    redirect_to :action => "edit"
   end
 
   def new

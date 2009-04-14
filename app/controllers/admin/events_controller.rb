@@ -18,12 +18,7 @@ class Admin::EventsController < ApplicationController
   end
 
   def show
-    @event = Event.find(params[:id])
-
-    respond_to do |format|
-      format.html
-      format.xml  { render :xml => @event }
-    end
+    redirect_to :action => "edit"
   end
 
   def new

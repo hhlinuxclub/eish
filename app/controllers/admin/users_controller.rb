@@ -13,12 +13,7 @@ class Admin::UsersController < ApplicationController
   end
   
   def show
-    @user = User.find(params[:id])
-    
-    respond_to do |format|
-      format.html
-      format.xml { render :xml => @user }
-    end
+    redirect_to :action => "edit"
   end
   
   def new
