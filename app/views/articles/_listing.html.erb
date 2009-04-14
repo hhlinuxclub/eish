@@ -2,14 +2,14 @@
 <p>
 	<% for category in @categories %>
 		<% unless category.articles.empty? %>
-			<span style="font-size: 8pt;"><%= link_to category.name, categories_path(:id => category.id) %> (<%= category.articles.count %>)&nbsp;</span>
+			<span style="font-size: 8pt;"><%= link_to category.name, categories_path(category) %> (<%= category.articles.count %>)&nbsp;</span>
 		<% end %>
 	<% end %>
 </p>
 
 <% for article in @articles %>
 	<div class="article">
-		<h3 class="title"><%= link_to article.title, article_details_path(:id => article.id, :title => urlify(article.title)) %></h3>
+		<h3 class="title"><%= link_to article.title, article_path(article) %></h3>
 		<p class="metadata">
 			<%=h distance_of_time_in_words(article.created_at, Time.now) %> ago
 			by <%= link_to_profile article.user %>

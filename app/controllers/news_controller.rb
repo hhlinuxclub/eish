@@ -12,7 +12,7 @@ class NewsController < ApplicationController
   end
 
   def show
-    @news_article = News.find_by_id_and_published(params[:id], true)
+    @news_article = News.find_by_id_and_published(params[:id].to_i, true)
 
     respond_to do |format|
       format.html

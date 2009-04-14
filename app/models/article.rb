@@ -63,4 +63,8 @@ class Article < ActiveRecord::Base
       return Article.find(featured_article_id)
     end
   end
+  
+  def to_param
+    "#{id}-#{title.parameterize}"
+  end
 end

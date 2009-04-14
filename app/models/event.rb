@@ -103,6 +103,10 @@ class Event < ActiveRecord::Base
     self.published = status
     self.save_without_validation
   end
+  
+  def to_param
+    "#{id}-#{name.parameterize}"
+  end
     
   private
   

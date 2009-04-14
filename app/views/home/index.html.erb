@@ -9,7 +9,7 @@
 		<ul>
 		<% for event in @events %>
 			<li class="date"><%= format_event_dates(event) %></li>
-			<li class="boxItem"><%= link_to event.name, event_details_path(:id => event.id, :name => urlify(event.name)) %></li>
+			<li class="boxItem"><%= link_to event.name, event_path(event) %></li>
 		<% end %>	
 		</ul>
 	</div>
@@ -32,7 +32,7 @@
 		<ul>
 		<% for news_article in @news %>
 			<li class="date"><%=h distance_of_time_in_words(news_article.created_at, Time.now) %> ago</li>
-			<li class="boxItem"><%= link_to news_article.title, news_article_details_path(:id => news_article.id, :title => urlify(news_article.title)) %></li>
+			<li class="boxItem"><%= link_to news_article.title, news_article_path(news_article) %></li>
 		<% end %>	
 		</ul>
 	</div>
@@ -42,7 +42,7 @@
 		<h3 class="homeTitle"><%=h @featured_article.title %></h3>
 		<p><%=h @featured_article.description %></p>
 		<p style="text-align: right;">
-			<%= link_to	"More...", article_details_path(:id => @featured_article.id, :title => urlify(@featured_article.title)) %>
+			<%= link_to	"More...", article_path(@featured_article) %>
 		</p>
 	<% end %>
 	</div>

@@ -1,6 +1,4 @@
-ActionController::Routing::Routes.draw do |map|
-  ActionController::Routing::SEPARATORS <<  "-" unless ActionController::Routing::SEPARATORS.include?("-")
-  
+ActionController::Routing::Routes.draw do |map|  
   # The priority is based upon order of creation: first created -> highest priority.
 
   # Sample of regular route:
@@ -14,9 +12,6 @@ ActionController::Routing::Routes.draw do |map|
   #   map.purchase 'products/:id/purchase', :controller => 'catalog', :action => 'purchase'
   # This route can be invoked with purchase_url(:id => product.id)
   map.admin "admin", :namespace => "admin", :controller => "home"
-  map.news_article_details "news/:id-:title*path", :controller => "news", :action => "show"
-  map.article_details "articles/:id-:title*path", :controller => "articles", :action => "show"
-  map.event_details "events/:id-:name*path", :controller => "events", :action => "show"
   map.password_reset "users/:username/reset/:reset_hash", :controller => "users", :action => "password_reset"
   map.login "login", :controller => "users", :action => "login"
   map.logout "logout", :controller => "users", :action => "logout"
@@ -69,8 +64,4 @@ ActionController::Routing::Routes.draw do |map|
   
   map.connect ':controller/:action/:id'
   map.connect ':controller/:action/:id.:format'
-  
-  map.connect "news/:id*path", :controller => "news", :action => "show"
-  map.connect "articles/:id*path", :controller => "articles", :action => "show"
-  map.connect "events/:id*path", :controller => "events", :action => "show"
 end

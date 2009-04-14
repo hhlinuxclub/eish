@@ -1,7 +1,7 @@
 <h2 class="title">Past Events</h2>
 <% if @past_events.size > 0 %>
 	<% for event in @past_events %>
-		<h3 class="title"><%= link_to event.name, event_details_path(:id => event.id, :name => urlify(event.name)) %></h3>
+		<h3 class="title"><%= link_to event.name, event_path(event) %></h3>
 		<p class="metadata"><%= format_event_dates(event) %></p>
 	<% end %>
 <% else %>
