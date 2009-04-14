@@ -28,8 +28,13 @@
 	</p>
 	
 	<p>
+		<%= f.label :address %><br />
+		<%= f.text_field :address %>
+	</p>
+	
+	<p>
 		<%= f.label :location %><br />
-		<%= f.text_field :location %> <%= f.check_box :is_address %> <%= f.label :is_address, "Address" %>
+		<%= f.text_field :location %>
 	</p>
 	
 	<p>

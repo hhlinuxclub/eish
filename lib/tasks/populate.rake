@@ -58,8 +58,7 @@ namespace :db do
       event.name = Populator.words(1..3).titleize
       event.starts_at = Populator.value_in_range(1.year.ago..1.year.from_now)      
       event.ends_at = Populator.value_in_range(event.starts_at..event.starts_at + 5.days)
-      event.location = Faker::Address.street_address + ", " + Faker::Address.city
-      event.is_address = true
+      event.address = Faker::Address.street_address + ", " + Faker::Address.city
       event.published = true
       event.description = Populator.sentences(1..5)
       event.user_id = User.all[Populator.value_in_range(0..19)].id
