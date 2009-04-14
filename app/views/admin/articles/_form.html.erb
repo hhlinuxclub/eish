@@ -42,8 +42,12 @@
 
 		<h3><a href="#">Assets</a></h3>
 		<div>
-			<%= render :partial => @article.images %>
-			<%= render :partial => @article.files %>			
+			<% if @article.assets.empty? %>
+				<p>There are no assets at the moment.</p>
+			<% else %>
+				<%= render :partial => @article.images %>
+				<%= render :partial => @article.files %>
+			<% end %>
 			<h4>Add new asset</h4>
 			<% fields_for :asset do |a| %>
 				<p>
