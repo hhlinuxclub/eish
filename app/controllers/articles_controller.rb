@@ -23,7 +23,7 @@ class ArticlesController < ApplicationController
   
   def categories
     @category = Category.find(params[:id])
-    @articles = Article.paginate_all_by_published true, :page => params[:page], :per_page => 10, :joins => "INNER JOIN categorizations ON categorizations.article_id = articles.id INNER JOIN categories ON categories.id = categorizations.category_id", :conditions => ["categories.id = ?", params[:id].to_i], :order => "articles.created_at DESC"
+    @articles = @category.articles.paginate_all_by_published true, :page => params[:page], :per_page => 10, :order => "articles.created_at DESC"
     @categories = Category.all_alphabetically
   end
 end
