@@ -5,8 +5,10 @@
         <title><%= controller.controller_name.capitalize %> &#8211; HHLinuxClub.org</title>
         <% bundle :name => "frontend" do %>
 		      <%= stylesheet_link_tag 'screen', 'lightbox', 'jquery-ui', 'password_strength_plugin' %>
-					<%= javascript_include_tag 'jquery', 'jquery-ui', 'jquery.lightbox', 'password_strength_plugin', 'application' %>
 				<% end %>
+				
+				<%= render :partial => "layouts/javascript" %>
+				
 				<% if controller.controller_name == "home" %>
 					<%= auto_discovery_link_tag(:atom, "/news.atom", {:title => "News"}) %>
 					<%= auto_discovery_link_tag(:atom, "/articles.atom", {:title => "Articles"}) %>
