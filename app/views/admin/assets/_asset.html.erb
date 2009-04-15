@@ -1,7 +1,20 @@
 <% if asset.image? %>
 	<div class="imageAsset">
-		<%= image_tag asset.upload.url(:thumb), :onclick => "$.markItUp({ replaceWith:'!" + asset.upload.url + "(" + asset.description + ")!' } );" %>
-		<em>!<%= asset.upload.url %>(<%= asset.description %>)!</em>
+	<table>
+		<tr>
+			<th style="width: 120px;">Thumb</th>
+			<th>Textile</th>
+		</tr>
+		<tr>
+			<td style="text-align: center;"><%= image_tag asset.upload.url(:thumb), :onclick => "$.markItUp({ replaceWith:'" + (asset.textile_tag :thumb) + "' } );" %></td>
+			<td>
+				<code onclick="$.markItUp({ replaceWith:'<%= asset.textile_tag :original %>' } );"><%= asset.textile_tag :original %></code><br />
+				<code onclick="$.markItUp({ replaceWith:'<%= asset.textile_tag :large %>' } );"><%= asset.textile_tag :large %></code><br />
+				<code onclick="$.markItUp({ replaceWith:'<%= asset.textile_tag :medium %>' } );"><%= asset.textile_tag :medium %></code><br />
+				<code onclick="$.markItUp({ replaceWith:'<%= asset.textile_tag :thumb %>' } );"><%= asset.textile_tag :thumb %></code><br />
+			</td>
+		</tr>
+	</table>
 	</div>
 <% else %>
 	<div class="fileAsset">
