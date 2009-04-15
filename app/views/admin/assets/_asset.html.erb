@@ -1,5 +1,6 @@
 <% if asset.image? %>
 	<div class="imageAsset">
+
 	<table>
 		<tr>
 			<th style="width: 120px;">Thumb</th>
@@ -18,7 +19,21 @@
 	</div>
 <% else %>
 	<div class="fileAsset">
-		<strong><%= link_to asset.description, asset.upload.url %></strong>
-		(<%= number_to_human_size(asset.size) %>)
+		<table>
+		<tr>
+			<th style="text-align: left; width: 200px;">Name</th>
+			<th style="text-align: left;">Description</th>
+			<th style="width: 120px;">Size</th>
+		</tr>
+		<tr>
+			<td><%= link_to asset.filename, asset.upload.url %></td>
+			<td>
+				<%= asset.description %>
+			</td>
+			<td style="text-align: center;">
+				<%= number_to_human_size(asset.size) %>
+			</td>
+		</tr>
+	</table>
 	</div>
 <% end %>
