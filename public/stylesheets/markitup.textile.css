@@ -55,6 +55,10 @@
 	background-image:url(/images/markitup/code.png);
 }
 
+.markItUp .markItUpButton17 a	{
+	background-image:url(/images/markitup/pre.png);
+}
+
 .markItUp .preview a {
 	background-image:url(/images/markitup/preview.png);
 }
