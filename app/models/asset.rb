@@ -24,6 +24,10 @@ class Asset < ActiveRecord::Base
     return false
   end
   
+  def textile_tag(style)
+    return "!" + self.upload.url(style) + "(" + self.description + ")!"
+  end
+  
   def before_save
     self.description = self.filename if self.description.empty?
   end
