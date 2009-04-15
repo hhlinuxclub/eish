@@ -5,12 +5,10 @@
         <title><%= controller.controller_name.capitalize %> &#8211; HHLinuxClub.org</title>
         <% bundle :name => "admin" do %>
 		      <%= stylesheet_link_tag "admin", "jquery-ui", "SyntaxHighlighter/shThemeDefault", "SyntaxHighlighter/shCore", "markitup", "markitup.textile" %>
-					<%= javascript_include_tag "jquery", "jquery-ui", "SyntaxHighlighter/shCore.js", "SyntaxHighlighter/shBrushDiff.js", "markitup.js", "markitup.textile.js", "application" %>
 				<% end %>
-				<script type="text/javascript">
-					SyntaxHighlighter.config.clipboardSwf = null;
-					SyntaxHighlighter.all();
-				</script>
+				
+				<%= render :partial => "layouts/javascript" %>
+				
 				<link rel="icon" type="image/png" href="/favicon.ico" />
     </head>
     <body>
