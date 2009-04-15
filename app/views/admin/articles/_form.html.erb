@@ -1,3 +1,19 @@
+<script type="text/javascript">
+
+animatedcollapse.addDiv('categories', 'fade=1,persist=1')
+animatedcollapse.addDiv('assets', 'fade=1,persist=1')
+
+animatedcollapse.ontoggle=function($, divobj, state){ //fires each time a DIV is expanded/contracted
+	//$: Access to jQuery
+	//divobj: DOM reference to DIV being expanded/ collapsed. Use "divobj.id" to get its ID
+	//state: "block" or "none", depending on state
+}
+
+animatedcollapse.init()
+
+</script>
+
+
 <% form_for [:admin, @article], :html => { :multipart => true, :id => "form" } do |f| %>
   <%= f.error_messages%>
 
@@ -16,53 +32,56 @@
 		<%= f.text_area :body, :cols => 85, :rows => 20, :class => "textile" %>
 	</p>
 	
-	<div id="accordion">
-		<h3><a href="#">Categories</a></h3>
-		<div>
-			<% if Category.all.empty? %>
-				<p>There are no categories at the moment. Please create one.</p>
-			<% else %>
-				<ul id="categories">
-					<%= render :partial => Category.all %>
-				</ul>
-			<% end %>
+<div>
+	<a href="javascript:animatedcollapse.toggle('categories')" style="display:block;text-decoration:none;"><h3 class="title">Categories <span style="font-size: 7pt;color:#0066cb">[toggle]</span></h3></a>
+		<div id="categories">
+			<div>
+				<% if Category.all.empty? %>
+					<p>There are no categories at the moment. Please create one.</p>
+				<% else %>
+					<ul id="categories">
+						<%= render :partial => Category.all %>
+					</ul>
+				<% end %>
 			
-			<h4>Add new category</h4>
-			<% fields_for :category do |c| %>
-				<p>
-					<%= c.label :name %><br />
-					<%= c.text_field :name %>
-				</p>
+				<h4>Add new category</h4>
+				<% fields_for :category do |c| %>
+					<p>
+						<%= c.label :name %><br />
+						<%= c.text_field :name %>
+					</p>
 
-				<p>
-					<%= submit_tag "Create category", :name => "create_category" %>
-				</p>
-			<% end %>
+					<p>
+						<%= submit_tag "Create category", :name => "create_category" %>
+					</p>
+				<% end %>
+			</div>
 		</div>
+<div>
+		<a href="javascript:animatedcollapse.toggle('assets')" style="display:block;text-decoration:none;"><h3 class="title">Assets <span style="font-size: 7pt;color:#0066cb">[toggle]</span></h3></a>
+		<div id="assets">
+			<div>
+				<% if @article.assets.empty? %>
+					<p>There are no assets at the moment.</p>
+				<% else %>
+					<%= render :partial => @article.images %>
+					<%= render :partial => @article.files %>
+				<% end %>
+				<h4>Add new asset</h4>
+				<% fields_for :asset do |a| %>
+					<p>
+						<%= a.label :description %><br />
+						<%= a.text_field :description %>
+					</p>
 
-		<h3><a href="#">Assets</a></h3>
-		<div>
-			<% if @article.assets.empty? %>
-				<p>There are no assets at the moment.</p>
-			<% else %>
-				<%= render :partial => @article.images %>
-				<%= render :partial => @article.files %>
-			<% end %>
-			<h4>Add new asset</h4>
-			<% fields_for :asset do |a| %>
-				<p>
-					<%= a.label :description %><br />
-					<%= a.text_field :description %>
-				</p>
-
-				<p>
-					<%= a.label :file, "File" %><br />
-					<%= a.file_field :upload %>
-				</p>
-			<% end %>
-			<p><%= submit_tag "Upload", :name => "upload" %></p>
+					<p>
+						<%= a.label :file, "File" %><br />
+						<%= a.file_field :upload %>
+					</p>
+				<% end %>
+				<p><%= submit_tag "Upload", :name => "upload" %></p>
+			</div>
 		</div>
-	</div>
 	
 	<p>
 		<%= f.submit submit_value ||= "Submit" %>

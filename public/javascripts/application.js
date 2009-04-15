@@ -28,7 +28,7 @@ $(document).ready(function() {
 		autoHeight: false
 	});
 	
-	$("#accordion").accordion("activate", -1);
+	
 	
 	$("#bulk_check").click(function() {
 		this.checked = !(this.checked == true);
