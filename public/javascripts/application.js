@@ -17,7 +17,7 @@ jQuery.fn.submitWithAjax = function() {
 };
 
 $(document).ready(function() {
-	$("textarea").markItUp(mySettings);
+	$("textarea.textile").markItUp(mySettings);
 	
 	$("#new_category").submitWithAjax();
 	$("#loginBoxForm").submitWithAjax();
