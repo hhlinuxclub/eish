@@ -46,21 +46,18 @@ body {
 
 #content {
 	background: #fff;
-	float: none;
-	margin-left: 200px;
+	margin: 0 5%;
 }
 
 #adminNavigation {
-	float: left;
 	list-style: none;
-	margin-right: 20px;
 	margin-top: 0;
 	padding: 10px 0 10px 20px;
-	width: 150px;
 }
 
 #adminNavigation li {
-	margin-top: 10px;
+	list-style: none;
+	display: inline;
 }
 
 #adminNavigation a {
