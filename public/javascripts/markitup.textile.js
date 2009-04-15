@@ -33,6 +33,13 @@ mySettings = {
 		{separator:'---------------' },
 		{name:'Quotes', openWith:'bq(!(([![Class]!])!)). '},
 		{name:'Code', openWith:'@', closeWith:'@'},
-		{name:'Pre', openWith:'<pre>', closeWith:'</pre>'}
+		{name:'Pre', dropMenu: [
+			{ name:'Plain', openWith:'<pre>', closeWith:'</pre>'},
+		  { name:'Bash', openWith:'<pre class="brush: bash;">', closeWith:'</pre>'},
+		  { name:'Diff', openWith:'<pre class="brush: diff;">', closeWith:'</pre>'},
+		  { name:'CSharp', openWith:'<pre class="brush: csharp;">', closeWith:'</pre>'},
+		  { name:'Ruby',openWith:'<pre class="brush: ruby;">', closeWith:'</pre>'}
+  		]
+		}
 	]
 };
