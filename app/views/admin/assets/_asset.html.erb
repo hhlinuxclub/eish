@@ -1,7 +1,7 @@
 <% if asset.image? %>
 	<div class="imageAsset">
-		<%= image_tag asset.upload.url(:thumb) %>
-		<em>!<%= asset.upload.url %>!</em>
+		<%= image_tag asset.upload.url(:thumb), :onclick => "$.markItUp({ replaceWith:'!" + asset.upload.url + "(" + asset.description + ")!' } );" %>
+		<em>!<%= asset.upload.url %>(<%= asset.description %>)!</em>
 	</div>
 <% else %>
 	<div class="fileAsset">
