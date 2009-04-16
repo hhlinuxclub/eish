@@ -27,6 +27,22 @@ mySettings = {
 		{separator:'---------------' },
 		{name:'Bulleted list', openWith:'(!(* |!|*)!)'},
 		{name:'Numeric list', openWith:'(!(# |!|#)!)'}, 
+		{	name:'Table generator', 
+			className:'tablegenerator', 
+			placeholder:"YourText",
+				replaceWith:function(h) {
+				cols = prompt("Number of columns:");
+				rows = prompt("Number of rows:");
+				textile = "";
+					for (r = 0; r < rows; r++) {
+						for (c = 0; c < cols; c++) {
+							textile += "|"+(h.placeholder||"");	
+						}
+						textile += "|\n";
+					}
+				return textile;
+			}
+		},
 		{separator:'---------------' },
 		{name:'Picture', replaceWith:'![![Source:!:http://]!]([![Alternative text]!])!'}, 
 		{name:'Link', openWith:'"', closeWith:'([![Title]!])":[![Link:!:http://]!]', placeHolder:'Your text to link here...' },

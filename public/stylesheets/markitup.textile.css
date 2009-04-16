@@ -59,6 +59,10 @@
 	background-image:url(/images/markitup/pre.png);
 }
 
+.markItUp .tablegenerator a {
+	background-image:url(/images/markitup/table.png);
+}
+
 .markItUp .preview a {
 	background-image:url(/images/markitup/preview.png);
 }
