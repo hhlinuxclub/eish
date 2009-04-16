@@ -27,6 +27,20 @@ mySettings = {
 		{separator:'---------------' },
 		{name:'Bulleted list', openWith:'(!(* |!|*)!)'},
 		{name:'Numeric list', openWith:'(!(# |!|#)!)'}, 
+		{separator:'---------------' },
+		{name:'Picture', replaceWith:'![![Source:!:http://]!]([![Alternative text]!])!'}, 
+		{name:'Link', openWith:'"', closeWith:'([![Title]!])":[![Link:!:http://]!]', placeHolder:'Your text to link here...' },
+		{separator:'---------------' },
+		{name:'Quotes', openWith:'bq(!(([![Class]!])!)). '},
+		{name:'Code', openWith:'@', closeWith:'@'},
+		{name:'Pre', dropMenu: [
+			{ name:'Plain', openWith:'<pre>', closeWith:'</pre>'},
+		  { name:'Bash', openWith:'<pre class="brush: bash;">', closeWith:'</pre>'},
+		  { name:'Diff', openWith:'<pre class="brush: diff;">', closeWith:'</pre>'},
+		  { name:'CSharp', openWith:'<pre class="brush: csharp;">', closeWith:'</pre>'},
+		  { name:'Ruby',openWith:'<pre class="brush: ruby;">', closeWith:'</pre>'}
+  		]
+		},
 		{	name:'Table generator', 
 			className:'tablegenerator', 
 			placeholder:"YourText",
@@ -42,20 +56,6 @@ mySettings = {
 					}
 				return textile;
 			}
-		},
-		{separator:'---------------' },
-		{name:'Picture', replaceWith:'![![Source:!:http://]!]([![Alternative text]!])!'}, 
-		{name:'Link', openWith:'"', closeWith:'([![Title]!])":[![Link:!:http://]!]', placeHolder:'Your text to link here...' },
-		{separator:'---------------' },
-		{name:'Quotes', openWith:'bq(!(([![Class]!])!)). '},
-		{name:'Code', openWith:'@', closeWith:'@'},
-		{name:'Pre', dropMenu: [
-			{ name:'Plain', openWith:'<pre>', closeWith:'</pre>'},
-		  { name:'Bash', openWith:'<pre class="brush: bash;">', closeWith:'</pre>'},
-		  { name:'Diff', openWith:'<pre class="brush: diff;">', closeWith:'</pre>'},
-		  { name:'CSharp', openWith:'<pre class="brush: csharp;">', closeWith:'</pre>'},
-		  { name:'Ruby',openWith:'<pre class="brush: ruby;">', closeWith:'</pre>'}
-  		]
 		}
 	]
 };
