@@ -34,10 +34,11 @@ mySettings = {
 		{name:'Quotes', openWith:'bq(!(([![Class]!])!)). '},
 		{name:'Code', openWith:'@', closeWith:'@'},
 		{name:'Pre', dropMenu: [
-			{ name:'Plain', openWith:'<pre>', closeWith:'</pre>'},
+			{ name:'Normal', openWith:'<pre>', closeWith:'</pre>'},
 		  { name:'Bash', openWith:'<pre class="brush: bash;">', closeWith:'</pre>'},
-		  { name:'Diff', openWith:'<pre class="brush: diff;">', closeWith:'</pre>'},
+		  { name:'C++', openWith:'<pre class="brush: cpp;">', closeWith:'</pre>'},
 		  { name:'CSharp', openWith:'<pre class="brush: csharp;">', closeWith:'</pre>'},
+		  { name:'Python', openWith:'<pre class="brush: python;">', closeWith:'</pre>'},
 		  { name:'Ruby',openWith:'<pre class="brush: ruby;">', closeWith:'</pre>'}
   		]
 		},
