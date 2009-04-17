@@ -11,7 +11,7 @@ module ArticlesHelper
           size = 0.6 * Math.log(1)
         end
 
-      xhtml << "#{link_to c.name, categories_path(c), :style => "font-size: " + size.to_s + "em"} (" + articles_count.to_s + ")"
+      xhtml << "#{link_to c.name, categories_path(c), :style => "font-size: " + size.to_s + "em"} (" + articles_count.to_s + ") &nbsp;"
     end
     
     return xhtml
