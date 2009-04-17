@@ -36,7 +36,8 @@ Rails::Initializer.run do |config|
   config.gem "ruby-recaptcha"
   config.gem "right_aws" # required by paperclip
   config.gem "thoughtbot-paperclip", :lib => "paperclip", :source => "http://gems.github.com"
-
+  config.gem "sitemapper"
+  
   # Only load the plugins named here, in the order given. By default, all plugins 
   # in vendor/plugins are loaded in alphabetical order.
   # :all can be used as a placeholder for all plugins not explicitly named
