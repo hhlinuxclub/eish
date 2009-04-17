@@ -113,10 +113,10 @@ class Event < ActiveRecord::Base
     def date_range_and_format
       starts = []
       ends = [] 
-      starts_at_date = self.starts_at_date.split(/[\.|\/]/).reverse
-      starts_at_time = self.starts_at_time.split(":")
-      ends_at_date = self.ends_at_date.split(/[\.|\/]/).reverse
-      ends_at_time = self.ends_at_time.split(":")
+      self.starts_at_date = self.starts_at_date.split(/[\.|\/]/).reverse
+      self.starts_at_time = self.starts_at_time.split(":")
+      self.ends_at_date = self.ends_at_date.split(/[\.|\/]/).reverse
+      self.ends_at_time = self.ends_at_time.split(":")
       starts = starts + starts_at_date if starts_at_date.count == 3
       starts = starts + starts_at_time if starts_at_time.count == 2
       ends = ends + ends_at_date if ends_at_date.count == 3
