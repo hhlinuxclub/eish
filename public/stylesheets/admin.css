@@ -204,7 +204,7 @@ dd {
 }
 
 .add {
-	background: url('../images/icons/add_16.png') no-repeat 0 1px;
+	background: url('../images/picol/add_16.png') no-repeat 0 1px;
 	padding-left: 17px;
 }
 
@@ -336,11 +336,7 @@ ins {
 	padding-left: 17px;
 }
 
-#form {
-	width: 80%;
-}
-
-#form input[type=text],
-#form textarea {
-	width: 100%;
+#categoriesBox,
+#assetsBox {
+	border: 1px solid #ccc;
 }

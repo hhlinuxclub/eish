@@ -4,6 +4,11 @@
 SyntaxHighlighter.config.clipboardSwf = null;
 SyntaxHighlighter.all();
 
+animatedcollapse.addDiv('categoriesBox', 'fade=1,persist=1,hide=1');
+animatedcollapse.addDiv('assetsBox', 'fade=1,persist=1,hide=1');
+animatedcollapse.addDiv('revisionsBox', 'fade=1,persist=1,hide=1');
+animatedcollapse.init();
+
 jQuery.ajaxSetup({ 
   'beforeSend': function(xhr) {xhr.setRequestHeader("Accept", "text/javascript")}
 })
@@ -28,7 +33,17 @@ $(document).ready(function() {
 		autoHeight: false
 	});
 	
+	$("#assetsToggle").click(function() {
+		animatedcollapse.toggle("assetsBox");
+	});
 	
+	$("#categoriesToggle").click(function() {
+		animatedcollapse.toggle("categoriesBox");
+	});
+	
+	$("#revisionsToggle").click(function() {
+		animatedcollapse.toggle("revisionsBox");
+	});
 	
 	$("#bulk_check").click(function() {
 		this.checked = !(this.checked == true);

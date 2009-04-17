@@ -1,20 +1,4 @@
-<script type="text/javascript">
-
-animatedcollapse.addDiv('categories', 'fade=1,persist=1')
-animatedcollapse.addDiv('assets', 'fade=1,persist=1')
-
-animatedcollapse.ontoggle=function($, divobj, state){ //fires each time a DIV is expanded/contracted
-	//$: Access to jQuery
-	//divobj: DOM reference to DIV being expanded/ collapsed. Use "divobj.id" to get its ID
-	//state: "block" or "none", depending on state
-}
-
-animatedcollapse.init()
-
-</script>
-
-
-<% form_for [:admin, @article], :html => { :multipart => true, :id => "form" } do |f| %>
+<% form_for [:admin, @article], :html => { :multipart => true } do |f| %>
   <%= f.error_messages%>
 
 	<p>
@@ -32,9 +16,17 @@ animatedcollapse.init()
 		<%= f.text_area :body, :cols => 85, :rows => 20, :class => "textile" %>
 	</p>
 	
+	<p>
+		<%= f.submit submit_value ||= "Submit" %>
+		<%= preview_button "/admin/articles/preview", :body => "article_body", :title => "article_title", :description => "article_description" %>
+	</p>
+	
 <div>
-	<a href="javascript:animatedcollapse.toggle('categories')" style="display:block;text-decoration:none;"><h3 class="title">Categories <span style="font-size: 7pt;color:#0066cb">[toggle]</span></h3></a>
-		<div id="categories">
+		<h3 class="title" id="categoriesToggle">
+			&raquo; Categories
+			<span style="font-size: 7pt;color:#0066cb">[toggle]</span>
+		</h3>
+		<div id="categoriesBox">
 			<div>
 				<% if Category.all.empty? %>
 					<p>There are no categories at the moment. Please create one.</p>
@@ -58,8 +50,11 @@ animatedcollapse.init()
 			</div>
 		</div>
 <div>
-		<a href="javascript:animatedcollapse.toggle('assets')" style="display:block;text-decoration:none;"><h3 class="title">Assets <span style="font-size: 7pt;color:#0066cb">[toggle]</span></h3></a>
-		<div id="assets">
+		<h3 class="title" id="assetsToggle">
+			&raquo; Assets
+			<span style="font-size: 7pt;color:#0066cb">[toggle]</span>
+		</h3>
+		<div id="assetsBox">
 			<div>
 				<% if @article.assets.empty? %>
 					<p>There are no assets at the moment.</p>
@@ -82,25 +77,7 @@ animatedcollapse.init()
 				<p><%= submit_tag "Upload", :name => "upload" %></p>
 			</div>
 		</div>
-	
-	<p>
-		<%= f.submit submit_value ||= "Submit" %>
-		<%= preview_button "/admin/articles/preview", :body => "article_body", :title => "article_title", :description => "article_description" %>
-	</p>
 <% end %>
 
 <div id="preview" title="Preview">
-</div>
-
-<div id="addCategory" style="display: none;">
-	<% form_for [:admin, Category.new] do |f| %>
-		<p>
-			<%= f.label :name %><br />
-			<%= f.text_field :name %>
-		</p>
-
-		<p>
-			<%= f.submit "Create category" %>
-		</p>
-	<% end %>
 </div>
