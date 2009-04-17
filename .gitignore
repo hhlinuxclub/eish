@@ -14,3 +14,4 @@ public/javascripts/cache
 public/stylesheets/cache
 public/uploads
 public/sitemap*
+.tmp_*
