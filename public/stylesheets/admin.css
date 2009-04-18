@@ -1,5 +1,5 @@
 body {
-	background: #fff;
+	background: #eee;
 	font-family: "Helvetica Neue", Helvetica, "Bitstream Vera Sans", "Trebuchet MS", sans-serif;
 	margin: 0;
 	padding: 0;
@@ -45,14 +45,16 @@ body {
 }
 
 #content {
-	background: #fff;
 	margin: 0 5%;
+	padding: 20px;
+	background: #fff;
 }
 
 #adminNavigation {
 	list-style: none;
 	margin-top: 0;
 	padding: 10px 0 10px 20px;
+	background: #bbcdde;
 }
 
 #adminNavigation li {
@@ -90,8 +92,7 @@ body {
 }
 
 #footer {
-	background: red;
-	clear: both;
+	padding: 20px;
 }
 
 img {
@@ -101,11 +102,12 @@ img {
 .title {
 	color: #282828;
 	font-family: Georgia, "Bitstream Vera Serif", serif;
-	margin-bottom: 0;
-	padding-bottom: 0;
+	margin: 0 0 20px 0;
+	padding: 10px;
+	background: #eee;
 }
 
-.title a: hover {
+.title a:hover {
 	text-decoration: underline;
 }
 
@@ -130,7 +132,7 @@ table {
 	font-size: 8pt;
 	margin-bottom: 10px;
 	margin-top: 10px;
-	width: 80%;
+	width: 100%;
 }
 
 td {
@@ -178,20 +180,12 @@ th {
 	padding: 0 20px;
 }
 
-.published {
-	background-color: #fff;
-}
-
-.unpublished {
-	background-color: #eee;
-}
-
 a:link, a:visited {
 	color: #0066cb;
 }
 
 a:hover {
-color: #282828;
+	color: #282828;
 }
 
 dd {
@@ -285,21 +279,8 @@ p,dl,#errorExplanation ul {
 	font-size: 10pt;
 }
 
-.revision {
-	width: 45%;
-}
-
 .revision h2 {
 	border-bottom: 1px solid #141414;
-}
-
-#revisionA {
-	float: left;
-}
-
-#revisionB {
-	float: right;
-	margin-right: 5%;
 }
 
 del {
@@ -336,7 +317,6 @@ ins {
 	padding-left: 17px;
 }
 
-#categoriesBox,
-#assetsBox {
-	border: 1px solid #ccc;
+.box {
+	background: #fff;
 }
