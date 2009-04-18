@@ -94,10 +94,8 @@ class Admin::ArticlesController < ApplicationController
         category = Category.create!(params[:category])
         @article.categories << category
       end
-      
-      @article[:title] = params[:article][:title]
-      @article[:description] = params[:article][:description]
-      @article[:body] = params[:article][:body]
+
+      @article.attributes = params[:article]
       @categories = Category.all
     else
       @article.updated_by_user_id = session[:user_id]
