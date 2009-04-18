@@ -28,11 +28,16 @@
 		</h3>
 		<div id="categoriesBox">
 			<div>
-				<% if Category.all.empty? %>
+				<% if @categories.empty? %>
 					<p>There are no categories at the moment. Please create one.</p>
 				<% else %>
 					<ul id="categories">
-						<%= render :partial => Category.all %>
+						<% for category in @categories %>
+							<li>
+								<%= check_box_tag "categories[#{category.id}]", category.id, @article.categories.include?(category) %>
+								<label for="categories_<%= category.id%>"><%= category.name %></label>
+							</li>
+						<% end %>
 					</ul>
 				<% end %>
 			
@@ -49,7 +54,7 @@
 				<% end %>
 			</div>
 		</div>
-<div>
+		<div>
 		<h3 class="title" id="assetsToggle">
 			&raquo; Assets
 			<span style="font-size: 7pt;color:#0066cb">[toggle]</span>

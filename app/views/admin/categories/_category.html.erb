@@ -1,5 +1,0 @@
-<% checked = defined?(@article) ? @article.categories.include?(category) : true %>
-<li>
-	<%= check_box_tag "categories[#{category.id}]", category.id, checked %>
-	<label for="categories_<%= category.id%>"><%= category.name %></label>
-</li>
