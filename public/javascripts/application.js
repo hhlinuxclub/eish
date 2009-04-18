@@ -22,8 +22,6 @@ jQuery.fn.submitWithAjax = function() {
 };
 
 $(document).ready(function() {
-	animatedcollapse.hide(["categoriesBox", "assetsBox", "revisionsBox"])
-	
 	$("textarea.textile").markItUp(mySettings);
 	
 	$("#new_category").submitWithAjax();
