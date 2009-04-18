@@ -59,6 +59,7 @@ class Admin::ArticlesController < ApplicationController
     if params[:create_category]
       category = Category.create!(params[:category])
       @article.categories << category
+      @categories = Category.all
     else
       if user.role.can_create?
         @article.save
@@ -96,7 +97,8 @@ class Admin::ArticlesController < ApplicationController
       
       @article[:title] = params[:article][:title]
       @article[:description] = params[:article][:description]
-      @article[:body] = params[:article][:body]      
+      @article[:body] = params[:article][:body]
+      @categories = Category.all
     else
       @article.updated_by_user_id = session[:user_id]
       @article.update_attributes(params[:article]) if user.role.can_update? || @article.user_id == user.id
