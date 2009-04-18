@@ -1,10 +1,6 @@
 <h3 class="title">Categories</h3>
 <p>
-	<% for category in @categories %>
-		<% unless category.published_articles.empty? %>
-			<span style="font-size: 8pt;"><%= link_to category.name, categories_path(category) %> (<%= category.published_articles.count %>)&nbsp;</span>
-		<% end %>
-	<% end %>
+	<%= cloudify(@categories) %>
 </p>
 
 <% for article in @articles %>

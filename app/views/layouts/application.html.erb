@@ -2,7 +2,8 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
     <head>
         <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
-        <title><%= controller.controller_name.capitalize %> &#8211; HHLinuxClub.org</title>
+        <%= title("HHLinuxClub.org") %>
+      	<%= page_meta %>
         <% bundle :name => "frontend" do %>
 		      <%= stylesheet_link_tag 'screen', 'lightbox', 'jquery-ui', 'password_strength_plugin', 'SyntaxHighlighter/shThemeDefault', 'SyntaxHighlighter/shCore' %>
 				<% end %>
