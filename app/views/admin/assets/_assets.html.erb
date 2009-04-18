@@ -8,9 +8,53 @@
 		<% if assetable.assets.empty? %>
 			<p>There are no assets at the moment.</p>
 		<% else %>
-			<%= render :partial => assetable.images %>
-			<%= render :partial => assetable.files %>
+			<% unless assetable.images.empty? %>
+				<div class="imageAsset">
+					<table>
+						<tr>
+							<th style="width: 120px;">Thumb</th>
+							<th>Textile</th>
+						</tr>
+						<% for asset in assetable.images %>
+							<tr>
+								<td style="text-align: center;"><%= image_tag asset.upload.url(:thumb), :onclick => "$.markItUp({ replaceWith:'" + (asset.textile_tag :thumb) + "' } );" %></td>
+								<td>
+									<code onclick="$.markItUp({ replaceWith:'<%= asset.textile_tag :original %>' } );"><%= asset.textile_tag :original %></code><br />
+									<code onclick="$.markItUp({ replaceWith:'<%= asset.textile_tag :large %>' } );"><%= asset.textile_tag :large %></code><br />
+									<code onclick="$.markItUp({ replaceWith:'<%= asset.textile_tag :medium %>' } );"><%= asset.textile_tag :medium %></code><br />
+									<code onclick="$.markItUp({ replaceWith:'<%= asset.textile_tag :thumb %>' } );"><%= asset.textile_tag :thumb %></code><br />
+								</td>
+							</tr>
+						<% end %>
+					</table>
+				</div>
+			<% end %>
+			
+			<% unless assetable.files.empty? %>
+				<div class="fileAsset">
+					<table>
+						<tr>
+							<th style="text-align: left; width: 200px;">Name</th>
+							<th style="text-align: left;">Description</th>
+							<th style="width: 120px;">Size</th>
+						</tr>
+						<% for asset in assetable.files %>
+							<tr>
+								<td><%= link_to asset.filename, asset.upload.url %></td>
+								<td>
+									<%= asset.description %>
+								</td>
+								<td style="text-align: center;">
+									<%= number_to_human_size(asset.size) %>
+								</td>
+							</tr>
+						<% end %>
+					</table>
+				</div>
+			<% end %>
+	
 		<% end %>
+		
 		<h4>Add new asset</h4>
 		<% fields_for :asset do |a| %>
 			<p>
