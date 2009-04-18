@@ -4,9 +4,9 @@
 SyntaxHighlighter.config.clipboardSwf = null;
 SyntaxHighlighter.all();
 
-animatedcollapse.addDiv('categoriesBox', 'fade=1,persist=1,hide=1');
-animatedcollapse.addDiv('assetsBox', 'fade=1,persist=1,hide=1');
-animatedcollapse.addDiv('revisionsBox', 'fade=1,persist=1,hide=1');
+animatedcollapse.addDiv('categoriesBox', 'fade=1,persist=1');
+animatedcollapse.addDiv('assetsBox', 'fade=1,persist=1');
+animatedcollapse.addDiv('revisionsBox', 'fade=1,persist=1');
 animatedcollapse.init();
 
 jQuery.ajaxSetup({ 
@@ -22,6 +22,8 @@ jQuery.fn.submitWithAjax = function() {
 };
 
 $(document).ready(function() {
+	animatedcollapse.hide(["categoriesBox", "assetsBox", "revisionsBox"])
+	
 	$("textarea.textile").markItUp(mySettings);
 	
 	$("#new_category").submitWithAjax();
