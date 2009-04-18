@@ -1,4 +1,4 @@
-<% form_for [:admin, @news_article] do |f| %>
+<% form_for [:admin, @news_article], :html => { :multipart => true } do |f| %>
   <%= f.error_messages %>
 
   <p>
@@ -15,6 +15,8 @@
     <%= f.submit submit_value ||= "Submit" %>
 		<%= preview_button "/admin/news/preview", :title => "news_title", :body => "news_body" %>
   </p>
+
+	<%= render :partial => "admin/assets/assets", :locals => { :assetable => @news_article } %>
 <% end %>
 
 <div id="preview" title="Preview">

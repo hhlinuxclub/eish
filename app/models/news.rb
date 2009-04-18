@@ -1,5 +1,6 @@
 class News < ActiveRecord::Base
   belongs_to :user
+  has_many :assets, :as => :attachable
   
   def publish(status=true)
     update_attributes(:published => status)
@@ -7,5 +8,13 @@ class News < ActiveRecord::Base
   
   def to_param
     "#{id}-#{title.parameterize}"
+  end
+  
+  def images
+    Asset.images("News", id)
+  end
+  
+  def files
+    Asset.files("News", id)
   end
 end

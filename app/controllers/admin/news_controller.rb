@@ -49,15 +49,15 @@ class Admin::NewsController < ApplicationController
     @news_article = News.new(params[:news])
     @news_article.user_id = session[:user_id]
     user = User.find(session[:user_id])
+    
+    if user.role.can_create?
+      @news_article.save
+      @news_article.assets.create params[:asset].merge! :user_id => user.id if params[:upload]
+    end
 
     respond_to do |format|
       if user.role.can_create?
-        if @news_article.save
-          flash[:notice] = "News was successfully created."
-          format.html { redirect_to admin_news_article_path(@news_article) }
-        else
-          format.html { render :action => "new" }
-        end
+        format.html { redirect_to edit_admin_news_article_path @news_article }
       else
         format.html { redirect_to admin_news_path }
       end
@@ -67,17 +67,20 @@ class Admin::NewsController < ApplicationController
   def update
     @news_article = News.find(params[:id])
     user = User.find(session[:user_id])
+    
+    if params[:upload]
+      @news_article.assets.create params[:asset].merge! :user_id => user.id
+      @news_article.attributes = params[:news_article]
+    else
+      @news_article.update_attributes(params[:news_article]) if user.role.can_update? || user.id == @news_article.user_id
+    end
 
     respond_to do |format|
-      if user.role.can_update? || user.id == @news_article.user_id
-        if @news_article.update_attributes(params[:news_article])
-          flash[:notice] = "News was successfully updated."
-          format.html { redirect_to admin_news_article_path(@news_article) }
-        else
-          format.html { render :action => "edit" }
-        end
+      if !params[:article]
+        flash[:notice] = "News article was successfully updated."
+        format.html { redirect_to admin_news_article_path(@news_article) }
       else
-        format.html { redirect_to admin_news_path }
+        format.html { render :action => "edit" }
       end
     end
   end

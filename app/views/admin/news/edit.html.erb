@@ -1,6 +1,6 @@
 <h2 class="title">Editing news article</h2>
 
-<% form_for(:news_article, @news_article, :controller => "admin/news", :url => { :action => "update"}, :html => { :method => :put }) do |f| %>
+<% form_for(:news_article, @news_article, :controller => "admin/news", :url => { :action => "update"}, :html => { :method => :put, :multipart => true }) do |f| %>
   <%= f.error_messages %>
 
   <p>
@@ -14,9 +14,11 @@
   </p>
 
   <p>
-    <%= f.submit submit_value ||= "Submit" %>
+    <%= f.submit "Update" %>
 		<%= preview_button "/admin/news/preview", :title => "news_article_title", :body => "news_article_body" %>
   </p>
+
+	<%= render :partial => "admin/assets/assets", :locals => { :assetable => @news_article } %>
 <% end %>
 
 <div id="preview" title="Preview">
