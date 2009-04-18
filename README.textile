@@ -16,8 +16,11 @@ h1. Required Gems
 * "Icalendar":http://icalendar.rubyforge.org/
 * "faker":http://faker.rubyforge.org/
 * "Populator":http://populator.rubyforge.org/
-* "mislav-will_paginate":http://wiki.github.com/mislav/will_paginate
+* "will_paginate":http://wiki.github.com/mislav/will_paginate
 * "recaptcha":http://www.loonsoft.com/recaptcha/
+* "right_aws":http://rightaws.rubyforge.org/
+* "paperclip":http://thoughtbot.com/projects/paperclip
+* "sitemapper":http://github.com/milk-it/sitemapper/
 
 h1. Plugins Used
 
@@ -35,6 +38,7 @@ h1. Javascript
 * "jQuery-Lighbox":http://github.com/krewenki/jquery-lightbox/
 * "Password Strength Plugin":http://www.mypocket-technologies.com (modified)
 * "markItUp!":http://markitup.jaysalvat.com/
+* "Animated Collapsible DIV":http://www.dynamicdrive.com/dynamicindex17/animatedcollapse.htm
 
 The *jQuery* and *jQuery UI* libraries are dual licensed under both "MIT":http://www.opensource.org/licenses/mit-license.php and "GPL":http://www.gnu.org/licenses/gpl.html licenses.
 
@@ -45,6 +49,8 @@ The *SyntaxHighlighter* by Alex Gorbatchev is licensed under "LGPL 3":http://www
 The *Password Strength Plugin* is authored by Darren Mason, based on the plugin by "Firas Kassem":http://phiras.wordpress.com/2007/04/08/password-strength-meter-a-jquery-plugin/.  It is GPL licensed.  We have made some small modifications to plugin.
 
 *markItUp!* by "Jay Salvat":http://www.jaysalvat.com/ is dual licensed under both "MIT":http://www.opensource.org/licenses/mit-license.php and "GPL":http://www.gnu.org/licenses/gpl.html licenses.
+
+*Animated Collapsible DIV* was created by "Dynamic Drive":http://www.dynamicdrive.com.
 
 h1. Initial Setup
 
