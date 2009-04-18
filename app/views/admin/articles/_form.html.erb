@@ -21,7 +21,6 @@
 		<%= preview_button "/admin/articles/preview", :body => "article_body", :title => "article_title", :description => "article_description" %>
 	</p>
 	
-<div>
 		<h3 class="title" id="categoriesToggle">
 			&raquo; Categories
 			<span style="font-size: 7pt;color:#0066cb">[toggle]</span>
@@ -54,34 +53,9 @@
 				<% end %>
 			</div>
 		</div>
-		<div>
-		<h3 class="title" id="assetsToggle">
-			&raquo; Assets
-			<span style="font-size: 7pt;color:#0066cb">[toggle]</span>
-		</h3>
-		<div id="assetsBox">
-			<div>
-				<% if @article.assets.empty? %>
-					<p>There are no assets at the moment.</p>
-				<% else %>
-					<%= render :partial => @article.images %>
-					<%= render :partial => @article.files %>
-				<% end %>
-				<h4>Add new asset</h4>
-				<% fields_for :asset do |a| %>
-					<p>
-						<%= a.label :description %><br />
-						<%= a.text_field :description %>
-					</p>
+		
+		<%= render :partial => "admin/assets/assets", :locals => { :assetable => @article } %>
 
-					<p>
-						<%= a.label :file, "File" %><br />
-						<%= a.file_field :upload %>
-					</p>
-				<% end %>
-				<p><%= submit_tag "Upload", :name => "upload" %></p>
-			</div>
-		</div>
 <% end %>
 
 <div id="preview" title="Preview">
