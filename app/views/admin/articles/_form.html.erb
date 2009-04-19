@@ -21,10 +21,12 @@
 		<%= preview_button "/admin/articles/preview", :body => "article_body", :title => "article_title", :description => "article_description" %>
 	</p>
 	
-		<h3 class="title" id="categoriesToggle">
-			&raquo; Categories
-			<span style="font-size: 7pt;color:#0066cb">[toggle]</span>
-		</h3>
+<div id="tabs">
+	<ul>
+		<li><a href="#categoriesBox">Categories</a></li>
+		<li><a href="#assetsBox">Assets</a></li>
+		<% unless controller.action_name == "new" %><li><a href="#revisionsBox">Revisions</a></li><% end %>
+	</ul>
 		<div id="categoriesBox">
 			<div>
 				<% if @categories.empty? %>
@@ -55,7 +57,6 @@
 		</div>
 		
 		<%= render :partial => "admin/assets/assets", :locals => { :assetable => @article } %>
-
 <% end %>
 
 <div id="preview" title="Preview">

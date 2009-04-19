@@ -4,11 +4,6 @@
 SyntaxHighlighter.config.clipboardSwf = null;
 SyntaxHighlighter.all();
 
-animatedcollapse.addDiv('categoriesBox', 'fade=1,persist=1');
-animatedcollapse.addDiv('assetsBox', 'fade=1,persist=1');
-animatedcollapse.addDiv('revisionsBox', 'fade=1,persist=1');
-animatedcollapse.init();
-
 jQuery.ajaxSetup({ 
   'beforeSend': function(xhr) {xhr.setRequestHeader("Accept", "text/javascript")}
 })
@@ -21,29 +16,16 @@ jQuery.fn.submitWithAjax = function() {
   return this;
 };
 
+$(function() {
+		$("#tabs").tabs({ cookie: { expires: 30 }, collapsible: true });
+});
+
 $(document).ready(function() {
 	$("textarea.textile").markItUp(mySettings);
 	
 	$("#new_category").submitWithAjax();
 	$("#loginBoxForm").submitWithAjax();
 	$("#jsLogin").submitWithAjax();
-	
-	$("#accordion").accordion({
-		collapsible: true,
-		autoHeight: false
-	});
-	
-	$("#assetsToggle").click(function() {
-		animatedcollapse.toggle("assetsBox");
-	});
-	
-	$("#categoriesToggle").click(function() {
-		animatedcollapse.toggle("categoriesBox");
-	});
-	
-	$("#revisionsToggle").click(function() {
-		animatedcollapse.toggle("revisionsBox");
-	});
 	
 	$("#bulk_check").click(function() {
 		this.checked = !(this.checked == true);
