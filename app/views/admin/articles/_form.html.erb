@@ -57,6 +57,9 @@
 		</div>
 		
 		<%= render :partial => "admin/assets/assets", :locals => { :assetable => @article } %>
+		
+		<%= render :partial => "revisions" unless controller.action_name == "new" %>
+</div>
 <% end %>
 
 <div id="preview" title="Preview">
