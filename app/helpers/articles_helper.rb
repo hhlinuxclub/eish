@@ -26,4 +26,41 @@ module ArticlesHelper
     
     return (constant * Math.log(x))
   end
+  
+  def category_table(categories, id = "category_table", columns = 5)
+    xhtml = "<table id=\""+ id + "\">"
+    count = 0;
+    rows = categories.count/columns 
+    total_count = 0;
+    
+    if categories.count%columns !=0 && categories.count > columns
+      rows += 1
+    end
+    
+    extra_cells = (rows * columns) - categories.count
+    
+    categories.each do |c|
+      count = count + 1
+      total_count = total_count + 1
+      
+      if count == 1
+        xhtml << "<tr>"
+      end
+      
+      xhtml << "<td>#{link_to c.name, categories_path(c)} (#{c.articles.count.to_s})</td>"
+      
+      if count == columns && total_count != categories.count
+        xhtml << "</tr>"
+        count = 0
+      end
+    end
+    
+    extra_cells.times do
+      xhtml << "<td>&nbsp;</td>"
+    end
+    
+    
+    xhtml << "</tr></table>"
+    return xhtml
+  end
 end
