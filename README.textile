@@ -12,15 +12,15 @@ At the moment we officially have two releases numbered 0.1 and 0.2, but they are
 
 h1. Required Gems
 
-* "RedCloth":http://redcloth.org/
-* "Icalendar":http://icalendar.rubyforge.org/
 * "faker":http://faker.rubyforge.org/
-* "Populator":http://populator.rubyforge.org/
-* "will_paginate":http://wiki.github.com/mislav/will_paginate
-* "recaptcha":http://www.loonsoft.com/recaptcha/
-* "right_aws":http://rightaws.rubyforge.org/
+* "Icalendar":http://icalendar.rubyforge.org/
 * "paperclip":http://thoughtbot.com/projects/paperclip
+* "Populator":http://populator.rubyforge.org/
+* "recaptcha":http://www.loonsoft.com/recaptcha/
+* "RedCloth":http://redcloth.org/
+* "right_aws":http://rightaws.rubyforge.org/
 * "sitemapper":http://github.com/milk-it/sitemapper/
+* "will_paginate":http://wiki.github.com/mislav/will_paginate
 
 h1. Plugins Used
 
@@ -32,25 +32,25 @@ The plugin is included as a git submodule (See *Initial Setup*) and is published
 
 h1. Javascript
 
+* "jQuery Cookie plugin":http://plugins.jquery.com/project/cookie
 * "jQuery":http://jquery.com/
+* "jQuery-Lightbox":http://github.com/krewenki/jquery-lightbox/
 * "jQueryUI":http://jqueryui.com/
-* "SyntaxHighlighter":http://alexgorbatchev.com/wiki/SyntaxHighlighter
-* "jQuery-Lighbox":http://github.com/krewenki/jquery-lightbox/
-* "Password Strength Plugin":http://www.mypocket-technologies.com (modified)
 * "markItUp!":http://markitup.jaysalvat.com/
-* "Animated Collapsible DIV":http://www.dynamicdrive.com/dynamicindex17/animatedcollapse.htm
+* "Password Strength Plugin":http://www.mypocket-technologies.com (modified)
+* "SyntaxHighlighter":http://alexgorbatchev.com/wiki/SyntaxHighlighter
+
+The *jQuery Cookie plugin* was created by Klaus Hartl, and it is dual licensed under the "MIT":http://www.opensource.org/licenses/mit-license.php and "GPL":http://www.gnu.org/licenses/gpl.html licenses.
 
 The *jQuery* and *jQuery UI* libraries are dual licensed under both "MIT":http://www.opensource.org/licenses/mit-license.php and "GPL":http://www.gnu.org/licenses/gpl.html licenses.
 
+The *jQuery-Lightbox* is licensed under the "BSD license":http://www.opensource.org/licenses/bsd-license.php.  It was ported to jQuery (from Prototype and Scriptaculous) by Warren Krewenki.
+
+The *markItUp!* by "Jay Salvat":http://www.jaysalvat.com/ is dual licensed under both "MIT":http://www.opensource.org/licenses/mit-license.php and "GPL":http://www.gnu.org/licenses/gpl.html licenses.
+
+The *Password Strength Plugin* is authored by Darren Mason, based on the plugin by "Firas Kassem":http://phiras.wordpress.com/2007/04/08/password-strength-meter-a-jquery-plugin/.  It is "GPL":http://www.gnu.org/licenses/gpl.html licensed.  We have made some small modifications to plugin.
+
 The *SyntaxHighlighter* by Alex Gorbatchev is licensed under "LGPL 3":http://www.gnu.org/licenses/lgpl.html.
-
-*jQuery-Lightbox* is licensed under the "BSD license":http://www.opensource.org/licenses/bsd-license.php.  It was ported to jQuery (from Prototype and Scriptaculous) by Warren Krewenki.
-
-The *Password Strength Plugin* is authored by Darren Mason, based on the plugin by "Firas Kassem":http://phiras.wordpress.com/2007/04/08/password-strength-meter-a-jquery-plugin/.  It is GPL licensed.  We have made some small modifications to plugin.
-
-*markItUp!* by "Jay Salvat":http://www.jaysalvat.com/ is dual licensed under both "MIT":http://www.opensource.org/licenses/mit-license.php and "GPL":http://www.gnu.org/licenses/gpl.html licenses.
-
-*Animated Collapsible DIV* was created by "Dynamic Drive":http://www.dynamicdrive.com.
 
 h1. Initial Setup
 
