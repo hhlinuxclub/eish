@@ -19,6 +19,7 @@ ActionController::Routing::Routes.draw do |map|
   map.change_revision "admin/articles/:id/change_revision/:revision", :namespace => "admin", :controller => "articles", :action => "change_revision"
   map.categories "articles/categories/:id", :controller => "articles", :action => "categories"
   map.profile "profiles/:username", :controller => "users", :action => "show"
+  map.connect "sitemap.xml", :controller => "sitemap", :action => "index"
   
   # Sample resource route (maps HTTP verbs to controller actions automatically):
   #   map.resources :products
