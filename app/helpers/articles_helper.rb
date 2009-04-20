@@ -23,4 +23,14 @@ module ArticlesHelper
     
     return xhtml
   end
+  
+  def keywords_from_categories(categories)
+    keywords = ""
+    
+    categories.each do |c|
+      keywords << c.name + ", "
+    end
+    
+    return keywords
+  end
 end

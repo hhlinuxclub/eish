@@ -1,4 +1,6 @@
-<% page(@article) %>
+<% page(:title => @article.title, 
+		:desc => @article.description,
+		:keywords => keywords_from_categories(@article.categories)) %>
 
 <h2 class="title"><%=h @article.title %></h2>
 <p class="metadata">
