@@ -16,7 +16,7 @@ module ArticlesHelper
       weight = (Math.log(c.articles.count)-Math.log(min_occurs))/(Math.log(max_occurs)-Math.log(min_occurs))
       font_size_of_current_category = (min_font_size + ((max_font_size-min_font_size)*weight)).round
       
-      xhtml << "<span style=\"" + span_css_style + "\">"
+      xhtml << "<span style=\"" + span_css_style + "\" title=\"#{ pluralize(c.articles.count, "article") }\">"
       xhtml << "#{link_to c.name, categories_path(c), :style => "font-size: " + font_size_of_current_category.to_s + "%"} (" + c.articles.count.to_s + ") &nbsp;"
       xhtml << "</span>"
     end
