@@ -36,7 +36,6 @@ Rails::Initializer.run do |config|
   config.gem "ruby-recaptcha"
   config.gem "right_aws" # required by paperclip
   config.gem "thoughtbot-paperclip", :lib => "paperclip", :source => "http://gems.github.com"
-  config.gem "sitemapper"
   config.gem 'rubaidh-google_analytics', :lib => 'rubaidh/google_analytics', :source => 'http://gems.github.com'
   
   # Only load the plugins named here, in the order given. By default, all plugins 
