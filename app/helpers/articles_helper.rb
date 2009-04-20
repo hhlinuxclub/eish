@@ -17,16 +17,6 @@ module ArticlesHelper
     return xhtml
   end
   
-  def weight(x)
-    constant = 0.6;
-    
-    if x == nil || x==0
-      x = 1
-    end
-    
-    return (constant * Math.log(x))
-  end
-  
   def category_table(categories, id = "category_table", columns = 5)
     xhtml = "<table id=\""+ id + "\">"
     count = 0;
@@ -62,5 +52,9 @@ module ArticlesHelper
     
     xhtml << "</tr></table>"
     return xhtml
+  end
+  
+  def new_cloudify(categories)
+    
   end
 end
