@@ -1,4 +1,5 @@
 class Admin::EventsController < ApplicationController
+  skip_after_filter :add_google_analytics_code
   layout "admin"
  
   cache_sweeper :event_sweeper, :only => [:create, :update, :destroy, :publish, :unpublish]

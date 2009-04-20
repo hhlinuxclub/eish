@@ -7,4 +7,4 @@ RCC_PRIV = keys["ReCAPTCHA"]["Private"]
 
 Rubaidh::GoogleAnalytics.tracker_id   = keys["GoogleAnalytics"]["Tracker_ID"]
 Rubaidh::GoogleAnalytics.domain_name  = "example.org"
-Rubaidh::GoogleAnalytics.environments = ["production"] # use [] to disable
+Rubaidh::GoogleAnalytics.environments = ["development"] # use [] to disable

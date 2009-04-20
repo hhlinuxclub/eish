@@ -1,4 +1,5 @@
 class Admin::NewsController < ApplicationController
+  skip_after_filter :add_google_analytics_code
   layout "admin"
  
   def index
