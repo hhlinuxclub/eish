@@ -13,6 +13,7 @@ At the moment we officially have two releases numbered 0.1 and 0.2, but they are
 h1. Required Gems
 
 * "faker":http://faker.rubyforge.org/
+* "GoogleAnalytics":http://github.com/rubaidh/google_analytics/
 * "Icalendar":http://icalendar.rubyforge.org/
 * "paperclip":http://thoughtbot.com/projects/paperclip
 * "Populator":http://populator.rubyforge.org/
