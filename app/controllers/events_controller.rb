@@ -9,6 +9,10 @@ class EventsController < ApplicationController
     @upcoming_events = Event.upcoming
     @ongoing_events = Event.ongoing
     
+    @meta_title = "Events"
+    @meta_description = "Events related to the club"
+    @meta_keywords = @meta_keywords + ", events"
+    
     respond_to do |format|
       format.html # index.html.erb
       format.xml { render :xml => @upcoming_events }
@@ -22,6 +26,10 @@ class EventsController < ApplicationController
   def past
     @past_events = Event.past
     
+    @meta_title = "Past Events"
+    @meta_description = "Past events related to the club"
+    @meta_keywords = @meta_keywords + ", events, past"
+    
     respond_to do |format|
       format.html # past.html.erb
       format.xml { render :xml => @past_events }
@@ -32,6 +40,9 @@ class EventsController < ApplicationController
   # GET /events/1.xml
   def show
     @event = Event.find(params[:id].to_i)
+    
+    @meta_title = @event.name
+    @meta_description = "An event related to HHLunuxClub"
     
     respond_to do |format|
       format.html # show.html.erb

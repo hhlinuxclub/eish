@@ -2,6 +2,9 @@ class UsersController < ApplicationController
   skip_before_filter :authorize
   
   def login
+    @meta_title = "Login"
+    @meta_description = "Login to HHLinuxClub.org"
+    
     if request.post?
       @user = User.authenticate(params[:username], params[:password])
       if @user
@@ -36,6 +39,9 @@ class UsersController < ApplicationController
     @user = User.find(session[:user_id])
     @profile = @user.profile || Profile.new
     
+    @meta_title = "Profile: " + @user.username
+    @meta_description = "HHLinuxClub user profile"
+    
     respond_to do |format|
       format.html
     end
@@ -43,10 +49,16 @@ class UsersController < ApplicationController
   
   def show
     @user = User.find_by_username(params[:username])
+    
+    @meta_title = "Profile: " + @user.username
+    @meta_description = "HHLinuxClub user profile"
   end
   
   def register
     @user = User.new
+    
+    @meta_title = "Register"
+    @meta_description = "Register as a HHLinuxClub user"
     
     respond_to do |format|
       format.html

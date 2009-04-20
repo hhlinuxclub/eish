@@ -7,5 +7,6 @@ class HomeController < ApplicationController
     @user = User.find(session[:user_id]) unless session[:user_id].nil?
     @welcome_message = Setting.option("welcome_message")
     @featured_article = Article.featured
+    @meta_title = "Home"
   end
 end

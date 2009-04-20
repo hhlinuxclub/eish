@@ -4,6 +4,10 @@ class ArticlesController < ApplicationController
   def index
     @articles = Article.paginate_all_by_published(true, :page => params[:page], :per_page => 10, :limit => 5, :order => "created_at DESC")
     @categories = Category.all_alphabetically
+    
+    @meta_title = "Articles"
+    @meta_description = "Articles published by HHLinuxClub"
+    @meta_keywords = @meta_keywords + ", articles, tutorials, reviews"
 
     respond_to do |format|
       format.html
@@ -14,7 +18,11 @@ class ArticlesController < ApplicationController
 
   def show
     @article = Article.find_by_id_and_published(params[:id].to_i, true)
-
+    
+    @meta_title = "#{@article.title}"
+    @meta_description = @article.description
+    @meta_keywords = keywords_from_categories(@article.categories) unless @article.categories == nil
+    
     respond_to do |format|
       format.html
       format.xml  { render :xml => @articles }
@@ -25,5 +33,20 @@ class ArticlesController < ApplicationController
     @category = Category.find(params[:id])
     @articles = @category.articles.paginate_all_by_published true, :page => params[:page], :per_page => 10, :order => "articles.created_at DESC"
     @categories = Category.all_alphabetically
+    
+    @meta_title = "Category: " + @category.name
+    @meta_description = "Articles published by HHLinuxClub"
+  end
+  
+protected
+ 
+  def keywords_from_categories(categories)
+    keywords = ""
+    
+    categories.each do |c|
+      keywords << c.name + ", "
+    end
+    
+    return keywords
   end
 end

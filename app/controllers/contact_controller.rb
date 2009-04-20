@@ -3,6 +3,9 @@ class ContactController < ApplicationController
   
   def index
     @contacts = User.find_all_by_contactable(true)
+    
+    @meta_title = "Contact"
+    @meta_description = "Contact us"
   end
   
   def send_email
