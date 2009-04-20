@@ -1,3 +1,6 @@
 ReCAPTCHA:
     Public: 6LdZagUAAAAAAAFeE8kpgwaYwL_G7AG4zXXN7WmO # Replace with your public key here
     Private: 6LdZagUAAAAAAPX8aK08JxsbVuY5yUGhu-vcv5jO # Replace with your private key here
+
+GoogleAnalytics:
+    Tracker_ID: "UA-1234567-8" # Replace with your key here
