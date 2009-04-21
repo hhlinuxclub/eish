@@ -15,6 +15,6 @@
 	</p>
 
 	<p>
-		<%= submit_tag "Login" %>
+		<%= submit_tag "Login" %> &nbsp; <%= link_to "I forgot my password or username", { :controller => "users", :action => "request_credentials" } , :class => "requestCredentials" %>
 	</p>
 <% end %>

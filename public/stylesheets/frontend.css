@@ -460,3 +460,7 @@ textarea {
 	background: #fff;
 	margin-top: 20px;
 }
+
+.requestCredentials {
+	font-size: 7pt;
+}
