@@ -7,7 +7,7 @@
 		<meta name="description" content="<%= @meta_description %>" />
       	
         <% bundle :name => "frontend" do %>
-		      <%= stylesheet_link_tag 'frontend', 'lightbox', 'jquery-ui', 'password_strength_plugin', 'SyntaxHighlighter/shThemeDefault', 'SyntaxHighlighter/shCore' %>
+		      <%= stylesheet_link_tag 'frontend', 'lightbox', 'jquery-ui', 'password_strength_plugin', 'SyntaxHighlighter/shThemeDefault', 'SyntaxHighlighter/shCore', "markitup", "markitup.textile" %>
 				<% end %>
 				
 				<%= render :partial => "layouts/javascript" %>
