@@ -4,21 +4,28 @@ module ArticlesHelper
     categories_array = Array.new
     
     categories.each do |c|
-      categories_array.push(c.articles.count)
+      count = c.published_articles.count
+      categories_array.push count if count > 0
     end
     
     categories_array.sort!
     
-    min_occurs = categories_array.at(0)
+    min_occurs = categories_array.first
     max_occurs = categories_array.last
     
     categories.each do |c|
-      weight = (Math.log(c.articles.count)-Math.log(min_occurs))/(Math.log(max_occurs)-Math.log(min_occurs))
-      font_size_of_current_category = (min_font_size + ((max_font_size-min_font_size)*weight)).round
-      
-      xhtml << "<span style=\"" + span_css_style + "\" title=\"#{ pluralize(c.articles.count, "article") }\">"
-      xhtml << "#{link_to c.name, categories_path(c), :class => link_css_class, :style => "font-size: " + font_size_of_current_category.to_s + "%"} (" + c.articles.count.to_s + ") &nbsp;"
-      xhtml << "</span>"
+      if c.published_articles.count > 0
+        if min_occurs < max_occurs
+          weight = (Math.log(c.published_articles.count)-Math.log(min_occurs))/(Math.log(max_occurs)-Math.log(min_occurs))
+          font_size_of_current_category = (min_font_size + ((max_font_size-min_font_size)*weight)).round
+        else
+          font_size_of_current_category = min_font_size
+        end
+
+        xhtml << "<span style=\"" + span_css_style + "\" title=\"#{ pluralize(c.articles.count, "article") }\">"
+        xhtml << "#{link_to c.name, categories_path(c), :class => link_css_class, :style => "font-size: " + font_size_of_current_category.to_s + "%"} (" + c.published_articles.count.to_s + ") &nbsp;"
+        xhtml << "</span>"
+      end
     end
     
     return xhtml

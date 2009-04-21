@@ -12,6 +12,6 @@ class Category < ActiveRecord::Base
   end
   
   def published_articles
-    articles.find(:all, :conditions => { :published => true })
+    self.articles.find(:all, :conditions => { :published => true })
   end
 end
