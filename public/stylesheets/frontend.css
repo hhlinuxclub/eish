@@ -464,3 +464,7 @@ textarea {
 .requestCredentials {
 	font-size: 7pt;
 }
+
+a.cloudLink {
+	color: #555753;
+}

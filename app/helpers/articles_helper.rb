@@ -1,5 +1,5 @@
 module ArticlesHelper
-  def cloudify(categories, min_font_size = 100, max_font_size = 140, span_css_style = "display:inline-block;")
+  def cloudify(categories, min_font_size = 100, max_font_size = 140, link_css_class = "cloudLink title", span_css_style = "display:inline-block;")
     xhtml = ""
     categories_array = Array.new
     
@@ -17,7 +17,7 @@ module ArticlesHelper
       font_size_of_current_category = (min_font_size + ((max_font_size-min_font_size)*weight)).round
       
       xhtml << "<span style=\"" + span_css_style + "\" title=\"#{ pluralize(c.articles.count, "article") }\">"
-      xhtml << "#{link_to c.name, categories_path(c), :style => "font-size: " + font_size_of_current_category.to_s + "%"} (" + c.articles.count.to_s + ") &nbsp;"
+      xhtml << "#{link_to c.name, categories_path(c), :class => link_css_class, :style => "font-size: " + font_size_of_current_category.to_s + "%"} (" + c.articles.count.to_s + ") &nbsp;"
       xhtml << "</span>"
     end
     
