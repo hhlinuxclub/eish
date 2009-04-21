@@ -12,3 +12,5 @@
 
 <p><b><%=h @article.description %></b></p>
 <%= RedCloth.new(@article.body).to_html %>
+
+<%= render :partial => "/assets/downloads", :locals => { :assetable => @article } %>

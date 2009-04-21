@@ -11,3 +11,5 @@
 <% end %>
 
 <%= RedCloth.new(@news_article.body).to_html %>
+
+<%= render :partial => "/assets/downloads", :locals => { :assetable => @news_article } %>
