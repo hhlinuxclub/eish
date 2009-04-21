@@ -22,7 +22,11 @@
      Changes by Serge Baccou
      1.3 / 23 Aug 2005 - some XSLT cleanup
      1.4 / 24 Aug 2005 - sourceForge and LGPL links and logos
-                       - sorting is working for siteindex (see gss.js) -->
+                       - sorting is working for siteindex (see gss.js) 
+                       
+     Changes by Matias Korhonen
+     									- Deleted JS.  Changed style.
+     -->
 
 <xsl:stylesheet version="2.0" 
                 xmlns:html="http://www.w3.org/TR/REC-html40"
@@ -98,7 +102,9 @@
 				margin-top:1em;
 				text-align:center;
 				padding-top:1em;
-				vertical-align:top; }
+				vertical-align:top;
+				font-size: 6pt;
+				color: #333; }
 			-->
 		  ]]>
 		</style>
@@ -142,7 +148,6 @@
   <!-- siteindexTable template -->
   <xsl:template name="siteindexTable">
     <h2>Number of sitemaps in this sitemap index: <xsl:value-of select="count(sitemap:sitemapindex/sitemap:sitemap)"></xsl:value-of></h2>          
-    <p class="sml">Click on the table headers to change sorting.</p>
     <table border="1" width="100%" class="data" id="table0">
       <tr class="header">
         <td>Sitemap URL</td>
