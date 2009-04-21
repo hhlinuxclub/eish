@@ -7,3 +7,6 @@
 # Disallow indexing of the admin section
 User-Agent: *
 Disallow: /admin/
+Disallow: /stylesheets/
+Disallow: /javascripts/
+Disallow: /uploads/
