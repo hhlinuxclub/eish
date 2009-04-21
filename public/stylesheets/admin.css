@@ -320,3 +320,7 @@ ins {
 .box {
 	background: #fff;
 }
+
+#tabs {
+	width: 695px;
+}
