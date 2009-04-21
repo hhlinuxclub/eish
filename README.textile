@@ -26,10 +26,13 @@ h1. Required Gems
 h1. Plugins Used
 
 * "bundle-fu":http://code.google.com/p/bundle-fu/
+* "MetaTags":http://github.com/kpumuk/meta-tags/
 
 The *bundle-fu* plugin combines bundles separate CSS and JS files in to single files for faster transfer from server to client.  It was created by Timothy Harper.  We are using the fork by "zinf":http://github.com/zinf/bundle-fu/tree/master.
 
-The plugin is included as a git submodule (See *Initial Setup*) and is published under the MIT license.
+The *MetaTags* plugin is an SEO plugin by Dmytro Shteflyuk which makes it easier to set the page title and meta tags.
+
+The plugins are included as git submodules (See *Initial Setup*) and are published under the MIT license.
 
 h1. Javascript
 
