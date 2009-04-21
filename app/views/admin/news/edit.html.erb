@@ -18,7 +18,12 @@
 		<%= preview_button "/admin/news/preview", :title => "news_article_title", :body => "news_article_body" %>
   </p>
 
+<div id="tabs">
+	<ul>
+		<li><a href="#assetsBox">Assets</a></li>
+	</ul>
 	<%= render :partial => "admin/assets/assets", :locals => { :assetable => @news_article } %>
+</div>
 <% end %>
 
 <div id="preview" title="Preview">
