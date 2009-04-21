@@ -1,5 +1,6 @@
 class Event < ActiveRecord::Base
   belongs_to :user
+  has_many :assets, :as => :attachable
   
   attr_accessor :all_day, :starts_at_date, :starts_at_time, :ends_at_date, :ends_at_time
   
@@ -106,6 +107,14 @@ class Event < ActiveRecord::Base
   
   def to_param
     "#{id}-#{name.parameterize}"
+  end
+  
+  def images
+    Asset.images("Event", id)
+  end
+  
+  def files
+    Asset.files("Event", id)
   end
     
   private

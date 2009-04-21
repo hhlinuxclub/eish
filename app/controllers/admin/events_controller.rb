@@ -54,19 +54,14 @@ class Admin::EventsController < ApplicationController
     @event.user_id = session[:user_id]
     user = User.find(session[:user_id])
     
-    if params[:event][:all_day] == "1"
-      @event.starts_at = Time.local(@event.starts_at.year, @event.starts_at.month, @event.starts_at.day, 0, 0, 0)
-      @event.ends_at = @event.starts_at + 86400
+    if user.role.can_create?
+      @event.save
+      @event.assets.create params[:asset].merge! :user_id => user.id if params[:upload]
     end
     
     respond_to do |format|
       if user.role.can_create?
-        if @event.save
-          flash[:notice] = 'Event was successfully created.'
-          format.html { redirect_to(admin_event_path(@event)) }
-        else
-          format.html { render :action => "new" }
-        end
+        format.html { redirect_to edit_admin_event_path @event }
       else
         format.html { redirect_to admin_events_path }
       end
@@ -76,17 +71,20 @@ class Admin::EventsController < ApplicationController
   def update
     @event = Event.find(params[:id])
     user = User.find(session[:user_id])
+    
+    if params[:upload]
+      @event.assets.create params[:asset].merge! :user_id => user.id
+      @event.attributes = params[:event]
+    else
+      @event.update_attributes(params[:event]) if user.role.can_update? || user.id == @event.user_id
+    end
 
     respond_to do |format|
-      if user.role.can_update? || user.id == @event.user_id
-        if @event.update_attributes(params[:event])
-          flash[:notice] = 'Event was successfully updated.'
-          format.html { redirect_to(admin_event_path(@event)) }
-        else
-          format.html { render :action => "edit" }
-        end
+      if !params[:asset]
+        flash[:notice] = 'Event was successfully updated.'
+        format.html { redirect_to admin_event_path @event }
       else
-        format.html { redirect_to admin_events_path }
+        format.html { render :action => "edit" }
       end
     end
   end
