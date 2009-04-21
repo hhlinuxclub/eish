@@ -14,10 +14,10 @@
 							<tr>
 								<td style="text-align: center;"><%= image_tag asset.upload.url(:thumb), :onclick => "$.markItUp({ replaceWith:'" + (asset.textile_tag :thumb) + "' } );" %></td>
 								<td>
-									<code onclick="$.markItUp({ replaceWith:'<%= asset.textile_tag :original %>' } );"><%= asset.textile_tag :original %></code><br />
-									<code onclick="$.markItUp({ replaceWith:'<%= asset.textile_tag :large %>' } );"><%= asset.textile_tag :large %></code><br />
-									<code onclick="$.markItUp({ replaceWith:'<%= asset.textile_tag :medium %>' } );"><%= asset.textile_tag :medium %></code><br />
-									<code onclick="$.markItUp({ replaceWith:'<%= asset.textile_tag :thumb %>' } );"><%= asset.textile_tag :thumb %></code><br />
+									<code class="textileCode" onclick="$.markItUp({ replaceWith:'<%= asset.textile_tag :original %>' } );"><%= asset.textile_tag :original %></code><br />
+									<code class="textileCode" onclick="$.markItUp({ replaceWith:'<%= asset.textile_tag :large %>' } );"><%= asset.textile_tag :large %></code><br />
+									<code class="textileCode" onclick="$.markItUp({ replaceWith:'<%= asset.textile_tag :medium %>' } );"><%= asset.textile_tag :medium %></code><br />
+									<code class="textileCode" onclick="$.markItUp({ replaceWith:'<%= asset.textile_tag :thumb %>' } );"><%= asset.textile_tag :thumb %></code><br />
 								</td>
 							</tr>
 						<% end %>

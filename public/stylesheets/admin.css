@@ -324,3 +324,10 @@ ins {
 #tabs {
 	width: 695px;
 }
+
+.textileCode {
+	border: 1px solid #ccc;
+	padding: 2px;
+	margin: 2px;
+	display: inline-block;
+}
