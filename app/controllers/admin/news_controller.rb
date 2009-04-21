@@ -77,9 +77,9 @@ class Admin::NewsController < ApplicationController
     end
 
     respond_to do |format|
-      if !params[:article]
+      if !params[:asset]
         flash[:notice] = "News article was successfully updated."
-        format.html { redirect_to admin_news_article_path(@news_article) }
+        format.html { redirect_to admin_news_article_path @news_article }
       else
         format.html { render :action => "edit" }
       end
