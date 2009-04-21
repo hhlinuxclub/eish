@@ -11,6 +11,10 @@
 		<% end %>
 			&brvbar; <%= link_to "Logout", logout_path %> </p>
 	<% else %>
-		<p><%= link_to "Login", login_path, :class => "login" %> &brvbar; <%= link_to "Register", :controller => "users", :action => "register" %></p>
+		<p>
+			<%= link_to "Login", login_path, :class => "login" %> &brvbar;
+			<%= link_to "Register", :controller => "users", :action => "register" %> &brvbar; 
+			<%= link_to "Forgot?", :controller => "users", :action => "request_credentials" %>
+		</p>
 	<% end %>
 </div>
