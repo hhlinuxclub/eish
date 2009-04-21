@@ -83,11 +83,11 @@ body {
 	margin-top: 25px;
 }
 
-#userLinks a {
+#userLinks a, .home a {
 	text-decoration: none;
 }
 
-#userLinks a:hover {
+#userLinks a:hover, .home a:hover {
 	text-decoration: underline;
 	color: #0066cb;
 }
