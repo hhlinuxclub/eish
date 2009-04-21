@@ -2,8 +2,9 @@ class UsersController < ApplicationController
   skip_before_filter :authorize
   
   def login
-    @meta_title = "Login"
-    @meta_description = "Login to HHLinuxClub.org"
+    set_meta_tags :title => 'Login',
+                  :description => 'Login page',
+                  :keywords => 'Site, Login, Users'
     
     if request.post?
       @user = User.authenticate(params[:username], params[:password])
@@ -39,8 +40,9 @@ class UsersController < ApplicationController
     @user = User.find(session[:user_id])
     @profile = @user.profile || Profile.new
     
-    @meta_title = "Profile: " + @user.username
-    @meta_description = "HHLinuxClub user profile"
+    set_meta_tags :title => @user.username,
+                  :description => 'Profile page',
+                  :keywords => 'Profile, Users'
     
     respond_to do |format|
       format.html
@@ -50,15 +52,17 @@ class UsersController < ApplicationController
   def show
     @user = User.find_by_username(params[:username])
     
-    @meta_title = "Profile: " + @user.username
-    @meta_description = "HHLinuxClub user profile"
+    set_meta_tags :title => @user.username,
+                  :description => 'Profile page',
+                  :keywords => 'Profile, Users'
   end
   
   def register
     @user = User.new
     
-    @meta_title = "Register"
-    @meta_description = "Register as a HHLinuxClub user"
+    set_meta_tags :title => "Register",
+                  :description => "Register as a HHLinuxClub user",
+                  :keywords => "Register, Users"
     
     respond_to do |format|
       format.html
@@ -126,6 +130,10 @@ class UsersController < ApplicationController
   end
   
   def request_credentials
+    set_meta_tags :title => "Request credentials",
+                  :description => "Request credentials",
+                  :keywords => "Users"
+    
     respond_to do |format|
       if session[:user_id].nil?
         format.html

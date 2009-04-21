@@ -1,3 +1,6 @@
 [submodule "vendor/plugins/bundle-fu"]
 	path = vendor/plugins/bundle-fu
 	url = git://github.com/zinf/bundle-fu.git
+[submodule "vendor/plugins/meta-tags"]
+	path = vendor/plugins/meta-tags
+	url = git://github.com/kpumuk/meta-tags.git

@@ -4,7 +4,8 @@ class AboutController < ApplicationController
   def index
     @about = RedCloth.new(Setting.option("about")).to_html
     
-    @meta_title = "About"
-    @meta_description = "About us"
+    set_meta_tags :title => "About",
+                  :description => "About page",
+                  :keywords => "about, hhlinuxclub"
   end
 end

@@ -4,7 +4,6 @@
 class ApplicationController < ActionController::Base
   before_filter :authorize
   before_filter :login_from_cookie
-  before_filter :meta_defaults
   
   helper :all # include all helpers, all the time
   
@@ -42,11 +41,5 @@ class ApplicationController < ActionController::Base
         flash[:error] = "You do not have enough privileges."
         redirect_to :admin
       end
-    end
-  
-    def meta_defaults
-      @meta_title = ""
-      @meta_keywords = "linux, club, haaga-helia, university"
-      @meta_description = "HAAGA-HELIA Linux Club"
     end
 end

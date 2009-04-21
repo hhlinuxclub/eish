@@ -4,8 +4,9 @@ class ContactController < ApplicationController
   def index
     @contacts = User.find_all_by_contactable(true)
     
-    @meta_title = "Contact"
-    @meta_description = "Contact us"
+    set_meta_tags :title => "Contact",
+                  :description => "Contact somebody at HHLinuxClub",
+                  :keywords => "contact"
   end
   
   def send_email
