@@ -91,6 +91,10 @@ body {
 	background: url('../images/picol/news_16.png') no-repeat 0 1px;
 }
 
+.settingsLink {
+	background: url('../images/picol/settings_16.png') no-repeat 0 1px;
+}
+
 #footer {
 	padding: 20px;
 }
