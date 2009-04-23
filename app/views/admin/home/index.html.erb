@@ -1,12 +1,8 @@
-<h2 class="title">Home administration</h2>
+<h2 class="title">Administration</h2>
 
-<% form_tag :action => "update" do %>
-	<p>
-		<label for="welcome_message">Welcome message:</label><br />
-		<%= text_area_tag :welcome_message, @welcome_message, :cols => 85, :rows => 10 %>
-	</p>
-	
-	<p>
-		<%= submit_tag "Save" %>
-	</p>
-<% end %>
+<p><strong>Welcome to the administration of the HAAGA-HELIA Linux Club website.</strong></p>
+
+<p>
+	Your current role is <em><%= @role.name %></em>.
+	That means that you can: <%= @role.privileges.join(", ") %>.
+</p>
