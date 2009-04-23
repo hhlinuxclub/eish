@@ -98,17 +98,21 @@ class Admin::ArticlesController < ApplicationController
 
       @article.attributes = params[:article]
       @categories = Category.all
+    elsif params[:diff]
+      diff_path = article_diff_path :action => "compare", :id => params[:id], :rev_a => params[:rev_a], :rev_b => params[:rev_b]
     else
       @article.updated_by_user_id = session[:user_id]
       @article.update_attributes(params[:article]) if user.role.can_update? || @article.user_id == user.id
     end
 
     respond_to do |format|
-      if !params[:upload] && !params[:create_category]
+      if params[:upload] || params[:create_category]
+        format.html { render :action => "edit" }
+      elsif params[:diff]
+        format.html { redirect_to diff_path }
+      else
         flash[:notice] = "Article was successfully updated."
         format.html { redirect_to admin_article_path(@article) }
-      else
-        format.html { render :action => "edit" }
       end
     end
   end
@@ -153,8 +157,8 @@ class Admin::ArticlesController < ApplicationController
   end
   
   def compare
-    @rev_a = Revision.find_by_article_id_and_number(params[:id], params[:rev_a])
-    @rev_b = Revision.find_by_article_id_and_number(params[:id], params[:rev_b])
+    @rev_a = Revision.find_by_article_id_and_number(params[:id].to_i, params[:rev_a])
+    @rev_b = Revision.find_by_article_id_and_number(params[:id].to_i, params[:rev_b])
     
     respond_to do |format|
       if !@rev_a.nil? && !@rev_b.nil?

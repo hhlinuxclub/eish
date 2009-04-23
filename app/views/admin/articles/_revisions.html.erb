@@ -1,32 +1,30 @@
 <div id="revisionsBox">
-	<% form_tag "compare" do %>
-		<table>
+	<table>
+		<tr>
+			<th>Revision</th>
+			<th>From</th>
+			<th>To</th>
+			<th>Date</th>
+			<th>User</th>
+		</tr>
+
+		<% for revision in @article.revisions.reverse %>
 			<tr>
-				<th>Revision</th>
-				<th>From</th>
-				<th>To</th>
-				<th>Date</th>
-				<th>User</th>
+				<td>
+					<%= revision.number %>
+					<% if revision.number == @article.current_revision_id %>
+						<strong>current</strong>
+					<% else %>
+						<%= link_to "change to", change_revision_path(:id => @article.id, :revision => revision.number) %>
+					<% end %>
+				</td>
+				<td><input type="radio" name="rev_a" value="<%=h revision.number %>" /></td>
+				<td><input type="radio" name="rev_b" value="<%=h revision.number %>" /></td>
+				<td><%= short_date(revision.created_at) %></td>
+				<td><%= revision.user.name_with_role %></td>
 			</tr>
+		<% end %>
+	</table>
 
-			<% for revision in @article.revisions.reverse %>
-				<tr>
-					<td>
-						<%= revision.number %>
-						<% if revision.number == @article.current_revision_id %>
-							<strong>current</strong>
-						<% else %>
-							<%= link_to "change to", change_revision_path(:id => @article.id, :revision => revision.number) %>
-						<% end %>
-					</td>
-					<td><input type="radio" name="rev_a" value="<%=h revision.number %>" /></td>
-					<td><input type="radio" name="rev_b" value="<%=h revision.number %>" /></td>
-					<td><%= short_date(revision.created_at) %></td>
-					<td><%= revision.user.name_with_role %></td>
-				</tr>
-			<% end %>
-		</table>
-
-		<p><%= submit_tag "Compare" %></p>
-	<% end %>
+	<p><%= submit_tag "Compare", :name => "diff" %></p>
 </div>
