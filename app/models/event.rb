@@ -89,15 +89,12 @@ class Event < ActiveRecord::Base
     return calendar.to_ical
   end
   
-  def update_attributes(attributes)
-    self.attributes = attributes
-    
-    if attributes[:all_day] == "1"
-      self.starts_at = Time.local(self.starts_at.year, self.starts_at.month, self.starts_at.day, 0, 0, 0)
-      self.ends_at = self.starts_at + 86400
+  def before_save
+    if all_day == "1" || all_day == true
+      start_date = starts_at.to_date
+      self.starts_at = start_date
+      self.ends_at = start_date + 1
     end
-    
-    save
   end
   
   def publish(status=true)
