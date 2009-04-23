@@ -5,6 +5,8 @@
 	<% end %>
 </h2>
 
+<p><%= link_to "[ back to article ]", :action => "edit", :id => params[:id] %></p>
+
 <p><b>
 	<%= @rev_a.description %>
 	<% if @rev_a.description.strip != @rev_b.description.strip %>
