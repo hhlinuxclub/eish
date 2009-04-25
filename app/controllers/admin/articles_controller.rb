@@ -4,6 +4,9 @@ class Admin::ArticlesController < ApplicationController
    
   def index
     user = User.find(session[:user_id])
+    
+    set_meta_tags :title => "Articles"
+    
     if user.role.can_update? || user.role.can_delete? || user.role.can_publish? || user.role.can_administer?
       @articles = Article.find(:all, :order => "created_at DESC", :include => :revisions)
     else
@@ -26,6 +29,8 @@ class Admin::ArticlesController < ApplicationController
     @category = Category.new
     @categories = Category.all
     user = User.find(session[:user_id])
+    
+    set_meta_tags :title => "Create new article"
 
     respond_to do |format|
       if user.role.can_create?
@@ -41,6 +46,8 @@ class Admin::ArticlesController < ApplicationController
     @category = Category.new
     @categories = Category.all
     user = User.find(session[:user_id])
+    
+    set_meta_tags :title => "Editing '" + @article.title + "'"
     
     respond_to do |format|
       if user.role.can_update? || user.id == @article.user_id
@@ -159,6 +166,8 @@ class Admin::ArticlesController < ApplicationController
   def compare
     @rev_a = Revision.find_by_article_id_and_number(params[:id].to_i, params[:rev_a])
     @rev_b = Revision.find_by_article_id_and_number(params[:id].to_i, params[:rev_b])
+    
+    set_meta_tags :title => "Compare Revisions"
     
     respond_to do |format|
       if !@rev_a.nil? && !@rev_b.nil?

@@ -4,6 +4,9 @@ class Admin::NewsController < ApplicationController
  
   def index
     user = User.find(session[:user_id])
+    
+    set_meta_tags :title => "News"
+    
     if user.role.can_update? || user.role.can_delete? || user.role.can_publish? || user.role.can_administer?
       @news = News.find(:all, :order => "created_at DESC")
     else
@@ -23,6 +26,8 @@ class Admin::NewsController < ApplicationController
   def new
     @news_article = News.new
     user = User.find(session[:user_id])
+    
+    set_meta_tags :title => "Create news article"
 
     respond_to do |format|
       if user.role.can_create?
@@ -36,6 +41,8 @@ class Admin::NewsController < ApplicationController
   def edit
     @news_article = News.find(params[:id])
     user = User.find(session[:user_id])
+    
+    set_meta_tags :title => "Editing '" + @news_article.title + "'"
     
     respond_to do |format|
       if user.role.can_update? || user.id == @news_article.user_id
