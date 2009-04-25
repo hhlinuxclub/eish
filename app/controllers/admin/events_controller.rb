@@ -72,19 +72,32 @@ class Admin::EventsController < ApplicationController
     @event = Event.find(params[:id])
     user = User.find(session[:user_id])
     
-    if params[:upload]
-      @event.assets.create params[:asset].merge! :user_id => user.id
-      @event.attributes = params[:event]
-    else
-      @event.update_attributes(params[:event]) if user.role.can_update? || user.id == @event.user_id
+    if user.role.can_update? || user.id == @event.user_id
+      if params[:upload] || params[:destroy_asset]
+        if params[:upload]
+          @event.assets.create params[:asset].merge! :user_id => user.id
+        end
+      
+        if params[:destroy_asset]
+          Asset.find(params[:destroy_asset]).destroy
+        end
+      
+        @event.attributes = params[:event]
+      else
+        @event.update_attributes(params[:event])
+      end
     end
 
     respond_to do |format|
-      if !params[:asset]
-        flash[:notice] = 'Event was successfully updated.'
-        format.html { redirect_to admin_event_path @event }
+      if user.role.can_update? || user.id == @event.user_id
+        if params[:asset] || params[:destroy_asset]
+          format.html { render :action => "edit" }
+        else
+          flash[:notice] = 'Event was successfully updated.'
+          format.html { redirect_to admin_event_path @event }
+        end
       else
-        format.html { render :action => "edit" }
+        format.html { redirect_to admin_events_path }
       end
     end
   end

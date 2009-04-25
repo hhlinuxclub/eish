@@ -64,24 +64,37 @@ class Admin::NewsController < ApplicationController
       end
     end
   end
-
+  
   def update
     @news_article = News.find(params[:id])
     user = User.find(session[:user_id])
     
-    if params[:upload]
-      @news_article.assets.create params[:asset].merge! :user_id => user.id
-      @news_article.attributes = params[:news_article]
-    else
-      @news_article.update_attributes(params[:news_article]) if user.role.can_update? || user.id == @news_article.user_id
+    if user.role.can_update? || user.id == @news_article.user_id
+      if params[:upload] || params[:destroy_asset]
+        if params[:upload]
+          @news_article.assets.create params[:asset].merge! :user_id => user.id
+        end
+      
+        if params[:destroy_asset]
+          Asset.find(params[:destroy_asset]).destroy
+        end
+      
+        @news_article.attributes = params[:news_article]
+      else
+        @news_article.update_attributes(params[:news_article])
+      end
     end
 
     respond_to do |format|
-      if !params[:asset]
-        flash[:notice] = "News article was successfully updated."
-        format.html { redirect_to admin_news_article_path @news_article }
+      if user.role.can_update? || user.id == @news_article.user_id
+        if params[:asset] || params[:destroy_asset]
+          format.html { render :action => "edit" }
+        else
+          flash[:notice] = "News article was successfully updated."
+          format.html { redirect_to admin_news_article_path @news_article }
+        end
       else
-        format.html { render :action => "edit" }
+        format.html { redirect_to admin_news_path }
       end
     end
   end

@@ -52,19 +52,23 @@ class Admin::ArticlesController < ApplicationController
   end
 
   def create
-    @article = Article.new(params[:article])
-    @article.category_ids = params[:categories].keys.to_a unless params[:categories].nil?
-    @article.user_id = session[:user_id]
     user = User.find(session[:user_id])
     
-    if params[:create_category]
-      category = Category.create!(params[:category])
-      @article.categories << category
-      @categories = Category.all
-    else
-      if user.role.can_create?
-        @article.save
-        @article.assets.create params[:asset].merge! :user_id => user.id if params[:upload]
+    if user.role.can_create?
+      @article = Article.new(params[:article])
+      @article.category_ids = params[:categories].keys.to_a unless params[:categories].nil?
+      @article.user_id = session[:user_id]
+
+
+      if params[:create_category]
+        category = Category.create!(params[:category])
+        @article.categories << category
+        @categories = Category.all
+      else
+        if user.role.can_create?
+          @article.save
+          @article.assets.create params[:asset].merge! :user_id => user.id if params[:upload]
+        end
       end
     end
 
@@ -80,39 +84,50 @@ class Admin::ArticlesController < ApplicationController
       end
     end
   end
-
+  
   def update
-    @article = Article.find(params[:id])
-    @article.category_ids = params[:categories].keys.to_a unless params[:categories].nil?
     user = User.find(session[:user_id])
+    @article = Article.find(params[:id])
     
-    if params[:upload] || params[:create_category]
-      if params[:upload]
-        @article.assets.create params[:asset].merge! :user_id => user.id
-      end
+    if user.role.can_update? || @article.user_id == user.id
+      @article.category_ids = params[:categories].keys.to_a unless params[:categories].nil?
+    
+      if params[:upload] || params[:create_category] || params[:destroy_asset]
+        if params[:upload]
+          @article.assets.create params[:asset].merge! :user_id => user.id
+        end
       
-      if params[:create_category]
-        category = Category.create!(params[:category])
-        @article.categories << category
-      end
+        if params[:create_category]
+          category = Category.create!(params[:category])
+          @article.categories << category
+        end
+      
+        if params[:destroy_asset]
+          Asset.find(params[:destroy_asset]).destroy
+        end
 
-      @article.attributes = params[:article]
-      @categories = Category.all
-    elsif params[:diff]
-      diff_path = article_diff_path :action => "compare", :id => params[:id], :rev_a => params[:rev_a], :rev_b => params[:rev_b]
-    else
-      @article.updated_by_user_id = session[:user_id]
-      @article.update_attributes(params[:article]) if user.role.can_update? || @article.user_id == user.id
+        @article.attributes = params[:article]
+        @categories = Category.all
+      elsif params[:diff]
+        diff_path = article_diff_path :action => "compare", :id => params[:id], :rev_a => params[:rev_a], :rev_b => params[:rev_b]
+      else
+        @article.updated_by_user_id = session[:user_id]
+        @article.update_attributes(params[:article])
+      end
     end
 
     respond_to do |format|
-      if params[:upload] || params[:create_category]
-        format.html { render :action => "edit" }
-      elsif params[:diff]
-        format.html { redirect_to diff_path }
+      if user.role.can_update? || @article.user_id == user.id
+        if params[:upload] || params[:create_category] || params[:destroy_asset]
+          format.html { render :action => "edit" }
+        elsif params[:diff]
+          format.html { redirect_to diff_path }
+        else
+          flash[:notice] = "Article was successfully updated."
+          format.html { redirect_to admin_article_path(@article) }
+        end
       else
-        flash[:notice] = "Article was successfully updated."
-        format.html { redirect_to admin_article_path(@article) }
+        format.html { redirect_to admin_articles_path }
       end
     end
   end
