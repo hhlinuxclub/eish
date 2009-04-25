@@ -6,6 +6,9 @@ class Admin::EventsController < ApplicationController
   
   def index
     user = User.find(session[:user_id], :include => :role)
+    
+    set_meta_tags :title => "Events"
+    
     if user.role.can_update? || user.role.can_delete? || user.role.can_publish? || user.role.can_administer?
       @events = Event.find(:all, :order => "created_at DESC")
     else
@@ -25,6 +28,8 @@ class Admin::EventsController < ApplicationController
   def new
     @event = Event.new
     user = User.find(session[:user_id])
+    
+    set_meta_tags :title => "Create new event"
 
     respond_to do |format|
       if user.role.can_create?
@@ -39,6 +44,8 @@ class Admin::EventsController < ApplicationController
     @event = Event.find(params[:id])
     @event.all_day = @event.all_day?
     user = User.find(session[:user_id])
+    
+    set_meta_tags :title => "Editing '" + @event.name + "'"
     
     respond_to do |format|
       if user.role.can_update? || user.id == @event.user_id

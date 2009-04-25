@@ -7,6 +7,8 @@ class Admin::UsersController < ApplicationController
   def index
     @users = User.all_current_users
     
+    set_meta_tags :title => "Users"
+    
     respond_to do |format|
       format.html
       format.xml { render :xml => @users }
@@ -20,6 +22,8 @@ class Admin::UsersController < ApplicationController
   def new
     @user = User.new
     
+    set_meta_tags :title => "Create user"
+    
     respond_to do |format|
       format.html
     end
@@ -27,6 +31,8 @@ class Admin::UsersController < ApplicationController
   
   def edit
     @user = User.find(params[:id])
+    
+    set_meta_tags :title => "Edit '" + @user.username + "'"
   end
   
   def create

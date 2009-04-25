@@ -5,6 +5,8 @@ class Admin::SettingsController < ApplicationController
   
   def index
     @welcome_message = Setting.option("welcome_message")
+    
+    set_meta_tags :title => "Settings"
   end
   
   def update

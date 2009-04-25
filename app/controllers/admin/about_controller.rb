@@ -4,6 +4,7 @@ class Admin::AboutController < ApplicationController
   
   def index
     @about = Setting.option("about")
+    set_meta_tags :title => "Edit about page"
   end
   
   def update
