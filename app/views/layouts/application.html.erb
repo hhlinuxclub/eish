@@ -5,7 +5,7 @@
         <%= display_meta_tags :site => "HHLinuxClub.org", :reverse => true %>
       	
         <% bundle :name => "frontend" do %>
-		      <%= stylesheet_link_tag 'frontend', 'lightbox', 'jquery-ui', 'password_strength_plugin', 'SyntaxHighlighter/shThemeDefault', 'SyntaxHighlighter/shCore', "markitup", "markitup.textile" %>
+		      <%= stylesheet_link_tag 'frontend', 'lightbox', 'jquery-ui', 'password_strength_plugin', 'SyntaxHighlighter/shThemeDefault', 'SyntaxHighlighter/shCore', "markitup", "markitup.textile", "jquery.cluetip" %>
 				<% end %>
 				
 				<%= render :partial => "layouts/javascript" %>

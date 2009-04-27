@@ -7,36 +7,42 @@
 		<%= f.label :first_name %>
 		<br />
 		<%= f.text_field :first_name, :size => 30, :tabindex => 1, :class => "textField" %>
+		<%= image_tag "picol/help_16.png", :alt => "Help", :title => "First Name|e.g. Bob, Fred, Alice...", :class => "clueTip" %>
 	</p>
 	
 	<p>
 		<%= f.label :last_name %>
 		<br />
 		<%= f.text_field :last_name, :size => 30, :tabindex => 2, :class => "textField"  %>
+		<%= image_tag "picol/help_16.png", :alt => "Help", :title => "Last Name|e.g. Johnson, Torvals, Brown...", :class => "clueTip" %>
 	</p>
 	
 	<p>
 		<%= f.label :email %>
 		<br />
 		<%= f.text_field :email, :size => 30, :tabindex => 3, :class => "textField"  %>
+		<%= image_tag "picol/help_16.png", :alt => "Help", :title => "Email|e.g. bob@example.org", :class => "clueTip" %>
 	</p>
 
 	<p>
 		<%= f.label :username, "Desired Username" %>
 		<br />
 		<%= f.text_field :username, :size => 30, :tabindex => 4, :class => "textField"  %>
+		<%= image_tag "picol/help_16.png", :alt => "Help", :title => "Your login name|e.g. bob87, surfboy, superh4x0r", :class => "clueTip" %>
 	</p>
 	
 	<p>
 		<%= f.label :password %>
 		<br />
 		<%= f.password_field :password, :size => 30, :tabindex => 5, :class => "textField"  %>
+		<%= image_tag "picol/help_16.png", :alt => "Help", :title => "Password|Something super complex.  A minimum of 6 characters.", :class => "clueTip" %>
 	</p>
 	
 	<p>
 		<%= f.label :password_confirmation %>
 		<br />
 		<%= f.password_field :password_confirmation, :size => 30, :tabindex => 6, :class => "textField"  %>
+		<%= image_tag "picol/help_16.png", :alt => "Help", :title => "Confirm Password|And repeat to eliminate typos", :class => "clueTip" %>
 	</p>
 
 	<% if RCC_ENABLED %> 
