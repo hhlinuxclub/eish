@@ -28,6 +28,10 @@
 #cluetip-extra {
   display: none;
 }
+
+span.clueTip {
+	color: #555753;
+}
 /***************************************
    =cluetipClass: 'default' 
 -------------------------------------- */
