@@ -73,10 +73,12 @@ $(document).ready(function() {
 		messageloc: 1,
 		userid:	"#user_username"
 	});
+	
+	$('.clueTip').removeAttr("style");
   
-  $('.clueTip').cluetip({
-    splitTitle: '|', // use the invoking element's title attribute to populate the clueTip...
-                     // ...and split the contents into separate divs where there is a "|"
-    showTitle: false // hide the clueTip's heading
-  });
+	$('.clueTip').cluetip({
+	    splitTitle: '|', // use the invoking element's title attribute to populate the clueTip...
+	                     // ...and split the contents into separate divs where there is a "|"
+	    showTitle: false // hide the clueTip's heading
+	});
 })
