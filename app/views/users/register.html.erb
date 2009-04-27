@@ -7,42 +7,42 @@
 		<%= f.label :first_name %>
 		<br />
 		<%= f.text_field :first_name, :size => 30, :tabindex => 1, :class => "textField" %>
-		<span title="First Name|e.g. Bob, Fred, Alice..." class="clueTip" style="display:none;">[?]</span>
+		<%= render :partial => "/cluetip", :locals => { :title => "First Name", :message => "e.g. Bob, Fred, Alice..." } %>
 	</p>
 	
 	<p>
 		<%= f.label :last_name %>
 		<br />
 		<%= f.text_field :last_name, :size => 30, :tabindex => 2, :class => "textField"  %>
-		<span title="Last Name|e.g. Johnson, Torvalds, Brown.." class="clueTip" style="display:none;">[?]</span>
+		<%= render :partial => "/cluetip", :locals => { :title => "Last Name", :message => "e.g. Johnson, Torvalds, Brown..." } %>
 	</p>
 	
 	<p>
 		<%= f.label :email %>
 		<br />
 		<%= f.text_field :email, :size => 30, :tabindex => 3, :class => "textField"  %>
-		<span title="Email|e.g. bob@example.org" class="clueTip" style="display:none;">[?]</span>
+		<%= render :partial => "/cluetip", :locals => { :title => "Email", :message => "e.g. bob@example.org" } %>
 	</p>
 
 	<p>
 		<%= f.label :username, "Desired Username" %>
 		<br />
 		<%= f.text_field :username, :size => 30, :tabindex => 4, :class => "textField"  %>
-		<span title="Your login name|e.g. bob87, surfboy, superh4x0r" class="clueTip" style="display:none;">[?]</span>
+		<%= render :partial => "/cluetip", :locals => { :title => "Your login name", :message => "e.g. bob87, surfboy, superh4x0r..." } %>
 	</p>
 	
 	<p>
 		<%= f.label :password %>
 		<br />
 		<%= f.password_field :password, :size => 30, :tabindex => 5, :class => "textField"  %>
-		<span title="Password|Something super complex.  A minimum of 6 characters." class="clueTip" style="display:none;">[?]</span>
+		<%= render :partial => "/cluetip", :locals => { :title => "Password", :message => "Something super complex.  A minimum of 6 characters." } %>
 	</p>
 	
 	<p>
 		<%= f.label :password_confirmation %>
 		<br />
 		<%= f.password_field :password_confirmation, :size => 30, :tabindex => 6, :class => "textField"  %>
-		<span title="Confirm Password|And repeat to eliminate typos" class="clueTip" style="display:none;">[?]</span>
+		<%= render :partial => "/cluetip", :locals => { :title => "Confirm Password", :message => "And repeat to eliminate typos" } %>
 	</p>
 
 	<% if RCC_ENABLED %> 
