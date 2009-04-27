@@ -25,7 +25,9 @@
 	<ul>
 		<li><a href="#categoriesBox">Categories</a></li>
 		<li><a href="#assetsBox">Assets</a></li>
-		<% unless controller.action_name == "new" %><li><a href="#revisionsBox">Revisions</a></li><% end %>
+		<% unless @article.new_record? %>
+			<li><a href="#revisionsBox">Revisions</a></li>
+		<% end %>
 	</ul>
 		<div id="categoriesBox">
 			<div>
@@ -35,6 +37,7 @@
 					<ul id="categories">
 						<% for category in @categories %>
 							<li>
+								<%= image_submit_tag "/images/picol/delete_16.png", :value => category.id, :name => "destroy_category", :style => "position: relative; top: 5px;" %>
 								<%= check_box_tag "categories[#{category.id}]", category.id, @article.categories.include?(category) %>
 								<label for="categories_<%= category.id%>"><%= category.name %></label>
 							</li>
@@ -58,7 +61,7 @@
 		
 		<%= render :partial => "admin/assets/assets", :locals => { :assetable => @article } %>
 		
-		<%= render :partial => "revisions" unless controller.action_name == "new" %>
+		<%= render :partial => "revisions" unless @article.new_record? %>
 </div>
 <% end %>
 
