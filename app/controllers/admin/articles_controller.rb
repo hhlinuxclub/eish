@@ -66,10 +66,17 @@ class Admin::ArticlesController < ApplicationController
       @article.category_ids = params[:categories].keys.to_a unless params[:categories].nil?
       @article.user_id = session[:user_id]
 
-
       if params[:create_category]
         category = Category.create!(params[:category])
         @article.categories << category
+        @categories = Category.all
+      elsif params[:destroy_category]
+        category = Category.find(params[:destroy_category])
+        if category.articles.empty?
+          category.destroy
+        else
+          flash.now[:error] = "The category " + category.name + " has articles associated with it."
+        end
         @categories = Category.all
       else
         if user.role.can_create?
@@ -81,7 +88,7 @@ class Admin::ArticlesController < ApplicationController
 
     respond_to do |format|
       if user.role.can_create?
-        if params[:create_category]
+        if params[:create_category] || params[:destroy_category]
           format.html { render :action => "new" }
         else
           format.html { redirect_to edit_admin_article_path @article }
@@ -112,6 +119,15 @@ class Admin::ArticlesController < ApplicationController
         if params[:destroy_asset]
           Asset.find(params[:destroy_asset]).destroy
         end
+        
+        if params[:destroy_category]
+          category = Category.find(params[:destroy_category])
+          if category.articles.empty?
+            category.destroy
+          else
+            flash.now[:error] = "The category " + category.name + " has articles associated with it."
+          end
+        end
 
         @article.attributes = params[:article]
         @categories = Category.all
@@ -125,7 +141,7 @@ class Admin::ArticlesController < ApplicationController
 
     respond_to do |format|
       if user.role.can_update? || @article.user_id == user.id
-        if params[:upload] || params[:create_category] || params[:destroy_asset]
+        if params[:upload] || params[:create_category] || params[:destroy_asset] || params[:destroy_category]
           format.html { render :action => "edit" }
         elsif params[:diff]
           format.html { redirect_to diff_path }
