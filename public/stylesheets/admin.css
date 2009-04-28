@@ -335,3 +335,11 @@ ins {
 	margin: 2px;
 	display: inline-block;
 }
+
+li.privileges {
+	font-size: 8pt;
+}
+
+ul.privileges {
+	margin-top: -10px;
+}

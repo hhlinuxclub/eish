@@ -4,5 +4,12 @@
 
 <p>
 	Your current role is <em><%= @role.name %></em>.
-	That means that you can: <%= @role.privileges.join(", ") %>.
+</p>
+<p>
+	This means that you can:
+	<ul class="privileges">
+		<% for privilege in @role.privileges %>
+			<li class="privileges"><%= privilege %></li>
+		<% end %>
+	</ul>
 </p>

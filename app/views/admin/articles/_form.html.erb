@@ -34,15 +34,19 @@
 				<% if @categories.empty? %>
 					<p>There are no categories at the moment. Please create one.</p>
 				<% else %>
-					<ul id="categories">
+					<table>
 						<% for category in @categories %>
-							<li>
-								<%= image_submit_tag "/images/picol/delete_16.png", :value => category.id, :name => "destroy_category", :style => "position: relative; top: 5px;" %>
+						<tr class="<%= cycle("odd", "even") %>">
+							<td>
 								<%= check_box_tag "categories[#{category.id}]", category.id, @article.categories.include?(category) %>
 								<label for="categories_<%= category.id%>"><%= category.name %></label>
-							</li>
+							</td>
+							<td>
+								<%= image_submit_tag "/images/tango/delete_16.png", :value => category.id, :name => "destroy_category", :style => "position: relative; top: 5px;", :alt => "Delete" %>
+							</td>
+						</tr>
 						<% end %>
-					</ul>
+					</table>
 				<% end %>
 			
 				<h4>Add new category</h4>

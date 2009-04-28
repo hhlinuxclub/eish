@@ -20,9 +20,11 @@
 				<link rel="icon" type="image/png" href="/favicon.ico" />
     </head>
     <body>
-    <div id="loginDialog" style="display: none;">
-				<%= render :partial => "/users/login_form", :locals => { :form_id => "jsLogin" } %>
+    <% unless logged_in? %>
+	    <div id="loginDialog" style="display: none;">
+					<%= render :partial => "/users/login_form", :locals => { :form_id => "jsLogin" } %>
 		</div>
+	<% end %>
 
         <div id="container">
             <div id="header">
