@@ -31,6 +31,7 @@
 
 span.clueTip {
 	color: #555753;
+	cursor: help;
 }
 /***************************************
    =cluetipClass: 'default' 
