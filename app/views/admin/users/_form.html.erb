@@ -38,6 +38,12 @@
 	</p>
 	
 	<p>
+		<%= f.label :title %>
+		<br />
+		<%= f.text_field :title %>
+	</p>
+	
+	<p>
 		<%= f.label :role %>
 		<br />
 		<%= collection_select(:user, :role_id, Role.find(:all), :id, :name) %>
