@@ -1,4 +1,4 @@
-<%= image_tag gravatar(@user.email), :id => "avatar"%>
+<%= image_tag gravatar(@user.email), :id => "avatar" %>
 
 <h2 class="title"><%=h @user.username %></h2>
 
@@ -6,7 +6,7 @@
 	<h3 class="title">Personal Information</h3>
 	<p>
 		<b>Name: </b><%=h @user.last_name %>, <%=h @user.first_name %><br />
-		<b>Role: </b><%=h @user.role.name %>
+		<b>Title: </b><%=h @user.title_or_role %>
 	</p>
 
 	<p>

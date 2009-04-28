@@ -65,7 +65,7 @@ class User < ActiveRecord::Base
   end
   
   def has_content?
-    [Article, Revision, Event, News].each do |model|
+    [Article, Revision, Event, News, Asset].each do |model|
       return true if !model.find_by_user_id(self.id).nil?
     end
     return false
@@ -86,6 +86,7 @@ class User < ActiveRecord::Base
       self.remember_token_expires = nil
       self.reset_hash = nil
       self.reset_hash_password = nil
+      self.profile.destroy
       self.save_with_validation(false)
     else
       self.destroy
@@ -98,9 +99,29 @@ class User < ActiveRecord::Base
   
   def name_with_role
     if !role_id.nil?
-      return first_name + " " + last_name + ", " + Role.find(role_id).name
+      return name + ", " + self.role.name
     else
-      return first_name + " " + last_name
+      return name
+    end
+  end
+  
+  def title_or_role
+    if self.title.nil? || self.title.empty?
+      return self.role.name
+    else
+      return self.title
+    end
+  end
+  
+  def name
+    return self.first_name + " " + self.last_name
+  end
+  
+  def name_with_title
+    if self.title.nil? || self.title.empty? || self.role_id.nil?
+      return name
+    else
+      return name + ", " + title_or_role
     end
   end
   

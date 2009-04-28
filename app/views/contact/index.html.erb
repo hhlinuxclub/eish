@@ -3,7 +3,7 @@
 <% form_tag :action => "send_email" do %>
 	<p>
 		<label for="contact">Contact:</label><br />
-		<%= collection_select(:user, :user_id, @contacts, :id, :name_with_role) %>
+		<%= collection_select(:user, :user_id, @contacts, :id, :name_with_title) %>
 		<%= render :partial => "/cluetip", :locals => { :title => "Who to contact?", :message => "Please try and select the person most appropriate to your needs" } %>
 	</p>
 	
