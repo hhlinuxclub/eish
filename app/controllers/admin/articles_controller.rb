@@ -60,41 +60,36 @@ class Admin::ArticlesController < ApplicationController
 
   def create
     user = User.find(session[:user_id])
-    
-    if user.role.can_create?
-      @article = Article.new(params[:article])
-      @article.category_ids = params[:categories].keys.to_a unless params[:categories].nil?
-      @article.user_id = session[:user_id]
 
-      if params[:create_category]
-        category = Category.create!(params[:category])
-        @article.categories << category
-        @categories = Category.all
-      elsif params[:destroy_category]
-        category = Category.find(params[:destroy_category])
-        if category.articles.empty?
-          category.destroy
-        else
-          flash.now[:error] = "The category " + category.name + " has articles associated with it."
-        end
-        @categories = Category.all
+    redirect_to admin_article_path and return unless user.role.can_create?
+
+    @article = Article.new(params[:article])
+    @article.category_ids = params[:categories].keys.to_a unless params[:categories].nil?
+    @article.user_id = session[:user_id]
+
+    if params[:create_category]
+      category = Category.create!(params[:category])
+      @article.categories << category
+    elsif params[:destroy_category]
+      category = Category.find(params[:destroy_category])
+      if category.articles.empty?
+        category.destroy
       else
-        if user.role.can_create?
-          @article.save
-          @article.assets.create params[:asset].merge! :user_id => user.id if params[:upload]
-        end
+        flash.now[:error] = "The category " + category.name + " has articles associated with it."
       end
     end
+    @categories = Category.all
 
     respond_to do |format|
-      if user.role.can_create?
-        if params[:create_category] || params[:destroy_category]
-          format.html { render :action => "new" }
-        else
-          format.html { redirect_to edit_admin_article_path @article }
-        end
+      if params[:create_category] || params[:destroy_category]
+        format.html { render :action => "new" }
       else
-        format.html { redirect_to admin_articles_path }
+        if @article.save
+          @article.assets.create(params[:asset].merge!(:user_id => user.id)) if params[:upload]
+          format.html { redirect_to edit_admin_article_path @article }
+        else
+          format.html { render :action => "new" }
+        end
       end
     end
   end
@@ -102,55 +97,48 @@ class Admin::ArticlesController < ApplicationController
   def update
     user = User.find(session[:user_id])
     @article = Article.find(params[:id])
-    
-    if user.role.can_update? || @article.user_id == user.id
-      @article.category_ids = params[:categories].keys.to_a unless params[:categories].nil?
-    
-      if params[:upload] || params[:create_category] || params[:destroy_asset]
-        if params[:upload]
-          @article.assets.create params[:asset].merge! :user_id => user.id
-        end
-      
-        if params[:create_category]
-          category = Category.create!(params[:category])
-          @article.categories << category
-        end
-      
-        if params[:destroy_asset]
-          Asset.find(params[:destroy_asset]).destroy
-        end
-        
-        if params[:destroy_category]
-          category = Category.find(params[:destroy_category])
-          if category.articles.empty?
-            category.destroy
-          else
-            flash.now[:error] = "The category " + category.name + " has articles associated with it."
-          end
-        end
 
-        @article.attributes = params[:article]
-        @categories = Category.all
-      elsif params[:diff]
-        diff_path = article_diff_path :action => "compare", :id => params[:id], :rev_a => params[:rev_a], :rev_b => params[:rev_b]
-      else
-        @article.updated_by_user_id = session[:user_id]
-        @article.update_attributes(params[:article])
-      end
+    if !user.role.can_update? || !(@article.user_id == user.id)
+      redirect_to admin_articles_path and return
     end
+    
+    @article.category_ids = params[:categories].keys.to_a unless params[:categories].nil?
+
+    if params[:upload]
+      @article.assets.create(params[:asset].merge!(:user_id => user.id))
+    elsif params[:create_category]
+      category = Category.create!(params[:category])
+      @article.categories << category
+    elsif params[:destroy_asset]
+      Asset.find(params[:destroy_asset]).destroy
+    elsif params[:destroy_category]
+      category = Category.find(params[:destroy_category])
+      if category.articles.empty?
+        flash.now[:notice] = "The category '" + category.name + "' has been removed."
+        category.destroy
+      else
+        flash.now[:error] = "The category '" + category.name + "' has articles associated with it."
+      end
+    elsif params[:diff]
+      diff_path = article_diff_path :id => params[:id], :rev_a => params[:rev_a], :rev_b => params[:rev_b]
+    end
+    
+    @article.attributes = params[:article]
+    @categories = Category.all
 
     respond_to do |format|
-      if user.role.can_update? || @article.user_id == user.id
-        if params[:upload] || params[:create_category] || params[:destroy_asset] || params[:destroy_category]
-          format.html { render :action => "edit" }
-        elsif params[:diff]
-          format.html { redirect_to diff_path }
-        else
+      if params[:upload] || params[:create_category] || params[:destroy_asset] || params[:destroy_category]
+        format.html { render :action => "edit" }
+      elsif params[:diff]
+        format.html { redirect_to diff_path }
+      else
+        @article.updated_by_user_id = session[:user_id]
+        if @article.save
           flash[:notice] = "Article was successfully updated."
           format.html { redirect_to admin_article_path(@article) }
+        else
+          format.html { render :action => "new" }
         end
-      else
-        format.html { redirect_to admin_articles_path }
       end
     end
   end

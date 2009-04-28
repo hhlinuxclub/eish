@@ -5,6 +5,8 @@ class Article < ActiveRecord::Base
   has_many :categories, :through => :categorizations
   has_many :assets, :as => :attachable
   
+  validates_presence_of :title, :description, :body
+  
   named_scope :all_published, :conditions => { :published => true }
   
   attr_accessor :updated_by_user_id
