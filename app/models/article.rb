@@ -1,4 +1,5 @@
 class Article < ActiveRecord::Base
+  acts_as_ferret
   belongs_to :user
   has_many :revisions
   has_many :categorizations

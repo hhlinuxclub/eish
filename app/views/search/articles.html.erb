@@ -1,0 +1,17 @@
+<h2 class="title">Articles found</h2>
+
+<p>Total number of hits: <%= @articles.total_hits %></p>
+
+<% for article in @articles %>
+	<div class="article">
+		<h3 class="title"><%= link_to article.title, article_path(article) %></h3>
+		<p class="metadata">
+			<%=h distance_of_time_in_words(article.created_at, Time.now) %> ago
+			by <%= link_to_profile article.user %><br />
+			Score: <%= article.ferret_score %>
+		</p>
+		<p><%=h article.description %></p>
+	</div>
+<% end %>
+
+<%= will_paginate @articles %>

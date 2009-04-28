@@ -1,4 +1,5 @@
 class News < ActiveRecord::Base
+  acts_as_ferret
   belongs_to :user
   has_many :assets, :as => :attachable
   
