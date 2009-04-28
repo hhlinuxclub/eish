@@ -25,7 +25,13 @@
 			<td><%= link_to event.name, { :id => event.id, :action => "edit" }, { :title => "Edit", :class => "listingTitle" } %><br />
 		    		<%=h truncate(event.description, 50, "...") %>
 			<td style="text-align: center;"><%= format_event_dates(event) %></td>
-			<td style="text-align: center;"><%= event.published? ? "published" : "unpublished" %></td>
+			<td style="text-align: center;">
+			<% if event.published? %>
+				<%= image_tag("tango/publish_16.png", :alt => "Published") %>
+			<% else %>
+				<%= image_tag("tango/unpublish_16.png", :alt => "Unpublished") %>
+			<% end %>
+			</td>
 		</tr>
 	<% end %>
 </table>

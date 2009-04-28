@@ -26,7 +26,13 @@
 	    		<%=h truncate(news_article.body, 50, "...") %>
 	    </td>
 		  <td style="text-align: center;"><%=h short_date(news_article.created_at) %></td>
-		  <td style="text-align: center;"><%= news_article.published? ? "published" : "unpublished" %></td>
+		  <td style="text-align: center;">
+			<% if news_article.published? %>
+				<%= image_tag("tango/publish_16.png", :alt => "Published") %>
+			<% else %>
+				<%= image_tag("tango/unpublish_16.png", :alt => "Unpublished") %>
+			<% end %>
+			</td>
 	  </tr>
 	<% end %>
 </table>

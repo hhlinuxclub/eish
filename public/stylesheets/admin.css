@@ -68,31 +68,31 @@ body {
 }
 
 .aboutLink {
-	background: url('../images/picol/about_16.png') no-repeat 0 1px;
+	background: url('../images/tango/about_16.png') no-repeat 0 1px;
 }
 
 .usersLink {
-	background: url('../images/picol/users_16.png') no-repeat 0 1px;
+	background: url('../images/tango/users_16.png') no-repeat 0 1px;
 }
 
 .homeLink {
-	background: url('../images/picol/home_16.png') no-repeat 0 1px;
+	background: url('../images/tango/home_16.png') no-repeat 0 1px;
 }
 
 .articlesLink {
-	background: url('../images/picol/articles_16.png') no-repeat 0 1px;
+	background: url('../images/tango/articles_16.png') no-repeat 0 1px;
 }
 
 .eventsLink {
-	background: url('../images/picol/events_16.png') no-repeat 0 1px;
+	background: url('../images/tango/events_16.png') no-repeat 0 1px;
 }
 
 .newsLink {
-	background: url('../images/picol/news_16.png') no-repeat 0 1px;
+	background: url('../images/tango/news_16.png') no-repeat 0 1px;
 }
 
 .settingsLink {
-	background: url('../images/picol/settings_16.png') no-repeat 0 1px;
+	background: url('../images/tango/settings_16.png') no-repeat 0 1px;
 }
 
 #footer {
@@ -202,7 +202,7 @@ dd {
 }
 
 .add {
-	background: url('../images/picol/add_16.png') no-repeat 0 1px;
+	background: url('../images/tango/add_16.png') no-repeat 0 1px;
 	padding-left: 17px;
 }
 
@@ -302,22 +302,22 @@ ins {
 }
 
 .add {
-	background: url('../images/picol/add_16.png') no-repeat 0px 1px;
+	background: url('../images/tango/add_16.png') no-repeat 0px 1px;
 	padding-left: 17px;
 }
 
 .publish {
-	background: url('../images/picol/publish_16.png') no-repeat 0px 1px;
+	background: url('../images/tango/publish_16.png') no-repeat 0px 1px;
 	padding-left: 17px;
 }
 
 .unpublish {
-	background: url('../images/picol/unpublish_16.png') no-repeat 0px 1px;
+	background: url('../images/tango/unpublish_16.png') no-repeat 0px 1px;
 	padding-left: 17px;
 }
 
 .delete {
-	background: url('../images/picol/delete_16.png') no-repeat 0px 1px;
+	background: url('../images/tango/delete_16.png') no-repeat 0px 1px;
 	padding-left: 17px;
 }
 
