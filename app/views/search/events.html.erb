@@ -1,0 +1,13 @@
+<h2 class="title">Events found</h2>
+
+<p>Total number of hits: <%= @events.total_hits %></p>
+
+<% for event in @events %>
+	<h3 class="title"><%= link_to event.name, event_path(event) %></h3>
+	<p class="metadata">
+		<%= format_event_dates(event) %><br />
+		Score: <%= event.ferret_score %>
+	</p>
+<% end %>
+
+<%= will_paginate @events %>

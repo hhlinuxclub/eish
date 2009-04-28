@@ -31,6 +31,8 @@ Rails::Initializer.run do |config|
   config.gem "RedCloth"
   config.gem "icalendar"
   config.gem "faker"
+  config.gem "ferret"
+  config.gem "acts_as_ferret"
   config.gem "populator"
   config.gem "mislav-will_paginate", :lib => "will_paginate", :source => "http://gems.github.com"
   config.gem "ruby-recaptcha"

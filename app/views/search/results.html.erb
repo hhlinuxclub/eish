@@ -1,0 +1,45 @@
+<h2 class="title">Results</h2>
+
+You searched for "<%= @terms %>"
+
+<h3>Articles</h3>
+<p>Articles found: <%= @articles.total_hits %></p>
+<% if @articles.total_hits > 0 %>
+	<ul>
+	<% for article in @articles %>
+		<li>
+			<%= link_to article.title, article_path(article) %>
+		</li>
+	<% end %>
+	</ul>
+	
+	<%= link_to "more &raquo;", :controller => "search", :action => "articles", :terms => @terms %>
+<% end %>
+
+<h3>News</h3>
+<p>News articles found: <%= @news.total_hits %></p>
+<% if @news.total_hits > 0 %>
+	<ul>
+	<% for news_article in @news %>
+		<li>
+			<%= link_to(news_article.title, news_article_path(news_article)) %>
+		</li>
+	<% end %>
+	</ul>
+	
+	<%= link_to "more &raquo;", :controller => "search", :action => "news", :terms => @terms %>
+<% end %>
+
+<h3>Events</h3>
+<p>Events found: <%= @events.total_hits %></p>
+<% if @events.total_hits > 0 %>
+	<ul>
+	<% for event in @events %>
+		<li>
+			<%= link_to(event.name, event_path(event)) %>
+		</li>
+	<% end %>
+	</ul>
+	
+	<%= link_to "more &raquo;", :controller => "search", :action => "events", :terms => @terms %>
+<% end %>

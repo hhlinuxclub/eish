@@ -1,0 +1,16 @@
+<h2 class="title">News articles found</h2>
+
+<p>Total number of hits: <%= @news.total_hits %></p>
+
+<% for news_article in @news %>
+	<div class="news_article">
+		<h3 class="title"><%= link_to(news_article.title, news_article_path(news_article)) %></h3>
+		<p class="metadata">
+			<%=h distance_of_time_in_words(news_article.created_at, Time.now) %> ago
+			by <%= link_to_profile news_article.user %><br />
+			Score: <%= news_article.ferret_score %>
+		</p>
+	</div>
+<% end %>
+
+<%= will_paginate @news %>
