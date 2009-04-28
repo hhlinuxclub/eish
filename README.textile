@@ -96,8 +96,7 @@ The above copyright notice applies to all files of this program, unless stated o
 
 h2. Exceptions
 
-* Fonts found under the "public/fonts/bitstream" directory are part of the "GNOME project":http://www.gnome.org/fonts/ and have been released by "Bitstream, Inc.":http://www.bitstream.com/font_rendering/products/dev_fonts/vera.html under an open source license.  You can find a copy of the license in the same directory, and embedded within each font file.
-
+* Icons found under the "public/images/tango" directory are part of the "Tango Icon Library":http://tango.freedesktop.org/Tango_Icon_Library and have been released into the Public Domain.
 
 h1. Bug Tracker
 
