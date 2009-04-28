@@ -59,40 +59,46 @@ body {
 
 #adminNavigation li {
 	list-style: none;
-	display: inline;
+	display: inline-block;
 }
 
 #adminNavigation a {
-	padding: 0 20px;
+	padding: 8px 34px;
 	text-decoration: none;
+	display: inline-block;
+	color: #000;
+}
+
+#adminNavigation a:hover {
+	color: #0066cb;
 }
 
 .aboutLink {
-	background: url('../images/tango/about_16.png') no-repeat 0 1px;
+	background: url('../images/tango/about_32.png') no-repeat 0 1px;
 }
 
 .usersLink {
-	background: url('../images/tango/users_16.png') no-repeat 0 1px;
+	background: url('../images/tango/users_32.png') no-repeat 0 1px;
 }
 
 .homeLink {
-	background: url('../images/tango/home_16.png') no-repeat 0 1px;
+	background: url('../images/tango/home_32.png') no-repeat 0 1px;
 }
 
 .articlesLink {
-	background: url('../images/tango/articles_16.png') no-repeat 0 1px;
+	background: url('../images/tango/articles_32.png') no-repeat 0 1px;
 }
 
 .eventsLink {
-	background: url('../images/tango/events_16.png') no-repeat 0 1px;
+	background: url('../images/tango/events_32.png') no-repeat 0 1px;
 }
 
 .newsLink {
-	background: url('../images/tango/news_16.png') no-repeat 0 1px;
+	background: url('../images/tango/news_32.png') no-repeat 0 1px;
 }
 
 .settingsLink {
-	background: url('../images/tango/settings_16.png') no-repeat 0 1px;
+	background: url('../images/tango/settings_32.png') no-repeat 0 1px;
 }
 
 #footer {
