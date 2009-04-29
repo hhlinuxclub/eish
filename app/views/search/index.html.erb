@@ -2,7 +2,7 @@
 <p>Search this site.</p>
 
 <% form_tag :action => "results" do %>
-	<label for="name">Search terms:</label><br />
+	<label for="name">Query:</label><br />
 	<%= text_field_tag :query, params[:query], :size => 30 %>
 
 	<p><%= submit_tag "Search" %></p>
