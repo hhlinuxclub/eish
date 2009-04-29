@@ -3,7 +3,7 @@
 
 <% form_tag :action => "results" do %>
 	<label for="name">Search terms:</label><br />
-	<%= text_field_tag :terms, params[:terms], :size => 30 %>
+	<%= text_field_tag :query, params[:query], :size => 30 %>
 
 	<p><%= submit_tag "Search" %></p>
 <% end %>
