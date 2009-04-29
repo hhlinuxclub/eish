@@ -91,6 +91,11 @@ class Admin::EventsController < ApplicationController
       
         @event.attributes = params[:event]
       else
+        if params[:image] == "nil"
+          @event.image = nil
+        else
+          @event.image_id = params[:image]
+        end
         @event.update_attributes(params[:event])
       end
     end
