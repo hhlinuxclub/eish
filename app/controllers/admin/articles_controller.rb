@@ -133,6 +133,11 @@ class Admin::ArticlesController < ApplicationController
         format.html { redirect_to diff_path }
       else
         @article.updated_by_user_id = session[:user_id]
+        if params[:image] == "nil"
+          @article.image = nil
+        else
+          @article.image_id = params[:image]
+        end
         if @article.save
           flash[:notice] = "Article was successfully updated."
           format.html { redirect_to admin_article_path(@article) }
