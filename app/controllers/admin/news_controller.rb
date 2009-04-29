@@ -79,7 +79,7 @@ class Admin::NewsController < ApplicationController
     if user.role.can_update? || user.id == @news_article.user_id
       if params[:upload] || params[:destroy_asset]
         if params[:upload]
-          @news_article.assets.create params[:asset].merge! :user_id => user.id
+          @news_article.assets.create(params[:asset].merge!(:user_id => user.id))
         end
       
         if params[:destroy_asset]
@@ -88,6 +88,11 @@ class Admin::NewsController < ApplicationController
       
         @news_article.attributes = params[:news_article]
       else
+        if params[:image] == "nil"
+          @news_article.image = nil
+        else
+          @news_article.image_id = params[:image]
+        end
         @news_article.update_attributes(params[:news_article])
       end
     end

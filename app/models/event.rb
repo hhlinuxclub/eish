@@ -5,6 +5,7 @@ class Event < ActiveRecord::Base
       }
       
   belongs_to :user
+  belongs_to :image, :class_name => "Asset"
   has_many :assets, :as => :attachable
   
   attr_accessor :all_day, :starts_at_date, :starts_at_time, :ends_at_date, :ends_at_time

@@ -7,12 +7,20 @@
 				<div class="imageAsset">
 					<table>
 						<tr>
+							<th>&nbsp;</th>
 							<th style="width: 120px;">Thumb</th>
 							<th>Textile</th>
-							<th>Remove</th>
+							<th>Delete</th>
+						</tr>
+						<tr>
+							<td><%= radio_button_tag "image", "nil", assetable.image_id.nil? %></td>
+							<td style="text-align: center;">(none)</td>
+							<td>&nbsp;</td>
+							<td>&nbsp;</td>
 						</tr>
 						<% for asset in assetable.images %>
 							<tr>
+								<td><%= radio_button_tag "image", asset.id, asset.id == assetable.image_id %></td>
 								<td style="text-align: center;"><%= image_tag asset.upload.url(:thumb), :onclick => "$.markItUp({ replaceWith:'" + (asset.textile_tag :thumb) + "' } );" %></td>
 								<td>
 									<code class="textileCode" onclick="$.markItUp({ replaceWith:'<%= asset.textile_tag :original %>' } );"><%= asset.textile_tag :original %></code><br />

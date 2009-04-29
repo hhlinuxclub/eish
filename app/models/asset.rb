@@ -1,9 +1,12 @@
 class Asset < ActiveRecord::Base
   belongs_to :attachable, :polymorphic => true
   belongs_to :user
+  has_one :article
+  has_one :news_article
+  has_one :event
   
   has_attached_file :upload, 
-    :styles => { :large => "600x600>", :medium => "300x300>", :thumb => "100x100>" },
+    :styles => { :large => "700x500>", :medium => "300x300>", :thumb => "100x100>" },
     :url => "/uploads/:id/:style/:basename.:extension",
     :path => ":rails_root/public/uploads/:id/:style/:basename.:extension"
     
