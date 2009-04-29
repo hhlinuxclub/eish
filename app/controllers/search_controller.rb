@@ -5,11 +5,11 @@ class SearchController < ApplicationController
   end
 
   def results
-    @terms = params[:terms]
+    @query = params[:query]
     
-    @articles = Article.find_with_ferret(params[:terms], {:limit => 3}, :conditions => ['published = ?', true])
-    @news = News.find_with_ferret(params[:terms], {:limit => 3}, :conditions => ['published = ?', true])
-    @events = Event.find_with_ferret(params[:terms], {:limit => 3}, :conditions => ['published = ?', true])
+    @articles = Article.find_with_ferret(params[:query], :limit => 3, :conditions => ['published = ?', true])
+    @news = News.find_with_ferret(params[:query], :limit => 3, :conditions => ['published = ?', true])
+    @events = Event.find_with_ferret(params[:query], :limit => 3, :conditions => ['published = ?', true])
     
     respond_to do |format|
       format.html
@@ -17,7 +17,8 @@ class SearchController < ApplicationController
   end
 
   def articles
-    @articles = Article.find_with_ferret(params[:terms], :page => params[:page], :per_page => 10, :conditions => ['published = ?', true])
+    @query = params[:query]
+    @articles = Article.find_with_ferret(params[:query], :page => params[:page], :per_page => 10, :conditions => ['published = ?', true])
     
     respond_to do |format|
       format.html
@@ -26,7 +27,8 @@ class SearchController < ApplicationController
   end
   
   def news
-    @news = Article.find_with_ferret(params[:terms], :page => params[:page], :per_page => 10, :conditions => ['published = ?', true])
+    @query = params[:query]
+    @news = Article.find_with_ferret(params[:query], :page => params[:page], :per_page => 10, :conditions => ['published = ?', true])
     
     respond_to do |format|
       format.html
@@ -35,7 +37,8 @@ class SearchController < ApplicationController
   end
   
   def events
-    @events = Event.find_with_ferret(params[:terms], :page => params[:page], :per_page => 10, :conditions => ['published = ?', true])
+    @query = params[:query]
+    @events = Event.find_with_ferret(params[:query], :page => params[:page], :per_page => 10, :conditions => ['published = ?', true])
     
     respond_to do |format|
       format.html
