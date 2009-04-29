@@ -118,7 +118,7 @@ class User < ActiveRecord::Base
   end
   
   def name_with_title
-    if self.title.nil? || self.title.empty? || self.role_id.nil?
+    if self.role_id.nil?
       return name
     else
       return name + ", " + title_or_role

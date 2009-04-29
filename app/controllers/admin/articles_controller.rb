@@ -98,7 +98,7 @@ class Admin::ArticlesController < ApplicationController
     user = User.find(session[:user_id])
     @article = Article.find(params[:id])
 
-    if !user.role.can_update? || !(@article.user_id == user.id)
+    if !user.role.can_update? && @article.user_id != user.id
       redirect_to admin_articles_path and return
     end
     
