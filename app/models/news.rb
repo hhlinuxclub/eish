@@ -5,6 +5,7 @@ class News < ActiveRecord::Base
       }
       
   belongs_to :user
+  belongs_to :image, :class_name => "Asset"
   has_many :assets, :as => :attachable
   
   def publish(status=true)
