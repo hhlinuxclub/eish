@@ -1,5 +1,9 @@
 class Event < ActiveRecord::Base
-  acts_as_ferret
+  acts_as_ferret :fields => {
+        :name => {:boost => 2}, 
+        :description => {:boost => 1}
+      }
+      
   belongs_to :user
   has_many :assets, :as => :attachable
   

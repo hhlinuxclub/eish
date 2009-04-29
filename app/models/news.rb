@@ -1,5 +1,9 @@
 class News < ActiveRecord::Base
-  acts_as_ferret
+  acts_as_ferret :fields => {
+        :title => {:boost => 2}, 
+        :body => {:boost => 1}
+      }
+      
   belongs_to :user
   has_many :assets, :as => :attachable
   

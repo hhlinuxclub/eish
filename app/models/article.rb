@@ -1,5 +1,10 @@
 class Article < ActiveRecord::Base
-  acts_as_ferret
+  acts_as_ferret :fields => {
+        :title => {:boost => 3}, 
+        :description => {:boost => 2},
+        :body => {:boost => 1}
+      }
+      
   belongs_to :user
   has_many :revisions
   has_many :categorizations
