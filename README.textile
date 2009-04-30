@@ -91,6 +91,18 @@ development:
 
 * Run 'rake db:populate' to add test data to the database (optional)
 
+h1. Search
+
+Site search is provided through the "Xapian":http://www.xapian.org/ Open Source Search Engine Library and the "Xapit":http://github.com/ryanb/xapit/ Rails plugin.  In order for the Search to work you MUST have xapian-core and xapian-bindings (only the Ruby bindings are required) installed.
+
+For more information on installing Xapian, see the "Xapian install guide":http://www.xapian.org/docs/install.html.
+
+At the moment reindexing must be performed manually, for example by a cron job, using the following command:
+
+<pre>
+rake xapit:index
+</pre>
+
 h1. Copyright
 
 Copyright 2008 ‒ 2009 João Carlos Cardoso and Matias Korhonen.
