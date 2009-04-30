@@ -1,8 +1,10 @@
 <h2 class="title">Results</h2>
 
-<p>You searched for "<%= @query %>"</p>
+<p>You searched for <strong><%= @query %></strong></p>
 
 <h3 class="title">Articles</h3>
+<p class="metadata">Found <%= pluralize(@articles.size, "article") %></p>
+<% if @articles.size > 0 %>
 	<ul>
 	<% for article in @articles %>
 		<li>
@@ -12,8 +14,12 @@
 	</ul>
 	
 	<%= link_to "more &raquo;", :controller => "search", :action => "articles", :query => @query %>
+<% end %>
+
 
 <h3 class="title">News</h3>
+<p class="metadata">Found <%= pluralize(@news.size, "news article") %></p>
+<% if @news.size > 0 %>
 	<ul>
 	<% for news_article in @news %>
 		<li>
@@ -23,8 +29,12 @@
 	</ul>
 	
 	<%= link_to "more &raquo;", :controller => "search", :action => "news", :query => @query %>
+<% end %>
+
 
 <h3 class="title">Events</h3>
+<p class="metadata">Found <%= pluralize(@events.size, "event") %></p>
+<% if @events.size > 0 %>
 	<ul>
 	<% for event in @events %>
 		<li>
@@ -32,6 +42,7 @@
 		</li>
 	<% end %>
 	</ul>
-	
+
 	<%= link_to "more &raquo;", :controller => "search", :action => "events", :query => @query %>
+<% end %>
 	
