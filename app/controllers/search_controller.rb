@@ -7,9 +7,9 @@ class SearchController < ApplicationController
   def results
     @query = params[:query]
     
-    @articles = Article.find_with_ferret(params[:query], :limit => 3, :conditions => ['published = ?', true])
-    @news = News.find_with_ferret(params[:query], :limit => 3, :conditions => ['published = ?', true])
-    @events = Event.find_with_ferret(params[:query], :limit => 3, :conditions => ['published = ?', true])
+    @articles = Article.search(@query, :per_page => 3)
+    @news = News.search(@query, :per_page => 3)
+    @events = Event.search(@query, :per_page => 3)
     
     respond_to do |format|
       format.html
@@ -18,7 +18,7 @@ class SearchController < ApplicationController
 
   def articles
     @query = params[:query]
-    @articles = Article.find_with_ferret(params[:query], :page => params[:page], :per_page => 10, :conditions => ['published = ?', true])
+    @articles = Article.search(@query, :per_page => 10, :page => params[:page])
     
     respond_to do |format|
       format.html
@@ -28,7 +28,7 @@ class SearchController < ApplicationController
   
   def news
     @query = params[:query]
-    @news = Article.find_with_ferret(params[:query], :page => params[:page], :per_page => 10, :conditions => ['published = ?', true])
+    @news = Article.search(@query, :per_page => 10, :page => params[:page])
     
     respond_to do |format|
       format.html
@@ -38,7 +38,7 @@ class SearchController < ApplicationController
   
   def events
     @query = params[:query]
-    @events = Event.find_with_ferret(params[:query], :page => params[:page], :per_page => 10, :conditions => ['published = ?', true])
+    @events = Event.search(@query, :per_page => 10, :page => params[:page])
     
     respond_to do |format|
       format.html

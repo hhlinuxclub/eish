@@ -1,9 +1,8 @@
 class Event < ActiveRecord::Base
-  acts_as_ferret :fields => {
-        :name => {:boost => 2}, 
-        :description => {:boost => 1}
-      }
-      
+  xapit(:conditions => { :published => true }) do |index|
+    index.text :name, :description
+  end
+
   belongs_to :user
   belongs_to :image, :class_name => "Asset"
   has_many :assets, :as => :attachable
