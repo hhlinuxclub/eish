@@ -1,6 +1,8 @@
 <h2 class="title">Articles found</h2>
 
-<p>You searched for "<%= @query %>"</p>
+<p>You searched for <strong><%= @query %></strong></p>
+
+<p>Found <%= pluralize(@articles.size, "article") %></p>
 
 <% for article in @articles %>
 	<div class="article">
