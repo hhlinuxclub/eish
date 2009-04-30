@@ -28,7 +28,7 @@ class SearchController < ApplicationController
   
   def news
     @query = params[:query]
-    @news = Article.search(@query, :per_page => 10, :page => params[:page])
+    @news = News.search(@query, :per_page => 10, :page => params[:page])
     
     respond_to do |format|
       format.html
