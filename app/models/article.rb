@@ -6,6 +6,7 @@ class Article < ActiveRecord::Base
       }
       
   belongs_to :user
+  belongs_to :image, :class_name => "Asset"
   has_many :revisions
   has_many :categorizations
   has_many :categories, :through => :categorizations
