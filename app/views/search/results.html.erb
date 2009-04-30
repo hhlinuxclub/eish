@@ -2,9 +2,7 @@
 
 <p>You searched for "<%= @query %>"</p>
 
-<h3>Articles</h3>
-<p>Articles found: <%= @articles.total_hits %></p>
-<% if @articles.total_hits > 0 %>
+<h3 class="title">Articles</h3>
 	<ul>
 	<% for article in @articles %>
 		<li>
@@ -14,11 +12,8 @@
 	</ul>
 	
 	<%= link_to "more &raquo;", :controller => "search", :action => "articles", :query => @query %>
-<% end %>
 
-<h3>News</h3>
-<p>News articles found: <%= @news.total_hits %></p>
-<% if @news.total_hits > 0 %>
+<h3 class="title">News</h3>
 	<ul>
 	<% for news_article in @news %>
 		<li>
@@ -28,11 +23,8 @@
 	</ul>
 	
 	<%= link_to "more &raquo;", :controller => "search", :action => "news", :query => @query %>
-<% end %>
 
-<h3>Events</h3>
-<p>Events found: <%= @events.total_hits %></p>
-<% if @events.total_hits > 0 %>
+<h3 class="title">Events</h3>
 	<ul>
 	<% for event in @events %>
 		<li>
@@ -42,4 +34,4 @@
 	</ul>
 	
 	<%= link_to "more &raquo;", :controller => "search", :action => "events", :query => @query %>
-<% end %>
+	

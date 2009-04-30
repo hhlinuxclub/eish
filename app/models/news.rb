@@ -1,9 +1,8 @@
 class News < ActiveRecord::Base
-  acts_as_ferret :fields => {
-        :title => {:boost => 2}, 
-        :body => {:boost => 1}
-      }
-      
+  xapit(:conditions => { :published => true }) do |index|
+    index.text :title, :body
+  end
+
   belongs_to :user
   belongs_to :image, :class_name => "Asset"
   has_many :assets, :as => :attachable
