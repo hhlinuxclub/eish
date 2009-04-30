@@ -1,5 +1,6 @@
 class SearchController < ApplicationController
   skip_before_filter :authorize
+  # TODO: Stop search from functioning if it has been disabled in the settings
   
   def index
   end
@@ -22,7 +23,6 @@ class SearchController < ApplicationController
     
     respond_to do |format|
       format.html
-      format.xml  { render :xml => @articles }
     end
   end
   
@@ -32,7 +32,6 @@ class SearchController < ApplicationController
     
     respond_to do |format|
       format.html
-      format.xml  { render :xml => @news }
     end
   end
   
@@ -42,7 +41,6 @@ class SearchController < ApplicationController
     
     respond_to do |format|
       format.html
-      format.xml  { render :xml => @Events }
     end
-  end
+  end 
 end
