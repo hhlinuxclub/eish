@@ -34,8 +34,6 @@ Rails::Initializer.run do |config|
   config.gem "populator"
   config.gem "mislav-will_paginate", :lib => "will_paginate", :source => "http://gems.github.com"
   config.gem "ruby-recaptcha"
-  config.gem "right_aws" # required by paperclip
-  config.gem "thoughtbot-paperclip", :lib => "paperclip", :source => "http://gems.github.com"
   config.gem 'rubaidh-google_analytics', :lib => 'rubaidh/google_analytics', :source => 'http://gems.github.com'
   
   # Only load the plugins named here, in the order given. By default, all plugins 

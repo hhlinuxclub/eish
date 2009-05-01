@@ -7,3 +7,6 @@
 [submodule "vendor/plugins/xapit"]
 	path = vendor/plugins/xapit
 	url = git://github.com/ryanb/xapit.git
+[submodule "vendor/plugins/paperclip"]
+	path = vendor/plugins/paperclip
+	url = git://github.com/thoughtbot/paperclip.git

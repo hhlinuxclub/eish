@@ -23,6 +23,8 @@ h1. Required Gems
 * "sitemapper":http://github.com/milk-it/sitemapper/
 * "will_paginate":http://wiki.github.com/mislav/will_paginate
 
+NB. paperclip requires you to have "ImageMagick":http://www.imagemagick.org installed on your system
+
 h1. Plugins Used
 
 * "bundle-fu":http://code.google.com/p/bundle-fu/
@@ -93,7 +95,9 @@ development:
 
 h1. Search
 
-Site search is provided through the "Xapian":http://www.xapian.org/ Open Source Search Engine Library and the "Xapit":http://github.com/ryanb/xapit/ Rails plugin.  In order for the Search to work you MUST have xapian-core and xapian-bindings (only the Ruby bindings are required) installed.
+Search support is currently experimental.
+
+Search is provided through the "Xapian":http://www.xapian.org/ Open Source Search Engine Library and the "Xapit":http://github.com/ryanb/xapit/ Rails plugin.  In order for the Search to work you MUST have xapian-core and xapian-bindings (only the Ruby bindings are required) installed.
 
 For more information on installing Xapian, see the "Xapian install guide":http://www.xapian.org/docs/install.html.
 
