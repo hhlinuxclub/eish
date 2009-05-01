@@ -13,8 +13,6 @@ At the moment we officially have two releases numbered 0.1 and 0.2, but they are
 h1. Required Gems
 
 * "faker":http://faker.rubyforge.org/
-* "ferret":http://ferret.davebalmain.com/
-* "acts_as_ferret":http://rm.jkraemer.net/projects/show/aaf
 * "GoogleAnalytics":http://github.com/rubaidh/google_analytics/
 * "Icalendar":http://icalendar.rubyforge.org/
 * "paperclip":http://thoughtbot.com/projects/paperclip
@@ -29,12 +27,15 @@ h1. Plugins Used
 
 * "bundle-fu":http://code.google.com/p/bundle-fu/
 * "MetaTags":http://github.com/kpumuk/meta-tags/
+* "Xapit":http://github.com/ryanb/xapit/
 
-The *bundle-fu* plugin combines bundles separate CSS and JS files in to single files for faster transfer from server to client.  It was created by Timothy Harper.  We are using the fork by "zinf":http://github.com/zinf/bundle-fu/tree/master.
+*bundle-fu* combines bundles separate CSS and JS files in to single files for faster transfer from server to client.  It was created by Timothy Harper.  We are using the fork by "zinf":http://github.com/zinf/bundle-fu/tree/master.
 
-The *MetaTags* plugin is an SEO plugin by Dmytro Shteflyuk which makes it easier to set the page title and meta tags.
+*MetaTags* is an SEO plugin by Dmytro Shteflyuk which makes it easier to set the page title and meta tags.
 
-The plugins are included as git submodules (See *Initial Setup*) and are published under the MIT license.
+*Xapit* (pronounced "zap it") is a high level interface for working with a Xapian database. 
+
+The plugins are included as git submodules (See *Initial Setup*) and are all published under the MIT license.
 
 h1. Javascript
 
@@ -89,6 +90,20 @@ development:
 * Run 'rake setup' in the local directory
 
 * Run 'rake db:populate' to add test data to the database (optional)
+
+h1. Search
+
+Site search is provided through the "Xapian":http://www.xapian.org/ Open Source Search Engine Library and the "Xapit":http://github.com/ryanb/xapit/ Rails plugin.  In order for the Search to work you MUST have xapian-core and xapian-bindings (only the Ruby bindings are required) installed.
+
+For more information on installing Xapian, see the "Xapian install guide":http://www.xapian.org/docs/install.html.
+
+At the moment reindexing must be performed manually, for example by a cron job, using the following command:
+
+<pre>
+rake xapit:index
+</pre>
+
+However, this requires that the application be restarted for it to read the new database.  The upstream developer of the Xapit plugin is working on improving this.
 
 h1. Copyright
 

@@ -1,5 +1,6 @@
 class SearchController < ApplicationController
   skip_before_filter :authorize
+  # TODO: Stop search from functioning if it has been disabled in the settings
   
   def index
   end
@@ -7,42 +8,23 @@ class SearchController < ApplicationController
   def results
     @query = params[:query]
     
-    @articles = Article.find_with_ferret(params[:query], :limit => 3, :conditions => ['published = ?', true])
-    @news = News.find_with_ferret(params[:query], :limit => 3, :conditions => ['published = ?', true])
-    @events = Event.find_with_ferret(params[:query], :limit => 3, :conditions => ['published = ?', true])
-    
-    respond_to do |format|
-      format.html
-    end
+    @articles = Article.search(@query, :per_page => 3)
+    @news = News.search(@query, :per_page => 3)
+    @events = Event.search(@query, :per_page => 3)
   end
 
   def articles
     @query = params[:query]
-    @articles = Article.find_with_ferret(params[:query], :page => params[:page], :per_page => 10, :conditions => ['published = ?', true])
-    
-    respond_to do |format|
-      format.html
-      format.xml  { render :xml => @articles }
-    end
+    @articles = Article.search(@query, :per_page => 10, :page => params[:page])
   end
   
   def news
     @query = params[:query]
-    @news = Article.find_with_ferret(params[:query], :page => params[:page], :per_page => 10, :conditions => ['published = ?', true])
-    
-    respond_to do |format|
-      format.html
-      format.xml  { render :xml => @news }
-    end
+    @news = News.search(@query, :per_page => 10, :page => params[:page])
   end
   
   def events
     @query = params[:query]
-    @events = Event.find_with_ferret(params[:query], :page => params[:page], :per_page => 10, :conditions => ['published = ?', true])
-    
-    respond_to do |format|
-      format.html
-      format.xml  { render :xml => @Events }
-    end
-  end
+    @events = Event.search(@query, :per_page => 10, :page => params[:page])
+  end 
 end
