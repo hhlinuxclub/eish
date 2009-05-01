@@ -103,6 +103,8 @@ At the moment reindexing must be performed manually, for example by a cron job, 
 rake xapit:index
 </pre>
 
+However, this requires that the application be restarted for it to read the new database.  The upstream developer of the Xapit plugin is working on improving this.
+
 h1. Copyright
 
 Copyright 2008 ‒ 2009 João Carlos Cardoso and Matias Korhonen.
