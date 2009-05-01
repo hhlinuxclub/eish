@@ -500,8 +500,20 @@ th {
 
 .image {
 	padding: 5px;
+	float: right;
 	border: 1px solid #ccc;
-	display: inline-block;
-	float: left;
-	margin: 0 10px 10px 0;
+	margin: 0 0 20px 20px;
+}
+
+.newsArticle,
+.article,
+.event {
+	clear: both;
+	border-bottom: 1px dashed #ccc;
+	padding-bottom: 40px;
+}
+
+.pagination {
+	padding: 20px 0;
+	border-bottom: 1px dashed #ccc;
 }
