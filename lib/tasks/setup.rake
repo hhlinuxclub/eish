@@ -1,5 +1,13 @@
 desc "Setup the web application: create the database tables and populate initial data."
-task :setup do  
+task :setup do
+  puts "Running command 'git submodule init'..."
+  puts `git submodule init`
+  puts "Command 'git submodule init' finished executing!\n\n"
+  
+  puts "Running command 'git submodule update'..."
+  puts `git submodule update`
+  puts "Command 'git submodule update' finished executing!\n\n"
+  
   puts "Creating the database schema..."
   Rake::Task["db:schema:load"].invoke
   puts "Database schema successfully created!\n\n"
