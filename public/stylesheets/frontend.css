@@ -447,11 +447,6 @@ textarea {
 	font-size: 10pt;
 }
 
-.article {
-	width: 600px;
-	margin-bottom: 40px;
-}
-
 #avatar {
 	float: right;
 	margin: 5px;
@@ -494,4 +489,12 @@ th {
 	font-weight: bold;
 	padding: 0;
 	height: 28px;
+}
+
+.image {
+	padding: 5px;
+	border: 1px solid #ccc;
+	display: inline-block;
+	float: left;
+	margin: 0 10px 10px 0;
 }
