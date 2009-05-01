@@ -6,7 +6,7 @@ class Asset < ActiveRecord::Base
   has_one :event
   
   has_attached_file :upload, 
-    :styles => { :large => "700x500>", :medium => "300x300>", :thumb => "100x100>" },
+    :styles => { :large => "700x500>", :medium => "300x300>", :thumb => "100x100>", :square => "100x100#" },
     :url => "/uploads/:id/:style/:basename.:extension",
     :path => ":rails_root/public/uploads/:id/:style/:basename.:extension"
     

@@ -1,8 +1,20 @@
 <h2 class="title">Past Events</h2>
 <% if @past_events.size > 0 %>
 	<% for event in @past_events %>
-		<h3 class="title"><%= link_to event.name, event_path(event) %></h3>
-		<p class="metadata"><%= format_event_dates(event) %></p>
+		<div class="event">
+			<%= image_tag event.image.upload.url(:square), :alt => event.image.description, :class => "image" unless event.image.nil? %>
+			<h3 class="title"><%= link_to event.name, event_path(event) %></h3>
+			<p class="metadata"><%= format_event_dates(event) %></p>
+			<p>
+				<% if !event.address.nil? && !event.address.empty? %>
+					<b>Address: </b><%=h event.address %>
+				<br />
+				<% end %>
+				<% if !event.location.nil? && !event.location.empty? %>
+					<b>Location: </b><%=h event.location %>
+				<% end %>
+			</p>
+		</div>
 	<% end %>
 <% else %>
 	<p>There are no past events at this point.</p>
