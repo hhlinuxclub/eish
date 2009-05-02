@@ -102,7 +102,7 @@ class Admin::EventsController < ApplicationController
 
     respond_to do |format|
       if user.role.can_update? || user.id == @event.user_id
-        if params[:asset] || params[:destroy_asset]
+        if params[:upload] || params[:destroy_asset]
           format.html { render :action => "edit" }
         else
           flash[:notice] = 'Event was successfully updated.'
