@@ -349,3 +349,10 @@ li.privileges {
 ul.privileges {
 	margin-top: -10px;
 }
+
+#preview {
+	padding: 0 40px;
+	background-color: #D9FFE7;
+	border: 1px solid #BAE8BE;
+	margin-bottom: 40px;
+}
