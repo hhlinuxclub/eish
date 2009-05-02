@@ -28,9 +28,9 @@
 		  <td style="text-align: center;"><%=h short_date(news_article.created_at) %></td>
 		  <td style="text-align: center;">
 			<% if news_article.published? %>
-				<%= image_tag("tango/publish_16.png", :alt => "Published") %>
+				<%= image_tag("tango/16px/publish.png", :alt => "Published") %>
 			<% else %>
-				<%= image_tag("tango/unpublish_16.png", :alt => "Unpublished") %>
+				<%= image_tag("tango/16px/unpublish.png", :alt => "Unpublished") %>
 			<% end %>
 			</td>
 	  </tr>

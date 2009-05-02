@@ -74,31 +74,31 @@ body {
 }
 
 .aboutLink {
-	background: url('../images/tango/about_32.png') no-repeat 0 1px;
+	background: url('../images/tango/32px/about.png') no-repeat 0 1px;
 }
 
 .usersLink {
-	background: url('../images/tango/users_32.png') no-repeat 0 1px;
+	background: url('../images/tango/32px/users.png') no-repeat 0 1px;
 }
 
 .homeLink {
-	background: url('../images/tango/home_32.png') no-repeat 0 1px;
+	background: url('../images/tango/32px/home.png') no-repeat 0 1px;
 }
 
 .articlesLink {
-	background: url('../images/tango/articles_32.png') no-repeat 0 1px;
+	background: url('../images/tango/32px/articles.png') no-repeat 0 1px;
 }
 
 .eventsLink {
-	background: url('../images/tango/events_32.png') no-repeat 0 1px;
+	background: url('../images/tango/32px/events.png') no-repeat 0 1px;
 }
 
 .newsLink {
-	background: url('../images/tango/news_32.png') no-repeat 0 1px;
+	background: url('../images/tango/32px/news.png') no-repeat 0 1px;
 }
 
 .settingsLink {
-	background: url('../images/tango/settings_32.png') no-repeat 0 1px;
+	background: url('../images/tango/32px/settings.png') no-repeat 0 1px;
 }
 
 #footer {
@@ -208,7 +208,7 @@ dd {
 }
 
 .add {
-	background: url('../images/tango/add_16.png') no-repeat 0 1px;
+	background: url('../images/tango/16px/add.png') no-repeat 0 1px;
 	padding-left: 17px;
 }
 
@@ -281,7 +281,7 @@ input[type=text],input[type=password],input[type=checkbox],input[type=radio],tex
 	font-weight: bold;
 }
 
-#adminNavigation a: hover,.title a: link,.title a: visited {
+#adminNavigation a:hover,.title a:link,.title a:visited {
 	text-decoration: none;
 }
 
@@ -308,22 +308,22 @@ ins {
 }
 
 .add {
-	background: url('../images/tango/add_16.png') no-repeat 0px 1px;
+	background: url('../images/tango/16px/add.png') no-repeat 0px 1px;
 	padding-left: 17px;
 }
 
 .publish {
-	background: url('../images/tango/publish_16.png') no-repeat 0px 1px;
+	background: url('../images/tango/16px/publish.png') no-repeat 0px 1px;
 	padding-left: 17px;
 }
 
 .unpublish {
-	background: url('../images/tango/unpublish_16.png') no-repeat 0px 1px;
+	background: url('../images/tango/16px/unpublish.png') no-repeat 0px 1px;
 	padding-left: 17px;
 }
 
 .delete {
-	background: url('../images/tango/delete_16.png') no-repeat 0px 1px;
+	background: url('../images/tango/16px/delete.png') no-repeat 0px 1px;
 	padding-left: 17px;
 }
 
