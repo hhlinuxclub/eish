@@ -146,7 +146,7 @@ class Admin::ArticlesController < ApplicationController
           flash[:notice] = "Article was successfully updated."
           format.html { redirect_to admin_article_path(@article) }
         else
-          format.html { render :action => "new" }
+          format.html { render :action => "edit" }
         end
       end
     end
