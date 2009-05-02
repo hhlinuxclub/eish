@@ -40,6 +40,7 @@
 		<div class="box" id="featuredArticleBox">
 	<% unless @featured_article.nil? %>
 		<h3 class="homeTitle"><%=h @featured_article.title %></h3>
+		<%= image_tag @featured_article.image.upload.url(:square), :alt => @featured_article.image.description, :class => "image" unless @featured_article.image.nil? %>
 		<p><%=h @featured_article.description %></p>
 		<p style="text-align: right;">
 			<%= link_to	"More...", article_path(@featured_article) %>
