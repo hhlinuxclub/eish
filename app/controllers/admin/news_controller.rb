@@ -102,10 +102,8 @@ class Admin::NewsController < ApplicationController
     @news_article.attributes = params[:news_article]
 
     respond_to do |format|
-      if params[:upload] || params[:destroy_asset]
+      if params[:upload] || params[:destroy_asset] || params[:preview]
         format.html { render :action => "edit" }
-      elsif params[:preview]
-        format.html { redirect_to admin_news_article_path @news_article }
       else
         if @news_article.save
           flash[:notice] = "News article was successfully updated."
