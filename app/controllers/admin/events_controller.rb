@@ -57,20 +57,20 @@ class Admin::EventsController < ApplicationController
   end
 
   def create
-    @event = Event.new(params[:event])
-    @event.user_id = session[:user_id]
     user = User.find(session[:user_id])
     
-    if user.role.can_create?
-      @event.save
-      @event.assets.create params[:asset].merge! :user_id => user.id if params[:upload]
-    end
+    redirect_to admin_events_path and return unless user.role.can_create?
+    
+    @event = Event.new(params[:event])
+    @event.user_id = session[:user_id]
     
     respond_to do |format|
-      if user.role.can_create?
+      if @event.save
+        flash[:notice] = "Event successfully created."
+        @event.assets.create params[:asset].merge! :user_id => user.id if params[:upload]
         format.html { redirect_to edit_admin_event_path @event }
       else
-        format.html { redirect_to admin_events_path }
+        format.html { render :action => "new" }
       end
     end
   end
@@ -79,37 +79,34 @@ class Admin::EventsController < ApplicationController
     @event = Event.find(params[:id])
     user = User.find(session[:user_id])
     
-    if user.role.can_update? || user.id == @event.user_id
-      if params[:upload] || params[:destroy_asset]
-        if params[:upload]
-          @event.assets.create params[:asset].merge! :user_id => user.id
-        end
-      
-        if params[:destroy_asset]
-          Asset.find(params[:destroy_asset]).destroy
-        end
-      
-        @event.attributes = params[:event]
+    if !user.role.can_update? && !user.id == @event.user_id
+      redirect_to admin_events_path and return
+    end
+    
+    if params[:upload]
+      @event.assets.create params[:asset].merge! :user_id => user.id
+    elsif params[:destroy_asset]
+      Asset.find(params[:destroy_asset]).destroy
+    else
+      if params[:image] == "nil"
+        @event.image = nil
       else
-        if params[:image] == "nil"
-          @event.image = nil
-        else
-          @event.image_id = params[:image]
-        end
-        @event.update_attributes(params[:event])
+        @event.image_id = params[:image]
       end
     end
+      
+    @event.attributes = params[:event]
 
     respond_to do |format|
-      if user.role.can_update? || user.id == @event.user_id
-        if params[:upload] || params[:destroy_asset]
-          format.html { render :action => "edit" }
-        else
-          flash[:notice] = 'Event was successfully updated.'
-          format.html { redirect_to admin_event_path @event }
-        end
+      if params[:upload] || params[:destroy_asset]
+        format.html { render :action => "edit" }
       else
-        format.html { redirect_to admin_events_path }
+        if @event.save
+          flash[:notice] = "Event was successfully updated."
+          format.html { redirect_to admin_event_path @event }
+        else
+          format.html { render :action => "edit" }
+        end
       end
     end
   end
