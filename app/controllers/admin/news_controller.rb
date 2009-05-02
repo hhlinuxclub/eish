@@ -67,6 +67,7 @@ class Admin::NewsController < ApplicationController
         format.html { render :action => "new" }
       else
         if @news_article.save
+          flash[:notice] = "News article successfully created."
           @news_article.assets.create(params[:asset].merge!(:user_id => user.id)) if params[:upload]
           format.html { redirect_to edit_admin_news_article_path @news_article }
         else
