@@ -79,7 +79,7 @@ class Admin::EventsController < ApplicationController
     @event = Event.find(params[:id])
     user = User.find(session[:user_id])
     
-    if !user.role.can_update? && !user.id == @event.user_id
+    if !user.role.can_update? && user.id != @event.user_id
       redirect_to admin_events_path and return
     end
     
