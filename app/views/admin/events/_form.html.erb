@@ -1,6 +1,24 @@
 <% form_for [:admin, @event], :html => { :multipart => true } do |f| %>
 	<%= f.error_messages %>
 	
+	<% if @preview %>
+		<div id="preview" title="Preview">
+			<h1><%=h @preview.name %></h1>
+			<p class="metadata">
+				<% if @preview.all_day == "1" %>
+					<%= @preview.starts_at_date %>
+				<% else %>
+					<%= @preview.starts_at_date + " " + @preview.starts_at_time + " &mdash; " + @preview.ends_at_date + " " + @preview.ends_at_time %>
+				<% end %>
+			</p>
+			<p>
+				<b>Address: </b><%=h @preview.address %><br />
+				<b>Location: </b><%=h @preview.location %>
+			</p>
+			<%= textilize @preview.description %>
+		</div>
+	<% end %>
+	
 	<p>
 		<%= f.label :name %><br />
 		<%= f.text_field :name, :class => "titleField", :size => 39  %>
@@ -44,7 +62,7 @@
 	
 	<p>
 		<%= f.submit submit_value ||= "Submit" %>
-		<%= preview_button "/admin/events/preview", :name => "event_name", :starts_at_date => "event_starts_at_date", :starts_at_time => "event_starts_at_time", :ends_at_date => "event_ends_at_date", :ends_at_time => "event_ends_at_time", :location => "event_location", :description => "event_description" %>
+		<%= submit_tag "Preview", :name => "preview" %>
 	</p>
 <div id="tabs">
 	<ul>
@@ -53,6 +71,3 @@
 	<%= render :partial => "admin/assets/assets", :locals => { :assetable => @event } %>
 </div>
 <% end %>
-
-<div id="preview" title="Preview">
-</div>

@@ -63,14 +63,19 @@ class Admin::EventsController < ApplicationController
     
     @event = Event.new(params[:event])
     @event.user_id = session[:user_id]
-    
+        
     respond_to do |format|
-      if @event.save
-        flash[:notice] = "Event successfully created."
-        @event.assets.create params[:asset].merge! :user_id => user.id if params[:upload]
-        format.html { redirect_to edit_admin_event_path @event }
-      else
+      if params[:preview]
+        @preview = @event
         format.html { render :action => "new" }
+      else
+        if @event.save
+          flash[:notice] = "Event successfully created."
+          @event.assets.create params[:asset].merge! :user_id => user.id if params[:upload]
+          format.html { redirect_to edit_admin_event_path @event }
+        else
+          format.html { render :action => "new" }
+        end
       end
     end
   end
@@ -87,6 +92,8 @@ class Admin::EventsController < ApplicationController
       @event.assets.create params[:asset].merge! :user_id => user.id
     elsif params[:destroy_asset]
       Asset.find(params[:destroy_asset]).destroy
+    elsif params[:preview]
+      @preview = @event
     else
       if params[:image] == "nil"
         @event.image = nil
@@ -98,7 +105,7 @@ class Admin::EventsController < ApplicationController
     @event.attributes = params[:event]
 
     respond_to do |format|
-      if params[:upload] || params[:destroy_asset]
+      if params[:upload] || params[:destroy_asset] || params[:preview]
         format.html { render :action => "edit" }
       else
         if @event.save
