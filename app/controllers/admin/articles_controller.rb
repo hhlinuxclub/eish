@@ -123,13 +123,15 @@ class Admin::ArticlesController < ApplicationController
       end
     elsif params[:diff]
       diff_path = article_diff_path :id => params[:id], :rev_a => params[:rev_a], :rev_b => params[:rev_b]
+    elsif params[:preview]
+      @preview = @article
     end
     
     @article.attributes = params[:article]
     @categories = Category.all
 
     respond_to do |format|
-      if params[:upload] || params[:create_category] || params[:destroy_asset] || params[:destroy_category]
+      if params[:upload] || params[:create_category] || params[:destroy_asset] || params[:destroy_category] || params[:article]
         format.html { render :action => "edit" }
       elsif params[:diff]
         format.html { redirect_to diff_path }
