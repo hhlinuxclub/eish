@@ -61,7 +61,7 @@ class Admin::ArticlesController < ApplicationController
   def create
     user = User.find(session[:user_id])
 
-    redirect_to admin_article_path and return unless user.role.can_create?
+    redirect_to admin_articles_path and return unless user.role.can_create?
 
     @article = Article.new(params[:article])
     @article.category_ids = params[:categories].keys.to_a unless params[:categories].nil?
