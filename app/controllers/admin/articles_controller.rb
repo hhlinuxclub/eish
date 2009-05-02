@@ -131,7 +131,7 @@ class Admin::ArticlesController < ApplicationController
     @categories = Category.all
 
     respond_to do |format|
-      if params[:upload] || params[:create_category] || params[:destroy_asset] || params[:destroy_category] || params[:article]
+      if params[:upload] || params[:create_category] || params[:destroy_asset] || params[:destroy_category] || params[:preview]
         format.html { render :action => "edit" }
       elsif params[:diff]
         format.html { redirect_to diff_path }
