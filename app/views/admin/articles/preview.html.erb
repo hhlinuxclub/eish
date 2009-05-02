@@ -1,9 +1,0 @@
-<script type="text/javascript">
-	$(function() {
-		$("#preview").dialog("open");
-	});
-</script>
-
-<h1 class="title"><%= params[:title] %></h1>
-<p><b><%= params[:description] %></b></p>
-<%= RedCloth.new(params[:body]).to_html %>

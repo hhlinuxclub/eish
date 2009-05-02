@@ -35,14 +35,6 @@ $(document).ready(function() {
 		});
 	});
 	
-	$("#preview").dialog({
-		autoOpen: false,
-		bgiframe: true,
-		height: 400,
-		width: 700,
-		modal: true
-	});
-	
 	$('.date').datepicker({
 		changeMonth: true,
 		changeYear: true,

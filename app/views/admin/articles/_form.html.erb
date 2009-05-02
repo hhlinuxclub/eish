@@ -18,8 +18,16 @@
 	
 	<p>
 		<%= f.submit submit_value ||= "Submit" %>
-		<%= preview_button "/admin/articles/preview", :body => "article_body", :title => "article_title", :description => "article_description" %>
+		<%= submit_tag "Preview", :name => "preview" %>
 	</p>
+	
+	<% if @preview %>
+		<div id="previewBox" title="Preview">
+			<h1><%= @preview.title %></h1>
+			<p><strong><%= @preview.description %></strong></p>
+			<%= textilize @preview.body %>
+		</div>
+	<% end %>
 	
 <div id="tabs">
 	<ul>
@@ -68,6 +76,3 @@
 		<%= render :partial => "revisions" unless @article.new_record? %>
 </div>
 <% end %>
-
-<div id="preview" title="Preview">
-</div>

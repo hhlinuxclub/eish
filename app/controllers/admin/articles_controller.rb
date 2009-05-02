@@ -77,11 +77,13 @@ class Admin::ArticlesController < ApplicationController
       else
         flash.now[:error] = "The category " + category.name + " has articles associated with it."
       end
+    elsif params[:preview]
+      @preview = @article
     end
     @categories = Category.all
 
     respond_to do |format|
-      if params[:create_category] || params[:destroy_category]
+      if params[:create_category] || params[:destroy_category] || params[:preview]
         format.html { render :action => "new" }
       else
         if @article.save
