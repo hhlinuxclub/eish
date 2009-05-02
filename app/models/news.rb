@@ -7,6 +7,8 @@ class News < ActiveRecord::Base
   belongs_to :image, :class_name => "Asset"
   has_many :assets, :as => :attachable
   
+  validates_presence_of :title, :body
+  
   def publish(status=true)
     update_attributes(:published => status)
   end

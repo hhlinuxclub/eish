@@ -61,7 +61,7 @@ class Admin::ArticlesController < ApplicationController
   def create
     user = User.find(session[:user_id])
 
-    redirect_to admin_article_path and return unless user.role.can_create?
+    redirect_to admin_articles_path and return unless user.role.can_create?
 
     @article = Article.new(params[:article])
     @article.category_ids = params[:categories].keys.to_a unless params[:categories].nil?
@@ -123,13 +123,15 @@ class Admin::ArticlesController < ApplicationController
       end
     elsif params[:diff]
       diff_path = article_diff_path :id => params[:id], :rev_a => params[:rev_a], :rev_b => params[:rev_b]
+    elsif params[:preview]
+      @preview = @article
     end
     
     @article.attributes = params[:article]
     @categories = Category.all
 
     respond_to do |format|
-      if params[:upload] || params[:create_category] || params[:destroy_asset] || params[:destroy_category]
+      if params[:upload] || params[:create_category] || params[:destroy_asset] || params[:destroy_category] || params[:preview]
         format.html { render :action => "edit" }
       elsif params[:diff]
         format.html { redirect_to diff_path }
@@ -144,7 +146,7 @@ class Admin::ArticlesController < ApplicationController
           flash[:notice] = "Article was successfully updated."
           format.html { redirect_to admin_article_path(@article) }
         else
-          format.html { render :action => "new" }
+          format.html { render :action => "edit" }
         end
       end
     end

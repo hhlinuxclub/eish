@@ -54,20 +54,24 @@ class Admin::NewsController < ApplicationController
   end
 
   def create
-    @news_article = News.new(params[:news])
-    @news_article.user_id = session[:user_id]
     user = User.find(session[:user_id])
     
-    if user.role.can_create?
-      @news_article.save
-      @news_article.assets.create params[:asset].merge! :user_id => user.id if params[:upload]
-    end
+    redirect_to admin_articles_path and return unless user.role.can_create?
+    
+    @news_article = News.new(params[:news])
+    @news_article.user_id = session[:user_id]
 
     respond_to do |format|
-      if user.role.can_create?
-        format.html { redirect_to edit_admin_news_article_path @news_article }
+      if params[:preview]
+        @preview = @news_article
+        format.html { render :action => "new" }
       else
-        format.html { redirect_to admin_news_path }
+        if @news_article.save
+          @news_article.assets.create(params[:asset].merge!(:user_id => user.id)) if params[:upload]
+          format.html { redirect_to edit_admin_news_article_path @news_article }
+        else
+          format.html { render :action => "new" }
+        end
       end
     end
   end
@@ -76,37 +80,38 @@ class Admin::NewsController < ApplicationController
     @news_article = News.find(params[:id])
     user = User.find(session[:user_id])
     
-    if user.role.can_update? || user.id == @news_article.user_id
-      if params[:upload] || params[:destroy_asset]
-        if params[:upload]
-          @news_article.assets.create(params[:asset].merge!(:user_id => user.id))
-        end
-      
-        if params[:destroy_asset]
-          Asset.find(params[:destroy_asset]).destroy
-        end
-      
-        @news_article.attributes = params[:news_article]
+    if !user.role.can_update? && @news_article.user_id != user.id
+      redirect_to admin_articles_path and return
+    end
+    
+    if params[:upload]
+      @news_article.assets.create(params[:asset].merge!(:user_id => user.id))
+    elsif params[:destroy_asset]
+      Asset.find(params[:destroy_asset]).destroy
+    elsif params[:preview]
+      @preview = @news_article
+    else
+      if params[:image] == "nil"
+        @news_article.image = nil
       else
-        if params[:image] == "nil"
-          @news_article.image = nil
-        else
-          @news_article.image_id = params[:image]
-        end
-        @news_article.update_attributes(params[:news_article])
+        @news_article.image_id = params[:image]
       end
     end
+    
+    @news_article.attributes = params[:news_article]
 
     respond_to do |format|
-      if user.role.can_update? || user.id == @news_article.user_id
-        if params[:asset] || params[:destroy_asset]
-          format.html { render :action => "edit" }
-        else
+      if params[:asset] || params[:destroy_asset]
+        format.html { render :action => "edit" }
+      elsif params[:preview]
+        format.html { redirect_to admin_news_article_path @news_article }
+      else
+        if @news_article.save
           flash[:notice] = "News article was successfully updated."
           format.html { redirect_to admin_news_article_path @news_article }
+        else
+          format.html { render :action => "edit" }
         end
-      else
-        format.html { redirect_to admin_news_path }
       end
     end
   end

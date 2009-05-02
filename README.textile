@@ -15,29 +15,30 @@ h1. Required Gems
 * "faker":http://faker.rubyforge.org/
 * "GoogleAnalytics":http://github.com/rubaidh/google_analytics/
 * "Icalendar":http://icalendar.rubyforge.org/
-* "paperclip":http://thoughtbot.com/projects/paperclip
 * "Populator":http://populator.rubyforge.org/
 * "recaptcha":http://www.loonsoft.com/recaptcha/
 * "RedCloth":http://redcloth.org/
-* "right_aws":http://rightaws.rubyforge.org/
 * "sitemapper":http://github.com/milk-it/sitemapper/
 * "will_paginate":http://wiki.github.com/mislav/will_paginate
-
-NB. paperclip requires you to have "ImageMagick":http://www.imagemagick.org installed on your system
 
 h1. Plugins Used
 
 * "bundle-fu":http://code.google.com/p/bundle-fu/
 * "MetaTags":http://github.com/kpumuk/meta-tags/
 * "Xapit":http://github.com/ryanb/xapit/
+* "paperclip":http://thoughtbot.com/projects/paperclip
 
 *bundle-fu* combines bundles separate CSS and JS files in to single files for faster transfer from server to client.  It was created by Timothy Harper.  We are using the fork by "zinf":http://github.com/zinf/bundle-fu/tree/master.
 
 *MetaTags* is an SEO plugin by Dmytro Shteflyuk which makes it easier to set the page title and meta tags.
 
+*Paperclip* provides easy file attachment management for ActiveRecord.
+
 *Xapit* (pronounced "zap it") is a high level interface for working with a Xapian database. 
 
 The plugins are included as git submodules (See *Initial Setup*) and are all published under the MIT license.
+
+NB. paperclip requires you to have "ImageMagick":http://www.imagemagick.org installed on your system.
 
 h1. Javascript
 
