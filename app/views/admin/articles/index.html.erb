@@ -33,18 +33,18 @@
 			<td style="text-align: center;"><%= article.current_revision_id %></td>
 		  <td style="text-align: center;">
 			<% if article.published? %>
-				<%= image_tag("tango/publish_16.png", :alt => "Published") %>
+				<%= image_tag("tango/22px/publish.png", :alt => "Published") %>
 			<% else %>
-				<%= image_tag("tango/unpublish_16.png", :alt => "Unpublished") %>
+				<%= image_tag("tango/22px/unpublish.png", :alt => "Unpublished") %>
 			<% end %>
 		  </td>
 			<% if User.find(session[:user_id]).role.can_administer? %>
 				<td style="text-align: center;">
 					<% if defined? article.published && article.published %>
   					<% if article.id != @featured_article %>
-    						<%= link_to image_tag("tango/not_featured_16.png", :alt => "Feature"), { :id => article.id, :action => "feature" }, { :title => "Feature" }%>
+    						<%= link_to image_tag("tango/22px/not_featured.png", :alt => "Feature"), { :id => article.id, :action => "feature" }, { :title => "Feature" }%>
   					<% else %>
-    						<%= image_tag("tango/featured_16.png", :alt => "Currently featured") %>
+    						<%= image_tag("tango/22px/featured.png", :alt => "Currently featured") %>
  						<% end %>
 					<% end %>
 					</td>
