@@ -1,6 +1,13 @@
 <% form_for [:admin, @news_article], :html => { :multipart => true } do |f| %>
   <%= f.error_messages %>
 
+	<% if @preview %>
+		<div id="preview" title="Preview">
+			<h1><%= @preview.title %></h1>
+			<%= textilize @preview.body %>
+		</div>
+	<% end %>
+
   <p>
     <%= f.label :title %><br />
     <%= f.text_field :title, :class => "titleField", :size => 39 %>
@@ -13,7 +20,7 @@
 
   <p>
     <%= f.submit submit_value ||= "Submit" %>
-		<%= preview_button "/admin/news/preview", :title => "news_title", :body => "news_body" %>
+		<%= submit_tag "Preview", :name => "preview" %>
   </p>
 
 <div id="tabs">
