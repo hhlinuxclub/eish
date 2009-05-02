@@ -6,12 +6,16 @@
 <div class="box" id="leftColumn">
 	<div class="box" id="upcomingEventsBox">
 		<h3 class="homeTitle">Events</h3>
-		<ul>
-		<% for event in @events %>
-			<li class="date"><%= format_event_dates(event) %></li>
-			<li class="boxItem"><%= link_to event.name, event_path(event) %></li>
-		<% end %>	
-		</ul>
+		<% if @events.empty? %>
+			<p>There are no upcoming events at the moment.</p>
+		<% else %>
+			<ul>
+			<% for event in @events %>
+				<li class="date"><%= format_event_dates(event) %></li>
+				<li class="boxItem"><%= link_to event.name, event_path(event) %></li>
+			<% end %>	
+			</ul>
+		<% end %>
 	</div>
 	
 	<div class="box" id="feedsBox">
