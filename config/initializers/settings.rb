@@ -11,5 +11,6 @@ Rubaidh::GoogleAnalytics.environments = ["development"] # use [] to disable
 
 
 # Enable if you have Xapian and the Xapian Ruby bindings installed.
+# You must also load the Xapit plugin in environment.rb.
 # An up-to-date index is also a good idea.
 SEARCH_ENABLED = false

@@ -39,7 +39,9 @@ Rails::Initializer.run do |config|
   # Only load the plugins named here, in the order given. By default, all plugins 
   # in vendor/plugins are loaded in alphabetical order.
   # :all can be used as a placeholder for all plugins not explicitly named
-  # config.plugins = [ :exception_notification, :ssl_requirement, :all ]
+  config.plugins = ["bundle-fu", "meta-tags", "paperclip"]
+  # Uncomment to enable search. Also change SEARCH_ENABLED to true in initializers/settings.rb.
+  # config.plugins += ["xapit"]
 
   # Add additional load paths for your own custom dirs
   config.load_paths += %W( #{RAILS_ROOT}/app/sweepers )
