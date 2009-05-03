@@ -45,5 +45,14 @@ class SearchController < ApplicationController
     set_meta_tags :title => "Searched for '" + @query + "'",
                   :description => "Searched for '" + @query + "'",
                   :keywords => "events, search, " + @query
-  end 
+  end
+
+  def opensearch
+    @host = self.request.host_with_port
+    @protocol = self.request.protocol
+
+    respond_to do |format|
+      format.xml { render :layout => false }
+    end
+  end
 end

@@ -62,6 +62,7 @@ ActionController::Routing::Routes.draw do |map|
   # consider removing the them or commenting them out if you're using named routes and resources.
   map.connect "profile", :controller => "users", :action => "profile"
   map.connect "sitemap.xml", :controller => "sitemap", :action => "index"
+  map.connect "search/opensearch.xml", :controller => "search", :action => "opensearch"
   
   map.connect ':controller/:action/:id'
   map.connect ':controller/:action/:id.:format'
