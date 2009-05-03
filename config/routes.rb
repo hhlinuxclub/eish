@@ -49,6 +49,7 @@ ActionController::Routing::Routes.draw do |map|
     admin.resources :news, :singular => :news_article
     admin.resources :articles
     admin.resources :events
+    admin.resources :galleries
     admin.resources :categories
   end
 

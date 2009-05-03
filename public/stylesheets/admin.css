@@ -101,6 +101,10 @@ body {
 	background: url('../images/tango/32px/settings.png') no-repeat 0 1px;
 }
 
+.galleriesLink {
+	background: url('../images/tango/32px/galleries.png') no-repeat 0 1px;
+}
+
 #footer {
 	padding: 20px;
 }
