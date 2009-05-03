@@ -330,11 +330,6 @@ label {
 	font-size: 11pt;
 }
 
-.h2Logo {
-	background: transparent url('../images/h2Logo.png') no-repeat left center;
-	color: transparent;
-}
-
 #featuredArticleBox {
 	margin: 0;
 	background: none;
