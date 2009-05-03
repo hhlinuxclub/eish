@@ -1,6 +1,6 @@
 class SearchController < ApplicationController
   skip_before_filter :authorize
-  # TODO: Stop search from functioning if it has been disabled in the settings
+  before_filter :search_enabled
   
   def index
     set_meta_tags :title => "Search",

@@ -42,4 +42,10 @@ class ApplicationController < ActionController::Base
         redirect_to :admin
       end
     end
+  
+    def search_enabled
+      unless SEARCH_ENABLED == true
+        redirect_to :root
+      end
+    end
 end
