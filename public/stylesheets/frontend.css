@@ -339,6 +339,7 @@ label {
 	margin: 0;
 	background: none;
 	border: none;
+	overflow-x: hidden;
 }
 
 #featuredArticleBox img {
