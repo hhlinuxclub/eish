@@ -1,8 +1,4 @@
 class Article < ActiveRecord::Base
-  xapit(:conditions => { :published => true }) do |index|
-    index.text :title, :description, :body
-  end
-      
   belongs_to :user
   belongs_to :image, :class_name => "Asset"
   has_many :revisions
@@ -15,6 +11,12 @@ class Article < ActiveRecord::Base
   named_scope :all_published, :conditions => { :published => true }
   
   attr_accessor :updated_by_user_id
+  
+  if SEARCH_ENABLED
+    xapit(:conditions => { :published => true }) do |index|
+      index.text :title, :description, :body
+    end
+  end
   
   def before_create
     self.current_revision_id = 1

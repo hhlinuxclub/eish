@@ -1,8 +1,4 @@
 class Event < ActiveRecord::Base
-  xapit(:conditions => { :published => true }) do |index|
-    index.text :name, :description
-  end
-
   belongs_to :user
   belongs_to :image, :class_name => "Asset"
   has_many :assets, :as => :attachable
@@ -17,6 +13,12 @@ class Event < ActiveRecord::Base
   validates_presence_of :ends_at_date, :if => Proc.new { |event| event.ends_at.nil? }
   validates_presence_of :ends_at_time, :if => Proc.new { |event| event.ends_at.nil? }
   validate :date_range_and_format
+  
+  if SEARCH_ENABLED
+    xapit(:conditions => { :published => true }) do |index|
+      index.text :name, :description
+    end
+  end
   
   def ongoing?
     return self.starts_at < Time.now
