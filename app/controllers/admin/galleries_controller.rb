@@ -1,4 +1,7 @@
 class Admin::GalleriesController < ApplicationController
+  skip_after_filter :add_google_analytics_code
+  layout "admin"
+  
   def index
   end
 
@@ -19,5 +22,4 @@ class Admin::GalleriesController < ApplicationController
 
   def destroy
   end
-
 end
