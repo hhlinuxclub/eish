@@ -7,4 +7,8 @@ class Gallery < ActiveRecord::Base
   def to_param
     "#{id}-#{name.parameterize}"
   end
+  
+  def publish(status=true)
+    update_attributes(:published => status)
+  end
 end

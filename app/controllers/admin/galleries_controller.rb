@@ -85,6 +85,25 @@ class Admin::GalleriesController < ApplicationController
     end
   end
 
-  def destroy
+  def bulk_action
+    unless params[:galleries].nil?
+      selected = []
+      params[:galleries].each { |id, value| selected << id if value == "on" }
+      galleries = Gallery.find(selected)
+      user = User.find(session[:user_id])
+    
+      case params[:actions]
+        when "delete"
+          galleries.each { |g| g.destroy } if user.role.can_delete?
+        when "publish"
+          galleries.each { |g| g.publish } if user.role.can_publish?
+        when "unpublish"
+          galleries.each { |g| g.publish(false) } if user.role.can_publish?
+      end
+    end
+    
+    respond_to do |format|
+      format.html { redirect_to admin_galleries_path }
+    end
   end
 end
