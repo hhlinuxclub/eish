@@ -21,7 +21,7 @@
 
 	<% for gallery in @galleries %>
 		<tr class="<%= cycle("odd", "even") %>">
-			<td class="checkbox"><input type="checkbox" name="news[<%= gallery.id %>]" /></td>
+			<td class="checkbox"><input type="checkbox" name="galleries[<%= gallery.id %>]" /></td>
 	    <td><%= link_to gallery.name, { :id => gallery.id, :action => "edit" }, { :title => "Edit", :class => "listingTitle" } %><br />
 	    		<%=h truncate(gallery.description, 50, "...") %>
 	    </td>
