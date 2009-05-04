@@ -1,2 +1,40 @@
-<h1>Admin::Galleries#index</h1>
-<p>Find me in app/views/admin/galleries/index.html.erb</p>
+<h2 class="title">Galleries</h2>
+
+<p><%= link_to "Add gallery", new_admin_gallery_path, :class => 'add' %></p>
+
+<% form_tag("/admin/galleries/bulk_action") do %>
+	<label for="actions">Bulk actions:</label>
+	<select name="actions">
+		<option value="publish" class="publish">Publish</option>
+		<option value="unpublish" class="unpublish">Unpublish</option>
+		<option value="delete" class="delete">Delete</option>
+	</select>
+	<%= submit_tag "Do action" %>
+	
+<table>
+  <tr>
+	  <th><input type="checkbox" id="bulk_check" /></th>
+    <th>Name</th>
+    <th>Created</th>
+		<th>Status</th>
+  </tr>
+
+	<% for gallery in @galleries %>
+		<tr class="<%= cycle("odd", "even") %>">
+			<td class="checkbox"><input type="checkbox" name="news[<%= gallery.id %>]" /></td>
+	    <td><%= link_to gallery.name, { :id => gallery.id, :action => "edit" }, { :title => "Edit", :class => "listingTitle" } %><br />
+	    		<%=h truncate(gallery.description, 50, "...") %>
+	    </td>
+		  <td style="text-align: center;"><%=h short_date(gallery.created_at) %></td>
+		  <td style="text-align: center;">
+			<% if gallery.published? %>
+				<%= image_tag("tango/22px/publish.png", :alt => "Published") %>
+			<% else %>
+				<%= image_tag("tango/22px/unpublish.png", :alt => "Unpublished") %>
+			<% end %>
+			</td>
+	  </tr>
+	<% end %>
+</table>
+
+<% end %>
