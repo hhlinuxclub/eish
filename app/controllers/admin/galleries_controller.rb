@@ -15,7 +15,6 @@ class Admin::GalleriesController < ApplicationController
     
     respond_to do |format|
       format.html
-      format.xml { render :xml => @galleries }
     end
   end
 
