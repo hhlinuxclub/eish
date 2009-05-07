@@ -18,7 +18,7 @@ class User < ActiveRecord::Base
   validates_confirmation_of :password
   validate :password_non_blank
   validates_size_of :username, :minimum => 3
-#  validates_size_of :password, :minimum => 6
+  validates_size_of :password, :minimum => 6
   
   attr_accessor :password_confirmation, :current_password, :remember_me
   
