@@ -100,7 +100,7 @@ class UsersController < ApplicationController
   end
   
   def remove
-    @user = User.find(session[:user_id])
+    @user = User.find_by_username(params[:id])
     
     redirect_to :root and return unless @user.id == session[:user_id]
     

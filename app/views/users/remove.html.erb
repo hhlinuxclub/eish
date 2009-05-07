@@ -9,7 +9,7 @@
 
 <p>Please provide us with your current password in order to proceed. There will be no other confirmation of removal.</p>
 
-<% form_for :user, @user, :url => { :action => "destroy" } do |f| %>
+<% form_for :user, @user, :url => { :action => "destroy" }, :html => { :method => :delete } do |f| %>
 	<%= f.error_messages %>
 	
 	<p>
