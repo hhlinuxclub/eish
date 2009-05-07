@@ -17,8 +17,7 @@ class User < ActiveRecord::Base
   validates_uniqueness_of :email, :case_sensitive => false
   validates_confirmation_of :password
   validate :password_non_blank
-  validate :correct_current_password, :if => Proc.new { |user| !user.current_password.nil? && user.changed? }
-#  validates_size_of :username, :minimum => 4
+  validates_size_of :username, :minimum => 3
 #  validates_size_of :password, :minimum => 6
   
   attr_accessor :password_confirmation, :current_password, :remember_me
@@ -66,7 +65,7 @@ class User < ActiveRecord::Base
   end
   
   def has_content?
-    [Article, Revision, Event, News, Asset].each do |model|
+    [Article, Revision, Event, News, Asset, Gallery].each do |model|
       return true if !model.find_by_user_id(self.id).nil?
     end
     return false
@@ -147,14 +146,14 @@ class User < ActiveRecord::Base
     return self.role.id == Role.no_privileges.id
   end
   
+  def to_param
+    username
+  end
+  
   private
     
     def password_non_blank
       errors.add_to_base("Missing password") if hashed_password.blank?
-    end
-    
-    def correct_current_password
-        errors.add_to_base("Current password is incorrect") if User.encrypted_password(current_password, salt) != hashed_password
     end
     
     def self.encrypted_password(password, salt)

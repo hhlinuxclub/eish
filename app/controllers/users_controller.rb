@@ -35,29 +35,12 @@ class UsersController < ApplicationController
       format.html { redirect_to :root }
     end
   end
-
-  def profile
-    @user = User.find(session[:user_id])
-    @profile = @user.profile || Profile.new
-    
-    set_meta_tags :title => @user.username,
-                  :description => 'Profile page',
-                  :keywords => 'Profile, Users'
-    
-    respond_to do |format|
-      format.html
-    end
-  end
   
   def show
-    @user = User.find_by_username(params[:username])
-    
-    set_meta_tags :title => @user.username,
-                  :description => 'Profile page',
-                  :keywords => 'Profile, Users'
+    redirect_to :action => "edit"
   end
   
-  def register
+  def new
     @user = User.new
     
     set_meta_tags :title => "Register",
@@ -67,6 +50,16 @@ class UsersController < ApplicationController
     respond_to do |format|
       format.html
       format.xml { render :xml => @user }
+    end
+  end
+  
+  def edit
+    @user = User.find_by_username(params[:id])
+    
+    redirect_to :root and return unless @user.id == session[:user_id]
+    
+    respond_to do |format|
+      format.html
     end
   end
   
@@ -89,23 +82,35 @@ class UsersController < ApplicationController
   end
   
   def update
-    @user = User.find(session[:user_id])
-    @user.profile ||= Profile.new
-
+    @user = User.find_by_username(params[:id])
+    
+    redirect_to :root and return unless @user.id == session[:user_id]
+    
     respond_to do |format|
-      if @user.profile.update_attributes(params[:profile]) && @user.update_attributes(params[:user])
-        flash[:notice] = "User #{@user.username} was successfully updated."
-        format.html { redirect_to :action => "profile" }
-        format.xml  { head :ok }
+      if User.encrypted_password(params[:user][:current_password], @user.salt) == @user.hashed_password
+        if @user.update_attributes(params[:user])
+          flash[:notice] = "Your account was successfully updated."
+          format.html { redirect_to :action => "edit" }
+          format.xml  { head :ok }
+        else
+          format.html { render :action => "edit" }
+          format.xml  { render :xml => @user.errors, :status => :unprocessable_entity }
+        end
       else
-        format.html { render :action => "profile" }
-        format.xml  { render :xml => @user.errors, :status => :unprocessable_entity }
+        @user.errors.add_to_base("Current password is incorrect")
+        format.html { render :action => "edit" }
       end
     end
   end
   
   def remove
     @user = User.find(session[:user_id])
+    
+    redirect_to :root and return unless @user.id == session[:user_id]
+    
+    respond_to do |format|
+      format.html
+    end
   end
   
   def destroy
@@ -166,6 +171,10 @@ class UsersController < ApplicationController
   def password_reset
     @user = User.find_by_username(params[:username])
     @reset_hash = params[:reset_hash]
+    
+    respond_to do |format|
+      format.html
+    end
   end
   
   def update_password

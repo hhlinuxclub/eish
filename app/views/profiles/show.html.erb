@@ -1,6 +1,11 @@
 <%= image_tag gravatar(@user.email), :id => "avatar" %>
 
-<h2 class="title"><%=h @user.username %></h2>
+<h2 class="title">
+	<%=h @user.username %>
+	<% if @user.id == session[:user_id] %>
+		<%= link_to "(edit profile)", edit_profile_path(@user) %>
+	<% end %>
+</h2>
 
 <% if logged_in? %>
 	<h3 class="title">Personal Information</h3>

@@ -1,0 +1,53 @@
+<h2 class="title">Public Profile</h2>
+
+<p>The public profile information is all optional and will be available to everyone. You are responsible for what you write.</p>
+
+<% form_for @user.profile do |f| %>
+	<%= f.error_messages %>
+
+	<p>
+		<%= f.label :url, "URL" %><br />
+		<%= f.text_field :url %>
+	</p>
+
+	<p>
+		<%= f.label :about %><br />
+		<%= f.text_area :about, :class => "textile" %>
+	</p>
+
+	<p>
+		<%= f.label :degree_programme %><br />
+		<%= f.text_field :degree_programme %>
+	</p>
+
+	<p>
+		<%= f.label :graduation_year %><br />
+		<%= f.text_field :graduation_year %>
+	</p>
+
+	<h4 class="title">Favourites</h4>
+
+	<p>
+		<%= f.label :distribution %><br />
+		<%= f.text_field :distribution %>
+	</p>
+
+	<p>
+		<%= f.label :desktop_environment %><br />
+		<%= f.text_field :desktop_environment %>
+	</p>
+
+	<p>
+		<%= f.label :text_editor %><br />
+		<%= f.text_field :text_editor %>
+	</p>
+
+	<p>
+		<%= f.label :programming_language %><br />
+		<%= f.text_field :programming_language %>
+	</p>
+	
+	<p>
+		<%= f.submit "Update" %>
+	</p>
+<% end %>

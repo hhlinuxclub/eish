@@ -1,10 +1,12 @@
 <div id="userLinks">
 	<% @user = User.find(session[:user_id]) unless session[:user_id].nil? %>
 	<% if logged_in? %>
-		<p>Logged in as <em><%= link_to @user.username, :controller => "/users", :action => "profile" %></em>
+		<p>Logged in as <em><%= @user.username %></em>
 		<% if (controller.controller_path =~ /admin\// ) %>
 				&brvbar; <%= link_to "Go to site", :root, :class => "visitSite" %>
 		<% else %>
+			&brvbar; <%= link_to "Profile", profile_path(@user) %>
+			&brvbar; <%= link_to "Account", user_path(@user) %>
 			<% if !User.find(session[:user_id]).normal_user? %>
 				&brvbar; <%= link_to "Administration", admin_url %>
 			<% end %>
@@ -13,7 +15,7 @@
 	<% else %>
 		<p>
 			<%= link_to "Login", login_path, :class => "login" %> &brvbar;
-			<%= link_to "Register", :controller => "users", :action => "register" %> &brvbar; 
+			<%= link_to "Register", new_user_path %> &brvbar; 
 			<%= link_to "Forgot?", :controller => "users", :action => "request_credentials" %>
 		</p>
 	<% end %>

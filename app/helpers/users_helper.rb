@@ -4,7 +4,7 @@ module UsersHelper
     if user.username.nil?
       return h(name)
     else
-      return link_to(name, profile_path(:username => user.username))
+      return link_to(name, profile_path(user))
     end
   end
   
