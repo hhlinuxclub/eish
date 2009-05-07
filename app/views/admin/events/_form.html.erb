@@ -26,19 +26,19 @@
 	
 	<p>
 		<%= f.label :starts_at_date, "Starts on" %><br />
-		<%= f.text_field :starts_at_date, :value => @event.starts_at.nil? ? Date.today.strftime("%d.%m.%Y") : @event.starts_at.strftime("%d.%m.%Y"), :class => "date" %>
+		<%= f.text_field :starts_at_date, :value => @event.starts_at_date || (@event.starts_at.nil? ? Date.today.strftime("%d.%m.%Y") : @event.starts_at.strftime("%d.%m.%Y")), :class => "date" %>
 		<em>e.g. <%= Date.today.strftime("%d.%m.%Y")%></em>
 		<br />
 		<%= f.label :starts_at_time, "at" %><br />
-		<%= f.text_field :starts_at_time, :value => @event.starts_at.nil? ? Time.now.strftime("%H:%M") : @event.starts_at.strftime("%H:%M") %>
+		<%= f.text_field :starts_at_time, :value => @event.starts_at_time || (@event.starts_at.nil? ? Time.now.strftime("%H:%M") : @event.starts_at.strftime("%H:%M")) %>
 	</p>
 	
 	<p>
 		<%= f.label :ends_at_date, "Ends on" %><br />
-		<%= f.text_field :ends_at_date, :value => @event.ends_at.nil? ? Date.today.strftime("%d.%m.%Y") : @event.ends_at.strftime("%d.%m.%Y"), :class => "date" %>
+		<%= f.text_field :ends_at_date, :value => @event.ends_at_date || (@event.ends_at.nil? ? Date.today.strftime("%d.%m.%Y") : @event.ends_at.strftime("%d.%m.%Y")), :class => "date" %>
 		<br />
 		<%= f.label :ends_at_time, "at" %><br />
-		<%= f.text_field :ends_at_time, :value => @event.ends_at.nil? ? Time.now.strftime("%H:%M") : @event.ends_at.strftime("%H:%M") %>
+		<%= f.text_field :ends_at_time, :value => @event.ends_at_time || (@event.ends_at.nil? ? Time.now.strftime("%H:%M") : @event.ends_at.strftime("%H:%M")) %>
 	</p>
 	
 	<p>
