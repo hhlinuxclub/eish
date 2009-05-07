@@ -158,6 +158,48 @@ p {
 	font-size: 10pt;
 }
 
+#content p {
+	margin-top: 0.3em;
+	margin-bottom: 1em;
+}
+
+#content h1, 
+#content h2, 
+#content h3, 
+#content h4, 
+#content h5, 
+#content h6 {
+	margin-bottom: 0.1em;
+	line-height: 1;
+}
+
+#content h1 {
+	font-size: 16pt;
+	margin-bottom: 0.1em;
+}
+
+#content h2{
+	font-size: 14pt;
+}
+
+#content h3 {
+	font-size: 12pt;
+}
+
+#content h4{
+	font-size: 11pt;
+}
+
+#content h5 {
+	font-size: 11pt;
+	font-variant: small-caps;
+}
+
+#content h6 {
+	font-size: 11pt;
+	font-style: italic;
+}
+
 table {
 	font-size: 9pt;
 	border-collapse: collapse;
