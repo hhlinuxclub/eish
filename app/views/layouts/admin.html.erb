@@ -24,7 +24,7 @@
 									<li class="newsLink"><%= link_to "News", admin_news_path %></li>
 									<li class="articlesLink"><%= link_to "Articles", admin_articles_path %></li>
 									<li class="eventsLink"><%= link_to "Events", admin_events_path %></li>
-									<li class="galleriesLink"><%= link_to "Galleries", admin_galleries_path %></li>
+<!--							<li class="galleriesLink"><%= link_to "Galleries", admin_galleries_path %></li> -->
 									<li class="aboutLink"><%= link_to "About", :controller => "about", :action => "index"%></li>
 									<% if User.find(session[:user_id]).role.can_administer? %>
 										<li class="usersLink"><%= link_to "Users", admin_users_path %></li>
