@@ -29,7 +29,7 @@ class Admin::UsersController < ApplicationController
   end
   
   def edit
-    @user = User.find(params[:id])
+    @user = User.find_by_username(params[:id])
     
     set_meta_tags :title => "Edit '" + @user.username + "'"
   end
@@ -48,8 +48,10 @@ class Admin::UsersController < ApplicationController
   end
   
   def update
-    @user = User.find(params[:id])
-
+    @user = User.find_by_username(params[:id])
+    params[:user].delete(:password) if params[:user][:password].empty?
+    params[:user].delete(:password_confirmation) if params[:user][:password_confirmation].empty?
+    
     respond_to do |format|
       if @user.role.can_administer? && @user.id != session[:user_id]
         flash[:error] = "Cannot update another administrator."
@@ -65,6 +67,7 @@ class Admin::UsersController < ApplicationController
   
   def action
     user = User.find(params[:user])
+    
     case params[:actions]
       when "delete"
         if user.role.can_administer?
