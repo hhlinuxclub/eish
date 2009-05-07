@@ -182,6 +182,10 @@ p {
 	font-size: 14pt;
 }
 
+#content h2.title {
+	font-size: 18pt;
+}
+
 #content h3 {
 	font-size: 12pt;
 }
