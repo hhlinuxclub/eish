@@ -86,7 +86,7 @@ class User < ActiveRecord::Base
       self.remember_token = nil
       self.remember_token_expires = nil
       self.reset_hash = nil
-      self.reset_hash_password = nil
+      self.reset_hash_expires = nil
       self.profile.destroy
       self.save_with_validation(false)
     else
