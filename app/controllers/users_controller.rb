@@ -72,7 +72,7 @@ class UsersController < ApplicationController
         flash[:notice] = "User #{@user.username} was successfully created."
         format.html { redirect_to :root }
       else
-        format.html { render :action => "register" }
+        format.html { render :action => "new" }
       end
     end
   end
