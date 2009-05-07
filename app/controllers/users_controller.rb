@@ -49,7 +49,6 @@ class UsersController < ApplicationController
     
     respond_to do |format|
       format.html
-      format.xml { render :xml => @user }
     end
   end
   
@@ -73,10 +72,8 @@ class UsersController < ApplicationController
         session[:user_id] = @user.id
         flash[:notice] = "User #{@user.username} was successfully created."
         format.html { redirect_to :root }
-        format.xml { render :xml => @user, :status => :created, :location => @user }
       else
         format.html { render :action => "register" }
-        format.xml { render :xml => @user.errors, :status => :unprocessable_entity }
       end
     end
   end

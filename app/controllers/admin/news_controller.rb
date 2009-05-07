@@ -15,7 +15,6 @@ class Admin::NewsController < ApplicationController
 
     respond_to do |format|
       format.html
-      format.xml  { render :xml => @news }
     end
   end
 

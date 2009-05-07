@@ -15,7 +15,6 @@ class EventsController < ApplicationController
     
     respond_to do |format|
       format.html # index.html.erb
-      format.xml { render :xml => @upcoming_events }
       format.ics # index.ics.erb
       format.atom { @latest_update = Event.maximum("updated_at") || Time.now }
     end
@@ -32,7 +31,6 @@ class EventsController < ApplicationController
     
     respond_to do |format|
       format.html # past.html.erb
-      format.xml { render :xml => @past_events }
     end
   end
   
@@ -47,7 +45,6 @@ class EventsController < ApplicationController
     
     respond_to do |format|
       format.html # show.html.erb
-      format.xml { render :xml => @event }
     end
   end
 end

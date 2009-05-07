@@ -10,7 +10,6 @@ class NewsController < ApplicationController
 
     respond_to do |format|
       format.html
-      format.xml  { render :xml => @news }
       format.atom
     end
   end
@@ -24,8 +23,6 @@ class NewsController < ApplicationController
 
     respond_to do |format|
       format.html
-      format.xml  { render :xml => @news_article }
-      format.json { render :json => @news_article }
     end
   end
 end
