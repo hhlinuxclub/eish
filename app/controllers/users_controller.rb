@@ -64,7 +64,6 @@ class UsersController < ApplicationController
   
   def create
     @user = User.new(params[:user])
-    @user.role_id = 5
     saved = RCC_ENABLED ? validate_recap(params, @user.errors) && @user.save : @user.save
     
     respond_to do |format|
