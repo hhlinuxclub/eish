@@ -1,44 +1,47 @@
 <h2 class="title">Contact</h2>
-
-<% form_tag :action => "send_email" do %>
-	<p>
-		<label for="contact">Contact:</label><br />
-		<%= collection_select(:user, :user_id, @contacts, :id, :name_with_title) %>
-		<%= render :partial => "/cluetip", :locals => { :title => "Who to contact?", :message => "Please try and select the person most appropriate to your needs" } %>
-	</p>
-	
-	<% unless logged_in? %>
-	<div id="fieldsForUnregisteredUsers">
+<% unless @contacs.nil? || @contacts.none? %>
+	<% form_tag :action => "send_email" do %>
 		<p>
-			<label for="name">Your name:</label><br />
-			<%= text_field_tag :name, params[:name], :size => 30 %>
-			<%= render :partial => "/cluetip", :locals => { :title => "Your Name", :message => "Who are you?" } %>
+			<label for="contact">Contact:</label><br />
+			<%= collection_select(:user, :user_id, @contacts, :id, :name_with_title) %>
+			<%= render :partial => "/cluetip", :locals => { :title => "Who to contact?", :message => "Please try and select the person most appropriate to your needs" } %>
+		</p>
+		
+		<% unless logged_in? %>
+		<div id="fieldsForUnregisteredUsers">
+			<p>
+				<label for="name">Your name:</label><br />
+				<%= text_field_tag :name, params[:name], :size => 30 %>
+				<%= render :partial => "/cluetip", :locals => { :title => "Your Name", :message => "Who are you?" } %>
+			</p>
+		
+			<p>
+				<label for="email">Your email:</label><br />
+				<%= text_field_tag :email, params[:email], :size => 30 %>
+				<%= render :partial => "/cluetip", :locals => { :title => "Email", :message => "e.g. bob@example.org" } %>
+			</p>
+		</div>
+		<% end %>
+		
+		<p>
+			<label for="subject">Subject:</label><br />
+			<%= text_field_tag :subject, params[:subject], :size => 53 %>
+			<%= render :partial => "/cluetip", :locals => { :title => "Subject", :message => "What's this all about?" } %>
 		</p>
 	
 		<p>
-			<label for="email">Your email:</label><br />
-			<%= text_field_tag :email, params[:email], :size => 30 %>
-			<%= render :partial => "/cluetip", :locals => { :title => "Email", :message => "e.g. bob@example.org" } %>
+			<label for="message">Message:</label><br />
+			<%= text_area_tag :message, params[:message], :cols => 60, :rows => 10 %>
 		</p>
-	</div>
+		
+		<% if !logged_in? && RCC_ENABLED %>
+			<p>
+				<%= get_captcha %>
+			</p>
+		<% end %>
+		
+		<p><%= submit_tag "Send" %></p>
 	<% end %>
-	
-	<p>
-		<label for="subject">Subject:</label><br />
-		<%= text_field_tag :subject, params[:subject], :size => 53 %>
-		<%= render :partial => "/cluetip", :locals => { :title => "Subject", :message => "What's this all about?" } %>
-	</p>
-
-	<p>
-		<label for="message">Message:</label><br />
-		<%= text_area_tag :message, params[:message], :cols => 60, :rows => 10 %>
-	</p>
-	
-	<% if !logged_in? && RCC_ENABLED %>
-		<p>
-			<%= get_captcha %>
-		</p>
-	<% end %>
-	
-	<p><%= submit_tag "Send" %></p>
+<% else %>
+	<p>The administrators of this site haven't added any contacts.</p>
 <% end %>
