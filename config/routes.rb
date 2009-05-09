@@ -15,6 +15,7 @@ ActionController::Routing::Routes.draw do |map|
   map.password_reset "users/:username/reset/:reset_hash", :controller => "users", :action => "password_reset"
   map.login "login", :controller => "users", :action => "login"
   map.logout "logout", :controller => "users", :action => "logout"
+  map.request_credentials "request_credentials", :controller => "users", :action => "request_credentials"
   map.article_diff "admin/articles/:id/compare/:rev_a/:rev_b", :namespace => "admin", :controller => "articles", :action => "compare"
   map.change_revision "admin/articles/:id/change_revision/:revision", :namespace => "admin", :controller => "articles", :action => "change_revision"
   map.categories "articles/categories/:id", :controller => "articles", :action => "categories"

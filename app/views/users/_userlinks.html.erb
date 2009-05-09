@@ -16,7 +16,7 @@
 		<p>
 			<%= link_to "Login", login_path, :class => "login" %> &brvbar;
 			<%= link_to "Register", new_user_path %> &brvbar; 
-			<%= link_to "Forgot?", :controller => "users", :action => "request_credentials" %>
+			<%= link_to "Forgot?", request_credentials_path %>
 		</p>
 	<% end %>
 </div>
