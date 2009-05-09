@@ -89,6 +89,8 @@ development:
     timeout: 5000
 </pre>
 
+* Create new keys and settings.rb files based on the samples provided (config/keys.sample and config/initializers/settings.rb.sample) with your own settings and keys
+
 * Run 'rake setup' in the local directory
 
 * Run 'rake db:populate' to add test data to the database (optional)
