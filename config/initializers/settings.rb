@@ -5,10 +5,9 @@ RCC_ENABLED = false
 RCC_PUB = keys["ReCAPTCHA"]["Public"]
 RCC_PRIV = keys["ReCAPTCHA"]["Private"]
 
-Rubaidh::GoogleAnalytics.tracker_id   = keys["GoogleAnalytics"]["Tracker_ID"]
-Rubaidh::GoogleAnalytics.domain_name  = "example.org"
-Rubaidh::GoogleAnalytics.environments = ["development"] # use [] to disable
-
+# Google Analytics
+GA_ENABLED = false
+GA_TrackerID = keys["GoogleAnalytics"]["Tracker_ID"]
 
 # Enable if you have Xapian and the Xapian Ruby bindings installed.
 # You must also load the Xapit plugin in environment.rb.

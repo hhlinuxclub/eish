@@ -1,6 +1,5 @@
 class Admin::SettingsController < ApplicationController
   before_filter :check_for_admin
-  skip_after_filter :add_google_analytics_code
   layout "admin"
   
   def index
