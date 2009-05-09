@@ -78,8 +78,8 @@
 		 		$.fn.teststrength = function(password,username,option){
 		 			 	var score = 0; 
 		 			    
-		 			    //password < 5
-		 			    if (password.length < 5 ) { this.resultStyle =  option.shortPass;return $(this).shortPass; }
+		 			    //password < 6
+		 			    if (password.length < 6 ) { this.resultStyle =  option.shortPass;return $(this).shortPass; }
 		 			    
 		 			    //password == user name
 		 			    if (password.toLowerCase()==username.toLowerCase()){this.resultStyle = option.badPass;return $(this).samePassword;}
