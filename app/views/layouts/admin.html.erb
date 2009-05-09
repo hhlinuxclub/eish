@@ -6,8 +6,9 @@
         <meta name="ROBOTS" content="NOINDEX, NOFOLLOW" />
         <%= display_meta_tags :site => "Administration - HHLinuxClub.org", :reverse => true %>
         <% bundle :name => "admin" do %>
-		      <%= stylesheet_link_tag "admin", "jquery-ui", 'password_strength_plugin', "SyntaxHighlighter/shThemeDefault", "SyntaxHighlighter/shCore", "markitup", "markitup.textile" %>
-				<% end %>
+		      <%= stylesheet_link_tag "admin" %>
+			  <%= render :partial => "layouts/stylesheets" %>
+		<% end %>
 				
 				<%= render :partial => "layouts/javascript" %>
 				
