@@ -65,16 +65,4 @@ $(document).ready(function() {
 		messageloc: 1,
 		userid:	"#user_username"
 	});
-	
-	$('.clueTip').removeAttr("style");
-  
-	$('.clueTip').cluetip({
-	    splitTitle: '|',
-	    showTitle: false,
-	    activation: 'click',
-		fx: {             
-        	open:       'slideDown',
-        	openSpeed:  'slow'
-    	}
-	});
 })
