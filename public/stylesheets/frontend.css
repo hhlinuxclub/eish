@@ -540,6 +540,12 @@ th {
 	height: 28px;
 }
 
+blockquote {
+	border-left: 5px solid #ccc;
+	margin-left: 15px;
+	padding-left: 10px;
+}
+
 .image {
 	padding: 5px;
 	float: right;
