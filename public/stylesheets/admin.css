@@ -360,3 +360,54 @@ ul.privileges {
 	border: 1px solid #BAE8BE;
 	margin-bottom: 40px;
 }
+
+#preview p, #preview ul, #preview li {
+	font-size: 10pt;
+}
+
+#preview blockquote {
+	border-left: 5px solid #ccc;
+	margin-left: 15px;
+	padding-left: 10px;
+}
+
+#preview h1, 
+#preview h2, 
+#preview h3, 
+#preview h4, 
+#preview h5, 
+#preview h6 {
+	margin-bottom: 0.1em;
+	line-height: 1;
+}
+
+#preview h1 {
+	font-size: 16pt;
+	margin-bottom: 0.1em;
+}
+
+#preview h2{
+	font-size: 14pt;
+}
+
+#preview h2.title {
+	font-size: 18pt;
+}
+
+#preview h3 {
+	font-size: 12pt;
+}
+
+#preview h4{
+	font-size: 11pt;
+}
+
+#preview h5 {
+	font-size: 11pt;
+	font-variant: small-caps;
+}
+
+#preview h6 {
+	font-size: 11pt;
+	font-style: italic;
+}
