@@ -13,3 +13,7 @@ GA_TrackerID = keys["GoogleAnalytics"]["Tracker_ID"]
 # You must also load the Xapit plugin in environment.rb.
 # An up-to-date index is also a good idea.
 SEARCH_ENABLED = false
+
+# Footer text (xhtml)
+FOOTER = "<p>All the content on this website is provided as-is and released under a <a rel=\"license\" href=\"http://creativecommons.org/licenses/by-nc-sa/3.0/\">Creative Commons BY-NC-SA 3.0 License</a>. 
+         <br/> The copyright of each article belongs to its author.</p>"
