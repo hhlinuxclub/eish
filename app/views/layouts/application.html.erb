@@ -51,10 +51,8 @@
             <div id="content" class="<%= controller.controller_name.to_s unless admin_namespace? %>">
                 <%= yield %>
             </div>
-            <div id="footer">
-                <p>
+            <div id="footer">        
                     <%= FOOTER %>
-                </p>
             </div>
         </div>
 		<%= render :partial => "layouts/analytics" %>
