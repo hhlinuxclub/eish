@@ -33,6 +33,7 @@ class Asset < ActiveRecord::Base
   
   def before_save
     self.description = self.filename if self.description.empty?
+    self.description.strip!
   end
   
   def self.images(attachable_type, attachable_id)
