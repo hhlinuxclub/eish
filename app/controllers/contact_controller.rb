@@ -45,7 +45,7 @@ class ContactController < ApplicationController
     empty_subject = params[:subject].empty?
     empty_message =  params[:message].empty?
     
-    if valid_email == false || empty_name || empty_subject || empty_message
+    if !valid_email || empty_name || empty_subject || empty_message
       flash[:error] = "Your message could not be sent."
       respond_to do |format|
         format.html { redirect_to :controller => "contact" }
