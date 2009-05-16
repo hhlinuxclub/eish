@@ -1,6 +1,7 @@
 Contact message sent from the HAAGA-HELIA Linux Club web application.
 Registered user: <%= @user.id.nil? ? "No" : "Yes" %>
 User details: <%= @user.id.nil? ? @user.first_name : @user.name_with_role + " [#{@user.username}]" %>
+Email Address: <%= @user.email %>
 IP address: <%= @ip_address %>
 User agent: <%= @user_agent %>
 
