@@ -16,7 +16,8 @@ class Event < ActiveRecord::Base
   
   if SEARCH_ENABLED
     xapit(:conditions => { :published => true }) do |index|
-      index.text :name, :description
+      index.text :name, :weight => 3
+      index.text :description, :weight => 2
     end
   end
   

@@ -7,7 +7,8 @@ class News < ActiveRecord::Base
   
   if SEARCH_ENABLED
     xapit(:conditions => { :published => true }) do |index|
-      index.text :title, :body
+      index.text :title, :weight => 3
+      index.text :body, :weight => 2
     end
   end
   

@@ -14,7 +14,9 @@ class Article < ActiveRecord::Base
   
   if SEARCH_ENABLED
     xapit(:conditions => { :published => true }) do |index|
-      index.text :title, :description, :body
+      index.text :title, :weight => 3
+      index.text :description, :weight => 2
+      index.text :body, :weight => 1
     end
   end
   
