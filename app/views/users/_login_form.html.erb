@@ -16,5 +16,10 @@
 
 	<p>
 		<%= submit_tag "Login" %> &nbsp; <%= link_to "I forgot my password or username", { :controller => "users", :action => "request_credentials" } , :class => "requestCredentials" %>
+		<% if request.protocol == 'http://' && HTTPS_FOR_LOGINS %>
+			<p>
+				<%= link_to "Login with HTTPS", { :controller => "users", :action => "login", :protocol => "https", :only_path => false } %>
+			</p>
+		<% end %>
 	</p>
 <% end %>
