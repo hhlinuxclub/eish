@@ -14,6 +14,10 @@ GA_TrackerID = keys["GoogleAnalytics"]["Tracker_ID"]
 # An up-to-date index is also a good idea.
 SEARCH_ENABLED = false
 
+# Enable if you have HTTPS configured your server
+HTTPS_FOR_LOGINS = false
+
 # Footer text (xhtml)
+# TODO: Move this to the settings table in the DB
 FOOTER = "<p>All the content on this website is provided as-is and released under a <a rel=\"license\" href=\"http://creativecommons.org/licenses/by-nc-sa/3.0/\">Creative Commons BY-NC-SA 3.0 License</a>. 
          <br/> The copyright of each article belongs to its author.</p>"
