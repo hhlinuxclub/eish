@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
   skip_before_filter :authorize
+  before_filter :require_https, :only => [:login, :new, :request_credentials, :edit] unless !HTTPS_FOR_LOGINS
   
   def login
     set_meta_tags :title => 'Login',
@@ -190,4 +191,10 @@ class UsersController < ApplicationController
       end
     end
   end
+  
+  protected
+  
+  def require_https
+    redirect_to :protocol => "https://" unless (request.ssl? or local_request?)
+  end 
 end
