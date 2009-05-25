@@ -39,7 +39,7 @@ $(document).ready(function() {
 		changeMonth: true,
 		changeYear: true,
 		dateFormat: 'dd.mm.yy',
-		showButtonPanel: true,
+		showButtonPanel: true
 	});
 	
 	$("a.login").attr({ 
