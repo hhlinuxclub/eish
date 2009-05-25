@@ -56,7 +56,7 @@ xml.urlset "xmlns" => "http://www.google.com/schemas/sitemap/0.84" do
   
   for category in @categories
     xml.url do
-      xml.loc         categories_path(category)
+      xml.loc         categories_url(category)
       xml.lastmod     w3c_date(category.updated_at)
       xml.changefreq  "weekly"
       xml.priority    0.6
