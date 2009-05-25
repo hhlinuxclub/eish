@@ -17,6 +17,7 @@ class Article < ActiveRecord::Base
       index.text :title, :weight => 3
       index.text :description, :weight => 2
       index.text :body, :weight => 1
+      index.facet :author_name, "Author"
     end
   end
   
@@ -77,5 +78,9 @@ class Article < ActiveRecord::Base
   
   def to_param
     "#{id}-#{title.parameterize}"
+  end
+  
+  def author_name
+    self.user.name
   end
 end
