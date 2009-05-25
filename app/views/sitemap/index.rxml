@@ -6,42 +6,42 @@ xml.urlset "xmlns" => "http://www.google.com/schemas/sitemap/0.84" do
   xml.url do
     xml.loc         "http://hhlinuxclub.org/"
     xml.lastmod     w3c_date(Time.now)
-    xml.changefreq  "yearly"
+    xml.changefreq  "weekly"
     xml.priority    1
   end
   
   xml.url do
     xml.loc         "http://hhlinuxclub.org/about"
     xml.lastmod     w3c_date(Time.now)
-    xml.changefreq  "yearly"
+    xml.changefreq  "monthly"
     xml.priority    0.9
   end
   
   xml.url do
     xml.loc         "http://hhlinuxclub.org/events"
     xml.lastmod     w3c_date(Time.now)
-    xml.changefreq  "yearly"
+    xml.changefreq  "monthly"
     xml.priority    0.9
   end
   
   xml.url do
     xml.loc         "http://hhlinuxclub.org/news"
     xml.lastmod     w3c_date(Time.now)
-    xml.changefreq  "yearly"
+    xml.changefreq  "monthly"
     xml.priority    0.9
   end
   
   xml.url do
     xml.loc         "http://hhlinuxclub.org/articles"
     xml.lastmod     w3c_date(Time.now)
-    xml.changefreq  "yearly"
+    xml.changefreq  "monthly"
     xml.priority    0.9
   end
   
   xml.url do
     xml.loc         "http://hhlinuxclub.org/contact"
     xml.lastmod     w3c_date(Time.now)
-    xml.changefreq  "yearly"
+    xml.changefreq  "monthly"
     xml.priority    0.8
   end
  
