@@ -50,7 +50,16 @@ xml.urlset "xmlns" => "http://www.google.com/schemas/sitemap/0.84" do
       xml.loc         article_url(article)
       xml.lastmod     w3c_date(article.updated_at)
       xml.changefreq  "weekly"
-      xml.priority    0.9
+      xml.priority    0.8
+    end
+  end
+  
+  for category in @categories
+    xml.url do
+      xml.loc         categories_path(category)
+      xml.lastmod     w3c_date(category.updated_at)
+      xml.changefreq  "weekly"
+      xml.priority    0.6
     end
   end
 
@@ -68,7 +77,7 @@ xml.urlset "xmlns" => "http://www.google.com/schemas/sitemap/0.84" do
       xml.loc         event_url(event)
       xml.lastmod     w3c_date(event.updated_at)
       xml.changefreq  "daily"
-      xml.priority    0.7
+      xml.priority    0.8
     end
   end
 
@@ -78,6 +87,15 @@ xml.urlset "xmlns" => "http://www.google.com/schemas/sitemap/0.84" do
       xml.lastmod     w3c_date(event.updated_at)
       xml.changefreq  "daily"
       xml.priority    0.8
+    end
+  end
+  
+  for event in @past_events
+    xml.url do
+      xml.loc         event_url(event)
+      xml.lastmod     w3c_date(event.updated_at)
+      xml.changefreq  "daily"
+      xml.priority    0.5
     end
   end
 end
