@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
   skip_before_filter :authorize
   before_filter :require_https, :only => [:login, :new, :request_credentials, :edit] if HTTPS_FOR_LOGINS
+  before_filter :not_logged_in, :only => [:login, :new]
   
   def login
     set_meta_tags :title => 'Login',
@@ -197,4 +198,14 @@ class UsersController < ApplicationController
   def require_https
     redirect_to :protocol => "https://" unless (request.ssl? or local_request?)
   end 
+  
+  def not_logged_in
+    if !session[:user_id].nil?
+        flash[:error] = "You are already logged in"
+        
+        respond_to do |format|
+          format.html { redirect_to :root }
+        end
+    end
+  end
 end
