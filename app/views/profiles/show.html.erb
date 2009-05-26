@@ -2,13 +2,17 @@
 
 <h2 class="title">
 	<%=h @user.username %>
-	<% if @user.id == session[:user_id] %>
-		<%= link_to "(edit profile)", edit_profile_path(@user) %>
-	<% end %>
 </h2>
 
+<% if @user.id == session[:user_id] %>
+	<p class="adminLinks">
+		<%= link_to "[Edit profile]", edit_profile_path(@user) %>
+		<%= link_to "[Account options]", user_path(@user) %>
+	</p>
+<% end %>
+
 <% if logged_in? %>
-	<h3 class="title">Personal Information</h3>
+	<h3 class="title">Personal Details</h3>
 	<p>
 		<b>Name: </b><%=h @user.last_name %>, <%=h @user.first_name %><br />
 		<b>Title: </b><%=h @user.title_or_role %>
@@ -32,7 +36,7 @@
 </p>
 
 <% if !@user.profile.distribution.nil? && !@user.profile.distribution.empty? || !@user.profile.desktop_environment.nil? && !@user.profile.desktop_environment.empty? || !@user.profile.text_editor.nil? && !@user.profile.text_editor.empty? || !@user.profile.programming_language.nil? && !@user.profile.programming_language.empty? %>
-	<h3 class="title">My Favourites</h3>
+	<h3 class="title">Preferences</h3>
 	<p>
 		<% if !@user.profile.distribution.nil? && !@user.profile.distribution.empty? %>
 			<b>Distribution: </b><%= @user.profile.distribution %><br />
