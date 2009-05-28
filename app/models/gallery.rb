@@ -1,5 +1,6 @@
 class Gallery < ActiveRecord::Base
   belongs_to :user
+  belongs_to :image
   has_many :images, :as => :attachable
   
   validates_presence_of :name, :description
