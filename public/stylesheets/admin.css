@@ -411,3 +411,13 @@ ul.privileges {
 	font-size: 11pt;
 	font-style: italic;
 }
+
+.galleryImage {
+	padding: 10px;
+	border: 1px solid #eee;
+	display: inline-block;
+}
+
+.galleryImage .description {
+	font-size: 8pt;
+}
