@@ -344,6 +344,7 @@ ins {
 	padding: 2px;
 	margin: 2px;
 	display: inline-block;
+	font-size: 7pt;
 }
 
 li.privileges {
