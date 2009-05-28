@@ -44,8 +44,9 @@ h1. Javascript
 * "jQuery ClueTip":http://plugins.learningjquery.com/cluetip/
 * "jQuery Cookie plugin":http://plugins.jquery.com/project/cookie
 * "jQuery":http://jquery.com/
-* "jQuery-Lightbox":http://github.com/krewenki/jquery-lightbox/
 * "jQueryUI":http://jqueryui.com/
+* "jQuery Easing":http://gsgd.co.uk/sandbox/jquery/easing/
+* "Fancybox":http://fancy.klade.lv/
 * "markItUp!":http://markitup.jaysalvat.com/
 * "Password Strength Plugin":http://www.mypocket-technologies.com (modified)
 * "SyntaxHighlighter":http://alexgorbatchev.com/wiki/SyntaxHighlighter
@@ -56,7 +57,7 @@ The *jQuery Cookie plugin* was created by Klaus Hartl, and it is dual licensed u
 
 The *jQuery* and *jQuery UI* libraries are dual licensed under both "MIT":http://www.opensource.org/licenses/mit-license.php and "GPL":http://www.gnu.org/licenses/gpl.html licenses.
 
-The *jQuery-Lightbox* is licensed under the "BSD license":http://www.opensource.org/licenses/bsd-license.php.  It was ported to jQuery (from Prototype and Scriptaculous) by Warren Krewenki.
+Fancybox is the work of Janis Skarnelis, and is licensed under the "MIT":http://www.opensource.org/licenses/mit-license.php license.  Fancybox depends on the "BSD":http://www.opensource.org/licenses/bsd-license.php licensed *jQuery Easing* plugin by George McGinley Smith.
 
 The *markItUp!* by "Jay Salvat":http://www.jaysalvat.com/ is dual licensed under both "MIT":http://www.opensource.org/licenses/mit-license.php and "GPL":http://www.gnu.org/licenses/gpl.html licenses.
 
