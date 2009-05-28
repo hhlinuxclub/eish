@@ -1,3 +1,19 @@
 <h2 class="title">Add gallery</h2>
 
-<%= render :partial => "form", :locals => { :submit_value => "Create" } %>
+<% form_for [:admin, @gallery] do |f| %>
+	<%= f.error_messages %>
+	
+	<p>
+		<%= f.label :name %><br />
+		<%= f.text_field :name, :class => "titleField", :size => 39 %>
+	</p>
+	
+	<p>
+		<%= f.label :description %><br />
+		<%= f.text_field :description, :size => 60 %>
+	</p>
+	
+	<p>
+		<%= f.submit "Create" %>
+	</p>
+<% end %>

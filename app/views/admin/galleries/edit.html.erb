@@ -1,3 +1,48 @@
 <h2 class="title">Edit gallery</h2>
 
-<%= render :partial => "form", :locals => { :submit_value => "Update" } %>
+<% form_for [:admin, @gallery], :html => { :multipart => true } do |f| %>
+	<%= f.error_messages %>
+	
+	<p>
+		<%= f.label :name %><br />
+		<%= f.text_field :name, :class => "titleField", :size => 39 %>
+	</p>
+	
+	<p>
+		<%= f.label :description %><br />
+		<%= f.text_field :description, :size => 60 %>
+	</p>
+	
+	<p>
+		<%= submit_tag "Update" %>
+	</p>
+	
+	<h3 class="title">Add an image</h3>
+	
+	<% fields_for :asset do |a| %>
+		<%= a.error_messages %>
+		
+		<p>
+			<%= a.label :description %><br />
+			<%= a.text_field :description %>
+		</p>
+
+		<p>
+			<%= a.label :upload, "File" %><br />
+			<%= a.file_field :upload %>
+		</p>
+	<% end %>
+	<p><%= submit_tag "Upload", :name => "upload" %></p>
+	
+	<h3 class="title">Images</h3>
+
+	<% for image in @gallery.images %>
+		<div class="galleryImage">
+			<%= image_tag image.upload.url(:thumb) %>
+			<p>
+				<%= image_submit_tag "/images/tango/16px/delete.png", :value => image.id, :name => "destroy_image" %>
+				<span class="description"><%= image.description %></span>
+			</p>
+		</div>
+	<% end %>
+<% end %>
