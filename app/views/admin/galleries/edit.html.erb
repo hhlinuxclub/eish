@@ -40,6 +40,7 @@
 		<div class="galleryImage">
 			<%= image_tag image.upload.url(:thumb) %>
 			<p>
+				<%= radio_button_tag "image", image.id, image == @gallery.image %>
 				<%= image_submit_tag "/images/tango/16px/delete.png", :value => image.id, :name => "destroy_image" %>
 				<span class="description"><%= image.description %></span>
 			</p>
