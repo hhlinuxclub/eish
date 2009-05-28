@@ -73,12 +73,23 @@ class Admin::GalleriesController < ApplicationController
       redirect_to admin_galleries_path and return
     end
     
+    if params[:upload]
+      @gallery.attributes = params[:gallery]
+      @gallery.images.create(params[:asset].merge!(:user_id => user.id))
+    elsif params[:destroy_image]
+      Image.find(params[:destroy_image]).destroy
+    end
+    
     respond_to do |format|
-      if @gallery.update_attributes(params[:gallery])
-        flash[:notice] = "Gallery was successfully updated."
-        format.html { redirect_to edit_admin_gallery_path @gallery }
-      else
+      if params[:upload] || params[:destroy_image]
         format.html { render :action => "edit" }
+      else
+        if @gallery.update_attributes(params[:gallery])
+          flash[:notice] = "Gallery was successfully updated."
+          format.html { redirect_to edit_admin_gallery_path @gallery }
+        else
+          format.html { render :action => "edit" }
+        end
       end
     end
   end
