@@ -10,6 +10,8 @@ class Asset < ActiveRecord::Base
     :url => "/uploads/:id/:style/:basename.:extension",
     :path => ":rails_root/public/uploads/:id/:style/:basename.:extension"
     
+  validates_presence_of :description, :unless => Proc.new { |asset| asset.class == Image }
+    
   def filename
     upload_file_name
   end
@@ -32,7 +34,6 @@ class Asset < ActiveRecord::Base
   end
   
   def before_save
-    self.description = self.filename if self.description.empty?
     self.description.strip!
   end
   
