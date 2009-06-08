@@ -78,18 +78,47 @@ body {
 #userLinks {
 	position: absolute;
 	top: 0px;
-	right: 0px;
-	color: #666;
-	margin-top: 25px;
+	left: 0px;
+	font-size: 7pt;
 }
 
-#userLinks a, .home a {
+#userLinks a, .home a, #smallLogin a {
 	text-decoration: none;
 }
 
-#userLinks a:hover, .home a:hover {
+#userLinks a:hover, .home a:hover, #smallLogin a:hover {
 	text-decoration: underline;
 	color: #0066cb;
+}
+
+#userLinks p {
+	font-size: 7pt;
+	color: #666666;
+}
+
+input[type=text].userLinks, 
+input[type=password].userLinks,
+input[type=submit].userLinks,
+input[type=checkbox].userLinks
+label.userLinks,
+.userLinks {
+	font-size: 7pt;
+	color: #ccc;
+}
+
+label.userLinks {
+	font-weight: normal;
+}
+
+input[type=text].userLinks, 
+input[type=password].userLinks {
+	border: 1px solid #fff;
+}
+
+input[type=submit].userLinks {
+	color: #000;
+	border: 1px solid #fff;
+	background-color: #ccc;
 }
 
 #content {

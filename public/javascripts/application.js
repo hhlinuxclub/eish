@@ -41,31 +41,20 @@ $(document).ready(function() {
 		dateFormat: 'dd.mm.yy',
 		showButtonPanel: true
 	});
-	
-	$("a.login").attr({ 
-		href: "#"
-    });
 
 	$("#loginDialog").dialog({
-    	autoOpen: false,
+   	autoOpen: false,
 		bgiframe: true,
 		modal: true,
 		title: "Login",
 		resizable: false
 	});
-	
-	$("#loginDialog input[type=text]").addClass("ui-widget-content ui-corner-all");
-	$("#loginDialog input[type=password]").addClass("ui-widget-content ui-corner-all");
-	
-	$('.login').click(function() {
-		$("#loginDialog").dialog('open')
-	});
-		
+
 	$("#user_password").passStrength({
 		messageloc: 1,
 		userid:	"#user_username"
 	});
-  
+
   /* Fancybox Default */ 
   /* Galleries are created from found anchors who have the same "rel" tags */
   /* Use the title attribute if you want to show a caption */
