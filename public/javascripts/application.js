@@ -33,35 +33,35 @@ $(document).ready(function() {
 		});
 	});
 	
-	$("#username").click(function() {
-		var username = $("#username").val();
+	$("#username.userLinks").click(function() {
+		var username = $("#username.userLinks").val();
 		
 		if (username == "username") {
-			$("#username").val("");
+			$("#username.userLinks").val("");
 		};
 	});
 	
-	$("#username").blur(function() {
-		var username = $("#username").val();
+	$("#username.userLinks").blur(function() {
+		var username = $("#username.userLinks").val();
 		
 		if (username == "") {
-			$("#username").val("username");
+			$("#username.userLinks").val("username");
 		};
 	});
 	
-	$("#password").click(function() {
+	$("#password.userLinks").click(function() {
 		var username = $("#password").val();
 		
 		if (username == "password") {
-			$("#password").val("");
+			$("#password.userLinks").val("");
 		};
 	});
 	
-	$("#password").blur(function() {
+	$("#password.userLinks").blur(function() {
 		var username = $("#password").val();
 		
 		if (username == "") {
-			$("#password").val("password");
+			$("#password.userLinks").val("password");
 		};
 	});
 
