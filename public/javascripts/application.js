@@ -24,8 +24,6 @@ $(document).ready(function() {
 	$("textarea.textile").markItUp(mySettings);
 	
 	$("#new_category").submitWithAjax();
-	$("#loginBoxForm").submitWithAjax();
-	$("#jsLogin").submitWithAjax();
 	
 	$("#bulk_check").click(function() {
 		this.checked = !(this.checked == true);
@@ -35,19 +33,43 @@ $(document).ready(function() {
 		});
 	});
 	
+	$("#username").click(function() {
+		var username = $("#username").val();
+		
+		if (username == "username") {
+			$("#username").val("");
+		};
+	});
+	
+	$("#username").blur(function() {
+		var username = $("#username").val();
+		
+		if (username == "") {
+			$("#username").val("username");
+		};
+	});
+	
+	$("#password").click(function() {
+		var username = $("#password").val();
+		
+		if (username == "password") {
+			$("#password").val("");
+		};
+	});
+	
+	$("#password").blur(function() {
+		var username = $("#password").val();
+		
+		if (username == "") {
+			$("#password").val("password");
+		};
+	});
+
 	$('.date').datepicker({
 		changeMonth: true,
 		changeYear: true,
 		dateFormat: 'dd.mm.yy',
 		showButtonPanel: true
-	});
-
-	$("#loginDialog").dialog({
-   	autoOpen: false,
-		bgiframe: true,
-		modal: true,
-		title: "Login",
-		resizable: false
 	});
 
 	$("#user_password").passStrength({
