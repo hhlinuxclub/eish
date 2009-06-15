@@ -1,5 +1,4 @@
 class EventsController < ApplicationController
-  skip_before_filter :authorize
   caches_page :index, :if => Proc.new { |c| c.request.format.ics? }
   
   # GET /events

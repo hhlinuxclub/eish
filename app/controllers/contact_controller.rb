@@ -1,5 +1,4 @@
 class ContactController < ApplicationController
-  skip_before_filter :authorize
   before_filter :check_form, :only => :send_email
   
   def index

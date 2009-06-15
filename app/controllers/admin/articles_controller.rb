@@ -1,6 +1,4 @@
-class Admin::ArticlesController < ApplicationController
-  layout "admin"
-   
+class Admin::ArticlesController < AdministrationController   
   def index
     user = User.find(session[:user_id])
     

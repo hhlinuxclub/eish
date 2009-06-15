@@ -1,6 +1,4 @@
-class Admin::GalleriesController < ApplicationController
-  layout "admin"
-  
+class Admin::GalleriesController < AdministrationController
   def index
     user = User.find(session[:user_id])
     

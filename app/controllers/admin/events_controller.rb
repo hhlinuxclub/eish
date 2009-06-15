@@ -1,6 +1,4 @@
-class Admin::EventsController < ApplicationController
-  layout "admin"
- 
+class Admin::EventsController < AdministrationController
   cache_sweeper :event_sweeper, :only => [:create, :update, :destroy, :publish, :unpublish]
   
   def index

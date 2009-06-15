@@ -2,7 +2,6 @@
 # Likewise, all the methods added will be available for all controllers.
 
 class ApplicationController < ActionController::Base
-  before_filter :authorize
   before_filter :login_from_cookie
   
   helper :all # include all helpers, all the time
@@ -19,14 +18,6 @@ class ApplicationController < ActionController::Base
   filter_parameter_logging :password, :current_password, :password_confirmation
   
   protected
-  
-    def authorize
-      if session[:user_id].nil? || (!session[:user_id].nil? && User.find(session[:user_id]).normal_user?)
-        session[:original_uri] = request.request_uri
-        flash[:error] = "Please log in with enough privileges."
-        redirect_to :login
-      end
-    end
     
     def login_from_cookie
       return unless cookies[:auth_token] && session[:user_id].nil?

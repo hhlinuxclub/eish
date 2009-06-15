@@ -1,6 +1,4 @@
 class ProfilesController < ApplicationController
-  skip_before_filter :authorize
-  
   def show
     @user = User.find_by_username(params[:id])
     
