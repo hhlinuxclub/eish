@@ -1,7 +1,0 @@
-<% if @user.nil? %>
-	$("#username").addClass('ui-state-error');
-	$("#password").addClass('ui-state-error');
-<% else %>
-	window.location.reload();
-<% end %>
-<% flash.discard %>

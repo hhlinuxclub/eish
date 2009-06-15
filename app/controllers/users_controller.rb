@@ -23,7 +23,6 @@ class UsersController < ApplicationController
         
       respond_to do |format|
         format.html { redirect_to @user ? :root : :login }
-        format.js
       end
     end
   end
