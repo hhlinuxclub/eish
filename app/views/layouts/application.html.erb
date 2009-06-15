@@ -13,10 +13,8 @@
 		
         <%= display_meta_tags :site => "HHLinuxClub.org", :reverse => true %>
       	
-        <% bundle :name => "frontend" do %>
-		      <%= stylesheet_link_tag "frontend" %>
+		    <%= stylesheet_link_tag "frontend" %>
 			  <%= render :partial => "layouts/stylesheets" %>
-		<% end %>
 				
 				<%= render :partial => "layouts/javascript" %>
 				

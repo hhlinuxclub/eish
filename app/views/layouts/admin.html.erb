@@ -5,11 +5,10 @@
         <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
         <meta name="ROBOTS" content="NOINDEX, NOFOLLOW" />
         <%= display_meta_tags :site => "Administration - HHLinuxClub.org", :reverse => true %>
-        <% bundle :name => "admin" do %>
-		      <%= stylesheet_link_tag "admin" %>
-			  <%= render :partial => "layouts/stylesheets" %>
-		<% end %>
-				
+
+	      <%= stylesheet_link_tag "admin" %>
+		  	<%= render :partial => "layouts/stylesheets" %>
+			
 				<%= render :partial => "layouts/javascript" %>
 				
 				<link rel="icon" type="image/png" href="/favicon.ico" />
