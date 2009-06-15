@@ -38,7 +38,7 @@ Rails::Initializer.run do |config|
   # Only load the plugins named here, in the order given. By default, all plugins 
   # in vendor/plugins are loaded in alphabetical order.
   # :all can be used as a placeholder for all plugins not explicitly named
-  config.plugins = ["bundle-fu", "meta-tags", "paperclip"]
+  config.plugins = ["meta-tags", "paperclip"]
   # Uncomment to enable search. Also change SEARCH_ENABLED to true in initializers/settings.rb.
   # config.plugins += ["xapit"]
 
