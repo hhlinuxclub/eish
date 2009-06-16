@@ -22,12 +22,9 @@ h1. Required Gems
 
 h1. Plugins Used
 
-* "bundle-fu":http://code.google.com/p/bundle-fu/
 * "MetaTags":http://github.com/kpumuk/meta-tags/
 * "Xapit":http://github.com/ryanb/xapit/
 * "paperclip":http://thoughtbot.com/projects/paperclip
-
-*bundle-fu* combines bundles separate CSS and JS files in to single files for faster transfer from server to client.  It was created by Timothy Harper.  We are using the fork by "zinf":http://github.com/zinf/bundle-fu/tree/master.
 
 *MetaTags* is an SEO plugin by Dmytro Shteflyuk which makes it easier to set the page title and meta tags.
 
