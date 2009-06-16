@@ -1,6 +1,4 @@
-class Admin::HomeController < ApplicationController
-  layout "admin"
-  
+class Admin::HomeController < AdministrationController
   def index
     @role = User.find(session[:user_id]).role
   end

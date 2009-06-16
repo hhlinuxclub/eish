@@ -1,6 +1,5 @@
-class Admin::SettingsController < ApplicationController
+class Admin::SettingsController < AdministrationController
   before_filter :check_for_admin
-  layout "admin"
   
   def index
     @welcome_message = Setting.option("welcome_message")

@@ -1,5 +1,4 @@
 class UsersController < ApplicationController
-  skip_before_filter :authorize
   before_filter :require_https, :only => [:login, :new, :request_credentials, :edit] if HTTPS_FOR_LOGINS
   before_filter :not_logged_in, :only => [:login, :new]
   

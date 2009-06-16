@@ -1,8 +1,6 @@
-class Admin::UsersController < ApplicationController
+class Admin::UsersController < AdministrationController
   before_filter :check_for_admin
-  
-  layout "admin"
- 
+
   def index
     @users = User.all_current_users
     

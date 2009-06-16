@@ -1,6 +1,4 @@
-class NewsController < ApplicationController
-  skip_before_filter :authorize
-  
+class NewsController < ApplicationController  
   def index
     @news = News.paginate_all_by_published(true, :include => :user, :page => params[:page], :per_page => 5, :order => "created_at DESC")
     

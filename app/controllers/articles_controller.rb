@@ -1,6 +1,4 @@
 class ArticlesController < ApplicationController
-  skip_before_filter :authorize
-
   def index
     @articles = Article.paginate_all_by_published(true, :page => params[:page], :per_page => 10, :limit => 5, :order => "created_at DESC")
     @categories = Category.all_alphabetically

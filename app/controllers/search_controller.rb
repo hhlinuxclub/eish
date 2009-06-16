@@ -1,5 +1,4 @@
 class SearchController < ApplicationController
-  skip_before_filter :authorize
   before_filter :search_enabled
   
   def index
