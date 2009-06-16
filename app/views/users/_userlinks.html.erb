@@ -16,11 +16,11 @@
 		<% unless controller.controller_name == "users" %>
 			<% form_tag '/login', :id => form_id ||= nil do %>
 				<p>
-					<%= text_field_tag :username, params[:username], :class => "userLinks", :value => "username", :size => 10 %>
+					<%= text_field_tag :username, params[:username], :class => "userLinks", :value => "username", :size => 10, :tabindex => 1 %>
 
-					<%= password_field_tag :password, params[:password], :class => "userLinks", :value => "password", :size => 10 %>
+					<%= password_field_tag :password, params[:password], :class => "userLinks", :value => "password", :size => 10, :tabindex => 2 %>
 		
-					<%= submit_tag "Login", :class => "userLinks" %> <br />
+					<%= submit_tag "Login", :class => "userLinks", :tabindex => 3 %> <br />
 		
 					<%= check_box_tag :remember_me, params[:remember_me], :class => "userLinks" %>
 					<label for="remember_me" class="userLinks">Remember me</label> &brvbar;
