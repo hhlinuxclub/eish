@@ -34,33 +34,25 @@ $(document).ready(function() {
 	});
 	
 	$("#username.userLinks").focus(function() {
-		var username = $("#username.userLinks").val();
-		
-		if (username == "username") {
+		if ($("#username.userLinks").val() == "username") {
 			$("#username.userLinks").val("");
 		};
 	});
 	
 	$("#username.userLinks").blur(function() {
-		var username = $("#username.userLinks").val();
-		
-		if (username == "") {
+		if ($("#username.userLinks").val() == "") {
 			$("#username.userLinks").val("username");
 		};
 	});
 	
 	$("#password.userLinks").focus(function() {
-		var username = $("#password").val();
-		
-		if (username == "password") {
+		if ($("#password").val() == "password") {
 			$("#password.userLinks").val("");
 		};
 	});
 	
 	$("#password.userLinks").blur(function() {
-		var username = $("#password").val();
-		
-		if (username == "") {
+		if ($("#password").val() == "") {
 			$("#password.userLinks").val("password");
 		};
 	});
