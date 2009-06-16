@@ -99,7 +99,7 @@ body {
 input[type=text].userLinks, 
 input[type=password].userLinks,
 input[type=submit].userLinks,
-input[type=checkbox].userLinks
+input[type=checkbox].userLinks, 
 label.userLinks,
 .userLinks {
 	font-size: 7pt;
