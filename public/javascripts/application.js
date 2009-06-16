@@ -16,15 +16,18 @@ jQuery.fn.submitWithAjax = function() {
   return this;
 };
 
+// Set cookie for admin view tabs
 $(function() {
 		$("#tabs").tabs({ cookie: { expires: 30 }, collapsible: true });
 });
 
 $(document).ready(function() {
+	// markItUp initialization
 	$("textarea.textile").markItUp(mySettings);
 	
 	$("#new_category").submitWithAjax();
 	
+	// Admin view bulk check
 	$("#bulk_check").click(function() {
 		this.checked = !(this.checked == true);
 		var ischecked = !(this.checked == true);
@@ -32,7 +35,22 @@ $(document).ready(function() {
 			this.checked = ischecked;
 		});
 	});
+
+	// jQuery UI datepicker settings
+	$('.date').datepicker({
+		changeMonth: true,
+		changeYear: true,
+		dateFormat: 'dd.mm.yy',
+		showButtonPanel: true
+	});
+
+	// Password strength meter settings
+	$("#user_password").passStrength({
+		messageloc: 1,
+		userid:	"#user_username"
+	});
 	
+	// Login form hints
 	$("#username.userLinks").focus(function() {
 		if ($("#username.userLinks").val() == "username") {
 			$("#username.userLinks").val("");
@@ -56,21 +74,10 @@ $(document).ready(function() {
 			$("#password.userLinks").val("password");
 		};
 	});
+	
 
-	$('.date').datepicker({
-		changeMonth: true,
-		changeYear: true,
-		dateFormat: 'dd.mm.yy',
-		showButtonPanel: true
-	});
-
-	$("#user_password").passStrength({
-		messageloc: 1,
-		userid:	"#user_username"
-	});
-
-  /* Fancybox Default */ 
-  /* Galleries are created from found anchors who have the same "rel" tags */
-  /* Use the title attribute if you want to show a caption */
+  /* Fancybox Default
+     Galleries are created from found anchors who have the same "rel" tags
+     Use the title attribute if you want to show a caption */
   $("a.fancybox").fancybox();
 });
