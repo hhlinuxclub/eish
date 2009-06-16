@@ -33,7 +33,7 @@ $(document).ready(function() {
 		});
 	});
 	
-	$("#username.userLinks").click(function() {
+	$("#username.userLinks").focus(function() {
 		var username = $("#username.userLinks").val();
 		
 		if (username == "username") {
@@ -49,7 +49,7 @@ $(document).ready(function() {
 		};
 	});
 	
-	$("#password.userLinks").click(function() {
+	$("#password.userLinks").focus(function() {
 		var username = $("#password").val();
 		
 		if (username == "password") {
