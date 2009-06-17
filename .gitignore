@@ -18,3 +18,4 @@ public/sitemap*
 db/xapiandb/*
 config/initializers/settings.rb
 config/keys.yml
+*.kpf
