@@ -1,2 +1,20 @@
-<h1>Galleries#index</h1>
-<p>Find me in app/views/galleries/index.html.erb</p>
+<h2 class="title">Galleries</h2>
+
+<table id="gallery">
+    <% @galleries.each_with_index do |gallery, index| %>
+        <% if index % @columns == 0 %>
+            <tr>
+        <% end %>
+        
+        <td>
+            <div class="image">
+                <%= link_to(image_tag(gallery.image.upload.url(:thumb)), gallery) %>
+                <h3><%= link_to(gallery.name, gallery) %></h3>
+            </div>
+        </td>
+        
+        <% if (index + 1) % @columns == 0 || index == @galleries.count - 1 %>
+            </tr>
+        <% end %>
+    <% end %>
+</table>

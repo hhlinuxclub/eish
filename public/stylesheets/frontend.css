@@ -575,6 +575,20 @@ blockquote {
 	padding-left: 10px;
 }
 
+#gallery {
+	border: none;
+	width: 800px;
+}
+
+#gallery .image {
+	float: none;
+	text-align: center;
+}
+
+#gallery .image h3 {
+	font-size: 10pt;
+}
+
 .image {
 	padding: 5px;
 	float: right;

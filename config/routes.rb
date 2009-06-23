@@ -29,6 +29,7 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :news, :singular => :news_article
   map.resources :articles
   map.resources :events
+  map.resources :galleries
   map.resources :users, :member => { :remove => :get }
   map.resources :profiles
 
