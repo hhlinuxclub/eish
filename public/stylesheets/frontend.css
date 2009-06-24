@@ -583,6 +583,7 @@ blockquote {
 #gallery .image {
 	float: none;
 	text-align: center;
+	width: 100px;
 }
 
 #gallery .image h3 {
