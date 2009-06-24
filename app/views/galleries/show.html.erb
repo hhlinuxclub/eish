@@ -1,2 +1,5 @@
-<h1>Galleries#show</h1>
-<p>Find me in app/views/galleries/show.html.erb</p>
+<h2 class="title"><%= @gallery.name %></h2>
+
+<% image_table(@gallery.images, @columns) do |image| %>
+  <%= link_to(image_tag(image.upload.url(:thumb)), image.upload.url(:large), :rel => "group", :class => "fancybox") %>
+<% end %>
