@@ -38,7 +38,6 @@ NB. paperclip requires you to have "ImageMagick":http://www.imagemagick.org inst
 
 h1. Javascript
 
-* "jQuery ClueTip":http://plugins.learningjquery.com/cluetip/
 * "jQuery Cookie plugin":http://plugins.jquery.com/project/cookie
 * "jQuery":http://jquery.com/
 * "jQueryUI":http://jqueryui.com/
@@ -47,8 +46,6 @@ h1. Javascript
 * "markItUp!":http://markitup.jaysalvat.com/
 * "Password Strength Plugin":http://www.mypocket-technologies.com (modified)
 * "SyntaxHighlighter":http://alexgorbatchev.com/wiki/SyntaxHighlighter
-
-The *jQuery ClueTip* is dual licensed under the "MIT":http://www.opensource.org/licenses/mit-license.php and "GPL":http://www.gnu.org/licenses/gpl.html licenses.
 
 The *jQuery Cookie plugin* was created by Klaus Hartl, and it is dual licensed under the "MIT":http://www.opensource.org/licenses/mit-license.php and "GPL":http://www.gnu.org/licenses/gpl.html licenses.
 
