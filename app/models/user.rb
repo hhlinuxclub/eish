@@ -21,7 +21,7 @@ class User < ActiveRecord::Base
   validates_size_of :password, :minimum => 6, :if => Proc.new { |user| !user.password.nil? && !user.password_confirmation.nil? }
   validates_format_of :email, :with => /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\Z/i
   
-  attr_accessor :password_confirmation, :current_password, :remember_me
+  attr_accessor :password_confirmation, :current_password, :remember
   
   def password
     @password
@@ -45,7 +45,7 @@ class User < ActiveRecord::Base
     return user
   end
   
-  def remember_me
+  def remember
     self.remember_token_expires = 2.weeks.from_now
     string_to_hash = salt + self.email + self.remember_token_expires.to_s
     self.remember_token = Digest::SHA1.hexdigest(string_to_hash)
@@ -53,7 +53,7 @@ class User < ActiveRecord::Base
     self.save_with_validation(false)
   end
   
-  def forget_me
+  def forget
     self.remember_token_expires = nil
     self.remember_token = nil
     self.password = ""
