@@ -18,14 +18,12 @@ class User < ActiveRecord::Base
   validates_confirmation_of :password
   validate :password_non_blank
   validates_size_of :username, :minimum => 3
-  validates_size_of :password, :minimum => 6, :if => Proc.new { |user| !user.password.nil? && !user.password_confirmation.nil? }
+  validates_size_of :password, :minimum => 6, :if => Proc.new { |user| !user.password.empty? && !user.password_confirmation.empty? }
   validates_format_of :email, :with => /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\Z/i
   
   attr_accessor :password_confirmation, :current_password, :remember
-  
-  def password
-    @password
-  end
+  attr_reader :password
+  attr_protected :role, :role_id, :hashed_password, :salt
   
   def password=(pwd)
     @password = pwd
