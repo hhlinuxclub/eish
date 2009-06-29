@@ -5,8 +5,9 @@ class SitemapController < ApplicationController
     @upcoming_events = Event.upcoming
     @ongoing_events = Event.ongoing
     @past_events = Event.past
+    @galleries = Gallery.find_all_by_published(true, :conditions => "image_id IS NOT NULL", :order => "id DESC")
     @categories = Category.all_alphabetically
-    
+
     respond_to do |format|
       format.xml { render :layout => false }
       format.html
