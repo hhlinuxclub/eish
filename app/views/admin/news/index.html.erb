@@ -10,7 +10,7 @@
 		<option value="delete" class="delete">Delete</option>
 	</select>
 	<%= submit_tag "Do action" %>
-	
+
 <table>
   <tr>
 	  <th><input type="checkbox" id="bulk_check" /></th>
@@ -23,7 +23,7 @@
 		<tr class="<%= cycle("odd", "even") %>">
 			<td class="checkbox"><input type="checkbox" name="news[<%= news_article.id %>]" /></td>
 	    <td><%= link_to news_article.title, { :id => news_article.id, :action => "edit" }, { :title => "Edit", :class => "listingTitle" } %><br />
-	    		<%=h truncate(news_article.body, 50, "...") %>
+	    		<%=h truncate(news_article.body, :length => 50, :ommission => "...") %>
 	    </td>
 		  <td style="text-align: center;"><%=h short_date(news_article.created_at) %></td>
 		  <td style="text-align: center;">

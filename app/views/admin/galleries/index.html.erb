@@ -10,7 +10,7 @@
 		<option value="delete" class="delete">Delete</option>
 	</select>
 	<%= submit_tag "Do action" %>
-	
+
 <table>
   <tr>
 	  <th><input type="checkbox" id="bulk_check" /></th>
@@ -23,7 +23,7 @@
 		<tr class="<%= cycle("odd", "even") %>">
 			<td class="checkbox"><input type="checkbox" name="galleries[<%= gallery.id %>]" /></td>
 	    <td><%= link_to gallery.name, { :id => gallery.id, :action => "edit" }, { :title => "Edit", :class => "listingTitle" } %><br />
-	    		<%=h truncate(gallery.description, 50, "...") %>
+	    		<%=h truncate(gallery.description, :length => 50, :ommission => "...") %>
 	    </td>
 		  <td style="text-align: center;"><%=h short_date(gallery.created_at) %></td>
 		  <td style="text-align: center;">

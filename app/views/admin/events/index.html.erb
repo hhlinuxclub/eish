@@ -3,14 +3,14 @@
 <p><%= link_to "Add event", new_admin_event_path, :class => 'add' %></p>
 
 <% form_tag("/admin/events/bulk_action") do %>
-	<label for="actions">Bulk actions:</label> 
+	<label for="actions">Bulk actions:</label>
 	<select name="actions">
 		<option value="publish" class="publish">Publish</option>
 		<option value="unpublish" class="unpublish">Unpublish</option>
 		<option value="delete" class="delete">Delete</option>
 	</select>
 	<%= submit_tag "Do action" %>
-	
+
 <table>
 	<tr>
 		<th><input type="checkbox" id="bulk_check" /></th>
@@ -23,7 +23,7 @@
 		<tr class="<%= cycle("odd", "even") %>">
 			<td class="checkbox"><input type="checkbox" name="events[<%= event.id %>]" /></td>
 			<td><%= link_to event.name, { :id => event.id, :action => "edit" }, { :title => "Edit", :class => "listingTitle" } %><br />
-		    		<%=h truncate(event.description, 50, "...") %>
+		    		<%=h truncate(event.description, :length => 50, :ommission => "...") %>
 			<td style="text-align: center;"><%= format_event_dates(event) %></td>
 			<td style="text-align: center;">
 			<% if event.published? %>

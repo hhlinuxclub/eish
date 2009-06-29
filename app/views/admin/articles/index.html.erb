@@ -27,7 +27,7 @@
 		<tr class="<%= cycle("odd", "even") %>">
 			<td class="checkbox"><input type="checkbox" name="articles[<%= article.id %>]" /></td>
 	    <td><%= link_to article.title, { :id => article.id, :action => "edit" }, { :title => "Edit", :class => "listingTitle" } %><br />
-	    		<%=h truncate(article.description, 50, "...") %>
+	    		<%=h truncate(article.description, :length => 50, :ommission => "...") %>
 	    </td>
 		  <td style="text-align: center;"><%=h short_date(article.created_at) %></td>
 			<td style="text-align: center;"><%= article.current_revision_id %></td>
