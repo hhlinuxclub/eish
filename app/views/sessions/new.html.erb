@@ -1,4 +1,6 @@
-<% form_tag '/login', :id => form_id ||= nil do %>
+<h2 class="title">Login</h2>
+
+<% form_tag '/sessions/create', :id => form_id ||= nil do %>
 	<p>
 		<label for="username">Username:</label>
 		<%= text_field_tag :username, params[:username] %>

@@ -14,7 +14,7 @@
 			&brvbar; <%= link_to "Logout", logout_path %> </p>
 	<% else %>
 		<% unless controller.controller_name == "users" %>
-			<% form_tag '/login', :id => form_id ||= nil do %>
+			<% form_tag '/sessions/create', :id => form_id ||= nil do %>
 				<p>
 					<%= text_field_tag :username, params[:username], :class => "userLinks", :value => "username", :size => 10, :tabindex => 1 %>
 

@@ -2,40 +2,6 @@ class UsersController < ApplicationController
   before_filter :require_https, :only => [:login, :new, :request_credentials, :edit] if HTTPS_FOR_LOGINS
   before_filter :not_logged_in, :only => [:login, :new]
 
-  def login
-    set_meta_tags :title => 'Login',
-                  :description => 'Login page',
-                  :keywords => 'Site, Login, Users'
-
-    if request.post?
-      @user = User.authenticate(params[:username], params[:password])
-      if @user
-        session[:user_id] = @user.id
-        flash[:notice] = "Login successful!"
-        if params[:remember_me] == "on"
-          @user.remember_me
-          cookies[:auth_token] = { :value => @user.remember_token, :expires => @user.remember_token_expires }
-        end
-      else
-        flash[:error] = "Invalid user/password combination."
-      end
-
-      respond_to do |format|
-        format.html { redirect_to params[:request_uri] || :root }
-      end
-    end
-  end
-
-  def logout
-    User.find(session[:user_id]).forget_me
-    session[:user_id] = nil
-    flash[:notice] = "Logged out."
-
-    respond_to do |format|
-      format.html { redirect_to request.referrer || :root }
-    end
-  end
-
   def show
     redirect_to :action => "edit"
   end
