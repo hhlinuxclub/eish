@@ -1,27 +1,29 @@
-<h2 class="title">Login</h2>
-
 <% form_tag '/sessions/create', :id => form_id ||= nil do %>
-	<p>
-		<label for="username">Username:</label>
-		<%= text_field_tag :username, params[:username] %>
-	</p>
+	<div id="login">
+		<h2 class="title" style="padding-bottom: 10px;">Login</h2>
+		<p>
+			<label for="username">Username</label><br />
+			<%= text_field_tag :username, params[:username], :class => "bigInput" %>
+		</p>
 
-	<p>
-		<label for="password">Password:</label>
-		<%= password_field_tag :password, params[:password] %>
-	</p>
-	
-	<p>
-		<%= check_box_tag :remember_me, params[:remember_me] %>
-		<label for="remember_me">Remember me</label>
-	</p>
+		<p>
+			<label for="password">Password</label><br />
+			<%= password_field_tag :password, params[:password], :class => "bigInput"  %>
+		</p>
 
-	<p>
-		<%= submit_tag "Login" %> &nbsp; <%= link_to "I forgot my password or username", { :controller => "users", :action => "request_credentials" } , :class => "requestCredentials" %>
-		<% if request.protocol == 'http://' && HTTPS_FOR_LOGINS %>
-			<p>
-				<%= link_to "Login with HTTPS", { :controller => "users", :action => "login", :protocol => "https", :only_path => false } %>
-			</p>
-		<% end %>
-	</p>
+		<p>
+			<%= check_box_tag :remember_me, params[:remember_me] %>
+			<label for="remember_me">Remember me</label>
+		</p>
+
+		<p>
+			<%= submit_tag "Login" %> &nbsp; <%= link_to "I forgot my password or username", { :controller => "users", :action => "request_credentials" } , :class => "requestCredentials" %>
+			<% if request.protocol == 'http://' && HTTPS_FOR_LOGINS %>
+				<p>
+					<%= link_to "Login with HTTPS", { :controller => "users", :action => "login", :protocol => "https", :only_path => false } %>
+				</p>
+			<% end %>
+		</p>
+	</div>
 <% end %>
+

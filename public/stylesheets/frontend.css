@@ -96,10 +96,24 @@ body {
 	color: #666666;
 }
 
-input[type=text].userLinks, 
+#login {
+	border: 20px solid #b2c2d1;
+	width: 40%;
+	margin: 40px auto 40px auto;
+	padding: 10px 10px 10px 10px;
+	background: #d3dced;
+}
+
+.bigInput {
+	font-size: 150%;
+	font-weight: bold;
+	color: #333;
+}
+
+input[type=text].userLinks,
 input[type=password].userLinks,
 input[type=submit].userLinks,
-input[type=checkbox].userLinks, 
+input[type=checkbox].userLinks,
 label.userLinks,
 .userLinks {
 	font-size: 7pt;
@@ -110,7 +124,7 @@ label.userLinks {
 	font-weight: normal;
 }
 
-input[type=text].userLinks, 
+input[type=text].userLinks,
 input[type=password].userLinks {
 	border: 1px solid #fff;
 }
@@ -192,11 +206,11 @@ p, ul, li {
 	margin-bottom: 1em;
 }
 
-#content h1, 
-#content h2, 
-#content h3, 
-#content h4, 
-#content h5, 
+#content h1,
+#content h2,
+#content h3,
+#content h4,
+#content h5,
 #content h6 {
 	margin-bottom: 0.1em;
 	line-height: 1;
@@ -438,7 +452,7 @@ label {
 }
 
 #feedsBox,
-#upcomingEventsBox, 
+#upcomingEventsBox,
 #latestNewsBox,
 #featuredArticleBox {
 	padding-top: 20px;
