@@ -21,7 +21,7 @@ class UsersController < ApplicationController
       end
 
       respond_to do |format|
-        format.html { redirect_to params[:request_uri] }
+        format.html { redirect_to params[:request_uri] || :root }
       end
     end
   end
@@ -32,7 +32,7 @@ class UsersController < ApplicationController
     flash[:notice] = "Logged out."
 
     respond_to do |format|
-      format.html { redirect_to request.referrer }
+      format.html { redirect_to request.referrer || :root }
     end
   end
 
