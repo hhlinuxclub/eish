@@ -19,12 +19,14 @@
 					<%= text_field_tag :username, params[:username], :class => "userLinks", :value => "username", :size => 10, :tabindex => 1 %>
 
 					<%= password_field_tag :password, params[:password], :class => "userLinks", :value => "password", :size => 10, :tabindex => 2 %>
-		
+
 					<%= submit_tag "Login", :class => "userLinks", :tabindex => 3 %> <br />
-		
+
+					<%= hidden_field_tag "request_uri", request.request_uri %>
+
 					<%= check_box_tag :remember_me, params[:remember_me], :class => "userLinks" %>
 					<label for="remember_me" class="userLinks">Remember me</label> &brvbar;
-					<%= link_to "Register", new_user_path %> &brvbar; 
+					<%= link_to "Register", new_user_path %> &brvbar;
 					<%= link_to "Forgot?", request_credentials_path %>
 				</p>
 			<% end %>
