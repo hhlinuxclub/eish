@@ -2,50 +2,50 @@
 
 <% form_for :user, @user, :url => { :action => "create" } do |f| %>
 	<%= f.error_messages %>
-	
+
 	<p>
 		<%= f.label :first_name %>
 		<br />
-		<%= f.text_field :first_name, :size => 30, :tabindex => 1, :class => "textField" %>
+		<%= f.text_field :first_name, :size => 30, :tabindex => 1, :class => "bigInput" %>
 	</p>
-	
+
 	<p>
 		<%= f.label :last_name %>
 		<br />
-		<%= f.text_field :last_name, :size => 30, :tabindex => 2, :class => "textField"  %>
+		<%= f.text_field :last_name, :size => 30, :tabindex => 2, :class => "bigInput"  %>
 	</p>
-	
+
 	<p>
 		<%= f.label :email %>
 		<br />
-		<%= f.text_field :email, :size => 30, :tabindex => 3, :class => "textField"  %>
+		<%= f.text_field :email, :size => 30, :tabindex => 3, :class => "bigInput"  %>
 	</p>
 
 	<p>
 		<%= f.label :username, "Desired Username" %>
 		<br />
-		<%= f.text_field :username, :size => 30, :tabindex => 4, :class => "textField"  %>
+		<%= f.text_field :username, :size => 30, :tabindex => 4, :class => "bigInput"  %>
 	</p>
-	
+
 	<p>
 		<%= f.label :password %>
 		<br />
-		<%= f.password_field :password, :size => 30, :tabindex => 5, :class => "textField"  %>
+		<%= f.password_field :password, :size => 30, :tabindex => 5, :class => "bigInput"  %>
 	</p>
-	
+
 	<p>
 		<%= f.label :password_confirmation %>
 		<br />
-		<%= f.password_field :password_confirmation, :size => 30, :tabindex => 6, :class => "textField"  %>
+		<%= f.password_field :password_confirmation, :size => 30, :tabindex => 6, :class => "bigInput"  %>
 	</p>
 
-	<% if RCC_ENABLED %> 
+	<% if RCC_ENABLED %>
 	<p>
 		<%= get_captcha(:options => {:tabindex => 7}) %>
 	</p>
 	<% end %>
-	
+
 	<p>
-		<%= f.submit "Register", :class => "submit", :tabindex => 8 %>
+		<%= f.submit "Register", :class => "submit", :tabindex => 8, :class => "bigInput" %>
 	</p>
 <% end %>
