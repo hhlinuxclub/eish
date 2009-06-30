@@ -290,6 +290,7 @@ div#fancy_title div {
 
 div#fancy_title table {
 	margin: 0 auto;
+	width: auto;
 }
 
 div#fancy_title table td {
