@@ -1,15 +1,11 @@
-class Admin::ArticlesController < AdministrationController   
+class Admin::ArticlesController < AdministrationController
+  include Diff
+  
   def index
-    user = User.find(session[:user_id])
-    
     set_meta_tags :title => "Articles"
     
-    if user.role.can_update? || user.role.can_delete? || user.role.can_publish? || user.role.can_administer?
-      @articles = Article.find(:all, :order => "created_at DESC", :include => :revisions)
-    else
-      @articles = Article.find_all_by_user_id(user.id, :order => "created_at DESC", :include => :revisions)
-    end
-    @featured_article = Setting.option("featured_article").to_i
+    @articles = Article.find_all_for_user(current_user, :order => "id DESC")
+    @featured_article = Setting.featured_article_id
 
     respond_to do |format|
       format.html
@@ -17,23 +13,20 @@ class Admin::ArticlesController < AdministrationController
   end
 
   def show
-    redirect_to :action => "edit"
+    respond_to do |format|
+      format.html { redirect_to :action => "edit" }
+    end
   end
 
   def new
+    set_meta_tags :title => "Create new article"
+    
     @article = Article.new
     @category = Category.new
     @categories = Category.all
-    user = User.find(session[:user_id])
-    
-    set_meta_tags :title => "Create new article"
 
     respond_to do |format|
-      if user.role.can_create?
-        format.html
-      else
-        format.html { redirect_to admin_articles_path }
-      end
+      format.html
     end
   end
 
@@ -41,12 +34,11 @@ class Admin::ArticlesController < AdministrationController
     @article = Article.find(params[:id], :include => :categories)
     @category = Category.new
     @categories = Category.all
-    user = User.find(session[:user_id])
     
     set_meta_tags :title => "Editing '" + @article.title + "'"
     
     respond_to do |format|
-      if user.role.can_update? || user.id == @article.user_id
+      if @article.editable?(current_user)
         format.html
       else
         format.html { redirect_to admin_articles_path }
@@ -55,13 +47,8 @@ class Admin::ArticlesController < AdministrationController
   end
 
   def create
-    user = User.find(session[:user_id])
-
-    redirect_to admin_articles_path and return unless user.role.can_create?
-
     @article = Article.new(params[:article])
-    @article.category_ids = params[:categories].keys.to_a unless params[:categories].nil?
-    @article.user_id = session[:user_id]
+    @article.user_id = current_user_id
 
     if params[:create_category]
       category = Category.create!(params[:category])
@@ -73,8 +60,6 @@ class Admin::ArticlesController < AdministrationController
       else
         flash.now[:error] = "The category " + category.name + " has articles associated with it."
       end
-    elsif params[:preview]
-      @preview = @article
     end
     @categories = Category.all
 
@@ -84,7 +69,7 @@ class Admin::ArticlesController < AdministrationController
       else
         if @article.save
           flash[:notice] = "Article successfully created."
-          @article.assets.create(params[:asset].merge!(:user_id => user.id)) if params[:upload]
+          @article.assets.create(params[:asset].merge!(:user_id => current_user_id)) if params[:upload]
           format.html { redirect_to edit_admin_article_path @article }
         else
           format.html { render :action => "new" }
@@ -94,17 +79,12 @@ class Admin::ArticlesController < AdministrationController
   end
   
   def update
-    user = User.find(session[:user_id])
     @article = Article.find(params[:id])
 
-    if !user.role.can_update? && @article.user_id != user.id
-      redirect_to admin_articles_path and return
-    end
+    redirect_to admin_articles_path and return unless @article.editable?(current_user)
     
-    @article.category_ids = params[:categories].keys.to_a unless params[:categories].nil?
-
     if params[:upload]
-      @article.assets.create(params[:asset].merge!(:user_id => user.id))
+      @article.assets.create(params[:asset].merge!(:user_id => current_user_id))
     elsif params[:create_category]
       category = Category.create!(params[:category])
       @article.categories << category
@@ -120,8 +100,6 @@ class Admin::ArticlesController < AdministrationController
       end
     elsif params[:diff]
       diff_path = article_diff_path :id => params[:id], :rev_a => params[:rev_a], :rev_b => params[:rev_b]
-    elsif params[:preview]
-      @preview = @article
     end
     
     @article.attributes = params[:article]
@@ -133,7 +111,7 @@ class Admin::ArticlesController < AdministrationController
       elsif params[:diff]
         format.html { redirect_to diff_path }
       else
-        @article.updated_by_user_id = session[:user_id]
+        @article.updated_by_user_id = current_user_id
         if params[:image] == "nil"
           @article.image = nil
         else
@@ -151,9 +129,8 @@ class Admin::ArticlesController < AdministrationController
 
   def destroy
     @article = Article.find(params[:id])
-    user = User.find(session[:user_id])
     
-    if user.role.can_delete?
+    if current_user.role.can_delete?
       if @article.destroy
         flash[:notice] = "Article was successfully deleted."
       else
@@ -184,10 +161,6 @@ class Admin::ArticlesController < AdministrationController
     end
   end
   
-  def preview
-    render :layout => false
-  end
-  
   def compare
     @rev_a = Revision.find_by_article_id_and_number(params[:id].to_i, params[:rev_a])
     @rev_b = Revision.find_by_article_id_and_number(params[:id].to_i, params[:rev_b])
@@ -205,9 +178,8 @@ class Admin::ArticlesController < AdministrationController
   
   def change_revision
     article = Article.find(params[:id])
-    user = User.find(session[:user_id])
     
-    article.change_to_revision(params[:revision]) if user.role.can_update? || user.id == article.user_id
+    article.change_to_revision(params[:revision]) if current_user.role.can_update? || current_user_id == article.user_id
     
     respond_to do |format|
       format.html { redirect_to edit_admin_article_path(params[:id]) }
@@ -219,7 +191,6 @@ class Admin::ArticlesController < AdministrationController
       selected = []
       params[:articles].each { |id, value| selected << id if value == "on" }
       articles = Article.find(selected)
-      user = User.find(session[:user_id])
       featured_article = Article.featured
     
       case params[:actions]
@@ -227,15 +198,15 @@ class Admin::ArticlesController < AdministrationController
           if articles.include? featured_article
             flash[:error] = "Cannot delete the featured article."
           else
-            articles.each { |a| a.destroy } if user.role.can_delete?
+            articles.each { |a| a.destroy } if current_user.role.can_delete?
           end
         when "publish"
-          articles.each { |a| a.publish } if user.role.can_publish?
+          articles.each { |a| a.publish } if current_user.role.can_publish?
         when "unpublish"
           if articles.include? featured_article
             flash[:error] = "Cannot unpublish the featured article."
           else
-            articles.each { |a| a.publish(false) } if user.role.can_publish?
+            articles.each { |a| a.publish(false) } if current_user.role.can_publish?
           end
       end
     end

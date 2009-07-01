@@ -46,11 +46,10 @@ class Admin::UsersController < AdministrationController
   
   def update
     @user = User.find_by_username(params[:id])
-    params[:user].delete(:password) if params[:user][:password].empty?
-    params[:user].delete(:password_confirmation) if params[:user][:password_confirmation].empty?
+    @user.role_id = params[:user][:role_id] unless @user.role.can_administer?
     
     respond_to do |format|
-      if @user.role.can_administer? && @user.id != session[:user_id]
+      if @user.role.can_administer? && @user.id != current_user_id
         flash[:error] = "Cannot update another administrator."
         format.html { redirect_to(:action=>:index) }
       elsif @user.update_attributes(params[:user])

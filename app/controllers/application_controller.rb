@@ -2,6 +2,8 @@
 # Likewise, all the methods added will be available for all controllers.
 
 class ApplicationController < ActionController::Base
+  include Authentication
+  
   before_filter :login_from_cookie
   
   helper :all # include all helpers, all the time
@@ -18,25 +20,13 @@ class ApplicationController < ActionController::Base
   filter_parameter_logging :password, :current_password, :password_confirmation
   
   protected
-    
-    def login_from_cookie
-      return unless cookies[:auth_token] && session[:user_id].nil?
-      user = User.find_by_remember_token(cookies[:auth_token])
-      if user && !user.remember_token_expires.nil? && Time.now < user.remember_token_expires
-        session[:user_id] = user.id
-      end
-    end
-    
-    def check_for_admin
-      unless User.find(session[:user_id]).role.can_administer?
-        flash[:error] = "You do not have enough privileges."
-        redirect_to :admin
-      end
-    end
-  
     def search_enabled
       unless SEARCH_ENABLED == true
         redirect_to :root
       end
+    end
+    
+    def require_https
+      redirect_to :protocol => "https://" unless (request.ssl? or local_request?)
     end
 end

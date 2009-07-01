@@ -3,13 +3,13 @@
 <% form_for(:news_article, @news_article, :controller => "admin/news", :url => { :action => "update"}, :html => { :method => :put, :multipart => true }) do |f| %>
   <%= f.error_messages %>
 
-	<% if @preview %>
+	<% if params[:preview] %>
 		<div id="preview" title="Preview">
-			<h1><%= @preview.title %></h1>
-			<%= textilize @preview.body %>
+			<h1><%= @news_article.title %></h1>
+			<%= textilize @news_article.body %>
 		</div>
 	<% end %>
-
+	
   <p>
     <%= f.label :title %><br />
     <%= f.text_field :title, :class => "titleField", :size => 39 %>

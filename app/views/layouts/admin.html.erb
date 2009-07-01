@@ -28,7 +28,7 @@
 									<li class="eventsLink"><%= link_to "Events", admin_events_path %></li>
 									<li class="galleriesLink"><%= link_to "Galleries", admin_galleries_path %></li>
 									<li class="aboutLink"><%= link_to "About", :controller => "about", :action => "index"%></li>
-									<% if User.find(session[:user_id]).role.can_administer? %>
+									<% if current_user.role.can_administer? %>
 										<li class="usersLink"><%= link_to "Users", admin_users_path %></li>
 										<li class="settingsLink"><%= link_to "Settings", :controller => "settings", :action => "index" %></li>
 									<% end %>

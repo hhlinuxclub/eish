@@ -4,7 +4,7 @@
 	<%=h @user.username %>
 </h2>
 
-<% if @user.id == session[:user_id] %>
+<% if @user.id == current_user_id %>
 	<p class="adminLinks">
 		<%= link_to "[Edit profile]", edit_profile_path(@user) %>
 		<%= link_to "[Account options]", user_path(@user) %>

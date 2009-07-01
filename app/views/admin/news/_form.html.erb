@@ -1,10 +1,10 @@
 <% form_for [:admin, @news_article], :html => { :multipart => true } do |f| %>
   <%= f.error_messages %>
 
-	<% if @preview %>
+	<% if params[:preview] %>
 		<div id="preview" title="Preview">
-			<h1><%= @preview.title %></h1>
-			<%= textilize @preview.body %>
+			<h1><%= @news_article.title %></h1>
+			<%= textilize @news_article.body %>
 		</div>
 	<% end %>
 

@@ -1,21 +1,21 @@
 <% form_for [:admin, @event], :html => { :multipart => true } do |f| %>
 	<%= f.error_messages %>
 	
-	<% if @preview %>
+	<% if params[:preview] %>
 		<div id="preview" title="Preview">
-			<h1><%=h @preview.name %></h1>
+			<h1><%=h @event.name %></h1>
 			<p class="metadata">
-				<% if @preview.all_day == "1" %>
-					<%= @preview.starts_at_date %>
+				<% if @event.all_day == "1" %>
+					<%= @event.starts_at_date %>
 				<% else %>
-					<%= @preview.starts_at_date + " " + @preview.starts_at_time + " &mdash; " + @preview.ends_at_date + " " + @preview.ends_at_time %>
+					<%= @event.starts_at_date + " " + @event.starts_at_time + " &mdash; " + @event.ends_at_date + " " + @event.ends_at_time %>
 				<% end %>
 			</p>
 			<p>
-				<b>Address: </b><%=h @preview.address %><br />
-				<b>Location: </b><%=h @preview.location %>
+				<b>Address: </b><%=h @event.address %><br />
+				<b>Location: </b><%=h @event.location %>
 			</p>
-			<%= textilize @preview.description %>
+			<%= textilize @event.description %>
 		</div>
 	<% end %>
 	

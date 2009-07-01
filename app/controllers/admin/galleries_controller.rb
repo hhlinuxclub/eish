@@ -1,14 +1,8 @@
 class Admin::GalleriesController < AdministrationController
-  def index
-    user = User.find(session[:user_id])
-    
+  def index    
     set_meta_tags :title => "Galleries"
     
-    if user.role.can_update? || user.role.can_delete? || user.role.can_publish? || user.role.can_administer?
-      @galleries = Gallery.find(:all, :order => "id DESC")
-    else
-      @galleries = Gallery.find_all_by_user_id(user.id, :order => "id DESC")
-    end
+    @galleries = Gallery.find_all_for_user(current_user, :order => "id DESC")
     
     respond_to do |format|
       format.html
@@ -16,14 +10,13 @@ class Admin::GalleriesController < AdministrationController
   end
 
   def show
-    redirect_to :action => "edit"
+    respond_to do |format|
+      format.html { redirect_to :action => "edit" }
+    end
   end
 
   def new
     @gallery = Gallery.new
-    user = User.find(session[:user_id])
-    
-    redirect_to admin_galleries_path and return unless user.role.can_create?
     
     respond_to do |format|
       format.html
@@ -32,11 +25,8 @@ class Admin::GalleriesController < AdministrationController
 
   def edit
     @gallery = Gallery.find(params[:id])
-    user = User.find(session[:user_id])
     
-    if !user.role.can_update? && user.id != @gallery.user_id
-      redirect_to admin_galleries_path and return
-    end
+    redirect_to admin_galleries_path and return unless @gallery.editable?(current_user)
     
     set_meta_tags :title => "Editing '" + @gallery.name + "'"
     
@@ -46,12 +36,8 @@ class Admin::GalleriesController < AdministrationController
   end
 
   def create
-    user = User.find(session[:user_id])
-    
-    redirect_to admin_galleries_path and return unless user.role.can_create?
-    
     @gallery = Gallery.new(params[:gallery])
-    @gallery.user_id = user.id
+    @gallery.user_id = current_user_id
     
     respond_to do |format|
       if @gallery.save
@@ -65,14 +51,11 @@ class Admin::GalleriesController < AdministrationController
 
   def update
     @gallery = Gallery.find(params[:id])
-    user = User.find(session[:user_id])
     
-    if !user.role.can_update? && @gallery.user_id != user.id
-      redirect_to admin_galleries_path and return
-    end
+    redirect_to admin_galleries_path and return unless @gallery.editable?(current_user)
     
     if params[:upload]
-      uploaded_image = @gallery.images.create(params[:asset].merge!(:user_id => user.id))
+      uploaded_image = @gallery.images.create(params[:asset].merge!(:user_id => current_user_id))
       @gallery.update_attribute(:image_id, uploaded_image.id) if @gallery.image.nil?
     elsif params[:destroy_image]
       Image.find(params[:destroy_image]).destroy
@@ -101,15 +84,14 @@ class Admin::GalleriesController < AdministrationController
       selected = []
       params[:galleries].each { |id, value| selected << id if value == "on" }
       galleries = Gallery.find(selected)
-      user = User.find(session[:user_id])
     
       case params[:actions]
         when "delete"
-          galleries.each { |g| g.destroy } if user.role.can_delete?
+          galleries.each { |g| g.destroy } if current_user.role.can_delete?
         when "publish"
-          galleries.each { |g| g.publish } if user.role.can_publish?
+          galleries.each { |g| g.publish } if current_user.role.can_publish?
         when "unpublish"
-          galleries.each { |g| g.publish(false) } if user.role.can_publish?
+          galleries.each { |g| g.publish(false) } if current_user.role.can_publish?
       end
     end
     

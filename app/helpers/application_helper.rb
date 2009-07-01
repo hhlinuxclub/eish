@@ -1,5 +1,6 @@
 # Methods added to this helper will be available to all templates in the application.
 module ApplicationHelper
+  include Authentication
   include ReCaptcha::ViewHelper
   
   def long_date(time)
@@ -16,10 +17,6 @@ module ApplicationHelper
     else
       return false
     end
-  end
-  
-  def logged_in?
-    return !session[:user_id].nil?
   end
   
   def navigation(*controllers)
@@ -40,20 +37,6 @@ module ApplicationHelper
   end
   
   def can_edit?(item)
-    if logged_in?
-      user = User.find(session[:user_id])
-      if user.role.can_administer? || user.role.can_update? || (user.id == item.user_id && !user.normal_user?)
-        return true
-      end
-    end
-    return false
-  end
-  
-  def preview_button(url, data={})
-    xhtml = "<input onclick=\"$.ajax({data:'"
-    data.each { |key, value| xhtml << "#{key}=' + $('#" + value + "').val() + '&amp;" }
-    xhtml << "#{request_forgery_protection_token}=' + encodeURIComponent('#{escape_javascript form_authenticity_token}')"
-    xhtml << ", success:function(request){$('#preview').html(request);}, type:'post', url:'" + url + "'});\" "
-    xhtml << "type=\"button\" value=\"Preview\" />"
+    logged_in? ? item.editable?(current_user) : false
   end
 end

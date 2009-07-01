@@ -14,7 +14,7 @@ class ProfilesController < ApplicationController
   def edit
     @user = User.find_by_username(params[:id])
     
-    redirect_to profile_path @user and return unless @user.id == session[:user_id]
+    redirect_to profile_path @user and return unless @user.id == current_user_id
     
     set_meta_tags :title => @user.username,
                   :description => 'Profile page',
@@ -28,7 +28,7 @@ class ProfilesController < ApplicationController
   def update
     @user = User.find(params[:id])
     
-    redirect_to profile_path @user and return unless @user.id == session[:user_id]
+    redirect_to profile_path @user and return unless @user.id == current_user_id
     
     respond_to do |format|
       if @user.profile.update_attributes(params[:profile])
