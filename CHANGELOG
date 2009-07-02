@@ -25,6 +25,11 @@ Released
 [0.2] Alpha 2
  * Same functions as 0.1 at a usable status
  * User roles implemented
+ * Article revision control
+ * New administration interface
+ * User roles
+ * Multipart emails
+ * Password resets
 
 [0.1] Early Alpha
  * Most of the major functionality implemented (Home page, News, Events, Articles, About page) at at least a rough level
@@ -59,7 +64,6 @@ Unreleased
  * Added the Markitup! textile editor
  * Asset and image uploads
  * Improved user profiles
- * Article revision control
  * Moved to jQuery
  * Support for Google Analytics
 
