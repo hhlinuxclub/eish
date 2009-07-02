@@ -1,14 +1,6 @@
 class AdministrationController < ApplicationController
+  include Authorization::Filters
   before_filter :authorize
+  before_filter :check_create_privileges, :only => [:new, :create]
   layout "admin"
-  
-  protected
-    
-    def authorize
-      if session[:user_id].nil? || (!session[:user_id].nil? && User.find(session[:user_id]).normal_user?)
-        session[:original_uri] = request.request_uri
-        flash[:error] = "Please log in with enough privileges."
-        redirect_to :login
-      end
-    end
 end

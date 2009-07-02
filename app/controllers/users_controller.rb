@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
-  before_filter :require_https, :only => [:login, :new, :request_credentials, :edit] if HTTPS_FOR_LOGINS
-  before_filter :not_logged_in, :only => [:login, :new]
+  before_filter :require_https, :only => [:new, :request_credentials, :edit] if HTTPS_FOR_LOGINS
+  before_filter :not_logged_in, :only => [:new, :request_credentials]
 
   def show
     redirect_to :action => "edit"
@@ -21,7 +21,7 @@ class UsersController < ApplicationController
   def edit
     @user = User.find_by_username(params[:id])
 
-    redirect_to :root and return unless @user.id == session[:user_id]
+    redirect_to :root and return unless @user.id == current_user_id
 
     respond_to do |format|
       format.html
@@ -46,7 +46,7 @@ class UsersController < ApplicationController
   def update
     @user = User.find_by_username(params[:id])
 
-    redirect_to :root and return unless @user.id == session[:user_id]
+    redirect_to :root and return unless @user.id == current_user_id
 
     respond_to do |format|
       if User.encrypted_password(params[:user][:current_password], @user.salt) == @user.hashed_password
@@ -68,7 +68,7 @@ class UsersController < ApplicationController
   def remove
     @user = User.find_by_username(params[:id])
 
-    redirect_to :root and return unless @user.id == session[:user_id]
+    redirect_to :root and return unless @user.id == current_user_id
 
     respond_to do |format|
       format.html
@@ -76,13 +76,12 @@ class UsersController < ApplicationController
   end
 
   def destroy
-    user = User.find(session[:user_id])
-    current_hashed_password = User.encrypted_password(params[:user][:current_password], user.salt)
+    current_hashed_password = User.encrypted_password(params[:user][:current_password], current_user.salt)
 
     respond_to do |format|
-      if current_hashed_password == user.hashed_password
-        if user.safe_destroy
-          session[:user_id] = nil
+      if current_hashed_password == current_user.hashed_password
+        if current_user.safe_destroy
+          reset_session
           flash[:notice] = "Your account was deleted successfully."
           format.html { redirect_to :root }
         else
@@ -102,11 +101,7 @@ class UsersController < ApplicationController
                   :keywords => "Users"
 
     respond_to do |format|
-      if session[:user_id].nil?
-        format.html
-      else
-        format.html { redirect_to :root }
-      end
+      format.html
     end
   end
 
@@ -154,22 +149,6 @@ class UsersController < ApplicationController
         flash[:error] = "The password do not match. Please try again."
         format.html { redirect_to :action => "password_reset" }
       end
-    end
-  end
-
-  protected
-
-  def require_https
-    redirect_to :protocol => "https://" unless (request.ssl? or local_request?)
-  end
-
-  def not_logged_in
-    if !session[:user_id].nil?
-        flash[:error] = "You are already logged in"
-
-        respond_to do |format|
-          format.html { redirect_to :root }
-        end
     end
   end
 end

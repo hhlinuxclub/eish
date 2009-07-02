@@ -43,10 +43,14 @@ class Event < ActiveRecord::Base
   end
   
   def all_day?
-    if self.starts_at.hour == 0 && self.starts_at.min == 0 && self.ends_at.hour == 0 && self.ends_at.min == 0
-      return true
-    else
-      return false
+    return self.starts_at.hour == 0 && self.starts_at.min == 0 && self.ends_at.hour == 0 && self.ends_at.min == 0
+  end
+  
+  def before_save
+    if all_day == "1" || all_day == true
+      start_date = starts_at.to_date
+      self.starts_at = start_date
+      self.ends_at = start_date + 1
     end
   end
   
@@ -95,14 +99,6 @@ class Event < ActiveRecord::Base
     end
     
     return calendar.to_ical
-  end
-  
-  def before_save
-    if all_day == "1" || all_day == true
-      start_date = starts_at.to_date
-      self.starts_at = start_date
-      self.ends_at = start_date + 1
-    end
   end
   
   def publish(status=true)

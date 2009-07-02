@@ -18,7 +18,7 @@
     <th>Created</th>
 	<th>Revision</th>
 	<th>Status</th>
-		<% if User.find(session[:user_id]).role.can_administer? %>
+		<% if current_user.role.can_administer? %>
 			<th>Featured</th>
 		<% end %>
   </tr>
@@ -38,7 +38,7 @@
 				<%= image_tag("tango/22px/unpublish.png", :alt => "Unpublished") %>
 			<% end %>
 		  </td>
-			<% if User.find(session[:user_id]).role.can_administer? %>
+			<% if current_user.role.can_administer? %>
 				<td style="text-align: center;">
 					<% if defined? article.published && article.published %>
   					<% if article.id != @featured_article %>

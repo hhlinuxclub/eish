@@ -11,8 +11,7 @@ class ContactController < ApplicationController
   
   def send_email
     recipient = User.find(params[:user][:user_id]).email
-    logged_in = !session[:user_id].nil?
-    user = logged_in ? User.find(session[:user_id]) : User.new(:first_name => params[:name], :email => params[:email])
+    user = logged_in? ? current_user : User.new(:first_name => params[:name], :email => params[:email])
     valid_captcha = RCC_ENABLED && !logged_in ? validate_recap(params, ActiveRecord::Errors.new(nil)) : true
     
     respond_to do |format|
@@ -32,7 +31,7 @@ class ContactController < ApplicationController
   protected
   
   def check_form
-    if session[:user_id].nil?
+    if !logged_in?
       email_reg = /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\Z/i 
       valid_email = email_reg.match(params[:email])? true : false
       empty_name = params[:name].empty?

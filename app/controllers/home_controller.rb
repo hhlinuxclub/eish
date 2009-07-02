@@ -6,7 +6,7 @@ class HomeController < ApplicationController
     upcoming_events = Event.upcoming(4 - ongoing_events.count)
     @events = ongoing_events + upcoming_events
     
-    @user = User.find(session[:user_id]) unless session[:user_id].nil?
+    @user = current_user unless !logged_in?
     @welcome_message = Setting.option("welcome_message")
     @featured_article = Article.featured
   end

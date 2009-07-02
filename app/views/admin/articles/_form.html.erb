@@ -1,11 +1,11 @@
 <% form_for [:admin, @article], :html => { :multipart => true } do |f| %>
   <%= f.error_messages%>
 
-	<% if @preview %>
+	<% if params[:preview] %>
 		<div id="preview" title="Preview">
-			<h1><%= @preview.title %></h1>
-			<p><strong><%= @preview.description %></strong></p>
-			<%= textilize @preview.body %>
+			<h1><%= @article.title %></h1>
+			<p><strong><%= @article.description %></strong></p>
+			<%= textilize @article.body %>
 		</div>
 	<% end %>
 
@@ -46,7 +46,7 @@
 						<% for category in @categories %>
 						<tr class="<%= cycle("odd", "even") %>">
 							<td>
-								<%= check_box_tag "categories[#{category.id}]", category.id, @article.categories.include?(category) %>
+								<%= check_box_tag "article[category_ids][]", category.id, @article.categories.include?(category) %>
 								<label for="categories_<%= category.id%>"><%= category.name %></label>
 							</td>
 							<td>

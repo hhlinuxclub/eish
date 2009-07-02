@@ -1,4 +1,7 @@
 class SessionsController < ApplicationController
+  before_filter :require_https, :only => [:new, :create] if HTTPS_FOR_LOGINS
+  before_filter :not_logged_in, :only => [:new, :create]
+  
   def new
     set_meta_tags :title => 'Login',
                   :description => 'Login page',
@@ -23,12 +26,12 @@ class SessionsController < ApplicationController
     end
 
     respond_to do |format|
-      format.html { redirect_to :back || :root }
+      format.html { redirect_to session[:original_uri] || :back || :root }
     end
   end
   
   def destroy
-    User.find(session[:user_id]).forget
+    current_user.forget
     reset_session
     flash[:notice] = "Logged out."
 
