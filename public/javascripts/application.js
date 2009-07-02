@@ -29,25 +29,29 @@ $(document).ready(function() {
 	// Login form hints
 	$("#username.userLinks").focus(function() {
 		if ($("#username.userLinks").val() == "username") {
+			$("#username.userLinks").css("color", "#000");
 			$("#username.userLinks").val("");
 		};
 	});
 
 	$("#username.userLinks").blur(function() {
 		if ($("#username.userLinks").val() == "") {
+			$("#username.userLinks").css("color", "#ccc");
 			$("#username.userLinks").val("username");
 		};
 	});
 
 	$("#password.userLinks").focus(function() {
 		if ($("#password").val() == "password") {
-			$("#password.userLinks").val("");
+			$("input:password.userLinks").css("color", "#000");
+			$("input:password.userLinks").val("");
 		};
 	});
 
 	$("#password.userLinks").blur(function() {
 		if ($("#password").val() == "") {
-			$("#password.userLinks").val("password");
+			$("input:password.userLinks").css("color", "#ccc");
+			$("input:password.userLinks").val("password");
 		};
 	});
 
