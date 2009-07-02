@@ -70,3 +70,6 @@ Unreleased
 [0.3.2] Code Cleanup
  * Clean and rewrite redunt code that may or may not be actually broken
  * Fix Ruby 1.9 compatibility problems where possible
+
+[0.4] New Feature Milestone
+ * This milestone should contain the next set of new features
