@@ -12,11 +12,7 @@ module ApplicationHelper
   end
   
   def admin_namespace?
-    if (controller.controller_path =~ /admin\// )
-      return true
-    else
-      return false
-    end
+    controller.controller_path =~ /admin\// ? true : false
   end
   
   def navigation(*controllers)
@@ -29,7 +25,7 @@ module ApplicationHelper
       else
         xhtml << "<li>"
       end
-      xhtml << link_to(c.capitalize, :controller => "/#{c}")
+      xhtml << link_to(c.capitalize, "/#{c}")
       xhtml << "</li>\n"
     end
     
