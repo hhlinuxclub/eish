@@ -17,7 +17,6 @@ h1. Required Gems
 * "Populator":http://populator.rubyforge.org/
 * "recaptcha":http://www.loonsoft.com/recaptcha/
 * "RedCloth":http://redcloth.org/
-* "sitemapper":http://github.com/milk-it/sitemapper/
 * "will_paginate":http://wiki.github.com/mislav/will_paginate
 
 h1. Plugins Used
