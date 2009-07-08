@@ -19,6 +19,9 @@ ActionController::Routing::Routes.draw do |map|
   map.article_diff "admin/articles/:id/compare/:rev_a/:rev_b", :namespace => "admin", :controller => "articles", :action => "compare"
   map.change_revision "admin/articles/:id/change_revision/:revision", :namespace => "admin", :controller => "articles", :action => "change_revision"
   map.categories "articles/categories/:id", :controller => "articles", :action => "categories"
+  map.news_with_page "news/page/:page", :controller => "news", :action => "index"
+  map.articles_with_page "articles/page/:page", :controller => "articles", :action => "index"
+  map.categories_with_page "articles/categories/:id/page/:page", :controller => "articles", :action => "categories"
   
   # Sample resource route (maps HTTP verbs to controller actions automatically):
   #   map.resources :products
