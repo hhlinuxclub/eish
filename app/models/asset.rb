@@ -11,6 +11,7 @@ class Asset < ActiveRecord::Base
     :path => ":rails_root/public/uploads/:id/:style/:basename.:extension"
     
   validates_presence_of :description, :unless => Proc.new { |asset| asset.class == Image }
+  validates_attachment_presence :upload
     
   def filename
     upload_file_name
