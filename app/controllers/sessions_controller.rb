@@ -26,7 +26,7 @@ class SessionsController < ApplicationController
     end
 
     respond_to do |format|
-      format.html { redirect_to session[:original_uri] || :back || :root }
+      format.html { redirect_to session[:original_uri] || params[:original_uri] || :root }
     end
   end
   
