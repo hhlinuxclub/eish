@@ -14,4 +14,4 @@
 	<% end %>
 </b></p>
 
-<pre class="brush: diff; toolbar: false;"><%= @diff %></pre>
+<%= CodeRay.scan(@diff, :diff).div %>
