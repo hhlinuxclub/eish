@@ -3,12 +3,10 @@
 
 class ApplicationController < ActionController::Base
   include Authentication
-  
-  before_filter :login_from_cookie
-  
+  include ReCaptcha::AppHelper
   helper :all # include all helpers, all the time
   
-  include ReCaptcha::AppHelper
+  before_filter :login_from_cookie
 
   # See ActionController::RequestForgeryProtection for details
   # Uncomment the :secret if you're not using the cookie session store
