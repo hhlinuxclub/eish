@@ -18,6 +18,7 @@ h1. Required Gems
 * "recaptcha":http://www.loonsoft.com/recaptcha/
 * "RedCloth":http://redcloth.org/
 * "will_paginate":http://wiki.github.com/mislav/will_paginate
+* "CodeRay":http://coderay.rubychan.de/
 
 h1. Plugins Used
 
@@ -44,7 +45,6 @@ h1. Javascript
 * "Fancybox":http://fancy.klade.lv/
 * "markItUp!":http://markitup.jaysalvat.com/
 * "Password Strength Plugin":http://www.mypocket-technologies.com (modified)
-* "SyntaxHighlighter":http://alexgorbatchev.com/wiki/SyntaxHighlighter
 
 The *jQuery Cookie plugin* was created by Klaus Hartl, and it is dual licensed under the "MIT":http://www.opensource.org/licenses/mit-license.php and "GPL":http://www.gnu.org/licenses/gpl.html licenses.
 
@@ -55,8 +55,6 @@ Fancybox is the work of Janis Skarnelis, and is licensed under the "MIT":http://
 The *markItUp!* by "Jay Salvat":http://www.jaysalvat.com/ is dual licensed under both "MIT":http://www.opensource.org/licenses/mit-license.php and "GPL":http://www.gnu.org/licenses/gpl.html licenses.
 
 The *Password Strength Plugin* is authored by Darren Mason, based on the plugin by "Firas Kassem":http://phiras.wordpress.com/2007/04/08/password-strength-meter-a-jquery-plugin/.  It is "GPL":http://www.gnu.org/licenses/gpl.html licensed.  We have made some small modifications to plugin.
-
-The *SyntaxHighlighter* by Alex Gorbatchev is licensed under "LGPL 3":http://www.gnu.org/licenses/lgpl.html.
 
 h1. Initial Setup
 
