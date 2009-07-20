@@ -37,13 +37,13 @@ Rails::Initializer.run do |config|
   config.gem "mislav-will_paginate", :lib => "will_paginate", :source => "http://gems.github.com"
   config.gem "ruby-recaptcha"
   config.gem "coderay"
+  # Uncomment to enable search. Also change SEARCH_ENABLED to true in initializers/settings.rb.
+  # config.gem "xapit"
   
   # Only load the plugins named here, in the order given. By default, all plugins 
   # in vendor/plugins are loaded in alphabetical order.
   # :all can be used as a placeholder for all plugins not explicitly named
-  config.plugins = ["meta-tags", "paperclip"]
-  # Uncomment to enable search. Also change SEARCH_ENABLED to true in initializers/settings.rb.
-  # config.plugins += ["xapit"]
+  config.plugins = [:all]
 
   # Add additional load paths for your own custom dirs
   config.load_paths += %W( #{RAILS_ROOT}/app/sweepers )
