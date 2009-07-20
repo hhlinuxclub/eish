@@ -19,6 +19,7 @@ h1. Required Gems
 * "RedCloth":http://redcloth.org/
 * "will_paginate":http://wiki.github.com/mislav/will_paginate
 * "CodeRay":http://coderay.rubychan.de/
+* "Xapit":https://github.com/ryanb/xapit/ (if you need the search function)
 
 h1. Plugins Used
 
@@ -91,7 +92,7 @@ h1. Search
 
 Search support is currently experimental.
 
-Search is provided through the "Xapian":http://www.xapian.org/ Open Source Search Engine Library and the "Xapit":http://github.com/ryanb/xapit/ Rails plugin.  In order for the Search to work you MUST have xapian-core and xapian-bindings (only the Ruby bindings are required) installed.
+Search is provided through the "Xapian":http://www.xapian.org/ Open Source Search Engine Library and the "Xapit":http://github.com/ryanb/xapit/ Rails gem.  In order for the Search to work you MUST have xapian-core and xapian-bindings (only the Ruby bindings are required) installed.
 
 For more information on installing Xapian, see the "Xapian install guide":http://www.xapian.org/docs/install.html.
 
@@ -101,7 +102,9 @@ At the moment reindexing must be performed manually, for example by a cron job, 
 rake xapit:index
 </pre>
 
-However, this requires that the application be restarted for it to read the new database.  The upstream developer of the Xapit plugin is working on improving this.
+However, this requires that the application be restarted for it to read the new database.  The upstream developer of the Xapit gem is working on improving this.
+
+In order to enable search you must uncomment the line for Xapit in environment.rb and change SEARCH_ENABLED to true in the settings.rb initializer.
 
 h1. Copyright
 
