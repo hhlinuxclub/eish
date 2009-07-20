@@ -24,14 +24,11 @@ h1. Required Gems
 h1. Plugins Used
 
 * "MetaTags":http://github.com/kpumuk/meta-tags/
-* "Xapit":http://github.com/ryanb/xapit/
 * "paperclip":http://thoughtbot.com/projects/paperclip
 
 *MetaTags* is an SEO plugin by Dmytro Shteflyuk which makes it easier to set the page title and meta tags.
 
 *Paperclip* provides easy file attachment management for ActiveRecord.
-
-*Xapit* (pronounced "zap it") is a high level interface for working with a Xapian database. 
 
 The plugins are included as git submodules (See *Initial Setup*) and are all published under the MIT license.
 
@@ -119,7 +116,6 @@ h2. Exceptions
 h1. Bug Tracker
 
 Found a bug? Perfect. Let us know at our "bug tracker":http://hhlc.lighthouseapp.com.
-
 
 h1. License
 
