@@ -116,8 +116,7 @@ input[type=submit].userLinks,
 input[type=checkbox].userLinks,
 label.userLinks,
 .userLinks {
-	font-size: 7pt;
-	color: #ccc;
+	font-size: 8pt;
 }
 
 label.userLinks {
@@ -133,6 +132,16 @@ input[type=submit].userLinks {
 	color: #000;
 	border: 1px solid #fff;
 	background-color: #ccc;
+}
+
+input[type=text].userLinks {
+	background: #fff url('../images/seahorse/person.png') no-repeat 0px 1px;
+	padding: 1px 0 1px 17px;
+}
+
+input[type=password].userLinks {
+	background: #fff url('../images/seahorse/key.png') no-repeat 0px 1px;
+	padding: 1px 0 1px 17px;
 }
 
 #content {

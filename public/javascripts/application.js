@@ -23,35 +23,6 @@ $(document).ready(function() {
 		userid:	"#user_username"
 	});
 
-	// Login form hints
-	$("#username.userLinks").focus(function() {
-		if ($("#username.userLinks").val() == "username") {
-			$("#username.userLinks").css("color", "#000");
-			$("#username.userLinks").val("");
-		};
-	});
-
-	$("#username.userLinks").blur(function() {
-		if ($("#username.userLinks").val() == "") {
-			$("#username.userLinks").css("color", "#ccc");
-			$("#username.userLinks").val("username");
-		};
-	});
-
-	$("#password.userLinks").focus(function() {
-		if ($("#password").val() == "password") {
-			$("input:password.userLinks").css("color", "#000");
-			$("input:password.userLinks").val("");
-		};
-	});
-
-	$("#password.userLinks").blur(function() {
-		if ($("#password").val() == "") {
-			$("input:password.userLinks").css("color", "#ccc");
-			$("input:password.userLinks").val("password");
-		};
-	});
-
   /* Fancybox Default
      Galleries are created from found anchors who have the same "rel" tags
      Use the title attribute if you want to show a caption */

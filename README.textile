@@ -112,6 +112,7 @@ The above copyright notice applies to all files of this program, unless stated o
 h2. Exceptions
 
 * Icons found under the "public/images/tango" directory are part of the "Tango Icon Library":http://tango.freedesktop.org/Tango_Icon_Library and have been released into the Public Domain.
+* Icons found under the "public/images/seahorse" directory are part of "Seahorse":http://projects.gnome.org/seahorse/ and are licensed under GPLv2.
 
 h1. Bug Tracker
 
