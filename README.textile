@@ -25,10 +25,13 @@ h1. Plugins Used
 
 * "MetaTags":http://github.com/kpumuk/meta-tags/
 * "paperclip":http://thoughtbot.com/projects/paperclip
+* "Xapit Sync":http://github.com/ryanb/xapit-sync
 
 *MetaTags* is an SEO plugin by Dmytro Shteflyuk which makes it easier to set the page title and meta tags.
 
 *Paperclip* provides easy file attachment management for ActiveRecord.
+
+*Xapit Sync* extends Xapit to provide automatic syncing of the index.
 
 The plugins are included as git submodules (See *Initial Setup*) and are all published under the MIT license.
 
