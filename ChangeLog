@@ -19,61 +19,50 @@ http://hhlc.lighthouseapp.com/projects/22644-hhlc
 
 
 
-Released
-========
+2009-03-28  Matias Korhonen <korhonen.matt@gmail.com>
 
-[0.2] Alpha 2
- * Same functions as 0.1 at a usable status
- * User roles implemented
- * Article revision control
- * New administration interface
- * User roles
- * Multipart emails
- * Password resets
+  * [0.2] Alpha 2: Same functions as 0.1 at a usable status
+  * User roles implemented
+  * Article revision control
+  * New administration interface
+  * User roles
+  * Multipart emails
+  * Password resets
 
-[0.1] Early Alpha
- * Most of the major functionality implemented (Home page, News, Events, Articles, About page) at at least a rough level
- * This release was more about our own project structure than about usable software
+2009-03-04  Matias Korhonen <korhonen.matt@gmail.com>
 
+  * [0.1] Early Alpha: Most of the major functionality implemented (Home page, News, Events, Articles, About page) at at least a rough level
+  * This release was more about our own project structure than about usable software
 
+9999-99-99  Unreleased <unreleased>
 
-Unreleased
-==========
+  * [0.3] Beta: Production quality
+  * Mostly fully functional: Homepage, News, Articles, Events, Galleries (new), Users, About page, Contact form
+  * Major bug fixes
+  * Major security fixes
+  * Moved to a separate SessionsController
+  * Restful user authentication
+  * Custom error pages
+  * Sitemaps
+  * Improved previews
+  * XHTML metadata on rendered pages
+  * A separate setting page
+  * Gravatar support
+  * Added the Markitup! textile editor
+  * Asset and image uploads
+  * Improved user profiles
+  * Moved to jQuery
+  * Support for Google Analytics
 
-[0.3] Beta
- * Production quality
- * Mostly fully functional
-  - Homepage
-  - News
-  - Articles
-  - Events
-  - Galleries (new)
-  - Users
-  - About page
-  - Contact form
- * Major bug fixes
- * Major security fixes
- * Moved to a separate SessionsController
- * Restful user authentication
- * Custom error pages
- * Sitemaps
- * Improved previews
- * XHTML metadata on rendered pages
- * A separate setting page
- * Gravatar support
- * Added the Markitup! textile editor
- * Asset and image uploads
- * Improved user profiles
- * Moved to jQuery
- * Support for Google Analytics
+9999-99-99  Unreleased <unreleased>
 
-[0.3.1] Bug Fix Galore
- * No new features. We really mean this.
- * Just bug fixes
+  * [0.3.1] Bug Fix Galore: No new features. We really mean this. Bug fixes only!
 
-[0.3.2] Code Cleanup
- * Clean and rewrite redunt code that may or may not be actually broken
- * Fix Ruby 1.9 compatibility problems where possible
+9999-99-99  Unreleased <unreleased>
 
-[0.4] New Feature Milestone
- * This milestone should contain the next set of new features
+  * [0.3.2] Code Cleanup: Clean and rewrite redunt code that may or may not be actually broken
+  * Ruby 1.9: Fix compatibility problems where possible
+
+9999-99-99  Unreleased <unreleased>
+
+  * [0.4] New Feature Milestone: This milestone should contain the next set of new features
