@@ -13,10 +13,12 @@ class SearchController < ApplicationController
     @articles = Article.search(@query, :per_page => 3)
     @news = News.search(@query, :per_page => 3)
     @events = Event.search(@query, :per_page => 3)
+    @galleries = Gallery.search(@query, :per_page => 3)
+    @columns = 4
     
     set_meta_tags :title => "Searched for '" + @query + "'",
                   :description => "Searched for '" + @query + "'",
-                  :keywords => "articles, events, news, search, " + @query
+                  :keywords => "articles, events, news, galleries, search, " + @query
   end
 
   def articles
@@ -44,6 +46,16 @@ class SearchController < ApplicationController
     set_meta_tags :title => "Searched for '" + @query + "'",
                   :description => "Searched for '" + @query + "'",
                   :keywords => "events, search, " + @query
+  end
+  
+  def galleries
+    @query = params[:query]
+    @galleries = Gallery.search(@query)
+    @columns = 4
+    
+    set_meta_tags :title => "Searched for '" + @query + "'",
+                  :description => "Searched for '" + @query + "'",
+                  :keywords => "galleries, images, search, " + @query
   end
 
   def opensearch

@@ -45,4 +45,14 @@
 
 	<%= link_to "more &raquo;", :controller => "search", :action => "events", :query => @query %>
 <% end %>
-	
+
+<h3 class="title">Galleries</h3>
+<p class="metadata">Found <%= pluralize(@galleries.size, "gallery") %></p>
+<% if @galleries.size > 0 %>
+	<% image_table(@galleries, @columns) do |gallery| %>
+	    <%= link_to(image_tag(gallery.image.upload.url(:thumb)), gallery) %>
+	    <h3><%= link_to(gallery.name, gallery) %></h3>
+	<% end %>
+
+	<%= link_to "more &raquo;", :controller => "search", :action => "galleries", :query => @query %>
+<% end %>
