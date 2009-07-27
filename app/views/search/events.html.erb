@@ -2,6 +2,10 @@
 
 <p>You searched for <strong><%= @query %></strong></p>
 
+<% if @events.spelling_suggestion %>
+  <p class="didYouMean">Did you mean <%= link_to h(@events.spelling_suggestion), :overwrite_params => { :query => @events.spelling_suggestion } %>?</p>
+<% end %>
+
 <p>Found <%= pluralize(@events.size, "event") %></p>
 
 <% for event in @events %>

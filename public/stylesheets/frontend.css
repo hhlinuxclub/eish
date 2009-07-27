@@ -632,3 +632,8 @@ blockquote {
 	padding: 20px 0;
 	border-bottom: 1px dashed #ccc;
 }
+
+.didYouMean {
+  font-style: italic;
+	padding-left: 1em;
+}

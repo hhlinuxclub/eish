@@ -2,6 +2,10 @@
 
 <p>You searched for <strong><%= @query %></strong></p>
 
+<% if @galleries.spelling_suggestion %>
+  <p class="didYouMean">Did you mean <%= link_to h(@galleries.spelling_suggestion), :overwrite_params => { :query => @galleries.spelling_suggestion } %>?</p>
+<% end %>
+
 <p>Found <%= pluralize(@galleries.size, "gallery") %></p>
 
 <% image_table(@galleries, 3) do |gallery| %>

@@ -2,6 +2,11 @@
 
 <p>You searched for <strong><%= @query %></strong></p>
 
+<% if @articles.spelling_suggestion %>
+  <p class="didYouMean">Did you mean <%= link_to h(@articles.spelling_suggestion), :overwrite_params => { :query => @articles.spelling_suggestion } %>?</p>
+<% end %>
+
+
 <p>Found <%= pluralize(@articles.size, "article") %></p>
 
 <% for article in @articles %>
