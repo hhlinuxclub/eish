@@ -4,49 +4,49 @@ xml.instruct! :'xml-stylesheet', :type => "text/xsl", :href => "/stylesheets/sit
 xml.urlset "xmlns" => "http://www.google.com/schemas/sitemap/0.84" do
 
   xml.url do
-    xml.loc         "http://hhlinuxclub.org/"
+    xml.loc         "http://" + request.host_with_port
     xml.lastmod     w3c_date(Time.now)
     xml.changefreq  "weekly"
     xml.priority    1
   end
 
   xml.url do
-    xml.loc         "http://hhlinuxclub.org/about"
+    xml.loc         "http://" + request.host_with_port + "/about"
     xml.lastmod     w3c_date(Time.now)
     xml.changefreq  "monthly"
     xml.priority    0.9
   end
 
   xml.url do
-    xml.loc         "http://hhlinuxclub.org/events"
+    xml.loc         "http://" + request.host_with_port + "/events"
     xml.lastmod     w3c_date(Time.now)
     xml.changefreq  "monthly"
     xml.priority    0.9
   end
 
   xml.url do
-    xml.loc         "http://hhlinuxclub.org/news"
+    xml.loc         "http://" + request.host_with_port + "/news"
     xml.lastmod     w3c_date(Time.now)
     xml.changefreq  "monthly"
     xml.priority    0.9
   end
 
   xml.url do
-    xml.loc         "http://hhlinuxclub.org/articles"
+    xml.loc         "http://" + request.host_with_port + "/articles"
     xml.lastmod     w3c_date(Time.now)
     xml.changefreq  "monthly"
     xml.priority    0.9
   end
 
   xml.url do
-    xml.loc         "http://hhlinuxclub.org/galleries"
+    xml.loc         "http://" + request.host_with_port + "/galleries"
     xml.lastmod     w3c_date(Time.now)
     xml.changefreq  "monthly"
     xml.priority    0.9
   end
 
   xml.url do
-    xml.loc         "http://hhlinuxclub.org/contact"
+    xml.loc         "http://" + request.host_with_port + "/contact"
     xml.lastmod     w3c_date(Time.now)
     xml.changefreq  "monthly"
     xml.priority    0.8
