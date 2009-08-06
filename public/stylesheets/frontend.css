@@ -634,6 +634,17 @@ blockquote {
 }
 
 .didYouMean {
-  font-style: italic;
+	font-style: italic;
 	padding-left: 1em;
+}
+
+.CodeRay {
+	width: 100%;
+	font-size: 10pt;
+}
+
+.CodeRay .line_numbers {
+	width: 2em;
+	background-color: #eee;
+	text-align: right;
 }

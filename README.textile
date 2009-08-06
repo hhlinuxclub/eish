@@ -17,7 +17,8 @@ h1. Required Gems
 * "Populator":http://populator.rubyforge.org/
 * "recaptcha":http://www.loonsoft.com/recaptcha/
 * "RedCloth":http://redcloth.org/
-* "will_paginate":http://wiki.github.com/mislav/will_paginate
+* "Redcloth with CodeRay":http://github.com/augustl/redcloth-with-coderay/
+* "will_paginate":http://wiki.github.com/mislav/will_paginate/
 * "CodeRay":http://coderay.rubychan.de/
 * "Xapit":https://github.com/ryanb/xapit/ (if you need the search function)
 

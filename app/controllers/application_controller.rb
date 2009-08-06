@@ -17,6 +17,8 @@ class ApplicationController < ActionController::Base
   # from your application log (in this case, all fields with names like "password"). 
   filter_parameter_logging :password, :current_password, :password_confirmation
   
+  RedclothCoderay.coderay_options :line_numbers => :table, :tab_width => 4
+  
   protected
     def search_enabled
       unless SEARCH_ENABLED == true
