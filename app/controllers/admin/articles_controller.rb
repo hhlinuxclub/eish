@@ -1,6 +1,4 @@
-class Admin::ArticlesController < AdministrationController
-  include Diff
-  
+class Admin::ArticlesController < AdministrationController  
   def index
     set_meta_tags :title => "Articles"
     
@@ -169,7 +167,7 @@ class Admin::ArticlesController < AdministrationController
     
     respond_to do |format|
       if !@rev_a.nil? && !@rev_b.nil?
-        format.html { @diff = diff(@rev_a.body, @rev_b.body) }
+        format.html { @diff = Diff.new(@rev_a.body, @rev_b.body) }
       else
         format.html { redirect_to edit_admin_article_path(:id => params[:id]) }
       end

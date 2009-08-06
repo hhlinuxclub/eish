@@ -1,17 +1,7 @@
-<h2 class="title">
-	<%= @rev_a.title %>
-	<% if @rev_a.title.strip != @rev_b.title.strip %>
-		-> <%= @rev_b.title %>
-	<% end %>
-</h2>
+<h2 class="title"><%= Diff.new(@rev_a.title, @rev_b.title).to_html %></h2>
 
 <p><%= link_to "[ back to article ]", :action => "edit", :id => params[:id] %></p>
 
-<p><b>
-	<%= @rev_a.description %>
-	<% if @rev_a.description.strip != @rev_b.description.strip %>
-		-> <%= @rev_b.description %>
-	<% end %>
-</b></p>
+<p style="font-weight:bold;"><%= Diff.new(@rev_a.description, @rev_b.description).to_html %></p>
 
-<%= CodeRay.scan(@diff, :diff).div %>
+<div><%= @diff.to_html %></div>
