@@ -1,0 +1,18 @@
+<p id="buttons">
+  <%= f.submit "Save", :id => "saveButton" %>
+	<br />
+	<%= submit_tag "Preview", :name => "preview", :id => "previewButton" %>
+</p>
+
+<p>
+	<%= f.label :published, "Published:" %>
+	<%= f.check_box :published %> 
+</p>
+
+<% unless item.new_record? %>
+	<p id="itemInfo">
+		<strong>Created on: </strong><%= short_date(item.created_at) %><br />
+		<strong>Published on: </strong><span<%= " style=\"text-decoration:line-through\"" if !item.published? && !item.published_at.nil? %>><%= item.published_at.nil? ? "never" : short_date(item.published_at) %></span><br />
+		<strong>Owner: </strong><%= item.user.name %>
+	</p>
+<% end %>

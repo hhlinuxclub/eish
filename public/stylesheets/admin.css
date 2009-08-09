@@ -275,6 +275,11 @@ div.grippie {
 	color: #444;
 	font-size: 16pt;
 	font-weight: bold;
+	width: 100%;
+}
+
+.wide {
+	width: 100%;
 }
 
 input[type=text],input[type=password],input[type=checkbox],input[type=radio],textarea {
@@ -333,10 +338,6 @@ ins {
 
 .box {
 	background: #fff;
-}
-
-#tabs {
-	width: 695px;
 }
 
 .textileCode {
@@ -421,4 +422,68 @@ ul.privileges {
 
 .galleryImage .description {
 	font-size: 8pt;
+}
+
+#editArea {
+	float: left;
+	width: auto;
+}
+
+#sidebar {
+	float: right;
+	width: 200px;
+}
+
+#buttons {
+	text-align: center;
+}
+
+#saveButton,
+#previewButton {
+	border: 1px solid #999;
+	width: 80%;
+	cursor: pointer;
+}
+
+#saveButton:hover {
+	background-color: #729fcf;
+}
+
+#previewButton:hover {
+	background-color: #ddd;
+}
+
+#saveButton {
+	background-color: #bbcdde;
+	font-size: 12pt;
+	font-weight: bold;
+	padding: 10px 10px;
+	border-bottom: none;
+	-moz-border-radius-topleft: 10px;
+	-webkit-border-top-left-radius: 10px;
+	-moz-border-radius-topright: 10px;
+	-webkit-border-top-right-radius: 10px;
+}
+
+#previewButton {
+	background-color: #eee;
+	font-size: 10pt;
+	padding: 5px 10px;
+	-moz-border-radius-bottomleft: 5px;
+	-webkit-border-bottom-left-radius: 5px;
+	-moz-border-radius-bottomright: 5px;
+	-webkit-border-bottom-right-radius: 5px;
+}
+
+#itemInfo {
+	font-size: 8pt;
+}
+
+#categories {
+	height: 250px;
+	overflow: auto;
+}
+
+#assets {
+	clear: both;
 }

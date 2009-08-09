@@ -1,73 +1,71 @@
 <% form_for [:admin, @event], :html => { :multipart => true } do |f| %>
-	<%= f.error_messages %>
+	<div id="editArea">
+		<%= f.error_messages %>
+
+		<% if params[:preview] %>
+			<div id="preview" title="Preview">
+				<h1><%=h @event.name %></h1>
+				<p class="metadata">
+					<% if @event.all_day == "1" %>
+						<%= @event.starts_at_date %>
+					<% else %>
+						<%= @event.starts_at_date + " " + @event.starts_at_time + " &mdash; " + @event.ends_at_date + " " + @event.ends_at_time %>
+					<% end %>
+				</p>
+				<p>
+					<b>Address: </b><%=h @event.address %><br />
+					<b>Location: </b><%=h @event.location %>
+				</p>
+				<%= textilize @event.description %>
+			</div>
+		<% end %>
+
+		<p>
+			<%= f.label :name %><br />
+			<%= f.text_field :name, :class => "titleField", :size => 39  %>
+		</p>
+
+		<p>
+			<%= f.label :starts_at_date, "Starts on" %><br />
+			<%= f.text_field :starts_at_date, :value => @event.starts_at_date || (@event.starts_at.nil? ? Date.today.strftime("%d.%m.%Y") : @event.starts_at.strftime("%d.%m.%Y")), :class => "date" %>
+			<em>e.g. <%= Date.today.strftime("%d.%m.%Y")%></em>
+			<br />
+			<%= f.label :starts_at_time, "at" %><br />
+			<%= f.text_field :starts_at_time, :value => @event.starts_at_time || (@event.starts_at.nil? ? Time.now.strftime("%H:%M") : @event.starts_at.strftime("%H:%M")) %>
+		</p>
+
+		<p>
+			<%= f.label :ends_at_date, "Ends on" %><br />
+			<%= f.text_field :ends_at_date, :value => @event.ends_at_date || (@event.ends_at.nil? ? Date.today.strftime("%d.%m.%Y") : @event.ends_at.strftime("%d.%m.%Y")), :class => "date" %>
+			<br />
+			<%= f.label :ends_at_time, "at" %><br />
+			<%= f.text_field :ends_at_time, :value => @event.ends_at_time || (@event.ends_at.nil? ? Time.now.strftime("%H:%M") : @event.ends_at.strftime("%H:%M")) %>
+		</p>
+
+		<p>
+			<%= f.check_box :all_day %> <%= f.label :all_day %>
+		</p>
+
+		<p>
+			<%= f.label :address %><br />
+			<%= f.text_field :address %>
+		</p>
+
+		<p>
+			<%= f.label :location %><br />
+			<%= f.text_field :location %>
+		</p>
+
+		<p>
+			<%= f.label :description %><br />
+			<%= f.text_area :description, :cols => 85, :rows => 10, :class => "textile"  %>
+		</p>
+	</div>
 	
-	<% if params[:preview] %>
-		<div id="preview" title="Preview">
-			<h1><%=h @event.name %></h1>
-			<p class="metadata">
-				<% if @event.all_day == "1" %>
-					<%= @event.starts_at_date %>
-				<% else %>
-					<%= @event.starts_at_date + " " + @event.starts_at_time + " &mdash; " + @event.ends_at_date + " " + @event.ends_at_time %>
-				<% end %>
-			</p>
-			<p>
-				<b>Address: </b><%=h @event.address %><br />
-				<b>Location: </b><%=h @event.location %>
-			</p>
-			<%= textilize @event.description %>
-		</div>
-	<% end %>
+	<div id="sidebar">
+	  <%= render :partial => "admin/actions", :locals => { :f => f, :item => @event } %>
+	</div>
 	
-	<p>
-		<%= f.label :name %><br />
-		<%= f.text_field :name, :class => "titleField", :size => 39  %>
-	</p>
-	
-	<p>
-		<%= f.label :starts_at_date, "Starts on" %><br />
-		<%= f.text_field :starts_at_date, :value => @event.starts_at_date || (@event.starts_at.nil? ? Date.today.strftime("%d.%m.%Y") : @event.starts_at.strftime("%d.%m.%Y")), :class => "date" %>
-		<em>e.g. <%= Date.today.strftime("%d.%m.%Y")%></em>
-		<br />
-		<%= f.label :starts_at_time, "at" %><br />
-		<%= f.text_field :starts_at_time, :value => @event.starts_at_time || (@event.starts_at.nil? ? Time.now.strftime("%H:%M") : @event.starts_at.strftime("%H:%M")) %>
-	</p>
-	
-	<p>
-		<%= f.label :ends_at_date, "Ends on" %><br />
-		<%= f.text_field :ends_at_date, :value => @event.ends_at_date || (@event.ends_at.nil? ? Date.today.strftime("%d.%m.%Y") : @event.ends_at.strftime("%d.%m.%Y")), :class => "date" %>
-		<br />
-		<%= f.label :ends_at_time, "at" %><br />
-		<%= f.text_field :ends_at_time, :value => @event.ends_at_time || (@event.ends_at.nil? ? Time.now.strftime("%H:%M") : @event.ends_at.strftime("%H:%M")) %>
-	</p>
-	
-	<p>
-		<%= f.check_box :all_day %> <%= f.label :all_day %>
-	</p>
-	
-	<p>
-		<%= f.label :address %><br />
-		<%= f.text_field :address %>
-	</p>
-	
-	<p>
-		<%= f.label :location %><br />
-		<%= f.text_field :location %>
-	</p>
-	
-	<p>
-		<%= f.label :description %><br />
-		<%= f.text_area :description, :cols => 85, :rows => 10, :class => "textile"  %>
-	</p>
-	
-	<p>
-		<%= f.submit submit_value ||= "Submit" %>
-		<%= submit_tag "Preview", :name => "preview" %>
-	</p>
-<div id="tabs">
-	<ul>
-		<li><a href="#assetsBox">Assets</a></li>
-	</ul>
 	<%= render :partial => "admin/assets/assets", :locals => { :assetable => @event } %>
-</div>
+	
 <% end %>

@@ -1,78 +1,39 @@
 <% form_for [:admin, @article], :html => { :multipart => true } do |f| %>
-  <%= f.error_messages%>
+	<div id="editArea">
+		<%= f.error_messages%>
 
-	<% if params[:preview] %>
-		<div id="preview" title="Preview">
-			<h1><%= @article.title %></h1>
-			<p><strong><%= @article.description %></strong></p>
-			<%= textilize @article.body %>
-		</div>
-	<% end %>
-
-	<p>
-		<%= f.label :title %><br />
-		<%= f.text_field :title, :class => "titleField", :size => 39 %>
-	</p>
-	
-	<p>
-		<%= f.label :description %><br />
-		<%= f.text_field :description, :size => 75 %>
-	</p>
-	
-	<p>
-		<%= f.label :body %><br />
-		<%= f.text_area :body, :cols => 85, :rows => 20, :class => "textile" %>
-	</p>
-	
-	<p>
-		<%= f.submit submit_value ||= "Submit" %>
-		<%= submit_tag "Preview", :name => "preview" %>
-	</p>
-	
-<div id="tabs">
-	<ul>
-		<li><a href="#categoriesBox">Categories</a></li>
-		<li><a href="#assetsBox">Assets</a></li>
-		<% unless @article.new_record? %>
-			<li><a href="#revisionsBox">Revisions</a></li>
-		<% end %>
-	</ul>
-		<div id="categoriesBox">
-			<div>
-				<% if @categories.empty? %>
-					<p>There are no categories at the moment. Please create one.</p>
-				<% else %>
-					<table>
-						<% for category in @categories %>
-						<tr class="<%= cycle("odd", "even") %>">
-							<td>
-								<%= check_box_tag "article[category_ids][]", category.id, @article.categories.include?(category) %>
-								<label for="categories_<%= category.id%>"><%= category.name %></label>
-							</td>
-							<td>
-								<%= image_submit_tag "/images/tango/16px/delete.png", :value => category.id, :name => "destroy_category", :style => "position: relative; top: 5px;", :alt => "Delete" %>
-							</td>
-						</tr>
-						<% end %>
-					</table>
-				<% end %>
-			
-				<h4>Add new category</h4>
-				<% fields_for :category do |c| %>
-					<p>
-						<%= c.label :name %><br />
-						<%= c.text_field :name %>
-					</p>
-
-					<p>
-						<%= submit_tag "Create category", :name => "create_category" %>
-					</p>
-				<% end %>
+		<% if params[:preview] %>
+			<div id="preview" title="Preview">
+				<h1><%= @article.title %></h1>
+				<p><strong><%= @article.description %></strong></p>
+				<%= textilize @article.body %>
 			</div>
-		</div>
+		<% end %>
+
+		<p>
+			<%= f.label :title %><br />
+			<%= f.text_field :title, :class => "titleField", :size => 39 %>
+		</p>
+	
+		<p>
+			<%= f.label :description %><br />
+			<%= f.text_field :description, :class => "wide", :size => 75 %>
+		</p>
+	
+		<p>
+			<%= f.label :body %><br />
+			<%= f.text_area :body, :cols => 85, :rows => 20, :class => "textile" %>
+		</p>
+	</div>
+	
+	<div id="sidebar">
+	  <%= render :partial => "admin/actions", :locals => { :f => f, :item => @article } %>
+	
+		<%= render :partial => "categories" %>
+	</div>
+	
+	<%= render :partial => "admin/assets/assets", :locals => { :assetable => @article } %>
 		
-		<%= render :partial => "admin/assets/assets", :locals => { :assetable => @article } %>
-		
-		<%= render :partial => "revisions" unless @article.new_record? %>
-</div>
+	<%= render :partial => "revisions" unless @article.new_record? %>
+	
 <% end %>

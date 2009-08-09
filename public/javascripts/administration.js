@@ -1,10 +1,4 @@
 // Place your administration-specific JavaScript functions and classes here
-
-// Set cookie for admin view tabs
-$(function() {
-		$("#tabs").tabs({ cookie: { expires: 30 }, collapsible: true });
-});
-
 $(document).ready(function() {
 	$("#new_category").submitWithAjax();
 

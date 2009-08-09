@@ -1,0 +1,33 @@
+<h3 class="title">Categories</h3>
+
+<div id="categories">	
+	<% if @categories.empty? %>
+		<p>There are no categories at the moment. Please create one.</p>
+	<% else %>
+		<table>
+			<% for category in @categories %>
+			<tr class="<%= cycle("odd", "even") %>">
+				<td>
+					<%= check_box_tag "article[category_ids][]", category.id, @article.categories.include?(category) %>
+					<label for="categories_<%= category.id%>"><%= category.name %></label>
+				</td>
+				<td>
+					<%= image_submit_tag "/images/tango/16px/delete.png", :value => category.id, :name => "destroy_category", :style => "position: relative; top: 5px;", :alt => "Delete" %>
+				</td>
+			</tr>
+			<% end %>
+		</table>
+	<% end %>
+</div>
+
+<h4>Add new category</h4>
+<% fields_for :category do |c| %>
+	<p>
+		<%= c.label :name %><br />
+		<%= c.text_field :name, :class => "wide" %>
+	</p>
+
+	<p>
+		<%= submit_tag "Create category", :name => "create_category" %>
+	</p>
+<% end %>

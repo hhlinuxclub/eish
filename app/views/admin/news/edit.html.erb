@@ -1,34 +1,31 @@
 <h2 class="title">Editing news article</h2>
 
 <% form_for(:news_article, @news_article, :controller => "admin/news", :url => { :action => "update"}, :html => { :method => :put, :multipart => true }) do |f| %>
-  <%= f.error_messages %>
+	<div id="editArea">
+  	<%= f.error_messages %>
 
-	<% if params[:preview] %>
-		<div id="preview" title="Preview">
-			<h1><%= @news_article.title %></h1>
-			<%= textilize @news_article.body %>
-		</div>
-	<% end %>
+		<% if params[:preview] %>
+			<div id="preview" title="Preview">
+				<h1><%= @news_article.title %></h1>
+				<%= textilize @news_article.body %>
+			</div>
+		<% end %>
 	
-  <p>
-    <%= f.label :title %><br />
-    <%= f.text_field :title, :class => "titleField", :size => 39 %>
-  </p>
+	  <p>
+	    <%= f.label :title %><br />
+	    <%= f.text_field :title, :class => "titleField", :size => 39 %>
+	  </p>
 
-  <p>
-    <%= f.label :body %><br />
-    <%= f.text_area :body, :cols => 85, :rows => 20, :class => "textile" %>
-  </p>
+	  <p>
+	    <%= f.label :body %><br />
+	    <%= f.text_area :body, :cols => 85, :rows => 20, :class => "textile" %>
+	  </p>
+	</div>
+	
+  <div id="sidebar">
+	  <%= render :partial => "admin/actions", :locals => { :f => f, :item => @news_article } %>
+	</div>
 
-  <p>
-    <%= f.submit "Update" %>
-		<%= submit_tag "Preview", :name => "preview" %>
-  </p>
+<%= render :partial => "admin/assets/assets", :locals => { :assetable => @news_article } %>
 
-<div id="tabs">
-	<ul>
-		<li><a href="#assetsBox">Assets</a></li>
-	</ul>
-	<%= render :partial => "admin/assets/assets", :locals => { :assetable => @news_article } %>
-</div>
 <% end %>
