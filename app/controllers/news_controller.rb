@@ -1,6 +1,6 @@
 class NewsController < ApplicationController  
   def index
-    @news = News.paginate_all_by_published(true, :include => :user, :page => params[:page], :per_page => 5, :order => "created_at DESC")
+    @news = News.paginate_all_by_published(true, :include => :user, :page => params[:page], :per_page => 5, :order => "published_at DESC")
     
     set_meta_tags :title => "News",
                   :description => "Club news",

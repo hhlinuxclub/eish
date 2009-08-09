@@ -1,6 +1,6 @@
 class ArticlesController < ApplicationController
   def index
-    @articles = Article.paginate_all_by_published(true, :page => params[:page], :per_page => 10, :limit => 5, :order => "created_at DESC")
+    @articles = Article.paginate_all_by_published(true, :page => params[:page], :per_page => 10, :limit => 5, :order => "published_at DESC")
     @categories = Category.all_alphabetically
     
     set_meta_tags :title => "Articles",
@@ -9,7 +9,7 @@ class ArticlesController < ApplicationController
 
     respond_to do |format|
       format.html
-      format.atom { @articles = Article.find_all_by_published(true, :limit => 10, :order => "created_at DESC") } 
+      format.atom { @articles = Article.find_all_by_published(true, :limit => 10, :order => "published_at DESC") } 
     end
   end
 
@@ -27,7 +27,7 @@ class ArticlesController < ApplicationController
   
   def categories
     @category = Category.find(params[:id])
-    @articles = @category.articles.paginate_all_by_published true, :page => params[:page], :per_page => 10, :order => "articles.created_at DESC"
+    @articles = @category.articles.paginate_all_by_published true, :page => params[:page], :per_page => 10, :order => "articles.published_at DESC"
     @categories = Category.all_alphabetically
     
     set_meta_tags :title => @category.name,
