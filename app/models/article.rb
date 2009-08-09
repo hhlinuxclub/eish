@@ -25,6 +25,10 @@ class Article < ActiveRecord::Base
     self.current_revision_id = 1
   end
   
+  def before_save
+    self.published_at ||= Time.now if self.published?
+  end
+  
   def after_create
     Revision.create :number => 1, :title => title, :description => description, :body => body, :user_id => user_id, :article_id => id
   end
@@ -48,11 +52,6 @@ class Article < ActiveRecord::Base
       self.current_revision_id = latest_revision + 1
       Revision.create :number => latest_revision + 1, :title => title, :description => description, :body => body, :user_id => updated_by_user_id, :article_id => id
     end
-  end
-  
-  def publish(status=true)
-    self.published = status
-    self.save_without_validation
   end
   
   def current_revision

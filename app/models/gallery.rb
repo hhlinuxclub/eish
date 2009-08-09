@@ -16,7 +16,7 @@ class Gallery < ActiveRecord::Base
     "#{id}-#{name.parameterize}"
   end
   
-  def publish(status=true)
-    update_attributes(:published => status)
+  def before_save
+    self.published_at ||= Time.now if self.published?
   end
 end

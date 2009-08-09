@@ -52,6 +52,7 @@ class Event < ActiveRecord::Base
       self.starts_at = start_date
       self.ends_at = start_date + 1
     end
+    self.published_at ||= Time.now if self.published?
   end
   
   def self.all_to_ical
@@ -99,11 +100,6 @@ class Event < ActiveRecord::Base
     end
     
     return calendar.to_ical
-  end
-  
-  def publish(status=true)
-    self.published = status
-    self.save_without_validation
   end
   
   def to_param
