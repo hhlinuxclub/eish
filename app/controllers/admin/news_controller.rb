@@ -117,9 +117,9 @@ class Admin::NewsController < AdministrationController
         when "delete"
           news.each { |n| n.destroy } if current_user.role.can_delete?
         when "publish"
-          news.each { |n| n.publish } if current_user.role.can_publish?
+          news.each { |n| n.update_attribute(:published, true) } if current_user.role.can_publish?
         when "unpublish"
-          news.each { |n| n.publish(false) } if current_user.role.can_publish?
+          news.each { |n| n.update_attribute(:published, false) } if current_user.role.can_publish?
       end
     end
     

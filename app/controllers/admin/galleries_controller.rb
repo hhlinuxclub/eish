@@ -89,9 +89,9 @@ class Admin::GalleriesController < AdministrationController
         when "delete"
           galleries.each { |g| g.destroy } if current_user.role.can_delete?
         when "publish"
-          galleries.each { |g| g.publish } if current_user.role.can_publish?
+          galleries.each { |g| g.update_attribute(:published, true) } if current_user.role.can_publish?
         when "unpublish"
-          galleries.each { |g| g.publish(false) } if current_user.role.can_publish?
+          galleries.each { |g| g.update_attribute(:published, false) } if current_user.role.can_publish?
       end
     end
     

@@ -120,9 +120,9 @@ class Admin::EventsController < AdministrationController
         when "delete"
           events.each { |e| e.destroy } if current_user.role.can_delete?
         when "publish"
-          events.each { |e| e.publish } if current_user.role.can_publish?
+          events.each { |e| e.update_attribute(:published, true) } if current_user.role.can_publish?
         when "unpublish"
-          events.each { |e| e.publish(false) } if current_user.role.can_publish?
+          events.each { |e| e.update_attribute(:published, false) } if current_user.role.can_publish?
       end
     end
     

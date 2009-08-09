@@ -199,12 +199,12 @@ class Admin::ArticlesController < AdministrationController
             articles.each { |a| a.destroy } if current_user.role.can_delete?
           end
         when "publish"
-          articles.each { |a| a.publish } if current_user.role.can_publish?
+          articles.each { |a| a.update_attribute(:published, true) } if current_user.role.can_publish?
         when "unpublish"
           if articles.include? featured_article
             flash[:error] = "Cannot unpublish the featured article."
           else
-            articles.each { |a| a.publish(false) } if current_user.role.can_publish?
+            articles.each { |a| a.update_attribute(:published, false) } if current_user.role.can_publish?
           end
       end
     end
