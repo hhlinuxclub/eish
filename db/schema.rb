@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20090720182811) do
+ActiveRecord::Schema.define(:version => 20090806174756) do
 
   create_table "articles", :force => true do |t|
     t.string   "title"
@@ -21,6 +21,7 @@ ActiveRecord::Schema.define(:version => 20090720182811) do
     t.boolean  "published",           :default => false
     t.integer  "current_revision_id"
     t.integer  "image_id"
+    t.datetime "published_at"
   end
 
   create_table "assets", :force => true do |t|
@@ -53,11 +54,12 @@ ActiveRecord::Schema.define(:version => 20090720182811) do
     t.string   "location"
     t.text     "description"
     t.integer  "user_id"
-    t.boolean  "published",   :default => false
+    t.boolean  "published",    :default => false
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "address"
     t.integer  "image_id"
+    t.datetime "published_at"
   end
 
   create_table "galleries", :force => true do |t|
@@ -68,16 +70,18 @@ ActiveRecord::Schema.define(:version => 20090720182811) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "image_id"
+    t.datetime "published_at"
   end
 
   create_table "news", :force => true do |t|
     t.string   "title"
     t.text     "body"
     t.integer  "user_id"
-    t.boolean  "published",  :default => false
+    t.boolean  "published",    :default => false
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "image_id"
+    t.datetime "published_at"
   end
 
   create_table "profiles", :force => true do |t|
