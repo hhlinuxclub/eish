@@ -14,7 +14,7 @@ module Authorization
     end
   end
   
-  module Filters    
+  module Filters
     protected
       def authorize
         if logged_in? && current_user.normal_user?
