@@ -5,6 +5,5 @@ class AboutController < ApplicationController
     set_meta_tags :title => "About",
                   :description => "About page",
                   :keywords => "about, hhlinuxclub"
-
   end
 end
