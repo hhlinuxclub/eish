@@ -4,4 +4,6 @@ if SEARCH_ENABLED
       :stemming => "english",
       :breadcrumb_facets => true
   )
+else
+  XapitSync.override_syncing { }
 end
