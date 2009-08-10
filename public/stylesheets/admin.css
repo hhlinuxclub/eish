@@ -275,11 +275,11 @@ div.grippie {
 	color: #444;
 	font-size: 16pt;
 	font-weight: bold;
-	width: 100%;
+	width: 80%;
 }
 
 .wide {
-	width: 100%;
+	width: 80%;
 }
 
 input[type=text],input[type=password],input[type=checkbox],input[type=radio],textarea {
@@ -426,7 +426,7 @@ ul.privileges {
 
 #editArea {
 	float: left;
-	width: auto;
+	width: 75%;
 }
 
 #sidebar {
@@ -443,6 +443,7 @@ ul.privileges {
 	border: 1px solid #999;
 	width: 80%;
 	cursor: pointer;
+	clear: both;
 }
 
 #saveButton:hover {
@@ -480,7 +481,7 @@ ul.privileges {
 }
 
 #categories {
-	height: 250px;
+	height: 100px;
 	overflow: auto;
 }
 
