@@ -1,6 +1,6 @@
 <h2 class="title"><%=h @article.title %></h2>
 <p class="metadata">
-	<%=h long_date(@article.created_at) %>
+	<%=h long_date(@article.published_at) %>
 	by <%= link_to_profile @article.user %>
 </p>
 

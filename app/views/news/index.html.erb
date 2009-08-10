@@ -4,7 +4,7 @@
 		<%= image_tag news_article.image.upload.url(:square), :alt => news_article.image.description, :class => "image" unless news_article.image.nil? %>
 		<h3 class="title"><%= link_to(news_article.title, news_article_path(news_article)) %></h3>
 		<p class="metadata">
-			<%=h distance_of_time_in_words(news_article.created_at, Time.now) %> ago
+			<%=h distance_of_time_in_words(news_article.published_at, Time.now) %> ago
 			by <%= link_to_profile news_article.user %>
 		</p>
 		<%= RedCloth.new(news_article.body).to_html %>
