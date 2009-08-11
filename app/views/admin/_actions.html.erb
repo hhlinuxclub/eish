@@ -14,6 +14,9 @@
 	<p id="itemInfo">
 		<strong>Created on: </strong><%= short_date(item.created_at) %><br />
 		<strong>Published on: </strong><span<%= " style=\"text-decoration:line-through\"" if !item.published? && !item.published_at.nil? %>><%= item.published_at.nil? ? "never" : short_date(item.published_at) %></span><br />
-		<strong>Owner: </strong><%= item.user.name %>
+		<strong>Owner: </strong><%= item.user.name %><br />
+		<% if item.class.model_name == "Article" %>
+			<strong>Current revision: </strong><%= item.current_revision_id %> / <%= item.revisions.size %>
+		<% end %>
 	</p>
 <% end %>
