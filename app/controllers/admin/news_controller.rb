@@ -127,4 +127,26 @@ class Admin::NewsController < AdministrationController
       format.html { redirect_to admin_news_path }
     end
   end
+  
+  def unpublish
+    news_article = News.find(params[:id])
+    
+    news_article.update_attribute(:published, false) if current_user.role.can_publish?
+    
+    respond_to do |format|
+      flash[:notice] = "The news article was unpublished."
+      format.html { redirect_to admin_news_path }
+    end
+  end
+  
+  def publish
+    news_article = News.find(params[:id])
+    
+    news_article.update_attribute(:published, true) if current_user.role.can_publish?
+    
+    respond_to do |format|
+      flash[:notice] = "The news article was published."
+      format.html { redirect_to admin_news_path }
+    end
+  end
 end
