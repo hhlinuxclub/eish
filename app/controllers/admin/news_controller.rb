@@ -75,7 +75,7 @@ class Admin::NewsController < AdministrationController
       end
     end
     
-    @news_article.attributes = params[:news_article]
+    @news_article.attributes = params[:news]
 
     respond_to do |format|
       if params[:upload] || params[:destroy_asset] || params[:preview]

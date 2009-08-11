@@ -29,7 +29,7 @@ ActionController::Routing::Routes.draw do |map|
   # Sample resource route with options:
   #   map.resources :products, :member => { :short => :get, :toggle => :post }, :collection => { :sold => :get }
   
-  map.resources :news, :singular => :news_article
+  map.resources :news
   map.resources :articles
   map.resources :events
   map.resources :galleries
@@ -52,7 +52,7 @@ ActionController::Routing::Routes.draw do |map|
   #   end
   map.namespace :admin do |admin|
     admin.resources :users
-    admin.resources :news, :singular => :news_article
+    admin.resources :news
     admin.resources :articles
     admin.resources :events
     admin.resources :galleries
