@@ -130,4 +130,26 @@ class Admin::EventsController < AdministrationController
       format.html { redirect_to admin_events_path }
     end
   end
+  
+  def unpublish
+    event = Event.find(params[:id])
+    
+    event.update_attribute(:published, false) if current_user.role.can_publish?
+    
+    respond_to do |format|
+      flash[:notice] = "The event was unpublished."
+      format.html { redirect_to admin_events_path }
+    end
+  end
+  
+  def publish
+    event = Event.find(params[:id])
+    
+    event.update_attribute(:published, true) if current_user.role.can_publish?
+    
+    respond_to do |format|
+      flash[:notice] = "The event was published."
+      format.html { redirect_to admin_events_path }
+    end
+  end
 end

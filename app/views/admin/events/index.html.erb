@@ -24,9 +24,9 @@
 			<td style="text-align: center;"><%= format_event_dates(event) %></td>
 			<td style="text-align: center;">
 			<% if event.published? %>
-				<%= image_tag("tango/22px/publish.png", :alt => "Published") %>
+				<%= link_to (image_tag("tango/22px/publish.png", :alt => "Published")), { :id => event.id, :action => "unpublish" }, { :title => "Unpublish '#{event.name}'" } %>
 			<% else %>
-				<%= image_tag("tango/22px/unpublish.png", :alt => "Unpublished") %>
+				<%= link_to (image_tag("tango/22px/unpublish.png", :alt => "Unpublished")), { :id => event.id, :action => "publish" }, { :title => "Publish '#{event.name}'" } %>
 			<% end %>
 			</td>
 		</tr>
