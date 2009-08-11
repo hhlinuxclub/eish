@@ -25,13 +25,11 @@ body {
 }
 
 #userLinks {
-	position: absolute;
-	top: 0px;
-	right: 0px;
 	color: #666;
 	margin-top: 5px;
 	margin-right: 5px;
 	color: #0066cb;
+	float: right;
 }
 
 #userLinks p, #userLinks a {
