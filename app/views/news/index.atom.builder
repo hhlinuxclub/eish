@@ -12,7 +12,7 @@ atom_feed do |feed|
   end
  
   for news_article in @news
-    feed.entry(news_article, :url => news_article_path(news_article), :format => nil) do |entry|
+    feed.entry(news_article) do |entry|
       entry.title(news_article.title)
       entry.content(news_article.body, :type => 'html')
        

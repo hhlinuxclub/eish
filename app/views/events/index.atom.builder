@@ -12,7 +12,7 @@ atom_feed do |feed|
   end
   
   for event in @upcoming_events
-    feed.entry(event, :url => event_path(event, :format => nil)) do |entry|
+    feed.entry(event) do |entry|
       entry.title(event.name + " [" + long_date(event.starts_at) + "]")
       entry.content(event.description, :type => 'html')
        
