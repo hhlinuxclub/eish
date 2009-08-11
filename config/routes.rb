@@ -52,10 +52,10 @@ ActionController::Routing::Routes.draw do |map|
   #   end
   map.namespace :admin do |admin|
     admin.resources :users
-    admin.resources :news
-    admin.resources :articles
-    admin.resources :events
-    admin.resources :galleries
+    admin.resources :news, :collection => { :bulk_action => :post }
+    admin.resources :articles, :collection => { :bulk_action => :post }
+    admin.resources :events, :collection => { :bulk_action => :post }
+    admin.resources :galleries, :collection => { :bulk_action => :post }
     admin.resources :categories
   end
 

@@ -2,18 +2,13 @@
 
 <p><%= link_to "Add article", new_admin_article_path, :class => 'add' %></p>
 
-<% form_tag("/admin/articles/bulk_action") do %>
-	<label for="actions">Bulk actions:</label>
-	<select name="actions">
-		<option value="publish" class="publish">Publish</option>
-		<option value="unpublish" class="unpublish">Unpublish</option>
-		<option value="delete" class="delete">Delete</option>
-	</select>
-	<%= submit_tag "Do action" %>
+<% bulk_options(bulk_action_admin_articles_path) do |actions_available| %>
 
 <table>
   <tr>
-	  <th><input type="checkbox" id="bulk_check" /></th>
+		<% if actions_available %>
+	  	<th><input type="checkbox" id="bulk_check" /></th>
+		<% end %>
     <th>Title</th>
     <th>Created</th>
 	<th>Revision</th>
@@ -25,7 +20,9 @@
 
 	<% for article in @articles %>
 		<tr class="<%= cycle("odd", "even") %>">
-			<td class="checkbox"><input type="checkbox" name="articles[<%= article.id %>]" /></td>
+			<% if actions_available %>
+				<td class="checkbox"><input type="checkbox" name="articles[<%= article.id %>]" /></td>
+			<% end %>
 	    <td><%= link_to article.title, { :id => article.id, :action => "edit" }, { :title => "Edit", :class => "listingTitle" } %><br />
 	    		<%=h truncate(article.description, :length => 50, :ommission => "...") %>
 	    </td>

@@ -2,18 +2,13 @@
 
 <p><%= link_to "Add gallery", new_admin_gallery_path, :class => 'add' %></p>
 
-<% form_tag("/admin/galleries/bulk_action") do %>
-	<label for="actions">Bulk actions:</label>
-	<select name="actions">
-		<option value="publish" class="publish">Publish</option>
-		<option value="unpublish" class="unpublish">Unpublish</option>
-		<option value="delete" class="delete">Delete</option>
-	</select>
-	<%= submit_tag "Do action" %>
+<% bulk_options(bulk_action_admin_galleries_path) do |actions_available| %>
 
 <table>
   <tr>
-	  <th><input type="checkbox" id="bulk_check" /></th>
+		<% if actions_available %>
+	  	<th><input type="checkbox" id="bulk_check" /></th>
+		<% end %>
     <th>Name</th>
     <th>Created</th>
 		<th>Status</th>
@@ -21,7 +16,9 @@
 
 	<% for gallery in @galleries %>
 		<tr class="<%= cycle("odd", "even") %>">
-			<td class="checkbox"><input type="checkbox" name="galleries[<%= gallery.id %>]" /></td>
+			<% if actions_available %>
+				<td class="checkbox"><input type="checkbox" name="galleries[<%= gallery.id %>]" /></td>
+			<% end %>
 	    <td><%= link_to gallery.name, { :id => gallery.id, :action => "edit" }, { :title => "Edit", :class => "listingTitle" } %><br />
 	    		<%=h truncate(gallery.description, :length => 50, :ommission => "...") %>
 	    </td>
