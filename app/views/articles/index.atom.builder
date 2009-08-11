@@ -17,7 +17,7 @@ atom_feed do |feed|
       entry.content(article.description, :type => 'html')
        
       entry.author do |author|
-        author.name(article.user.first_name + " " + article.user.last_name)
+        author.name(article.user.name)
       end
     end
   end
