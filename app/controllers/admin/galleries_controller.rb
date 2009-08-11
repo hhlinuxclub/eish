@@ -99,4 +99,26 @@ class Admin::GalleriesController < AdministrationController
       format.html { redirect_to admin_galleries_path }
     end
   end
+  
+  def unpublish
+    gallery = Gallery.find(params[:id])
+    
+    gallery.update_attribute(:published, false) if current_user.role.can_publish?
+    
+    respond_to do |format|
+      flash[:notice] = "The gallery was unpublished."
+      format.html { redirect_to admin_galleries_path }
+    end
+  end
+  
+  def publish
+    gallery = Gallery.find(params[:id])
+    
+    gallery.update_attribute(:published, true) if current_user.role.can_publish?
+    
+    respond_to do |format|
+      flash[:notice] = "The gallery was published."
+      format.html { redirect_to admin_galleries_path }
+    end
+  end
 end

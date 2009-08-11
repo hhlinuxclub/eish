@@ -25,9 +25,9 @@
 		  <td style="text-align: center;"><%=h short_date(gallery.created_at) %></td>
 		  <td style="text-align: center;">
 			<% if gallery.published? %>
-				<%= image_tag("tango/22px/publish.png", :alt => "Published") %>
+				<%= link_to (image_tag("tango/22px/publish.png", :alt => "Published")), { :id => gallery.id, :action => "unpublish" }, { :title => "Unpublish '#{gallery.name}'" } %>
 			<% else %>
-				<%= image_tag("tango/22px/unpublish.png", :alt => "Unpublished") %>
+				<%= link_to (image_tag("tango/22px/unpublish.png", :alt => "Unpublished")), { :id => gallery.id, :action => "publish" }, { :title => "Publish '#{gallery.name}'" } %>
 			<% end %>
 			</td>
 	  </tr>
