@@ -49,9 +49,12 @@ http://hhlc.lighthouseapp.com/projects/22644-hhlc
   * Diffs: Fixed ruby 1.9 compatibility issues
   * Error pages: Customized 404, 422, and 500 error pages
   * Files: Asset and image uploads
+  * Galleries: Yes, we have basic galleries now!
   * JavaScript: Moved to jQuery
   * Ordering: Order news and articles by the date they were published
   * SEO: XHTML metadata on rendered pages
+  * Performance: Added the FiveRuns TuneUp gem for performance monitoring in development mode
+  * Rails: Changed the current version to 2.3.3
   * Sitemaps: HTML & XML
   * Tracking: Support for Google Analytics
   * Users: Gravatar support for avatars
