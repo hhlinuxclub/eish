@@ -19,3 +19,7 @@ db/xapiandb/*
 config/initializers/settings.rb
 config/keys.yml
 *.kpf
+config/fiveruns_tuneup.yml
+public/images/tuneup
+public/javascripts/tuneup
+public/stylesheets/tuneup
