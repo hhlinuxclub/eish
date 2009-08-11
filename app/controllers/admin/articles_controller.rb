@@ -213,4 +213,30 @@ class Admin::ArticlesController < AdministrationController
       format.html { redirect_to admin_articles_path }
     end
   end
+  
+  def unpublish
+    article = Article.find(params[:id])
+    
+    if article == Article.featured
+      flash[:error] = "Cannot unpublish the featured article."
+    else
+      article.update_attribute(:published, false) if current_user.role.can_publish?
+      flash[:notice] = "The article was unpublished."
+    end
+    
+    respond_to do |format|
+      format.html { redirect_to admin_articles_path }
+    end
+  end
+  
+  def publish
+    article = Article.find(params[:id])
+    
+    article.update_attribute(:published, true) if current_user.role.can_publish?
+    
+    respond_to do |format|
+      flash[:notice] = "The article was published."
+      format.html { redirect_to admin_articles_path }
+    end
+  end
 end

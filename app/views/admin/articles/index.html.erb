@@ -30,9 +30,9 @@
 			<td style="text-align: center;"><%= article.current_revision_id %></td>
 		  <td style="text-align: center;">
 			<% if article.published? %>
-				<%= image_tag("tango/22px/publish.png", :alt => "Published") %>
+				<%= link_to (image_tag("tango/22px/publish.png", :alt => "Published")), { :id => article.id, :action => "unpublish" }, { :title => "Unpublish '#{article.title}'" } %>
 			<% else %>
-				<%= image_tag("tango/22px/unpublish.png", :alt => "Unpublished") %>
+				<%= link_to (image_tag("tango/22px/unpublish.png", :alt => "Unpublished")), { :id => article.id, :action => "publish" }, { :title => "Publish '#{article.title}'" } %>
 			<% end %>
 		  </td>
 			<% if current_user.role.can_administer? %>
