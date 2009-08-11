@@ -3,10 +3,12 @@
 	<%= submit_tag "Preview", :name => "preview", :id => "previewButton" %>
 </p>
 
-<p>
-	<%= f.label :published, "Published:" %>
-	<%= f.check_box :published %> 
-</p>
+<% if current_user.role.can_publish? %>
+	<p>
+		<%= f.label :published, "Published:" %>
+		<%= f.check_box :published %> 
+	</p>
+<% end %>
 
 <% unless item.new_record? %>
 	<p id="itemInfo">
