@@ -2,7 +2,7 @@ body {
 	margin: 0px;
 	padding: 0px;
 	font-family: "Helvetica Neue", Helvetica, "Bitstream Vera Sans", "Trebuchet MS", sans-serif;
-	background: #bbcdde url('../images/background.png') repeat-x 0px 0px;
+	background: #bbcdde;
 }
 
 #container {
@@ -14,9 +14,17 @@ body {
 	background: none;
 }
 
+#header_container {
+	background: #bbcdde url('../images/background.png') repeat-x 0px 0px;
+}
+
 #header {
 	height: 150px;
 	background: #fff url('../images/header.png') no-repeat 0px 0px;
+	width: 900px;
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 0;
 }
 
 #header h1 {
@@ -26,9 +34,7 @@ body {
 
 #navigation {
 	background: #2d67b2;
-	position: absolute;
-	top: 0px;
-	right: 0px;
+	float:right;
 	padding: 5px 20px 5px 5px;
 	text-align: right;
 	-moz-border-radius-bottomleft: 5px;
@@ -76,10 +82,8 @@ body {
 }
 
 #userLinks {
-	position: absolute;
-	top: 0px;
-	left: 0px;
 	font-size: 7pt;
+	float: left;
 }
 
 #userLinks a, .home a, #smallLogin a {
@@ -492,12 +496,10 @@ label {
 
 #flash {
 	font-weight: 700;
-	position: absolute;
-	right: 0;
-	top: 0;
 	margin-top: 110px;
 	text-align: right;
 	font-size: 9pt;
+	float: right;
 }
 
 #flashNotice,
