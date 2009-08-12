@@ -142,7 +142,7 @@ class User < ActiveRecord::Base
     end
   end
   
-  def normal_user?
+  def unprivileged?
     return self.role.id == Role.no_privileges.id
   end
   

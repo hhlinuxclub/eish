@@ -14,10 +14,10 @@ module Authorization
     end
   end
   
-  module Filters
+  module Filters    
     protected
       def authorize
-        if logged_in? && current_user.normal_user?
+        if logged_in? && current_user.unprivileged?
           flash[:error] = "You don't have enough privileges."
           redirect_to :root
         elsif !logged_in?

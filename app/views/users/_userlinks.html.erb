@@ -6,7 +6,7 @@
 		<% else %>
 			&brvbar; <%= link_to "Profile", profile_path(current_user) %>
 			&brvbar; <%= link_to "Account", user_path(current_user) %>
-			<% if !current_user.normal_user? %>
+			<% if !current_user.unprivileged? %>
 				&brvbar; <%= link_to "Administration", admin_url %>
 			<% end %>
 		<% end %>
