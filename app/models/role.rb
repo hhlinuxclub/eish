@@ -2,12 +2,13 @@ class Role < ActiveRecord::Base
   has_many :users
   
   def self.no_privileges
-    roles = Role.all
-    for role in roles
-      if !role.can_create? && !role.can_update? && !role.can_delete? && !role.can_publish && !role.can_administer?
-        return role
-      end
-    end
+    Role.find :first, :conditions => {
+      :can_create => false,
+      :can_update => false,
+      :can_delete => false,
+      :can_publish => false,
+      :can_administer => false
+    }
   end
   
   def privileges
