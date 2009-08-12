@@ -486,3 +486,21 @@ ul.privileges {
 #assets {
 	clear: both;
 }
+
+.CodeRay {
+	width: 100%;
+	font-size: 8pt;
+}
+
+.CodeRay .line_numbers {
+  background-color:#ECECEC;
+  border-right:1px solid #DDDDDD;
+  color:#AAAAAA;
+  padding:1em 0.5em;
+  text-align:right;
+	width: 0;
+}
+
+.code {
+  padding: 5px 5px 5px 20px;
+}
