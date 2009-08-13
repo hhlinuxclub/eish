@@ -2,7 +2,7 @@ class Admin::NewsController < AdministrationController
   def index
     set_meta_tags :title => "News"
     
-    @news = News.find_all_for_user(current_user)
+    @news = News.find_all_for_user(current_user, :order => "id DESC")
     
     respond_to do |format|
       format.html
