@@ -22,28 +22,28 @@ class Event < ActiveRecord::Base
   end
   
   def ongoing?
-    return self.starts_at < Time.now
+    self.starts_at < Time.now
   end
   
-  def self.upcoming(limit=:all)
-    if limit == :all
-      return find_all_by_published(true, :conditions => ["starts_at > ?", Time.now.to_s(:db)], :order => "starts_at")
-    else
-      return find_all_by_published(true, :conditions => ["starts_at > ?", Time.now.to_s(:db)], :order => "starts_at", :limit => limit)
-    end
+  def self.upcoming(limit=nil)
+    find_all_by_published(true, :conditions => ["starts_at > ?", Time.now.to_s(:db)], :order => "starts_at", :limit => limit)
   end
   
-  def self.ongoing
+  def self.ongoing(limit=nil)
     now = Time.now.to_s(:db)
-    return find_all_by_published(true, :conditions => "starts_at < '#{now}' AND ends_at > '#{now}'", :order => "starts_at")
+    find_all_by_published(true, :conditions => "starts_at < '#{now}' AND ends_at > '#{now}'", :order => "starts_at", :limit => limit)
   end
   
-  def self.past
-    find_all_by_published(true, :conditions => "ends_at < '#{Time.now.to_s(:db)}'", :order => "starts_at DESC")
+  def self.available(limit=nil)
+    find_all_by_published(true, :conditions => ["ends_at > ?", Time.now.to_s(:db)], :order => "starts_at DESC", :limit => limit)
+  end
+  
+  def self.past(limit=nil)
+    find_all_by_published(true, :conditions => ["ends_at < ?", Time.now.to_s(:db)], :order => "starts_at DESC", :limit => limit)
   end
   
   def all_day?
-    return self.starts_at.hour == 0 && self.starts_at.min == 0 && self.ends_at.hour == 0 && self.ends_at.min == 0
+    self.starts_at.hour == 0 && self.starts_at.min == 0 && self.ends_at.hour == 0 && self.ends_at.min == 0
   end
   
   def before_save
