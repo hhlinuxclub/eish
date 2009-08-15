@@ -487,13 +487,6 @@ label {
 	padding: 0 20px 0 18px;
 }
 
-.icsLink {
-	background: url('../images/tango/16px/events.png') no-repeat 0px 1px;
-	padding: 0 20px 0 18px;
-	margin-top: 20px;
-	display: inline-block;
-}
-
 #flash {
 	font-weight: 700;
 	margin-top: 110px;

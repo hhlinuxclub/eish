@@ -1,9 +1,6 @@
-class EventsController < ApplicationController
-  caches_page :index, :if => Proc.new { |c| c.request.format.ics? }
-  
+class EventsController < ApplicationController 
   # GET /events
   # GET /events.xml
-  # GET /events.ics
   def index
     @upcoming_events = Event.upcoming
     @ongoing_events = Event.ongoing
@@ -14,7 +11,6 @@ class EventsController < ApplicationController
     
     respond_to do |format|
       format.html # index.html.erb
-      format.ics # index.ics.erb
       format.atom { @latest_update = Event.maximum("updated_at") || Time.now }
     end
   end

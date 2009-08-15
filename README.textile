@@ -13,7 +13,6 @@ At the moment we officially have two releases numbered 0.1 and 0.2, but they are
 h1. Required Gems
 
 * "faker":http://faker.rubyforge.org/
-* "Icalendar":http://icalendar.rubyforge.org/
 * "Populator":http://populator.rubyforge.org/
 * "recaptcha":http://www.loonsoft.com/recaptcha/
 * "RedCloth":http://redcloth.org/
@@ -40,15 +39,12 @@ NB. paperclip requires you to have "ImageMagick":http://www.imagemagick.org inst
 
 h1. Javascript
 
-* "jQuery Cookie plugin":http://plugins.jquery.com/project/cookie
 * "jQuery":http://jquery.com/
 * "jQueryUI":http://jqueryui.com/
 * "jQuery Easing":http://gsgd.co.uk/sandbox/jquery/easing/
 * "Fancybox":http://fancy.klade.lv/
 * "markItUp!":http://markitup.jaysalvat.com/
 * "Password Strength Plugin":http://www.mypocket-technologies.com (modified)
-
-The *jQuery Cookie plugin* was created by Klaus Hartl, and it is dual licensed under the "MIT":http://www.opensource.org/licenses/mit-license.php and "GPL":http://www.gnu.org/licenses/gpl.html licenses.
 
 The *jQuery* and *jQuery UI* libraries are dual licensed under both "MIT":http://www.opensource.org/licenses/mit-license.php and "GPL":http://www.gnu.org/licenses/gpl.html licenses.
 

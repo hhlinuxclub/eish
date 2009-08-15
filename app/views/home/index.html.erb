@@ -24,8 +24,6 @@
 				<%= link_to "News", { :controller => "news", :action => "index", :format => "atom" }, { :class => "feedLink" } %>
 				<%= link_to "Articles", { :controller => "articles", :action => "index", :format => "atom" }, { :class => "feedLink" } %>
 				<%= link_to "Events", { :controller => "events", :action => "index", :format => "atom" }, { :class => "feedLink" } %>
-				<br />
-				<%= link_to "Events (ics)", { :controller => "events", :action => "index", :format => "ics" }, { :class => "icsLink" } %>
 		</p>
 	</div>
 </div>
@@ -39,7 +37,7 @@
 			<ul>
 			<% for news_article in @news %>
 				<li class="date"><%=h distance_of_time_in_words(news_article.created_at, Time.now) %> ago</li>
-				<li class="boxItem"><%= link_to news_article.title, news_article_path(news_article) %></li>
+				<li class="boxItem"><%= link_to news_article.title, news_article %></li>
 			<% end %>	
 			</ul>
 		<% end %>
