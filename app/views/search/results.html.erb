@@ -23,7 +23,7 @@
 	<ul>
 	<% for news_article in @news %>
 		<li>
-			<%= link_to(news_article.title, news_article_path(news_article)) %>
+			<%= link_to(news_article.title, news_path(news_article)) %>
 		</li>
 	<% end %>
 	</ul>

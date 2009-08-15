@@ -34,13 +34,13 @@ class Admin::NewsController < AdministrationController
       if @news_article.editable?(current_user)
         format.html
       else
-        format.html { redirect_to admin_news_path }
+        format.html { redirect_to admin_news_index_path }
       end
     end
   end
 
   def create
-    @news_article = News.new(params[:news])
+    @news_article = current_user.news.new(params[:news])
     @news_article.user_id = current_user_id
 
     respond_to do |format|
@@ -50,7 +50,7 @@ class Admin::NewsController < AdministrationController
         if @news_article.save
           flash[:notice] = "News article successfully created."
           @news_article.assets.create(params[:asset].merge!(:user_id => current_user_id)) if params[:upload]
-          format.html { redirect_to edit_admin_news_article_path @news_article }
+          format.html { redirect_to edit_admin_news_path @news_article }
         else
           format.html { render :action => "new" }
         end
@@ -83,7 +83,7 @@ class Admin::NewsController < AdministrationController
       else
         if @news_article.save
           flash[:notice] = "News article was successfully updated."
-          format.html { redirect_to admin_news_article_path @news_article }
+          format.html { redirect_to admin_news_path @news_article }
         else
           format.html { render :action => "edit" }
         end
@@ -103,7 +103,7 @@ class Admin::NewsController < AdministrationController
     end
 
     respond_to do |format|
-      format.html { redirect_to admin_news_path }
+      format.html { redirect_to admin_news_index_path }
     end
   end
   
@@ -124,7 +124,7 @@ class Admin::NewsController < AdministrationController
     end
     
     respond_to do |format|
-      format.html { redirect_to admin_news_path }
+      format.html { redirect_to admin_news_index_path }
     end
   end
   
@@ -135,7 +135,7 @@ class Admin::NewsController < AdministrationController
     
     respond_to do |format|
       flash[:notice] = "The news article was unpublished."
-      format.html { redirect_to admin_news_path }
+      format.html { redirect_to admin_news_index_path }
     end
   end
   
@@ -146,7 +146,7 @@ class Admin::NewsController < AdministrationController
     
     respond_to do |format|
       flash[:notice] = "The news article was published."
-      format.html { redirect_to admin_news_path }
+      format.html { redirect_to admin_news_index_path }
     end
   end
 end

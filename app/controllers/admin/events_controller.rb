@@ -1,6 +1,4 @@
-class Admin::EventsController < AdministrationController
-  cache_sweeper :event_sweeper, :only => [:create, :update, :destroy, :publish, :unpublish]
-  
+class Admin::EventsController < AdministrationController 
   def index    
     set_meta_tags :title => "Events"
     
