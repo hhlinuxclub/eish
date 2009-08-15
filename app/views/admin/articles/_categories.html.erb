@@ -20,10 +20,9 @@
 	<% end %>
 </div>
 
-<h4>Add new category</h4>
 <% fields_for :category do |c| %>
 	<p>
-		<%= c.label :name %><br />
+		<%= c.label :name, "New category" %><br />
 		<%= c.text_field :name, :class => "wide" %>
 	</p>
 
