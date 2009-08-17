@@ -13,7 +13,9 @@
 			&brvbar; <%= link_to "Logout", logout_path %> </p>
 	<% else %>
 		<% unless controller.controller_name == "users" || controller.controller_name == "sessions" %>
-			<% form_tag '/sessions/create', :id => form_id ||= nil do %>
+				<% protocol = HTTPS_FOR_LOGINS ? 'https://' : 'http://' %>
+				<% form_tag( {:controller => 'sessions', :action => 'create', :protocol => protocol, :only_path => !HTTPS_FOR_LOGINS}, {:method => 'post', :id => form_id ||= nil }) do -%>
+
 				<p>
 					<%= text_field_tag :username, params[:username], :class => "userLinks", :size => 8, :tabindex => 1 %>
 
