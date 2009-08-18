@@ -61,7 +61,7 @@ class User < ActiveRecord::Base
   def before_create
     Mailer.deliver_welcome(self)
     self.profile = Profile.new
-    self.role = Role.no_privileges
+    self.role ||= Role.no_privileges
   end
   
   def has_content?
