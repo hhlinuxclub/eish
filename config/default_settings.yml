@@ -1,0 +1,22 @@
+# The settings in this file are to be used by rake tasks to initially populate
+# the database and to later handle updates when more settings are added.
+# Do not change the keys! Keys are automatically mapped to options in the DB.
+
+welcome_message: Welcome to our website.
+
+about: About us...
+
+featured_article:
+
+recaptcha_enabled: false
+recaptcha_public_key:
+recaptcha_private_key:
+
+google_analytics_enabled: false
+google_analytics_tracker_id:
+    
+search_enabled: false
+
+https_enabled: false
+
+footer: <p>All the content on this website is provided as-is and released under a <a rel=\"license\" href=\"http://creativecommons.org/licenses/by-nc-sa/3.0/\">Creative Commons BY-NC-SA 3.0 License</a>.<br/>The copyright of each article belongs to its author.</p>
