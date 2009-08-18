@@ -1,15 +1,11 @@
 <div id="userLinks">
 	<% if logged_in? %>
 		<p>Logged in as <em><%= current_user.username %></em>
-		<% if (controller.controller_path =~ /admin\// ) %>
-				&brvbar; <%= link_to "Go to site", :root, :class => "visitSite" %>
-		<% else %>
 			&brvbar; <%= link_to "Profile", profile_path(current_user) %>
 			&brvbar; <%= link_to "Account", user_path(current_user) %>
 			<% if !current_user.unprivileged? %>
 				&brvbar; <%= link_to "Administration", admin_url %>
 			<% end %>
-		<% end %>
 			&brvbar; <%= link_to "Logout", logout_path %> </p>
 	<% else %>
 		<% unless controller.controller_name == "users" || controller.controller_name == "sessions" %>
