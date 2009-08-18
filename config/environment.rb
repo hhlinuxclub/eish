@@ -35,6 +35,7 @@ Rails::Initializer.run do |config|
   config.gem "ruby-recaptcha"
   config.gem "coderay"
   config.gem "redclothcoderay"
+  config.gem "sysinfo"
   #config.gem "fiveruns_tuneup"
   
   # Uncomment to enable search. Also change SEARCH_ENABLED to true in initializers/settings.rb.

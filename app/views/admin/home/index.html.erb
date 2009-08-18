@@ -13,3 +13,20 @@
 		<% end %>
 	</ul>
 </p>
+
+<% if current_user.role.can_administer? %>
+  <div>
+    <h3>System Information</h3>
+    <ul class="privileges">
+      <li class="privileges"><strong>Platform identifier:</strong> <%= @sysinfo.to_s %></li>
+      <li class="privileges"><strong>Hostname:</strong> <%= @sysinfo.hostname %></li>
+      <li class="privileges"><strong>IP Address:</strong> <%= @sysinfo.ipaddress_internal %></li>
+      <li class="privileges"><strong>Ruby version:</strong> <%= @sysinfo.ruby.join('.' )%></li>
+      <li class="privileges"><strong>Up since:</strong> <%= short_date(@sysinfo.uptime.hours.ago) %></li>
+      <li class="privileges"><strong>Uptime:</strong> <%= "#{pluralize(@uptime[:days], 'day')}
+                                      #{pluralize(@uptime[:hours], 'hour')}
+                                      #{pluralize(@uptime[:minutes], 'minute')}
+                                      #{pluralize(@uptime[:seconds], 'second')}" %> 
+    </ul>
+  </div>
+<% end %>

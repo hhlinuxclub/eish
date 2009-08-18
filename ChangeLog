@@ -41,12 +41,13 @@ http://hhlc.lighthouseapp.com/projects/22644-hhlc
   * Security: Major security fixes
   * Admin interface: Improved previews
   * Admin interface: Improved the new/edit pages
+  * Admin interface: System information for administrators
   * Articles: Switched to CodeRay for syntax highlighting of code
   * Authentication: Moved to a separate SessionsController
   * Authentication: Restful user authentication
   * Configuration: A separate settings page
   * Diffs: Changed to word-by-word diffs
-  * Diffs: Fixed ruby 1.9 compatibility issues
+  * Diffs: Fixed Ruby 1.9 compatibility issues
   * Error pages: Customized 404, 422, and 500 error pages
   * Events: Removed ICS support
   * Files: Asset and image uploads
@@ -56,7 +57,9 @@ http://hhlc.lighthouseapp.com/projects/22644-hhlc
   * SEO: XHTML metadata on rendered pages
   * Performance: Added the FiveRuns TuneUp gem for performance monitoring in development mode
   * Rails: Changed the current version to 2.3.3
+  * Rake tasks: Recreated the rake tasks (setup and update)
   * Sitemaps: HTML & XML
+  * Settings: Moved settings to the settings table in the DB.
   * Tracking: Support for Google Analytics
   * Users: Gravatar support for avatars
   * Users: Improved user profiles
