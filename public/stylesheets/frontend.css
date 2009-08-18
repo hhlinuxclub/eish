@@ -32,9 +32,13 @@ body {
 	color: #589ad3;
 }
 
+#header_left {
+  float:right;
+}
+
 #navigation {
 	background: #2d67b2;
-	float:right;
+	clear: both;
 	padding: 5px 20px 5px 5px;
 	text-align: right;
 	-moz-border-radius-bottomleft: 5px;
@@ -43,6 +47,7 @@ body {
 	-webkit-border-bottom-right-radius: 5px;
 	border: 1px solid #589ad3;
 	border-top: none;
+	
 }
 
 #navigation ul {
@@ -489,10 +494,10 @@ label {
 
 #flash {
 	font-weight: 700;
-	margin-top: 110px;
 	text-align: right;
 	font-size: 9pt;
 	float: right;
+	padding-top: 80px;
 }
 
 #flashNotice,
