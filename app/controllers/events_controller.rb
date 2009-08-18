@@ -1,4 +1,6 @@
-class EventsController < ApplicationController 
+class EventsController < ApplicationController
+  before_filter :require_http
+  
   # GET /events
   # GET /events.xml
   def index

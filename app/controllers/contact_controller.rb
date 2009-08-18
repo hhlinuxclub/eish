@@ -1,5 +1,6 @@
 class ContactController < ApplicationController
   before_filter :check_form, :only => :send_email
+  before_filter :require_https if HTTPS_FOR_LOGINS
   
   def index
     @contacts = User.find_all_by_contactable(true)

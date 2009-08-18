@@ -1,4 +1,6 @@
-class NewsController < ApplicationController  
+class NewsController < ApplicationController
+  before_filter :require_http
+  
   def index
     @news = News.paginate_all_by_published(true, :include => :user, :page => params[:page], :per_page => 5, :order => "published_at DESC")
     
