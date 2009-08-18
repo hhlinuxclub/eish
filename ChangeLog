@@ -48,6 +48,7 @@ http://hhlc.lighthouseapp.com/projects/22644-hhlc
   * Diffs: Changed to word-by-word diffs
   * Diffs: Fixed ruby 1.9 compatibility issues
   * Error pages: Customized 404, 422, and 500 error pages
+  * Events: Removed ICS support
   * Files: Asset and image uploads
   * Galleries: Yes, we have basic galleries now!
   * JavaScript: Moved to jQuery
@@ -59,6 +60,7 @@ http://hhlc.lighthouseapp.com/projects/22644-hhlc
   * Tracking: Support for Google Analytics
   * Users: Gravatar support for avatars
   * Users: Improved user profiles
+  * Users: SSL login from the frontpage, if HTTPS is enabled
   * WYSIWYGish editor: Added the Markitup! textile editor
 
 9999-99-99  Unreleased <unreleased>
