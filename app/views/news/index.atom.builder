@@ -14,7 +14,9 @@ atom_feed do |feed|
   for news_article in @news
     feed.entry(news_article) do |entry|
       entry.title(news_article.title)
-      entry.content(news_article.body, :type => 'html')
+      entry.content :type => "xhtml" do |xhtml|
+        xhtml << textilize(news_article.body)
+      end
        
       entry.author do |author|
         author.name(news_article.user.name)

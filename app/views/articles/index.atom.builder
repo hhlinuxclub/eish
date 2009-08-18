@@ -14,7 +14,7 @@ atom_feed do |feed|
   for article in @articles
     feed.entry(article) do |entry|
       entry.title(article.title)
-      entry.content(article.description, :type => 'html')
+      entry.content(article.description, :type => 'text')
        
       entry.author do |author|
         author.name(article.user.name)

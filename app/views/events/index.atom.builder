@@ -14,8 +14,10 @@ atom_feed do |feed|
   for event in @upcoming_events
     feed.entry(event) do |entry|
       entry.title(event.name + " [" + long_date(event.starts_at) + "]")
-      entry.content(event.description, :type => 'html')
-       
+      entry.content :type => "xhtml" do |xhtml|
+        xhtml << textilize(event.description)
+      end
+      
       entry.author do |author|
         author.name(event.user.name)
       end
