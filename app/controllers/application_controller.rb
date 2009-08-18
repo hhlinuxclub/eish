@@ -21,7 +21,7 @@ class ApplicationController < ActionController::Base
   
   protected
     def search_enabled
-      unless SEARCH_ENABLED == true
+      unless SEARCH_ENABLED
         redirect_to :root
       end
     end
