@@ -17,7 +17,7 @@
     </head>
     <body>
             <div id="header">
-                <%= link_to (image_tag "hhlinuxclub_logo.png", :alt => "Haaga-Helia Linux Club"), :root %>
+                <%= link_to (image_tag "hhlinuxclub_logo.png", :alt => "Haaga-Helia Linux Club"), :root, :title => "Go to site" %>
 								<div id="userLinks">
 										<p> Logged in as <em><%= current_user.username %></em>
 										&brvbar; <%= link_to "Go to site", :root, :class => "visitSite" %>
