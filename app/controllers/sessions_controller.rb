@@ -1,5 +1,5 @@
 class SessionsController < ApplicationController
-  before_filter :require_https, :only => [:new, :create] if HTTPS_FOR_LOGINS
+  before_filter :require_https, :only => [:new, :create] if HTTPS_ENABLED
   before_filter :not_logged_in, :only => [:new, :create]
   
   def new
