@@ -1,6 +1,4 @@
-<% protocol = HTTPS_FOR_LOGINS ? 'https://' : 'http://' %>
-<% form_tag( {:controller => 'sessions', :action => 'create', :protocol => protocol, :only_path => !HTTPS_FOR_LOGINS}, {:method => 'post', :id => form_id ||= nil }) do -%>
-
+<% form_tag '/sessions/create', :id => form_id ||= nil do %>
 	<div id="login">
 		<h2 class="title" style="padding-bottom: 10px;">Login</h2>
 		<p>
@@ -20,7 +18,6 @@
 
 		<p>
 			<%= submit_tag "Login" %> &nbsp; <%= link_to "I forgot my password or username", { :controller => "users", :action => "request_credentials" } , :class => "requestCredentials" %>
-<% end -%>
 			<% if request.protocol == 'http://' && HTTPS_FOR_LOGINS %>
 				<p>
 					<%= link_to "Login with HTTPS", { :controller => "sessions", :action => "new", :protocol => "https", :only_path => false } %>
@@ -28,3 +25,5 @@
 			<% end %>
 		</p>
 	</div>
+<% end %>
+
