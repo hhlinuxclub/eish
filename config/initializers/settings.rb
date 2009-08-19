@@ -1,5 +1,5 @@
 # Public and Private keys for reCAPTCHA.
-RCC_ENABLED = Setting.option("recaptcha_enabled")
+RCC_ENABLED = Setting.option("recaptcha_enabled", :boolean)
 RCC_PUB = Setting.option("recaptcha_public_key")
 RCC_PRIV = Setting.option("recaptcha_private_key")
 
