@@ -504,3 +504,11 @@ ul.privileges {
 .code {
   padding: 5px 5px 5px 20px;
 }
+
+#statistics {
+	width: 350px;
+}
+
+#statistics td {
+	text-align: center;
+}
