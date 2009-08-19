@@ -512,3 +512,9 @@ ul.privileges {
 #statistics td {
 	text-align: center;
 }
+
+.title .notice {
+	font-size: 9pt;
+	color: #c00;
+	float: right;
+}
