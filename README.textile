@@ -12,8 +12,6 @@ At the moment we officially have two releases numbered 0.1 and 0.2, but they are
 
 h1. Required Gems
 
-* "faker":http://faker.rubyforge.org/
-* "Populator":http://populator.rubyforge.org/
 * "recaptcha":http://www.loonsoft.com/recaptcha/
 * "RedCloth":http://redcloth.org/
 * "Redcloth with CodeRay":http://github.com/augustl/redcloth-with-coderay/
@@ -62,10 +60,6 @@ h1. Initial Setup
 	git clone git://github.com/jcxplorer/hhlc.git
 
 	cd hhlc
-
-	git submodule init
-
-	git submodule update
 </pre>
 
 * Create the config/database.yml
@@ -79,11 +73,7 @@ development:
     timeout: 5000
 </pre>
 
-* Create new keys.yml and settings.rb files based on the samples provided (config/keys.yml.sample and config/initializers/settings.rb.sample) with your own settings and keys
-
-* Run 'rake setup' in the local directory
-
-* Run 'rake db:populate' to add test data to the database (optional)
+* Run 'rake eish:setup' in the local directory
 
 h1. Search
 
