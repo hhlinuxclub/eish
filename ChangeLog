@@ -21,6 +21,14 @@ http://hhlc.lighthouseapp.com/projects/22644-hhlc
 
 2009-08-19  Joao Carlos <mail@joao-carlos.com>
 
+	* [0.5.2]: Contact form bug fix
+
+2009-08-19  Joao Carlos <mail@joao-carlos.com>
+
+	* [0.5.1]: Updated README file
+
+2009-08-19  Joao Carlos <mail@joao-carlos.com>
+
   * [0.5]: Production quality
   * Mostly fully functional: Homepage, News, Articles, Events, Galleries (new), Users, About page, Contact form
   * Bugs: Major bug fixes
