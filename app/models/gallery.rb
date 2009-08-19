@@ -19,4 +19,8 @@ class Gallery < ActiveRecord::Base
   def before_save
     self.published_at ||= Time.now if self.published?
   end
+  
+  def self.statistics
+    {:total => self.count, :published => self.count(:all, :conditions => { :published => true }), :unpublished => self.count(:all, :conditions => { :published => false })}
+  end
 end

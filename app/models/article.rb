@@ -82,4 +82,8 @@ class Article < ActiveRecord::Base
   def author_name
     self.user.name
   end
+  
+  def self.statistics
+    {:total => self.count, :published => self.count(:all, :conditions => { :published => true }), :unpublished => self.count(:all, :conditions => { :published => false })}
+  end
 end

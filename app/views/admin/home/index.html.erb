@@ -14,6 +14,40 @@
 	</ul>
 </p>
 
+<div>
+  <h3>Statistics</h3>
+  <table id="statistics">
+    <tr>
+      <th>&nbsp;</th>
+      <th>News</th>
+      <th>Articles</th>
+      <th>Events</th>
+      <th>Galleries</th>
+    </tr>
+    <tr>
+      <th><%= image_tag("tango/16px/publish.png", :alt => "Published") %> Published</th>
+      <td><%= @news_stats[:published] %></td>
+      <td><%= @article_stats[:published] %></td>
+      <td><%= @event_stats[:published] %></td>
+      <td><%= @gallery_stats[:published] %></td>
+    </tr>
+    <tr>
+      <th><%= image_tag("tango/16px/unpublish.png", :alt => "Unublished") %> Unpublished</th>
+      <td><%= @news_stats[:unpublished] %></td>
+      <td><%= @article_stats[:unpublished] %></td>
+      <td><%= @event_stats[:unpublished] %></td>
+      <td><%= @gallery_stats[:unpublished] %></td>
+    </tr>
+    <tr>
+      <th>Total</th>
+      <td><%= @news_stats[:total] %></td>
+      <td><%= @article_stats[:total] %></td>
+      <td><%= @event_stats[:total] %></td>
+      <td><%= @gallery_stats[:total] %></td>
+    </tr>
+  </table>
+</div>
+
 <% if current_user.role.can_administer? %>
   <div>
     <h3>System Information</h3>

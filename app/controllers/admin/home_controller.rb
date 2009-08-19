@@ -3,6 +3,10 @@ class Admin::HomeController < AdministrationController
     @role = current_user.role
     @sysinfo = SysInfo.new
     @uptime = seconds_to_human(@sysinfo.uptime*60*60)
+    @article_stats = Article.statistics
+    @news_stats = News.statistics
+    @event_stats = Event.statistics
+    @gallery_stats = Gallery.statistics
   end
   
   protected
