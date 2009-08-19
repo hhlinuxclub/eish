@@ -3,19 +3,33 @@ class Admin::SettingsController < AdministrationController
   
   def index
     @welcome_message = Setting.option("welcome_message")
+    @recaptcha_enabled = Setting.option("recaptcha_enabled", :boolean)
+    @recaptcha_public_key = Setting.option("recaptcha_public_key")
+    @recaptcha_private_key = Setting.option("recaptcha_private_key")
+    @google_analytics_enabled = Setting.option("google_analytics_enabled", :boolean)
+    @google_analytics_tracker_id = Setting.option("google_analytics_tracker_id")
+    @search_enabled = Setting.option("search_enabled", :boolean)
+    @https_enabled = Setting.option("https_enabled", :boolean)
+    @footer = Setting.option("footer")
     
     set_meta_tags :title => "Settings"
+    
+    respond_to do |format|
+      format.html
+    end
   end
   
   def update
-    setting = Setting.find_by_option("welcome_message")
+    settings = params[:settings]
+    
+    settings.each do |option, value|
+      setting = Setting.find_by_option(option)
+      setting.value = value
+      setting.save if setting.changed?
+    end
     
     respond_to do |format|
-      if setting.update_attribute("value", params[:welcome_message])
-        flash[:notice] = "Welcome message successfully saved."
-      else
-        flash[:error] = "Something went wrong..."
-      end
+      flash[:notice] = "Settings saved successfully."
       format.html { redirect_to :controller => "settings" }
     end
   end

@@ -1,9 +1,53 @@
 <h2 class="title">Settings</h2>
 
 <% form_tag :action => "update" do %>
+	<h3 class="title">Welcome Message</h3>
 	<p>
-		<label for="welcome_message">Welcome message:</label><br />
-		<%= text_area_tag :welcome_message, @welcome_message, :cols => 85, :rows => 10 %>
+		<%= text_area_tag "settings[welcome_message]", @welcome_message, :cols => 85, :rows => 10 %>
+	</p>
+	
+	<h3 class="title">ReCAPTCHA</h3>
+	<p>
+		<%= check_box :settings, :recaptcha_enabled, { :checked => ("checked" if @recaptcha_enabled) }, "t", "f" %>
+		<%= label :settings, :recaptcha_enabled, "Enable" %><br />
+	</p>
+	
+	<p>
+		<%= label :settings, :recaptcha_public_key %><br />
+		<%= text_field_tag "settings[recaptcha_public_key]", @recaptcha_public_key, :size => 60 %>
+	</p>
+	
+	<p>
+		<%= label :settings, :recaptcha_private_key %><br />
+		<%= text_field_tag "settings[recaptcha_private_key]", @recaptcha_private_key, :size => 60 %>
+	</p>
+	
+	<h3 class="title">Google Analytics</h3>
+	<p>
+		<%= check_box :settings, :google_analytics_enabled, { :checked => ("checked" if @google_analytics_enabled) }, "t", "f" %>
+		<%= label :settings, :google_analytics_enabled, "Enable" %><br />
+	</p>
+	
+	<p>
+		<%= label :settings, :google_analytics_tracker_id %><br />
+		<%= text_field_tag "settings[google_analytics_tracker_id]", @google_analytics_tracker_id, :size => 20 %>
+	</p>
+	
+	<h3 class="title">Search</h3>
+	<p>
+		<%= check_box :settings, :search_enabled, { :checked => ("checked" if @search_enabled) }, "t", "f" %>
+		<%= label :settings, :search_enabled, "Enable" %><br />
+	</p>
+	
+	<h3 class="title">HTTPS</h3>
+	<p>
+		<%= check_box :settings, :https_enabled, { :checked => ("checked" if @https_enabled) }, "t", "f" %>
+		<%= label :settings, :https_enabled, "Enable" %><br />
+	</p>
+	
+	<h3 class="title">Footer</h3>
+	<p>
+		<%= text_area_tag "settings[footer]", @footer, :cols => 85, :rows => 10 %>
 	</p>
 	
 	<p>
