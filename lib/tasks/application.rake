@@ -62,6 +62,10 @@ namespace :eish do
     
     Rake::Task["environment"].invoke
     
+    puts "Updating the database schema..."
+    Rake::Task["db:migrate"].invoke
+    puts "Database schema successfully updated!\n\n"
+    
     puts "Updating the settings table..."
     ActiveRecord::Base.transaction do
       YAML.load_file("#{RAILS_ROOT}/config/default_settings.yml").each do |option, value|
