@@ -1,11 +1,12 @@
 class Setting < ActiveRecord::Base
   def self.option(option, type=:text)
     include ActiveRecord::ConnectionAdapters
-    value = find_by_option(option).value
+    setting = find_by_option(option)
+    value = setting.nil? ? nil : setting.value
     case type
       when :integer   then value.to_i
       when :boolean   then Column.value_to_boolean(value)
-      else value 
+      else value
     end
   end
   

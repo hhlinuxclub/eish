@@ -13,7 +13,7 @@ class ContactController < ApplicationController
   def send_email
     recipient = User.find(params[:user][:user_id]).email
     user = logged_in? ? current_user : User.new(:first_name => params[:name], :email => params[:email])
-    valid_captcha = RCC_ENABLED && !logged_in ? validate_recap(params, ActiveRecord::Errors.new(nil)) : true
+    valid_captcha = RCC_ENABLED && !logged_in? ? validate_recap(params, ActiveRecord::Errors.new(nil)) : true
     
     respond_to do |format|
       if valid_captcha

@@ -27,4 +27,8 @@ class News < ActiveRecord::Base
   def files
     Asset.files("News", id)
   end
+  
+  def self.statistics
+    {:total => self.count, :published => self.count(:all, :conditions => { :published => true }), :unpublished => self.count(:all, :conditions => { :published => false })}
+  end
 end

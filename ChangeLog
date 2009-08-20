@@ -19,21 +19,15 @@ http://hhlc.lighthouseapp.com/projects/22644-hhlc
 
 
 
-2009-03-28  Matias Korhonen <korhonen.matt@gmail.com>
+2009-08-19  Joao Carlos <mail@joao-carlos.com>
 
-  * [0.2] Alpha 2: Same functions as 0.1 at a usable status
-  * Admin interface: Complete redesign
-  * Articles: Revision control implemented
-  * Mailings: Multipart emails
-  * Users: Password resets
-  * Users: Roles implemented
+	* [0.5.2]: Contact form bug fix
 
-2009-03-04  Matias Korhonen <korhonen.matt@gmail.com>
+2009-08-19  Joao Carlos <mail@joao-carlos.com>
 
-  * [0.1] Early Alpha: Most of the major functionality implemented (Home page, News, Events, Articles, About page) at at least a rough level
-  * Note: This release was more about our own project structure than about usable software
+	* [0.5.1]: Updated README file
 
-9999-99-99  Unreleased <unreleased>
+2009-08-19  Joao Carlos <mail@joao-carlos.com>
 
   * [0.5]: Production quality
   * Mostly fully functional: Homepage, News, Articles, Events, Galleries (new), Users, About page, Contact form
@@ -58,6 +52,7 @@ http://hhlc.lighthouseapp.com/projects/22644-hhlc
   * Performance: Added the FiveRuns TuneUp gem for performance monitoring in development mode
   * Rails: Changed the current version to 2.3.3
   * Rake tasks: Recreated the rake tasks (setup and update)
+	* Rake tasks: Removed the populate task
   * Sitemaps: HTML & XML
   * Settings: Moved settings to the settings table in the DB.
   * Tracking: Support for Google Analytics
@@ -65,6 +60,20 @@ http://hhlc.lighthouseapp.com/projects/22644-hhlc
   * Users: Improved user profiles
   * Users: SSL login from the frontpage, if HTTPS is enabled
   * WYSIWYGish editor: Added the Markitup! textile editor
+
+2009-03-28  Matias Korhonen <korhonen.matt@gmail.com>
+
+  * [0.2] Alpha 2: Same functions as 0.1 at a usable status
+  * Admin interface: Complete redesign
+  * Articles: Revision control implemented
+  * Mailings: Multipart emails
+  * Users: Password resets
+  * Users: Roles implemented
+
+2009-03-04  Matias Korhonen <korhonen.matt@gmail.com>
+
+  * [0.1] Early Alpha: Most of the major functionality implemented (Home page, News, Events, Articles, About page) at at least a rough level
+  * Note: This release was more about our own project structure than about usable software
 
 9999-99-99  Unreleased <unreleased>
 
