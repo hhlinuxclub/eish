@@ -6,6 +6,7 @@ tmp/*
 .svn
 .loadpath
 .project
+.*.swp
 public/tmp
 config/database.yml
 public/events.ics
