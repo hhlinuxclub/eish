@@ -153,6 +153,7 @@ font-style:italic;
 -webkit-border-bottom-left-radius:5px;
 -webkit-border-bottom-right-radius:5px;
 background-color:#eee;
+border:1px solid #999;
 font-size:10pt;
 padding:5px 10px;
 }
@@ -167,6 +168,9 @@ background-color:#ddd;
 -webkit-border-top-left-radius:10px;
 -webkit-border-top-right-radius:10px;
 background-color:#bbcdde;
+border-top:1px solid #999;
+border-right:1px solid #999;
+border-left:1px solid #999;
 border-bottom:none;
 font-size:12pt;
 font-weight:700;
@@ -174,7 +178,6 @@ padding:10px;
 }
 
 #saveButton,#previewButton {
-border:1px solid #999;
 clear:both;
 cursor:pointer;
 width:80%;
