@@ -33,7 +33,7 @@ body {
 }
 
 #header_left {
-  float:right;
+	float:right;
 }
 
 #navigation {
@@ -537,8 +537,8 @@ textarea {
 
 #categories ul
 {
-  margin: 20px 0;
-  padding: 0;
+	margin: 20px 0;
+	padding: 0;
 }
 
 #categories li {
@@ -644,14 +644,14 @@ blockquote {
 }
 
 .CodeRay .line_numbers {
-  background-color:#ECECEC;
-  border-right:1px solid #DDDDDD;
-  color:#AAAAAA;
-  padding:1em 0.5em;
-  text-align:right;
+	background-color:#ECECEC;
+	border-right:1px solid #DDDDDD;
+	color:#AAAAAA;
+	padding:1em 0.5em;
+	text-align:right;
 	width: 0;
 }
 
 .code {
-  padding: 5px 5px 5px 20px;
+	padding: 5px 5px 5px 20px;
 }
