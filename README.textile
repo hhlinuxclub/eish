@@ -55,7 +55,7 @@ This requires the 'sqlite3-ruby' gem.
 <pre>
 wget http://github.com/jcxplorer/hhlc/tarball/0.5.2 #Download the stable release
 tar -xvf jcxplorer-hhlc-[SHA1].tar.gz #Unpack the tarball
-mv jcxplorer-hhlc-[SHA1] hhlc #Rename the reulting folder to something sane
+mv jcxplorer-hhlc-[SHA1] hhlc #Rename the resulting folder to something sane
 cd hhlc
 cp config/database.yml.sample config/database.yml #Copy the sample DB setup
 sudo rake gems:install #Attempt to install the required gems
