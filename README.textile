@@ -1,10 +1,10 @@
 h1. Welcome to the hhlc.eish!
 
-This program is tailored to the needs of the HHLC (HAAGA-HELIA Linux Club). However, if found useful for any other situation, feel free to use, modify and redistribute. If so, please make sure that the HHLC logo and name are removed.
+This program is tailored to the needs of the HHLinuxClub (HAAGA-HELIA Linux Club). However, if found useful for any other situation, feel free to use, modify and redistribute. If so, please make sure that the HHLC logo and name are removed.
 
 h2. Releases
 
-Version 0.5.1 is the latest stable release.
+Version 0.5.2 is the latest stable release.
 
 h1. Required Gems
 
@@ -48,28 +48,26 @@ The *markItUp!* by "Jay Salvat":http://www.jaysalvat.com/ is dual licensed under
 
 The *Password Strength Plugin* is authored by Darren Mason, based on the plugin by "Firas Kassem":http://phiras.wordpress.com/2007/04/08/password-strength-meter-a-jquery-plugin/.  It is "GPL":http://www.gnu.org/licenses/gpl.html licensed.  We have made some small modifications to plugin.
 
-h1. Initial Setup
+h1. Quick Setup (for development)
 
-* Clone the git repository to a local directory, and clone the bundle-fu plugin.  To do this, execute the following four commands in a terminal.
+This requires the 'sqlite3-ruby' gem.
 
 <pre>
-	git clone git://github.com/jcxplorer/hhlc.git
-
-	cd hhlc
+wget http://github.com/jcxplorer/hhlc/tarball/0.5.2 #Download the stable release
+tar -xvf jcxplorer-hhlc-[SHA1].tar.gz #Unpack the tarball
+mv jcxplorer-hhlc-[SHA1] hhlc #Rename the reulting folder to something sane
+cd hhlc
+cp config/database.yml.sample config/database.yml #Copy the sample DB setup
+sudo rake gems:install #Attempt to install the required gems
+rake eish:setup #Perform the initial setup
 </pre>
 
-* Create the config/database.yml
+If you like to live on the edge, you can perform these steps on a cloned copy of the repository too:
 
-E.g.
 <pre>
-development:
-    adapter: sqlite3
-    database: db/development.sqlite3
-    pool: 5
-    timeout: 5000
+# Just replace the first three steps with:
+git clone git://github.com/jcxplorer/hhlc.git
 </pre>
-
-* Run 'rake eish:setup' in the local directory
 
 h1. Search
 
@@ -85,7 +83,7 @@ At the moment reindexing must be performed manually, for example by a cron job, 
 rake xapit:index
 </pre>
 
-However, this requires that the application be restarted for it to read the new database.  The upstream developer of the Xapit gem is working on improving this.
+However, this requires that the application be restarted for it to read the new database. We now also include the xapit-sync plugin which enables the search index to be updated automatically after changes are made, but it is still far from perfect.
 
 In order to enable search you must uncomment the line for Xapit in environment.rb and change SEARCH_ENABLED to true in the settings.rb initializer.
 
