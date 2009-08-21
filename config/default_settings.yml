@@ -2,6 +2,8 @@
 # the database and to later handle updates when more settings are added.
 # Do not change the keys! Keys are automatically mapped to options in the DB.
 
+site_name: HHLinuxClub.org
+
 welcome_message: Welcome to our website.
 
 about: About us...

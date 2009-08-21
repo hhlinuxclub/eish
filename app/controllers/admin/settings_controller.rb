@@ -2,6 +2,7 @@ class Admin::SettingsController < AdministrationController
   before_filter :check_for_admin
   
   def index
+    @site_name = Setting.option("site_name")
     @welcome_message = Setting.option("welcome_message")
     @recaptcha_enabled = Setting.option("recaptcha_enabled", :boolean)
     @recaptcha_public_key = Setting.option("recaptcha_public_key")

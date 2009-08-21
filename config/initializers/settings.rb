@@ -14,3 +14,5 @@ SEARCH_ENABLED = XAPIT_GEM_LOADED ? Setting.option("search_enabled", :boolean) :
 HTTPS_ENABLED = Setting.option("https_enabled", :boolean)
 
 FOOTER = Setting.option("footer")
+
+SITE_NAME = Setting.option("site_name")
