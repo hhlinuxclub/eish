@@ -19,11 +19,11 @@
 				<%= render :partial => "layouts/javascript" %>
 				
 				<% if controller.controller_name == "home" %>
-						<%= auto_discovery_link_tag(:atom, "/news.atom", {:title => "News"}) %>
-						<%= auto_discovery_link_tag(:atom, "/articles.atom", {:title => "Articles"}) %>
-						<%= auto_discovery_link_tag(:atom, "/events.atom", {:title => "Events"}) %>
+						<%= auto_discovery_link_tag(:atom, "http://#{self.request.host_with_port}/news.atom", {:title => "News"}) %>
+						<%= auto_discovery_link_tag(:atom, "http://#{self.request.host_with_port}/articles.atom", {:title => "Articles"}) %>
+						<%= auto_discovery_link_tag(:atom, "http://#{self.request.host_with_port}/events.atom", {:title => "Events"}) %>
 				<% elsif %w[news articles events].include? controller.controller_name %>
-						<%= auto_discovery_link_tag(:atom, "/#{controller.controller_name}.atom", {:title => controller.controller_name.capitalize}) %>
+						<%= auto_discovery_link_tag(:atom, "http://#{self.request.host_with_port}/#{controller.controller_name}.atom", {:title => controller.controller_name.capitalize}) %>
 				<% end %>
 				
 				<link rel="icon" type="image/png" href="/favicon.ico" />

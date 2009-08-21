@@ -21,9 +21,9 @@
 	<div class="box" id="feedsBox">
 		<h3 class="homeTitle">Feeds</h3>
 		<p>
-				<%= link_to "News", { :controller => "news", :action => "index", :format => "atom" }, { :class => "feedLink" } %>
-				<%= link_to "Articles", { :controller => "articles", :action => "index", :format => "atom" }, { :class => "feedLink" } %>
-				<%= link_to "Events", { :controller => "events", :action => "index", :format => "atom" }, { :class => "feedLink" } %>
+				<%= link_to "News", { :controller => "news", :action => "index", :format => "atom", :protocol => 'http://', :only_path => false }, { :class => "feedLink" } %>
+				<%= link_to "Articles", { :controller => "articles", :action => "index", :format => "atom", :protocol => 'http://', :only_path => false }, { :class => "feedLink" } %>
+				<%= link_to "Events", { :controller => "events", :action => "index", :format => "atom", :protocol => 'http://', :only_path => false }, { :class => "feedLink" } %>
 		</p>
 	</div>
 </div>
