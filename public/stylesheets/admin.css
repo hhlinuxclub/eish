@@ -353,6 +353,17 @@ display:inline-block;
 font-size:7pt;
 margin:2px;
 padding:2px;
+word-wrap:break-word;
+width: 350px;
+}
+
+.textileThumbnail {
+width: 120px;
+text-align: center;
+}
+
+.imageAsset table, .fileAsset table {
+width: 70%;
 }
 
 .title {
