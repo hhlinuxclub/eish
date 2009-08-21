@@ -1,5 +1,4 @@
 class GalleriesController < ApplicationController
-  before_filter :require_http
   
   def index
       @galleries = Gallery.find_all_by_published(true, :conditions => "image_id IS NOT NULL", :order => "published_at DESC")

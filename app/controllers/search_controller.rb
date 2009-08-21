@@ -1,5 +1,4 @@
 class SearchController < ApplicationController
-  before_filter :search_enabled
   
   def index
     set_meta_tags :title => "Search",
