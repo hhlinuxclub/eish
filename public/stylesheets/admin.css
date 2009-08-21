@@ -366,6 +366,15 @@ text-align: center;
 width: 70%;
 }
 
+.imageInsert {
+color:#0066cb;
+cursor: pointer;
+}
+
+.imageInsert:hover {
+color:#282828;
+}
+
 .title {
 background:#eee;
 color:#282828;

@@ -12,10 +12,14 @@ $(document).ready(function() {
 	});
 
 	// jQuery UI datepicker settings
-	$('.date').datepicker({
+	$(".date").datepicker({
 		changeMonth: true,
 		changeYear: true,
 		dateFormat: 'dd.mm.yy',
 		showButtonPanel: true
 	});
+	
+	//Image insertion pretification
+	$(".textileCode").css("display","none").next("br").remove();;
+	$(".imageInsert").css("display","block");
 });
