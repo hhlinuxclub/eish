@@ -20,6 +20,7 @@ $(document).ready(function() {
 	});
 	
 	//Image insertion pretification
-	$(".textileCode").css("display","none").next("br").remove();;
+	$(".textileCodeBlocks").remove();;
 	$(".imageInsert").css("display","block");
+	$("th:contains('Textile')").text("Insert Textile");
 });
