@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_filter :require_https, :only => [:new, :request_credentials, :edit] if HTTPS_ENABLED
+  before_filter :require_https if HTTPS_ENABLED
   before_filter :not_logged_in, :only => [:new, :request_credentials]
 
   def show
