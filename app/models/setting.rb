@@ -1,5 +1,7 @@
 class Setting < ActiveRecord::Base
   def self.option(option, type=:text)
+    return unless self.table_exists?
+
     include ActiveRecord::ConnectionAdapters
     setting = find_by_option(option)
     value = setting.nil? ? nil : setting.value
