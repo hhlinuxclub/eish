@@ -3,6 +3,19 @@ namespace :eish do
   task :setup do
     run_git_commands
     
+    unless FileTest.exist?(RAILS_ROOT + "/config/database.yml")
+      puts "You do not have a database configuration file."
+      puts "This setup can create the default sqlite3 database configuration file for you."
+      
+      if confirmation("Do you want the default database configuration file?", true)
+        FileUtils.cp(RAILS_ROOT + "/config/database.yml.sample", RAILS_ROOT + "/config/database.yml")
+        puts "'#{RAILS_ROOT}/config/database.yml' created!\n\n"
+      else
+        puts "\nPlease create the database configuration file and/or re-run this setup."
+        exit
+      end
+    end 
+    
     Rake::Task["environment"].invoke
     
     puts "The database is now going to be created and populated with the default settings."
