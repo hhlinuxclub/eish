@@ -40,13 +40,13 @@ width:900px;
 background:#fff;
 float:left;
 width:860px;
-margin:0;
-padding:0 20px 20px;
+padding:0 20px;
 }
 
 #content h1 {
 font-size:16pt;
 margin-bottom:.1em;
+padding-top:20px;
 }
 
 #content h1,#content h2,#content h3,#content h4,#content h5,#content h6 {
@@ -60,6 +60,7 @@ font-size:14pt;
 
 #content h2.title {
 font-size:18pt;
+margin-top:20px;
 }
 
 #content h3,#errorExplanation h2 {
@@ -224,6 +225,7 @@ border-top:none;
 clear:both;
 text-align:right;
 padding:5px 20px 5px 5px;
+float:right;
 }
 
 #navigation .activeLink a:link,#navigation .activeLink a:visited {
