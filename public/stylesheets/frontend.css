@@ -134,6 +134,7 @@ font-size:9pt;
 font-weight:700;
 padding-top:80px;
 text-align:right;
+clear:right;
 }
 
 #flashError,#flashLoginError {
