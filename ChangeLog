@@ -19,6 +19,18 @@ http://hhlc.lighthouseapp.com/projects/22644-hhlc
 
 
 
+2009-08-27  Joao Carlos <mail@joao-carlos.com>
+
+	* [0.5.3]: Bug fixes and small improvements
+	* Assets: Simpler interface in the administration
+	* CSS: Improved IE compatibility
+	* CSS: Organized and optimized
+	* Feeds: Article descriptions show as summary
+	* Rake tasks: Fixed eish:setup for new sites
+	* Rake tasks: eish:setup can now create the default database.yml file
+	* Security: HTTPS redirection for account options and after login
+	* Settings: Site name is now a setting
+
 2009-08-19  Joao Carlos <mail@joao-carlos.com>
 
 	* [0.5.2]: Contact form bug fix

@@ -4,7 +4,7 @@ This program is tailored to the needs of the HHLinuxClub (HAAGA-HELIA Linux Club
 
 h2. Releases
 
-Version 0.5.2 is the latest stable release.
+Version 0.5.3 is the latest stable release.
 
 h1. Required Gems
 
@@ -53,7 +53,7 @@ h1. Quick Setup (for development)
 This requires the 'sqlite3-ruby' gem.
 
 <pre>
-wget http://github.com/jcxplorer/hhlc/tarball/0.5.2 #Download the stable release
+wget http://github.com/jcxplorer/hhlc/tarball/0.5.3 #Download the stable release
 tar -xvf jcxplorer-hhlc-[SHA1].tar.gz #Unpack the tarball
 mv jcxplorer-hhlc-[SHA1] hhlc #Rename the resulting folder to something sane
 cd hhlc
