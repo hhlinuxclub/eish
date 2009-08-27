@@ -36,7 +36,7 @@
 		<% else %>
 			<ul>
 			<% for news_article in @news %>
-				<li class="date"><%=h distance_of_time_in_words(news_article.created_at, Time.now) %> ago</li>
+				<li class="date"><%=h distance_of_time_in_words(news_article.published_at, Time.now) %> ago</li>
 				<li class="boxItem"><%= link_to news_article.title, news_article %></li>
 			<% end %>	
 			</ul>
