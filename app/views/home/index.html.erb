@@ -29,28 +29,33 @@
 </div>
 
 <div class="box" id="rightColumn">
+  	<div class="box" id="featuredArticleBox">
+    <% unless @featured_article.nil? %>
+      <h3 class="homeTitle">Featured: <%=h @featured_article.title %></h3>
+      <%= image_tag @featured_article.image.upload.url(:square), :alt => @featured_article.image.description, :class => "image" unless @featured_article.image.nil? %>
+      <p><%=h @featured_article.description %></p>
+      <p style="text-align: right;">
+        <%= link_to	"More...", article_path(@featured_article) %>
+      </p>
+    <% end %> 
+	</div>
+  
 	<div class="box" id="latestNewsBox">
-		<h3 class="homeTitle">Latest News</h3>
-		<% if @news.empty? %>
-			<p>There are no news articles at the moment.</p>
+		<h3 class="homeTitle">Latest News & Articles</h3>
+		<% if @articles_and_news.empty? %>
+			<p>Nothing has been published yet.</p>
 		<% else %>
 			<ul>
-			<% for news_article in @news %>
-				<li class="date"><%=h distance_of_time_in_words(news_article.published_at, Time.now) %> ago</li>
-				<li class="boxItem"><%= link_to news_article.title, news_article %></li>
+			<% for item in @articles_and_news %>
+				<li class="date"><%=h distance_of_time_in_words(item.published_at, Time.now) %> ago</li>
+				<li class="boxItem">
+          <span class="classname" title="<%= item.class.class_name %>">
+            [<%= item.class.class_name %>]
+          </span>
+          <%= link_to item.title, item %>
+        </li>
 			<% end %>	
 			</ul>
 		<% end %>
-	</div>
-	
-		<div class="box" id="featuredArticleBox">
-	<% unless @featured_article.nil? %>
-		<h3 class="homeTitle"><%=h @featured_article.title %></h3>
-		<%= image_tag @featured_article.image.upload.url(:square), :alt => @featured_article.image.description, :class => "image" unless @featured_article.image.nil? %>
-		<p><%=h @featured_article.description %></p>
-		<p style="text-align: right;">
-			<%= link_to	"More...", article_path(@featured_article) %>
-		</p>
-	<% end %>
 	</div>
 </div>
