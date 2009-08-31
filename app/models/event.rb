@@ -35,7 +35,7 @@ class Event < ActiveRecord::Base
   end
   
   def self.available(limit=nil)
-    find_all_by_published(true, :conditions => ["ends_at > ?", Time.now.to_s(:db)], :order => "starts_at DESC", :limit => limit)
+    find_all_by_published(true, :conditions => ["ends_at > ?", Time.now.to_s(:db)], :order => "starts_at", :limit => limit)
   end
   
   def self.past(limit=nil)
