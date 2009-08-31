@@ -403,6 +403,11 @@ margin-bottom:20px;
 padding:0 20px;
 }
 
+.featuredText {
+color: #666;
+font-variant: small-caps;
+}
+
 .feedLink {
 background:url('../images/feed_16.png') no-repeat 0 1px;
 padding:0 20px 0 18px;

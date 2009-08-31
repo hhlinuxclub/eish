@@ -5,7 +5,7 @@
 	
 <div class="box" id="leftColumn">
 	<div class="box" id="upcomingEventsBox">
-		<h3 class="homeTitle">Events</h3>
+		<h3 class="homeTitle">Upcoming Events</h3>
 		<% if @events.empty? %>
 			<p>There are no upcoming events at the moment.</p>
 		<% else %>
@@ -29,21 +29,10 @@
 </div>
 
 <div class="box" id="rightColumn">
-  	<div class="box" id="featuredArticleBox">
-    <% unless @featured_article.nil? %>
-      <h3 class="homeTitle">Featured: <%=h @featured_article.title %></h3>
-      <%= image_tag @featured_article.image.upload.url(:square), :alt => @featured_article.image.description, :class => "image" unless @featured_article.image.nil? %>
-      <p><%=h @featured_article.description %></p>
-      <p style="text-align: right;">
-        <%= link_to	"More...", article_path(@featured_article) %>
-      </p>
-    <% end %> 
-	</div>
-  
 	<div class="box" id="latestNewsBox">
 		<h3 class="homeTitle">Latest News & Articles</h3>
 		<% if @articles_and_news.empty? %>
-			<p>Nothing has been published yet.</p>
+			<p>No one has published any news or articles.</p>
 		<% else %>
 			<ul>
 			<% for item in @articles_and_news %>
@@ -58,4 +47,16 @@
 			</ul>
 		<% end %>
 	</div>
+  
+  	<div class="box" id="featuredArticleBox">
+    <% unless @featured_article.nil? %>
+      <h3 class="homeTitle"><span class="featuredText" title="Featured article">Featured: </span><%=h @featured_article.title %></h3>
+      <%= image_tag @featured_article.image.upload.url(:square), :alt => @featured_article.image.description, :class => "image" unless @featured_article.image.nil? %>
+      <p><%=h @featured_article.description %></p>
+      <p style="text-align: right;">
+        <%= link_to	"More...", article_path(@featured_article) %>
+      </p>
+    <% end %> 
+	</div>
+
 </div>
