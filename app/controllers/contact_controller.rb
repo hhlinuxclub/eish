@@ -36,15 +36,17 @@ class ContactController < ApplicationController
       email_reg = /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\Z/i 
       valid_email = email_reg.match(params[:email])? true : false
       empty_name = params[:name].empty?
+      is_bot = params[:are_you_a_computer]
     else
       valid_email = true
       empty_name = false
+      is_bot = false
     end
     
     empty_subject = params[:subject].empty?
     empty_message =  params[:message].empty?
     
-    if !valid_email || empty_name || empty_subject || empty_message
+    if !valid_email || empty_name || empty_subject || empty_message || is_bot
       flash[:error] = "Your message could not be sent."
       respond_to do |format|
         format.html { redirect_to :controller => "contact" }
