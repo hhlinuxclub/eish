@@ -35,6 +35,12 @@
 			<p>
 				<%= get_captcha %>
 			</p>
+		<% elsif !logged_in? && !RCC_ENABLED %>
+			<p>
+				<label for="are_you_a_computer">Are you a computer?</label>
+				<%=  check_box_tag 'are_you_a_computer', 'yes', true %>
+				(uncheck this if you aren't a spam bot)
+			</p>
 		<% end %>
 		
 		<p><%= submit_tag "Send" %></p>
