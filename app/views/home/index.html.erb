@@ -37,7 +37,7 @@
 			<ul>
         <% @articles_and_news.each_with_index do |item, index| %>
         <% if same_time_distance?(@articles_and_news, index) %>
-          <li class="date"><%=h distance_of_time_in_words(item.published_at, Time.now) %> ago</li>
+          <li class="date"><%=h time_ago_in_words(item.published_at) %> ago</li>
         <% end %>
 				<li class="boxItem">
           <span class="classname" title="<%= item.class.class_name %>">
