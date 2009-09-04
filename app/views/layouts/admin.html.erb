@@ -6,11 +6,11 @@
         <meta name="ROBOTS" content="NOINDEX, NOFOLLOW" />
         <%= display_meta_tags :site => "Administration - #{SITE_NAME}", :reverse => true %>
 
-	      <%= stylesheet_link_tag "admin" %>
+	      <%= stylesheet_link_tag "admin", "jquery.datepick" %>
 		  	<%= render :partial => "layouts/stylesheets" %>
 				
 				<%= render :partial => "layouts/javascript" %>
-				<%= javascript_include_tag "administration", :cache => "cache/administration" %>
+				<%= javascript_include_tag "administration", "jquery.datepick.min", :cache => "cache/administration" %>
 
 				<link rel="icon" type="image/png" href="/favicon.ico" />
     </head>
