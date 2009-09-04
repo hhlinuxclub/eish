@@ -8,10 +8,9 @@
 
 	      <%= stylesheet_link_tag "admin" %>
 		  	<%= render :partial => "layouts/stylesheets" %>
-				<%= stylesheet_link_tag "jquery-ui"%>
 				
 				<%= render :partial => "layouts/javascript" %>
-				<%= javascript_include_tag "jquery-ui", "jquery.cookie", "administration", :cache => "cache/administration" %>
+				<%= javascript_include_tag "administration", :cache => "cache/administration" %>
 
 				<link rel="icon" type="image/png" href="/favicon.ico" />
     </head>

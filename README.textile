@@ -34,13 +34,12 @@ NB. paperclip requires you to have "ImageMagick":http://www.imagemagick.org inst
 h1. Javascript
 
 * "jQuery":http://jquery.com/
-* "jQueryUI":http://jqueryui.com/
 * "jQuery Easing":http://gsgd.co.uk/sandbox/jquery/easing/
 * "Fancybox":http://fancy.klade.lv/
 * "markItUp!":http://markitup.jaysalvat.com/
 * "Password Strength Plugin":http://www.mypocket-technologies.com (modified)
 
-The *jQuery* and *jQuery UI* libraries are dual licensed under both "MIT":http://www.opensource.org/licenses/mit-license.php and "GPL":http://www.gnu.org/licenses/gpl.html licenses.
+*jQuery* is dual licensed under both "MIT":http://www.opensource.org/licenses/mit-license.php and "GPL":http://www.gnu.org/licenses/gpl.html licenses.
 
 Fancybox is the work of Janis Skarnelis, and is licensed under the "MIT":http://www.opensource.org/licenses/mit-license.php license.  Fancybox depends on the "BSD":http://www.opensource.org/licenses/bsd-license.php licensed *jQuery Easing* plugin by George McGinley Smith.
 

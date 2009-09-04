@@ -10,14 +10,6 @@ $(document).ready(function() {
 			this.checked = ischecked;
 		});
 	});
-
-	// jQuery UI datepicker settings
-	$(".date").datepicker({
-		changeMonth: true,
-		changeYear: true,
-		dateFormat: 'dd.mm.yy',
-		showButtonPanel: true
-	});
 	
 	//Image insertion pretification
 	$(".textileCodeBlocks").remove();;
