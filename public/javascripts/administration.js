@@ -10,6 +10,9 @@ $(document).ready(function() {
 			this.checked = ischecked;
 		});
 	});
+  
+	// Insert the datepicker
+	$(".date").datepick({showOn: 'button', buttonImageOnly: true, buttonImage: '/images/tango/16px/events.png', dateFormat: 'dd.mm.yy', minDate: 0, firstDay: 1});
 	
 	//Image insertion pretification
 	$(".textileCodeBlocks").remove();;

@@ -22,9 +22,6 @@ $(document).ready(function() {
 		messageloc: 1,
 		userid:	"#user_username"
 	});
-	
-	// Insert the datepicker
-	$(".date").datepick({showOn: 'button', buttonImageOnly: true, buttonImage: '/images/tango/16px/events.png', dateFormat: 'dd.mm.yy', minDate: 0, firstDay: 1});
 
   /* Fancybox Default
      Galleries are created from found anchors who have the same "rel" tags
