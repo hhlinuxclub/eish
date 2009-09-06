@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20090806174756) do
+ActiveRecord::Schema.define(:version => 20090906200304) do
 
   create_table "articles", :force => true do |t|
     t.string   "title"
@@ -143,6 +143,7 @@ ActiveRecord::Schema.define(:version => 20090806174756) do
     t.string   "reset_hash"
     t.datetime "reset_hash_expires"
     t.string   "title"
+    t.string   "activation_hash"
   end
 
   create_table "xapit_changes", :force => true do |t|
