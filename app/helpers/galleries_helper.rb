@@ -6,7 +6,7 @@ module GalleriesHelper
       concat("<td>\n<div class=\"image\">")
       yield(element)
       concat("</div>\n</td>\n")
-      if (index + 1) % columns == 0 || index == collection.count - 1
+      if (index + 1) % columns == 0 || index == collection.size - 1
         concat("</tr>")
       end
     end

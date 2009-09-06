@@ -80,10 +80,10 @@ class Event < ActiveRecord::Base
       self.starts_at_time = self.starts_at_time.split(":")
       self.ends_at_date = self.ends_at_date.split(/[\.|\/]/).reverse
       self.ends_at_time = self.ends_at_time.split(":")
-      starts = starts + starts_at_date if starts_at_date.count == 3
-      starts = starts + starts_at_time if starts_at_time.count == 2
-      ends = ends + ends_at_date if ends_at_date.count == 3
-      ends = ends + ends_at_time if ends_at_time.count == 2
+      starts = starts + starts_at_date if starts_at_date.size == 3
+      starts = starts + starts_at_time if starts_at_time.size == 2
+      ends = ends + ends_at_date if ends_at_date.size == 3
+      ends = ends + ends_at_time if ends_at_time.size == 2
       
       if !self.starts_at_date.nil? && !self.starts_at_time.nil?
         begin

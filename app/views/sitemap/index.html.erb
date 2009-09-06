@@ -6,7 +6,7 @@
 	<li><%= link_to "Articles", :controller => "articles" %>
 		<ul>
 			<% for c in @categories%>
-				<li><%= link_to c.name, categories_path(c) %> (<%= pluralize(c.articles.count, "article") %>)</li>
+				<li><%= link_to c.name, categories_path(c) %> (<%= pluralize(c.articles.size, "article") %>)</li>
 			<% end %>
 		</ul>
 	</li>
