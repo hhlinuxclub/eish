@@ -15,11 +15,15 @@ class SessionsController < ApplicationController
   def create
     user = User.authenticate(params[:username], params[:password])
     if user
-      session[:user_id] = user.id
-      flash[:notice] = "Login successful!"
-      if params[:remember] == "on"
-        user.remember
-        cookies[:auth_token] = { :value => user.remember_token, :expires => user.remember_token_expires }
+      if user.activated?
+        session[:user_id] = user.id
+        flash[:notice] = "Login successful!"
+        if params[:remember] == "on"
+          user.remember
+          cookies[:auth_token] = { :value => user.remember_token, :expires => user.remember_token_expires }
+        end
+      else
+        flash[:error] = "Please activate your account before logging in."
       end
     else
       flash[:error] = "Invalid user/password combination."
