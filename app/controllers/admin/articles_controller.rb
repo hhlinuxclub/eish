@@ -47,6 +47,7 @@ class Admin::ArticlesController < AdministrationController
   def create
     @article = Article.new(params[:article])
     @article.user_id = current_user_id
+    @asset = @article.assets.build(params[:asset].merge!(:user_id => current_user_id)) if params[:upload]
 
     if params[:create_category]
       category = Category.create!(params[:category])
@@ -67,7 +68,6 @@ class Admin::ArticlesController < AdministrationController
       else
         if @article.save
           flash[:notice] = "Article successfully created."
-          @article.assets.create(params[:asset].merge!(:user_id => current_user_id)) if params[:upload]
           format.html { redirect_to edit_admin_article_path @article }
         else
           format.html { render :action => "new" }
@@ -82,7 +82,7 @@ class Admin::ArticlesController < AdministrationController
     redirect_to admin_articles_path and return unless @article.editable?(current_user)
     
     if params[:upload]
-      @article.assets.create(params[:asset].merge!(:user_id => current_user_id))
+      @asset = @article.assets.create(params[:asset].merge!(:user_id => current_user_id))
     elsif params[:create_category]
       category = Category.create!(params[:category])
       @article.categories << category
