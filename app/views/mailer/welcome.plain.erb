@@ -1,9 +1,10 @@
 Dear <%= @user.first_name %> <%= @user.last_name%>,
 
 
-Thank you for creating an account at hhlinuxclub.org
+Thank you for creating an account at www.hhlinuxclub.org
 
-Your account is now active and you can login using the username and password you chose during the registration.
+In order to use your account, you must activate it first by visiting the following link:
+<%= link_to account_activation_url(:host => @host, :username => @user.username, :activation_hash => @user.activation_hash), account_activation_url(:host => @host, :username => @user.username, :activation_hash => @user.activation_hash) %>
 
 Your username is: <%= @user.username %>
 
