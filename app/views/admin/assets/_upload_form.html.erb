@@ -1,0 +1,14 @@
+<% fields_for @asset || :asset do |a| %>
+		<%= a.error_messages %>
+		
+		<p>
+			<%= a.label :description %><br />
+			<%= a.text_field :description %>
+		</p>
+
+		<p>
+			<%= a.label :upload, "File" %><br />
+			<%= a.file_field :upload %>
+		</p>
+<% end %>
+<p><%= submit_tag "Upload", :name => "upload" %></p>

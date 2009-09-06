@@ -18,22 +18,8 @@
 	</p>
 	
 	<h3 class="title">Add an image</h3>
-	
-	<% fields_for :asset do |a| %>
-		<%= a.error_messages %>
-		
-		<p>
-			<%= a.label :description %><br />
-			<%= a.text_field :description %>
-		</p>
+  <%= render :partial => "admin/assets/upload_form" %>
 
-		<p>
-			<%= a.label :upload, "File" %><br />
-			<%= a.file_field :upload %>
-		</p>
-	<% end %>
-	<p><%= submit_tag "Upload", :name => "upload" %></p>
-	
 	<h3 class="title">Images</h3>
 
 	<% for image in @gallery.images %>
