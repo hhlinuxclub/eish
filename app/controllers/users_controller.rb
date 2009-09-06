@@ -34,8 +34,7 @@ class UsersController < ApplicationController
 
     respond_to do |format|
       if saved
-        session[:user_id] = @user.id
-        flash[:notice] = "User #{@user.username} was successfully created."
+        flash[:notice] = "Account created! Please check your email for activation details."
         format.html { redirect_to :root }
       else
         format.html { render :action => "new" }
@@ -149,6 +148,23 @@ class UsersController < ApplicationController
         flash[:error] = "The password do not match. Please try again."
         format.html { redirect_to :action => "password_reset" }
       end
+    end
+  end
+
+  def activate
+    user = User.find_by_username(params[:username])
+
+    respond_to do |format|
+      if user
+        if user.activate(params[:activation_hash])
+          flash[:notice] = "User account activated successfully. You may now login."
+        else
+          flash[:error] = "The activation hash is incorrect."
+        end
+      else
+        flash[:error] = "The user account does not currently exist."
+      end
+      format.html { redirect_to :root }    
     end
   end
 end
