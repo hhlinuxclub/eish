@@ -22,6 +22,7 @@ ActionController::Routing::Routes.draw do |map|
   map.news_with_page "news/page/:page", :controller => "news", :action => "index"
   map.articles_with_page "articles/page/:page", :controller => "articles", :action => "index"
   map.categories_with_page "articles/categories/:id/page/:page", :controller => "articles", :action => "categories"
+  map.account_activation "users/:username/activate/:activation_hash", :controller => "users", :action => "activate"
   
   # Sample resource route (maps HTTP verbs to controller actions automatically):
   #   map.resources :products
