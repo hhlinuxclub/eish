@@ -71,7 +71,8 @@
 		<% end %>
 		
 		<h4>Add new asset</h4>
-		<% fields_for :asset do |a| %>
+    <% fields_for @asset || :asset do |a| %>
+      <%= a.error_messages %>
 			<p>
 				<%= a.label :description %><br />
 				<%= a.text_field :description %>
