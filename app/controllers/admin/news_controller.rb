@@ -42,6 +42,7 @@ class Admin::NewsController < AdministrationController
   def create
     @news_article = current_user.news.new(params[:news])
     @news_article.user_id = current_user_id
+    @asset = @news_article.assets.build(params[:asset].merge!(:user_id => current_user_id)) if params[:upload]
 
     respond_to do |format|
       if params[:preview]
@@ -49,7 +50,6 @@ class Admin::NewsController < AdministrationController
       else
         if @news_article.save
           flash[:notice] = "News article successfully created."
-          @news_article.assets.create(params[:asset].merge!(:user_id => current_user_id)) if params[:upload]
           format.html { redirect_to edit_admin_news_path @news_article }
         else
           format.html { render :action => "new" }
@@ -64,7 +64,7 @@ class Admin::NewsController < AdministrationController
     redirect_to admin_articles_path and return unless @news_article.editable?(current_user)
     
     if params[:upload]
-      @news_article.assets.create(params[:asset].merge!(:user_id => current_user_id))
+      @asset = @news_article.assets.create(params[:asset].merge!(:user_id => current_user_id))
     elsif params[:destroy_asset]
       Asset.find(params[:destroy_asset]).destroy
     else
