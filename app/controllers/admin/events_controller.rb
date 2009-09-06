@@ -43,14 +43,14 @@ class Admin::EventsController < AdministrationController
   def create
     @event = Event.new(params[:event])
     @event.user_id = current_user_id
-        
+    @asset = @event.assets.build(params[:asset].merge!(:user_id => current_user_id)) if params[:upload]
+    
     respond_to do |format|
       if params[:preview]
         format.html { render :action => "new" }
       else
         if @event.save
           flash[:notice] = "Event successfully created."
-          @event.assets.create params[:asset].merge! :user_id => current_user_id if params[:upload]
           format.html { redirect_to edit_admin_event_path @event }
         else
           format.html { render :action => "new" }
@@ -65,7 +65,7 @@ class Admin::EventsController < AdministrationController
     redirect_to admin_events_path and return unless @event.editable?(current_user)
     
     if params[:upload]
-      @event.assets.create params[:asset].merge! :user_id => current_user_id
+      @asset = @event.assets.create(params[:asset].merge!(:user_id => current_user_id))
     elsif params[:destroy_asset]
       Asset.find(params[:destroy_asset]).destroy
     else
