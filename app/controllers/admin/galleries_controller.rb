@@ -25,6 +25,7 @@ class Admin::GalleriesController < AdministrationController
 
   def edit
     @gallery = Gallery.find(params[:id])
+    @asset = Image.new
     
     redirect_to admin_galleries_path and return unless @gallery.editable?(current_user)
     
@@ -55,12 +56,12 @@ class Admin::GalleriesController < AdministrationController
     redirect_to admin_galleries_path and return unless @gallery.editable?(current_user)
     
     if params[:upload]
-      uploaded_image = @gallery.images.create(params[:asset].merge!(:user_id => current_user_id))
-      @gallery.update_attribute(:image_id, uploaded_image.id) if @gallery.image.nil?
+      @asset = @gallery.images.create(params[:image].merge!(:user_id => current_user_id))
+      @gallery.update_attribute(:image_id, @asset.id) if @gallery.image.nil?
     elsif params[:destroy_image]
       Image.find(params[:destroy_image]).destroy
     else
-      @gallery.image_id = params[:image]
+      @gallery.image_id = params[:selected_image]
     end
     
     @gallery.attributes = params[:gallery]
