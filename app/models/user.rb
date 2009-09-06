@@ -21,6 +21,8 @@ class User < ActiveRecord::Base
   validates_size_of :password, :minimum => 6, :if => Proc.new { |user| !user.password.blank? && !user.password_confirmation.blank? }
   validates_format_of :email, :with => /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\Z/i
   
+  before_create :generate_activation_hash
+
   attr_accessor :password_confirmation, :current_password, :remember
   attr_reader :password
   attr_protected :role, :role_id, :hashed_password, :salt
@@ -60,7 +62,6 @@ class User < ActiveRecord::Base
   
   def before_create
     Mailer.deliver_welcome(self)
-    self.profile = Profile.new
     self.role ||= Role.no_privileges
   end
   
@@ -141,6 +142,20 @@ class User < ActiveRecord::Base
       return false
     end
   end
+
+  def activate(hash)
+    if hash == self.activation_hash
+      self.activation_hash = nil 
+      self.build_profile
+      self.save
+    else
+      return false
+    end
+  end
+
+  def activated?
+    self.activation_hash.nil?
+  end
   
   def unprivileged?
     return self.role.id == Role.no_privileges.id
@@ -163,5 +178,9 @@ class User < ActiveRecord::Base
     
     def create_new_salt
       self.salt = self.object_id.to_s + rand.to_s
+    end
+
+    def generate_activation_hash
+      self.activation_hash = Digest::SHA1.hexdigest(username + self.object_id.to_s + rand.to_s)
     end
 end
