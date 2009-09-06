@@ -30,10 +30,9 @@ class UsersController < ApplicationController
 
   def create
     @user = User.new(params[:user])
-    saved = RCC_ENABLED ? @user.valid? && validate_recap(params, @user.errors) && @user.save : @user.save
 
     respond_to do |format|
-      if saved
+      if @user.save
         flash[:notice] = "Account created! Please check your email for activation details."
         format.html { redirect_to :root }
       else

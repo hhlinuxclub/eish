@@ -39,12 +39,6 @@
 		<%= f.password_field :password_confirmation, :size => 30, :tabindex => 6, :class => "bigInput"  %>
 	</p>
 
-	<% if RCC_ENABLED %>
-	<p>
-		<%= get_captcha(:options => {:tabindex => 7}) %>
-	</p>
-	<% end %>
-
 	<p>
 		<%= f.submit "Register", :class => "submit", :tabindex => 8, :class => "bigInput" %>
 	</p>
