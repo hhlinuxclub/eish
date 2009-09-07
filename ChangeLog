@@ -90,6 +90,11 @@ http://hhlc.lighthouseapp.com/projects/22644-hhlc
 9999-99-99  Unreleased <unreleased>
 
   * [0.5.5] Bug Fix Galore: No new features. We really mean this. Bug fixes only!
+  * Bugs: A fair few bug fixes
+  * Administration: Changed the datepicker and removed jQuery UI
+  * Anti-spam: Removed ReCAPTCHA due to the invalid XHTML that it produces
+  * Home: Several small tweaks and improvements on the home page
+  * Users: New registrations need to authenticate their email addresses through an activation email
 
 9999-99-99  Unreleased <unreleased>
 
