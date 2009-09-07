@@ -30,7 +30,6 @@ Rails::Initializer.run do |config|
   # config.gem "nono-railroad", :source => "http://gems.github.com" #required to generate diagrams using 'rake doc:diagrams'
   config.gem "RedCloth"
   config.gem "mislav-will_paginate", :lib => "will_paginate", :source => "http://gems.github.com"
-  config.gem "ruby-recaptcha"
   config.gem "coderay"
   config.gem "redclothcoderay"
   config.gem "sysinfo"

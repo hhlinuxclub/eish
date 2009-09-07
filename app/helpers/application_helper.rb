@@ -2,7 +2,6 @@
 module ApplicationHelper
   include Authentication
   include Authorization
-  include ReCaptcha::ViewHelper
   
   def long_date(time)
     return time.strftime("%d %B %Y at %H:%M")

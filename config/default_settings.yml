@@ -10,13 +10,9 @@ about: About us...
 
 featured_article:
 
-recaptcha_enabled: false
-recaptcha_public_key:
-recaptcha_private_key:
-
 google_analytics_enabled: false
 google_analytics_tracker_id:
-    
+
 search_enabled: false
 
 https_enabled: false

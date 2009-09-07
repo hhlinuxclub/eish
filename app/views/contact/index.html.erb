@@ -31,11 +31,7 @@
 			<%= text_area_tag :message, params[:message], :cols => 60, :rows => 10 %>
 		</p>
 		
-		<% if !logged_in? && RCC_ENABLED %>
-			<p>
-				<%= get_captcha %>
-			</p>
-		<% elsif !logged_in? && !RCC_ENABLED %>
+		<% if !logged_in? %>
 			<p>
 				<label for="are_you_a_computer">Are you a computer?</label>
 				<%=  check_box_tag 'are_you_a_computer', 'yes', true %>

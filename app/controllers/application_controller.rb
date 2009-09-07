@@ -3,7 +3,6 @@
 
 class ApplicationController < ActionController::Base
   include Authentication
-  include ReCaptcha::AppHelper
   helper :all # include all helpers, all the time
   
   before_filter :login_from_cookie
