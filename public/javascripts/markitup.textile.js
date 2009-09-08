@@ -34,12 +34,12 @@ mySettings = {
 		{name:'Quotes', className:'quotes', openWith:'bq(!(([![Class]!])!)). '},
 		{name:'Code', className:'code', openWith:'@', closeWith:'@'},
 		{name:'Code block', className:'codeBlock', dropMenu: [
-			{ name:'Plain text', openWith:'bc[plaintext].. ', closeWith:'\n\np.'},
-		  { name:'C', openWith:'bc[c].. ', closeWith:'\n\np.'},
-		  { name:'CSS', openWith:'bc[css].. ', closeWith:'\n\np.'},
-		  { name:'HTML', openWith:'bc[html].. ', closeWith:'\n\np.'},
-		  { name:'JavaScript', openWith:'bc[java_script].. ', closeWith:'\n\np.'},
-		  { name:'Ruby', openWith:'bc[ruby].. ', closeWith:'\n\np.'},
+			{ name:'Plain text', openWith:'<source:plaintext>\n', closeWith:'\n</source>'},
+		  { name:'C', openWith:'<source:c>\n', closeWith:'\n</source>'},
+		  { name:'CSS', openWith:'<source:css>\n', closeWith:'\n</source>'},
+		  { name:'HTML', openWith:'<source:html>\n', closeWith:'\n</source>'},
+		  { name:'JavaScript', openWith:'<source:java_script>\n', closeWith:'\n</source>'},
+		  { name:'Ruby', openWith:'<source:ruby>\n', closeWith:'\n</source>'},
   		]
 		},
 		{	name:'Table generator',
