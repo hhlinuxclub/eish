@@ -17,6 +17,8 @@
 		<th>User</th>
 		<th>Email</th>
 		<th>Role</th>
+    <th>Joined</th>
+    <th>Activated?</th>
 		<th>Contact</th>
 	</tr>
 
@@ -28,6 +30,8 @@
 	    </td>
 		<td style="text-align: center;"><%=h user.email %></td>
 		<td style="text-align: center;"><%=h user.role.name %></td>
+    <td style="text-align: center;"><%= short_date(user.created_at) %></td>
+    <td style="text-align: center;"><%= user.activated? %></td>
 		<td style="text-align: center;">
 			<% if user.contactable? %>
 				<%= image_tag("tango/22px/contact.png", :alt => "Is a contact", :title => "Is a contact") %>
