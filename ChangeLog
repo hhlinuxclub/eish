@@ -18,6 +18,14 @@ For a more complete view of changes, please go to our tracker on Lighthouse:
 http://hhlc.lighthouseapp.com/projects/22644-hhlc
 
 
+2009-09-08  Matias Korhonen <korhonen.matt@gmail.com>
+
+  * [0.5.5]: Mostly bug fixes, small feature changes
+  * Bugs: A fair few bug fixes
+  * Administration: Changed the datepicker and removed jQuery UI
+  * Anti-spam: Removed ReCAPTCHA due to the invalid XHTML that it produces
+  * Home: Several small tweaks and improvements on the home page
+  * Users: New users need to authenticate their email addresses through an activation email
 
 2009-08-27  Joao Carlos <mail@joao-carlos.com>
 
@@ -86,15 +94,6 @@ http://hhlc.lighthouseapp.com/projects/22644-hhlc
 
   * [0.1] Early Alpha: Most of the major functionality implemented (Home page, News, Events, Articles, About page) at at least a rough level
   * Note: This release was more about our own project structure than about usable software
-
-9999-99-99  Unreleased <unreleased>
-
-  * [0.5.5] Bug Fix Galore: No new features. We really mean this. Bug fixes only!
-  * Bugs: A fair few bug fixes
-  * Administration: Changed the datepicker and removed jQuery UI
-  * Anti-spam: Removed ReCAPTCHA due to the invalid XHTML that it produces
-  * Home: Several small tweaks and improvements on the home page
-  * Users: New registrations need to authenticate their email addresses through an activation email
 
 9999-99-99  Unreleased <unreleased>
 
