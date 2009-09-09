@@ -329,8 +329,10 @@ padding:1em .5em;
 
 .bigInput {
 color:#333;
-font-size:150%;
+font-size:1.5em;
 font-weight:700;
+padding-top: 0.2em;
+padding-bottom: 0.2em;
 }
 
 .box {

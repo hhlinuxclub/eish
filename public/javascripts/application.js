@@ -16,6 +16,9 @@ jQuery.fn.submitWithAjax = function() {
 $(document).ready(function() {
 	// markItUp initialization
 	$("textarea.textile").markItUp(mySettings);
+	
+	//Chroma Hash
+	$("input:password").chromaHash({bars: 3, salt:"6d29ae950d425767c87ee4127d5d6047", minimum:6});
 
   /* Fancybox Default
      Galleries are created from found anchors who have the same "rel" tags
