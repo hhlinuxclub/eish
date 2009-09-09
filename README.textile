@@ -37,7 +37,6 @@ h1. Javascript
 * "jQuery Easing":http://gsgd.co.uk/sandbox/jquery/easing/
 * "Fancybox":http://fancy.klade.lv/
 * "markItUp!":http://markitup.jaysalvat.com/
-* "Password Strength Plugin":http://www.mypocket-technologies.com (modified)
 
 *jQuery* is dual licensed under both "MIT":http://www.opensource.org/licenses/mit-license.php and "GPL":http://www.gnu.org/licenses/gpl.html licenses.
 
@@ -46,8 +45,6 @@ The *jQuery Datepicker* plugin by "Keith Wood":http://keith-wood.name is dual li
 Fancybox is the work of Janis Skarnelis, and is licensed under the "MIT":http://www.opensource.org/licenses/mit-license.php license.  Fancybox depends on the "BSD":http://www.opensource.org/licenses/bsd-license.php licensed *jQuery Easing* plugin by George McGinley Smith.
 
 The *markItUp!* by "Jay Salvat":http://www.jaysalvat.com/ is dual licensed under both "MIT":http://www.opensource.org/licenses/mit-license.php and "GPL":http://www.gnu.org/licenses/gpl.html licenses.
-
-The *Password Strength Plugin* is authored by Darren Mason, based on the plugin by "Firas Kassem":http://phiras.wordpress.com/2007/04/08/password-strength-meter-a-jquery-plugin/.  It is "GPL":http://www.gnu.org/licenses/gpl.html licensed.  We have made some small modifications to plugin.
 
 h1. Quick Setup (for development)
 

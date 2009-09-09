@@ -17,12 +17,6 @@ $(document).ready(function() {
 	// markItUp initialization
 	$("textarea.textile").markItUp(mySettings);
 
-	// Password strength meter settings
-	$("#user_password").passStrength({
-		messageloc: 1,
-		userid:	"#user_username"
-	});
-
   /* Fancybox Default
      Galleries are created from found anchors who have the same "rel" tags
      Use the title attribute if you want to show a caption */
