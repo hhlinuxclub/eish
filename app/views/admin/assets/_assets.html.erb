@@ -32,9 +32,9 @@
 										<code class="textileCode textileCodeCell"><%= asset.textile_tag :thumb %></code><br />
 									</div>
 									<span class="imageInsert" style="display:none;" onclick="$.markItUp({ replaceWith:'<%= asset.textile_tag :thumb %>' } );" title="Insert image tag at cursor">Thumbnail</span>
-									<span class="imageInsert" style="display:none;" onclick="$.markItUp({ replaceWith:'<%= asset.textile_tag :thumb %>' } );" title="Insert image tag at cursor">Medium</span>
-									<span class="imageInsert" style="display:none;" onclick="$.markItUp({ replaceWith:'<%= asset.textile_tag :thumb %>' } );" title="Insert image tag at cursor">Large</span>
-									<span class="imageInsert" style="display:none;" onclick="$.markItUp({ replaceWith:'<%= asset.textile_tag :thumb %>' } );" title="Insert image tag at cursor">Original</span>
+									<span class="imageInsert" style="display:none;" onclick="$.markItUp({ replaceWith:'<%= asset.textile_tag :medium %>' } );" title="Insert image tag at cursor">Medium</span>
+									<span class="imageInsert" style="display:none;" onclick="$.markItUp({ replaceWith:'<%= asset.textile_tag :large %>' } );" title="Insert image tag at cursor">Large</span>
+									<span class="imageInsert" style="display:none;" onclick="$.markItUp({ replaceWith:'<%= asset.textile_tag :original %>' } );" title="Insert image tag at cursor">Original</span>
 								</td>
 								<td style="text-align: center;"><%= image_submit_tag "/images/tango/16px/delete.png", :value => asset.id, :name => "destroy_asset" %></td>
 							</tr>
