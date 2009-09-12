@@ -229,11 +229,6 @@ margin: 0;
 color: #000;
 }
 
-#loginLink a:hover {
-text-decoration: none !important;
-color: #fff !important;
-}
-
 #navigation {
 -moz-border-radius-bottomleft:5px;
 -moz-border-radius-bottomright:5px;
