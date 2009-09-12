@@ -529,6 +529,8 @@ input[type=submit].userLinks {
 background-color:#ccc;
 border:1px solid #fff;
 color:#000;
+padding-top: 0.2em;
+padding-bottom: 0.2em;
 }
 
 input[type=text].userLinks {
@@ -538,10 +540,12 @@ padding:1px 0 1px 17px;
 
 input[type=text].userLinks,input[type=password].userLinks {
 border:1px solid #fff;
+padding-top: 0.2em;
+padding-bottom: 0.2em;
 }
 
 input[type=text].userLinks,input[type=password].userLinks,input[type=submit].userLinks,input[type=checkbox].userLinks,label.userLinks,.userLinks {
-font-size:8pt;
+font-size:7pt;
 }
 
 label {
