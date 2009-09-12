@@ -10,26 +10,8 @@
 	<% else %>
 		<% unless controller.controller_name == "users" || controller.controller_name == "sessions" %>
 				<% protocol = HTTPS_ENABLED ? 'https://' : 'http://' %>
-				<% form_tag( {:controller => 'sessions', :action => 'create', :protocol => protocol, :only_path => !HTTPS_ENABLED}, {:method => 'post', :id => form_id ||= nil }) do -%>
-
-				<p>
-					<%= text_field_tag :username, params[:username], :class => "userLinks", :size => 8, :tabindex => 1 %>
-
-					<%= password_field_tag :password, params[:password], :class => "userLinks", :size => 14, :tabindex => 2 %>
-
-					<%= submit_tag "Login", :class => "userLinks", :tabindex => 3 %> <br />
-
-					<%= hidden_field_tag "request_uri", request.request_uri %>
-
-					<%= check_box_tag :remember, params[:remember], :class => "userLinks" %>
-					<label for="remember" class="userLinks">Remember me</label> &brvbar;
-					<%= link_to "Register", new_user_path %> &brvbar;
-					<%= link_to "Forgot?", request_credentials_path %>
-					<% if HTTPS_ENABLED %>
-						&brvbar; <%= link_to "Secure Login", { :controller => "sessions", :action => "new", :protocol => 'https://', :only_path => false } %>
-					<% end %>
+				<%= link_to "Login", { :controller => "sessions", :action => "new", :protocol => protocol, :only_path => false }, :id => "loginLink" %>
 				</p>
-			<% end %>
 		<% end %>
 	<% end %>
 </div>
