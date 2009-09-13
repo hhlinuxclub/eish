@@ -10,8 +10,14 @@
 	<% else %>
 		<% unless controller.controller_name == "users" || controller.controller_name == "sessions" %>
 				<% protocol = HTTPS_ENABLED ? 'https://' : 'http://' %>
-				<%= link_to "Login", { :controller => "sessions", :action => "new", :protocol => protocol, :only_path => false }, :id => "loginLink" %><%= link_to "Register", { :controller => "users", :action => "new", :protocol => protocol, :only_path => false }, :id => "registerLink" %>
-				</p>
+				<ul>
+				  <li>
+				    <%= link_to "Login", { :controller => "sessions", :action => "new", :protocol => protocol, :only_path => false }, :id => "loginLink" %>
+				  </li>
+				  <li>
+				    <%= link_to "Register", { :controller => "users", :action => "new", :protocol => protocol, :only_path => false }, :id => "registerLink" %>
+				  </li>
+				</ul>
 		<% end %>
 	<% end %>
 </div>

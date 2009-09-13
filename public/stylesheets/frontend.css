@@ -199,7 +199,13 @@ background:#bbcdde url('../images/background.png') repeat-x 0 0;
 }
 
 #header_left {
+float:left;
+width: 50%;
+}
+
+#header_right {
 float:right;
+width: 50%;
 }
 
 #leftColumn {
@@ -215,11 +221,7 @@ margin:40px auto;
 padding:10px;
 }
 
-#loginLink {
--moz-border-radius-bottomleft:5px;
--webkit-border-bottom-left-radius:5px;
-background-color:#bbcdde;
-border: none;
+#registerLink, #loginLink {
 font-size:11pt;
 font-weight: 700;
 padding: 5px;
@@ -227,15 +229,28 @@ margin: 0;
 color: #000;
 }
 
+#loginLink {
+-moz-border-radius-bottomleft:5px;
+-webkit-border-bottom-left-radius:5px;
+background-color:#bbcdde;
+border: 2px solid #bbcdde;
+}
+
 #registerLink {
 -moz-border-radius-bottomright:5px;
 -webkit-border-bottom-right-radius:5px;
 background-color:#eee;
-border: none;
-font-size:11pt;
-padding: 5px;
+border: 2px solid #eee;
+}
+
+#userLinks ul {
+display:block;
+padding: 7px 0 0 0;
 margin: 0;
-color: #000;
+}
+
+#userLinks li {
+display:inline;
 }
 
 #navigation {
@@ -299,7 +314,6 @@ background:none;
 }
 
 #userLinks {
-float:left;
 font-size:8pt;
 }
 
