@@ -12,10 +12,7 @@
 				<% protocol = HTTPS_ENABLED ? 'https://' : 'http://' %>
 				<ul>
 				  <li>
-				    <%= link_to "Login", { :controller => "sessions", :action => "new", :protocol => protocol, :only_path => false }, :id => "loginLink" %>
-				  </li>
-				  <li>
-				    <%= link_to "Register", { :controller => "users", :action => "new", :protocol => protocol, :only_path => false }, :id => "registerLink" %>
+				    <%= link_to "Login", { :controller => "sessions", :action => "new", :protocol => protocol, :only_path => false }, :id => "loginLink" %></li><li><%= link_to "Register", { :controller => "users", :action => "new", :protocol => protocol, :only_path => false }, :id => "registerLink" %>
 				  </li>
 				</ul>
 		<% end %>
