@@ -233,16 +233,16 @@ color: #000;
 -moz-border-radius-bottomleft:5px;
 -webkit-border-bottom-left-radius:5px;
 background-color:#bbcdde;
-border-left: 3px solid #404447;
-border-bottom: 3px solid #404447;
+border-left: 2px solid #404447;
+border-bottom: 2px solid #404447;
 }
 
 #registerLink {
 -moz-border-radius-bottomright:5px;
 -webkit-border-bottom-right-radius:5px;
 background-color:#eee;
-border-right: 3px solid #404447;
-border-bottom: 3px solid #404447;
+border-right: 2px solid #404447;
+border-bottom: 2px solid #404447;
 }
 
 #userLinks ul {
