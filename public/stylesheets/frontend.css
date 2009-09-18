@@ -200,12 +200,12 @@ background:#bbcdde url('../images/background.png') repeat-x 0 0;
 
 #header_left {
 float:left;
-width: 50%;
+width: 30%;
 }
 
 #header_right {
 float:right;
-width: 50%;
+width: 70%;
 }
 
 #leftColumn {
@@ -224,7 +224,7 @@ padding:10px;
 #registerLink, #loginLink {
 font-size:11pt;
 font-weight: 700;
-padding: 5px;
+padding: 7px 3px 3px 3px;
 margin: 0;
 color: #000;
 }
@@ -233,16 +233,16 @@ color: #000;
 -moz-border-radius-bottomleft:5px;
 -webkit-border-bottom-left-radius:5px;
 background-color:#bbcdde;
-border-left: 3px solid #404447;
-border-bottom: 3px solid #404447;
+border-left: 2px solid #404447;
+border-bottom: 2px solid #404447;
 }
 
 #registerLink {
 -moz-border-radius-bottomright:5px;
 -webkit-border-bottom-right-radius:5px;
 background-color:#eee;
-border-right: 3px solid #404447;
-border-bottom: 3px solid #404447;
+border-right: 2px solid #404447;
+border-bottom: 2px solid #404447;
 }
 
 #userLinks ul {
