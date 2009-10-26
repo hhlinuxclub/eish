@@ -27,7 +27,7 @@ class Mailer < ActionMailer::Base
     body          :message => message, :ip_address => ip_address, :user_agent => user_agent, :user => user
   end
   
-  def credentials(user, host)
+  def credentials(user)
     recipients    user.email
     from          "HAAGA-HELIA Linux Club <do-not-reply@hhlinuxclub.org>" #TODO: Move to the settings?
     subject       "Credentials request for the HAAGA-HELIA Linux Club"
@@ -36,15 +36,13 @@ class Mailer < ActionMailer::Base
     
     part  "text/plain" do |p|
       p.body = render_message("credentials.plain.erb",
-      :user => user,
-      :host => host)
+      :user => user)
       p.transfer_encoding = "base64"
     end
     
     part  :content_type => "text/html",
           :body => render_message("credentials.html.erb",
-          :user => user,
-          :host => host)
+          :user => user)
   end
 end
 

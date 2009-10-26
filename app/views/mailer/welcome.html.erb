@@ -4,7 +4,7 @@
 
 <p>
   In order to use your account, you must activate it first by clicking the following link:<br />
-  <%= link_to account_activation_url(:host => @host, :username => @user.username, :activation_hash => @user.activation_hash), account_activation_url(:host => @host, :username => @user.username, :activation_hash => @user.activation_hash) %>
+  <%= link_to account_activation_url(:username => @user.username, :activation_hash => @user.activation_hash), account_activation_url(:username => @user.username, :activation_hash => @user.activation_hash) %>
 </p>
 
 <p>Your username is: <b><%= @user.username %></b></p>

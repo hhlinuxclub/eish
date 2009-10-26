@@ -112,7 +112,7 @@ class UsersController < ApplicationController
         flash[:error] = "The email you entered is not associated with any user."
         format.html { redirect_to :action => "request_credentials" }
       else
-        if Mailer.deliver_credentials(user, request.host_with_port)
+        if Mailer.deliver_credentials(user)
           flash[:notice] = "The credentials were sent to your email."
           format.html { redirect_to :root }
         else
