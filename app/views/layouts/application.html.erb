@@ -1,61 +1,62 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
-		<head profile="http://a9.com/-/spec/opensearch/1.1/">
-				<meta http-equiv="content-type" content="text/html;charset=UTF-8" />
-				
-				<% if SEARCH_ENABLED %>
-						<link rel="search"
-						type="application/opensearchdescription+xml" 
-						href="<%= self.request.protocol + self.request.host_with_port %>/search/opensearch.xml"
-						title="HHLinuxClub.org" />
-				<% end %>
-				
-				<%= display_meta_tags :site => SITE_NAME, :reverse => true %>
-				
-				<%= stylesheet_link_tag "frontend" %>
-				<%= render :partial => "layouts/stylesheets" %>
-				
-				<%= render :partial => "layouts/javascript" %>
-				
-				<% if controller.controller_name == "home" %>
-						<%= auto_discovery_link_tag(:atom, "http://#{self.request.host_with_port}/news.atom", {:title => "News"}) %>
-						<%= auto_discovery_link_tag(:atom, "http://#{self.request.host_with_port}/articles.atom", {:title => "Articles"}) %>
-						<%= auto_discovery_link_tag(:atom, "http://#{self.request.host_with_port}/events.atom", {:title => "Events"}) %>
-				<% elsif %w[news articles events].include? controller.controller_name %>
-						<%= auto_discovery_link_tag(:atom, "http://#{self.request.host_with_port}/#{controller.controller_name}.atom", {:title => controller.controller_name.capitalize}) %>
-				<% end %>
-				
-				<link rel="icon" type="image/png" href="/favicon.ico" />
-		</head>
-		<body>
-				<div id="header_container">
-						<div id="header">
-								<h1>HAAGA-HELIA Linux Club</h1>
-                <div id="header_left">
-                  <%= render :partial => "/users/userlinks" %>
-                </div>
-								<div id="header_right">
-										<div id="navigation">
-												<%= navigation("home", "news", "articles", "events", "galleries", "about", "contact") %>
-										</div>
-										
-										<div id="flash">
-												<span id="flashNotice"><%= flash[:notice] %></span>
-												<span id="flashError"><%= flash[:error] %></span>
-										</div>
-								</div>
-						</div>
-				</div>
-				<div id="container">
-						<div id="content" class="<%= controller.controller_name.to_s unless admin_namespace? %>">
-								<%= yield %>
-						</div>
-						<div id="footer">        
-								<%= FOOTER %>
-						</div>
-				</div>
-				<%= render :partial => "layouts/analytics" %>
-		</body>
+<head profile="http://a9.com/-/spec/opensearch/1.1/">
+  <meta http-equiv="content-type" content="text/html;charset=UTF-8"/>
+
+  <% if SEARCH_ENABLED %>
+      <link rel="search"
+            type="application/opensearchdescription+xml"
+            href="<%= self.request.protocol + self.request.host_with_port %>/search/opensearch.xml"
+            title="HHLinuxClub.org"/>
+  <% end %>
+
+  <%= display_meta_tags :site => SITE_NAME, :reverse => true %>
+
+  <%= stylesheet_link_tag "frontend" %>
+  <%= render :partial => "layouts/stylesheets" %>
+
+  <%= render :partial => "layouts/javascript" %>
+
+  <% if controller.controller_name == "home" %>
+      <%= auto_discovery_link_tag(:atom, "http://#{self.request.host_with_port}/news.atom", {:title => "News"}) %>
+      <%= auto_discovery_link_tag(:atom, "http://#{self.request.host_with_port}/articles.atom", {:title => "Articles"}) %>
+      <%= auto_discovery_link_tag(:atom, "http://#{self.request.host_with_port}/events.atom", {:title => "Events"}) %>
+  <% elsif %w[news articles events].include? controller.controller_name %>
+      <%= auto_discovery_link_tag(:atom, "http://#{self.request.host_with_port}/#{controller.controller_name}.atom", {:title => controller.controller_name.capitalize}) %>
+  <% end %>
+
+  <link rel="icon" type="image/png" href="/favicon.ico"/>
+</head>
+<body>
+<div id="header_container">
+  <div id="header">
+    <h1>HAAGA-HELIA Linux Club</h1>
+
+    <div id="header_left">
+      <%= render :partial => "/users/userlinks" %>
+    </div>
+    <div id="header_right">
+      <div id="navigation">
+        <%= navigation("home", "news", "articles", "events", "galleries", "about", "contact") %>
+      </div>
+
+      <div id="flash">
+        <span id="flashNotice"><%= flash[:notice] %></span>
+        <span id="flashError"><%= flash[:error] %></span>
+      </div>
+    </div>
+  </div>
+</div>
+<div id="container">
+  <div id="content" class="<%= controller.controller_name.to_s unless admin_namespace? %>">
+    <%= yield %>
+  </div>
+  <div id="footer">
+    <%= FOOTER %>
+  </div>
+</div>
+<%= render :partial => "layouts/analytics" %>
+</body>
 </html>
 
