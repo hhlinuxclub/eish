@@ -223,10 +223,14 @@
 
 #loginLinks {
     float: left;
+    background: #2e3436;
+    border: 1px solid #555753;
 }
 
 #navigation {
-    float: right; 
+    float: right;
+    background: #2d67b2;
+    border: 1px solid #589ad3;
 }
 
 #navigation, #loginLinks {
@@ -234,8 +238,6 @@
     -moz-border-radius-bottomright: 5px;
     -webkit-border-bottom-left-radius: 5px;
     -webkit-border-bottom-right-radius: 5px;
-    background: #2d67b2;
-    border: 1px solid #589ad3;
     border-top: none;
     clear: both;
     text-align: right;
@@ -268,19 +270,26 @@
 }
 
 #navigation a:link,
-#navigation a:visited,
+#navigation a:visited {
+    color: #b0c1d1;
+    text-decoration: none;
+}
+
 #loginLinks a:link,
 #loginLinks a:visited {
-    color: #b0c1d1;
+    color: #eeeeec;
     text-decoration: none;
 }
 
 #navigation a:hover,
 #navigation ul li:hover,
-#loginLinks a:hover,
-#loginLinks ul li:hover,
 #navigation .activeLink {
     color: #fff;
+}
+
+#loginLinks a:hover,
+#loginLinks ul li:hover {
+    color: #babdb6;
     text-decoration: none;
 }
 
