@@ -1,7 +1,7 @@
 class GalleriesController < ApplicationController
   
   def index
-      @galleries = Gallery.find_all_by_published(true, :conditions => "image_id IS NOT NULL", :order => "published_at DESC")
+      @galleries = Gallery.published.not_null
       @columns = 4 # TODO: Move this to the settings table
       
       respond_to do |format|
@@ -10,7 +10,7 @@ class GalleriesController < ApplicationController
   end
 
   def show
-      @gallery = Gallery.find_by_id_and_published(params[:id].to_i, true)
+      @gallery = Gallery.published.find(params[:id].to_i)
       @columns = 4 # TODO: Move this to the settings table
       
       respond_to do |format|

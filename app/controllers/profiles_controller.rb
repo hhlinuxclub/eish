@@ -1,6 +1,6 @@
 class ProfilesController < ApplicationController
   def show
-    @user = User.find_by_username(params[:id])
+    @user = User.find(:first, :conditions => { :username => params[:id] })
     
     set_meta_tags :title => @user.username,
                   :description => 'Profile page',
@@ -12,7 +12,7 @@ class ProfilesController < ApplicationController
   end
   
   def edit
-    @user = User.find_by_username(params[:id])
+    @user = User.find(:first, :conditions => { :username => params[:id] })
     
     redirect_to profile_path @user and return unless @user.id == current_user_id
     

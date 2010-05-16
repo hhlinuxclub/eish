@@ -1,6 +1,6 @@
 class NewsController < ApplicationController
   def index
-    @news = News.paginate_all_by_published(true, :include => :user, :page => params[:page], :per_page => 5, :order => "published_at DESC")
+    @news = News.published.paginate(:page => params[:page], :per_page => 5, :order => "published_at DESC", :include => :user)    
     
     set_meta_tags :title => "News",
                   :description => "Club news",
@@ -13,7 +13,7 @@ class NewsController < ApplicationController
   end
 
   def show
-    @news_article = News.find_by_id_and_published(params[:id].to_i, true)
+    @news_article = News.published.find(params[:id].to_i)
     
     set_meta_tags :title => @news_article.title,
                   :description => "Club news",

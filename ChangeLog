@@ -100,11 +100,17 @@ http://hhlc.lighthouseapp.com/projects/22644-hhlc
 
   * [0.1] Early Alpha: Most of the major functionality implemented (Home page, News, Events, Articles, About page) at at least a rough level
   * Note: This release was more about our own project structure than about usable software
-
-9999-99-99  Unreleased <unreleased>
-
-  * [0.6] Performance: Improve the performance of the database and application
   
 9999-99-99  Unreleased <unreleased>
 
-  * [0.7] New Feature Milestone: This milestone should contain the next set of new features
+  * [0.6] Refactor: Improve the code
+  * Model.find_by_attribute: all #find_by_attribute finders removed
+  * Search: Remove all together as it doesn't work well enough
+
+9999-99-99  Unreleased <unreleased>
+
+  * [0.7] Performance: Improve the performance of the database and application
+  
+9999-99-99  Unreleased <unreleased>
+
+  * [0.8] New Feature Milestone: This milestone should contain the next set of new features

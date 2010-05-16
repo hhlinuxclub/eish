@@ -14,25 +14,17 @@ class Event < ActiveRecord::Base
   validates_presence_of :ends_at_time, :if => Proc.new { |event| event.ends_at.nil? }
   validate :date_range_and_format
   
+  named_scope :published, :conditions => { :published => true }
+  named_scope :upcoming, :conditions => ["starts_at > ?", Time.now.to_s(:db)], :order => "starts_at DESC"
+  named_scope :ongoing, :conditions => ["starts_at < ? AND ends_at > ?", Time.now.to_s(:db), Time.now.to_s(:db)], :order => "starts_at DESC"
+  named_scope :available, :conditions => ["ends_at > ?", Time.now.to_s(:db)], :order => "starts_at DESC"
+  named_scope :past, :conditions => ["ends_at < ?", Time.now.to_s(:db)], :order => "starts_at DESC"
+  named_scope :for_user, lambda { |user|
+      { :conditions => { :user_id => user.id } }
+  }
+  
   def ongoing?
     self.starts_at < Time.now
-  end
-  
-  def self.upcoming(limit=nil)
-    find_all_by_published(true, :conditions => ["starts_at > ?", Time.now.to_s(:db)], :order => "starts_at", :limit => limit)
-  end
-  
-  def self.ongoing(limit=nil)
-    now = Time.now.to_s(:db)
-    find_all_by_published(true, :conditions => "starts_at < '#{now}' AND ends_at > '#{now}'", :order => "starts_at", :limit => limit)
-  end
-  
-  def self.available(limit=nil)
-    find_all_by_published(true, :conditions => ["ends_at > ?", Time.now.to_s(:db)], :order => "starts_at", :limit => limit)
-  end
-  
-  def self.past(limit=nil)
-    find_all_by_published(true, :conditions => ["ends_at < ?", Time.now.to_s(:db)], :order => "starts_at DESC", :limit => limit)
   end
   
   def all_day?

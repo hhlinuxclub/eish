@@ -5,7 +5,9 @@ module Authorization
       if role.can_update? || role.can_delete? || role.can_publish? || role.can_administer?
         find(:all, *args)
       else
-        find_all_by_user_id(user.id, *args)
+        for_user(user).find(:all, *args)
+        #find(:all, :conditions => {:user_id => user.id}, *args)
+        #find_all_by_user_id(user.id, *args)
       end
     end
     

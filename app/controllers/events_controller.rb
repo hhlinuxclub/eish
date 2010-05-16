@@ -2,8 +2,8 @@ class EventsController < ApplicationController
   # GET /events
   # GET /events.xml
   def index
-    @upcoming_events = Event.upcoming
-    @ongoing_events = Event.ongoing
+    @upcoming_events = Event.published.upcoming
+    @ongoing_events = Event.published.ongoing
     
     set_meta_tags :title => "Events",
                   :description => "Events related to the club",
@@ -18,7 +18,7 @@ class EventsController < ApplicationController
   # GET /events/past
   # GET /events/past.xml
   def past
-    @past_events = Event.past
+    @past_events = Event.published.past
     
     set_meta_tags :title => "Past Events",
                   :description => "Past events related to the club",
@@ -28,11 +28,9 @@ class EventsController < ApplicationController
       format.html # past.html.erb
     end
   end
-  
-  # GET /events/1
-  # GET /events/1.xml
+    
   def show
-    @event = Event.find(params[:id].to_i)
+    @event = Event.published.find(params[:id].to_i)
     
     set_meta_tags :title => @event.name,
                   :description => "An event related to the club",

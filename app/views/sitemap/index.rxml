@@ -2,57 +2,17 @@ xml.instruct!
 xml.instruct! :'xml-stylesheet', :type => "text/xsl", :href => "/stylesheets/sitemap.xsl"
 
 xml.urlset "xmlns" => "http://www.google.com/schemas/sitemap/0.84" do
+  
+  ["", "about", "events", "news", "articles", "galleries", "contact"].each do |index|
+    xml.url do
+      xml.loc         "http://" + request.host_with_port + "/#{index}"
+      xml.lastmod     w3c_date(Time.now)
+      xml.changefreq  "weekly"
+      xml.priority    1
+    end
+  end  
 
-  xml.url do
-    xml.loc         "http://" + request.host_with_port
-    xml.lastmod     w3c_date(Time.now)
-    xml.changefreq  "weekly"
-    xml.priority    1
-  end
-
-  xml.url do
-    xml.loc         "http://" + request.host_with_port + "/about"
-    xml.lastmod     w3c_date(Time.now)
-    xml.changefreq  "monthly"
-    xml.priority    0.9
-  end
-
-  xml.url do
-    xml.loc         "http://" + request.host_with_port + "/events"
-    xml.lastmod     w3c_date(Time.now)
-    xml.changefreq  "monthly"
-    xml.priority    0.9
-  end
-
-  xml.url do
-    xml.loc         "http://" + request.host_with_port + "/news"
-    xml.lastmod     w3c_date(Time.now)
-    xml.changefreq  "monthly"
-    xml.priority    0.9
-  end
-
-  xml.url do
-    xml.loc         "http://" + request.host_with_port + "/articles"
-    xml.lastmod     w3c_date(Time.now)
-    xml.changefreq  "monthly"
-    xml.priority    0.9
-  end
-
-  xml.url do
-    xml.loc         "http://" + request.host_with_port + "/galleries"
-    xml.lastmod     w3c_date(Time.now)
-    xml.changefreq  "monthly"
-    xml.priority    0.9
-  end
-
-  xml.url do
-    xml.loc         "http://" + request.host_with_port + "/contact"
-    xml.lastmod     w3c_date(Time.now)
-    xml.changefreq  "monthly"
-    xml.priority    0.8
-  end
-
-  for article in @articles
+  @articles.each do |article|
     xml.url do
       xml.loc         article_url(article)
       xml.lastmod     w3c_date(article.updated_at)
@@ -61,7 +21,7 @@ xml.urlset "xmlns" => "http://www.google.com/schemas/sitemap/0.84" do
     end
   end
 
-  for category in @categories
+  @categories.each do |category|
     xml.url do
       xml.loc         categories_url(category)
       xml.lastmod     w3c_date(category.updated_at)
@@ -70,16 +30,16 @@ xml.urlset "xmlns" => "http://www.google.com/schemas/sitemap/0.84" do
     end
   end
 
-  for news_article in @news
+  @news.each do |news_article|
     xml.url do
-      xml.loc         news_article_url(news_article)
+      xml.loc         news_url(news_article)
       xml.lastmod     w3c_date(news_article.updated_at)
       xml.changefreq  "weekly"
       xml.priority    0.8
     end
   end
 
-  for event in @upcoming_events
+  @upcoming_events.each do |event|
     xml.url do
       xml.loc         event_url(event)
       xml.lastmod     w3c_date(event.updated_at)
@@ -88,7 +48,7 @@ xml.urlset "xmlns" => "http://www.google.com/schemas/sitemap/0.84" do
     end
   end
 
-  for event in @ongoing_events
+  @ongoing_events.each do |event|
     xml.url do
       xml.loc         event_url(event)
       xml.lastmod     w3c_date(event.updated_at)
@@ -97,7 +57,7 @@ xml.urlset "xmlns" => "http://www.google.com/schemas/sitemap/0.84" do
     end
   end
 
-  for event in @past_events
+  @past_events.each do |event|
     xml.url do
       xml.loc         event_url(event)
       xml.lastmod     w3c_date(event.updated_at)
@@ -106,7 +66,7 @@ xml.urlset "xmlns" => "http://www.google.com/schemas/sitemap/0.84" do
     end
   end
 
-  for gallery in @galleries
+  @galleries.each do |gallery|
     xml.url do
       xml.loc         gallery_url(gallery)
       xml.lastmod     w3c_date(gallery.updated_at)

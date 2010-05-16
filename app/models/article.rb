@@ -8,7 +8,12 @@ class Article < ActiveRecord::Base
   
   validates_presence_of :title, :description, :body
   
-  named_scope :all_published, :conditions => { :published => true }
+  named_scope :all_published, :conditions => { :published => true }, :order => "published_at DESC" # legacy scope
+  named_scope :published, :conditions => { :published => true }, :order => "published_at DESC"
+  named_scope :unpublished, :conditions => { :published => true }
+  named_scope :for_user, lambda { |user|
+      { :conditions => { :user_id => user.id } }
+  }
   
   attr_accessor :updated_by_user_id
   

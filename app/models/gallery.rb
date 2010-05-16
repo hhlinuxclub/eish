@@ -5,6 +5,12 @@ class Gallery < ActiveRecord::Base
   
   validates_presence_of :name, :description
   
+  named_scope :published, :conditions => { :published => true }
+  named_scope :not_null, :conditions => "image_id IS NOT NULL", :order => "published_at DESC"
+  named_scope :for_user, lambda { |user|
+      { :conditions => { :user_id => user.id } }
+  }
+  
   def to_param
     "#{id}-#{name.parameterize}"
   end

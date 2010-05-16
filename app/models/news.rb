@@ -5,6 +5,12 @@ class News < ActiveRecord::Base
   
   validates_presence_of :title, :body
   
+  named_scope :published, :conditions => { :published => true }, :order => "published_at DESC"
+  named_scope :unpublished, :conditions => { :published => true }
+  named_scope :for_user, lambda { |user|
+      { :conditions => { :user_id => user.id } }
+  }
+  
   def before_save
     self.published_at ||= Time.now if self.published?
   end
