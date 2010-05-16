@@ -1,15 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
-<head profile="http://a9.com/-/spec/opensearch/1.1/">
+<head>
   <meta http-equiv="content-type" content="text/html;charset=UTF-8"/>
-
-  <% if SEARCH_ENABLED %>
-      <link rel="search"
-            type="application/opensearchdescription+xml"
-            href="<%= self.request.protocol + self.request.host_with_port %>/search/opensearch.xml"
-            title="HHLinuxClub.org"/>
-  <% end %>
 
   <%= display_meta_tags :site => SITE_NAME, :reverse => true %>
 

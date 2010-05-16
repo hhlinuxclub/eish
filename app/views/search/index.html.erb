@@ -1,9 +1,0 @@
-<h2 class="title">Search</h2>
-<p>Search this site. This is experimental at the moment, and so search might not work properly at all.</p>
-
-<% form_tag :action => "results" do %>
-	<label for="name">Query:</label><br />
-	<%= text_field_tag :query, params[:query], :size => 30 %>
-
-	<p><%= submit_tag "Search" %></p>
-<% end %>

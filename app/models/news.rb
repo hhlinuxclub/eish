@@ -4,13 +4,6 @@ class News < ActiveRecord::Base
   has_many :assets, :as => :attachable
   
   validates_presence_of :title, :body
-    
-  if SEARCH_ENABLED
-    xapit(:conditions => { :published => true }) do |index|
-      index.text :title, :weight => 3
-      index.text :body, :weight => 2
-    end
-  end
   
   def before_save
     self.published_at ||= Time.now if self.published?

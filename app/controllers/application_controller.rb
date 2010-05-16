@@ -18,13 +18,7 @@ class ApplicationController < ActionController::Base
   
   RedclothCoderay.coderay_options :line_numbers => :table, :tab_width => 4
   
-  protected
-    def search_enabled
-      unless SEARCH_ENABLED
-        redirect_to :root
-      end
-    end
-    
+  protected  
     def require_https
       redirect_to :protocol => "https://" unless (request.ssl? or local_request?)
     end

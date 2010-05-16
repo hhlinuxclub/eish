@@ -12,15 +12,6 @@ class Article < ActiveRecord::Base
   
   attr_accessor :updated_by_user_id
   
-  if SEARCH_ENABLED
-    xapit(:conditions => { :published => true }) do |index|
-      index.text :title, :weight => 3
-      index.text :description, :weight => 2
-      index.text :body, :weight => 1
-      index.facet :author_name, "Author"
-    end
-  end
-  
   def before_create
     self.current_revision_id = 1
   end

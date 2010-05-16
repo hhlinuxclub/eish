@@ -5,8 +5,7 @@ class Admin::SettingsController < AdministrationController
     @site_name = Setting.option("site_name")
     @welcome_message = Setting.option("welcome_message")
     @google_analytics_enabled = Setting.option("google_analytics_enabled", :boolean)
-    @google_analytics_tracker_id = Setting.option("google_analytics_tracker_id")
-    @search_enabled = Setting.option("search_enabled", :boolean)
+    @google_analytics_tracker_id = Setting.option("google_analytics_tracker_id")    
     @https_enabled = Setting.option("https_enabled", :boolean)
     @footer = Setting.option("footer")
     

@@ -14,13 +14,6 @@ class Event < ActiveRecord::Base
   validates_presence_of :ends_at_time, :if => Proc.new { |event| event.ends_at.nil? }
   validate :date_range_and_format
   
-  if SEARCH_ENABLED
-    xapit(:conditions => { :published => true }) do |index|
-      index.text :name, :weight => 3
-      index.text :description, :weight => 2
-    end
-  end
-  
   def ongoing?
     self.starts_at < Time.now
   end
