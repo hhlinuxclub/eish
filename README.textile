@@ -17,6 +17,7 @@ h1. Plugins Used
 
 * "MetaTags":http://github.com/kpumuk/meta-tags/
 * "paperclip":http://thoughtbot.com/projects/paperclip
+
 *MetaTags* is an SEO plugin by Dmytro Shteflyuk which makes it easier to set the page title and meta tags.
 
 *Paperclip* provides easy file attachment management for ActiveRecord.
@@ -30,7 +31,7 @@ h1. Javascript
 * "jQuery":http://jquery.com/
 * "jQuery Datepicker":http://keith-wood.name/datepick.html
 * "jQuery Easing":http://gsgd.co.uk/sandbox/jquery/easing/
-* "Chroma Hash":http://github.com/mattt/Chroma-Hash ("Joel Moss fork":http://codaset.com/joelmoss/chroma-hash)
+* "Chroma Hash":http://github.com/mattt/Chroma-Hash
 * "Fancybox":http://fancy.klade.lv/
 * "markItUp!":http://markitup.jaysalvat.com/
 
@@ -38,7 +39,7 @@ h1. Javascript
 
 The *jQuery Datepicker* plugin by "Keith Wood":http://keith-wood.name is dual licensed under both "MIT":http://www.opensource.org/licenses/mit-license.php and "GPL":http://www.gnu.org/licenses/gpl.html licenses.
 
-*Chroma Hash* is a jQuery plugin that acts as a visual helper for password entry.  It was created by "Mattt Thompson":http://mattt.me and is licensed under the "MIT":http://www.opensource.org/licenses/mit-license.php license. We are using a fork created by "Joel Moss":http://codaset.com/joelmoss/ that removes the dependency on jQueryUI.
+*Chroma Hash* is a jQuery plugin that acts as a visual helper for password entry.  It was created by "Mattt Thompson":http://mattt.me and is licensed under the "MIT":http://www.opensource.org/licenses/mit-license.php license.
 
 Fancybox is the work of Janis Skarnelis, and is licensed under the "MIT":http://www.opensource.org/licenses/mit-license.php license.  Fancybox depends on the "BSD":http://www.opensource.org/licenses/bsd-license.php licensed *jQuery Easing* plugin by George McGinley Smith.
 

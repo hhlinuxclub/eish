@@ -106,6 +106,7 @@ http://hhlc.lighthouseapp.com/projects/22644-hhlc
   * [0.6] Refactor: Improve the code
   * Model.find_by_attribute: all #find_by_attribute finders removed
   * Search: Remove all together as it doesn't work well enough
+  * JavaScript: Updated JS libraries & plugins
 
 9999-99-99  Unreleased <unreleased>
 
