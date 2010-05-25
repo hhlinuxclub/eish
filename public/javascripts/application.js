@@ -23,5 +23,8 @@ $(document).ready(function() {
   /* Fancybox Default
      Galleries are created from found anchors who have the same "rel" tags
      Use the title attribute if you want to show a caption */
-  $("a.fancybox").fancybox();
+  $("a.colorbox").colorbox({
+      rel: "group",
+      current: "{current} of {total}"
+  });
 });

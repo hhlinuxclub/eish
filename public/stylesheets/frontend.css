@@ -579,3 +579,11 @@ th {
     height: 28px;
     padding: 0;
 }
+
+#colorbox {
+    font-size: 9pt;
+}
+
+#cboxTitle {
+    color: #000 !important;
+}

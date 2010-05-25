@@ -1,6 +1,6 @@
 h1. Welcome to the hhlc.eish!
 
-This program is tailored to the needs of the "HHLinuxClub":http://www.hhlinuxclub.org/. However, if found useful for any other situation, feel free to use, modify and redistribute.
+This program is tailored to the needs of the "HHLinuxClub":http://www.hhlinuxclub.org/. However, if found useful for any other situation, feel free to use, modify and redistribute according to the terms of the license.
 
 h2. Releases
 
@@ -9,25 +9,6 @@ Version 0.5.6 is the latest stable release.
 h2. Required Gems
 
 See Gemfile
-
-h2. Javascript
-
-* "jQuery":http://jquery.com/
-* "jQuery Datepicker":http://keith-wood.name/datepick.html
-* "jQuery Easing":http://gsgd.co.uk/sandbox/jquery/easing/
-* "Chroma Hash":http://github.com/mattt/Chroma-Hash
-* "Fancybox":http://fancy.klade.lv/
-* "markItUp!":http://markitup.jaysalvat.com/
-
-*jQuery* is dual licensed under both "MIT":http://www.opensource.org/licenses/mit-license.php and "GPL":http://www.gnu.org/licenses/gpl.html licenses.
-
-The *jQuery Datepicker* plugin by "Keith Wood":http://keith-wood.name is dual licensed under both "MIT":http://www.opensource.org/licenses/mit-license.php and "GPL":http://www.gnu.org/licenses/gpl.html licenses.
-
-*Chroma Hash* is a jQuery plugin that acts as a visual helper for password entry.  It was created by "Mattt Thompson":http://mattt.me and is licensed under the "MIT":http://www.opensource.org/licenses/mit-license.php license.
-
-Fancybox is the work of Janis Skarnelis, and is licensed under the "MIT":http://www.opensource.org/licenses/mit-license.php license.  Fancybox depends on the "BSD":http://www.opensource.org/licenses/bsd-license.php licensed *jQuery Easing* plugin by George McGinley Smith.
-
-The *markItUp!* by "Jay Salvat":http://www.jaysalvat.com/ is dual licensed under both "MIT":http://www.opensource.org/licenses/mit-license.php and "GPL":http://www.gnu.org/licenses/gpl.html licenses.
 
 h2. Quick Setup (for development)
 
@@ -45,11 +26,7 @@ h2. Copyright
 
 Copyright 2008 ‒ 2010 João Carlos Cardoso and Matias Korhonen.
 
-The above copyright notice applies to all files of this program, unless stated otherwise in the file itself or in the section "Exceptions" below. 
-
-h3. Exceptions
-
-* Icons found under the "public/images/tango" directory are part of the "Tango Icon Library":http://tango.freedesktop.org/Tango_Icon_Library and have been released into the Public Domain.
+The above copyright notice applies to all files of this program, unless stated otherwise in the file itself.
 
 h2. Bug Tracker
 
