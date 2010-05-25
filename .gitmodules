@@ -1,9 +1,3 @@
 [submodule "vendor/plugins/meta-tags"]
 	path = vendor/plugins/meta-tags
 	url = git://github.com/kpumuk/meta-tags.git
-[submodule "vendor/plugins/paperclip"]
-	path = vendor/plugins/paperclip
-	url = git://github.com/thoughtbot/paperclip.git
-[submodule "vendor/plugins/xapit-sync"]
-	path = vendor/plugins/xapit-sync
-	url = git://github.com/ryanb/xapit-sync.git
