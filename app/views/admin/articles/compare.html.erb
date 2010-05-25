@@ -1,4 +1,6 @@
-<h2 class="title"><%= Diff.new(@rev_a.title, @rev_b.title).to_html %></h2>
+<% title "Comparison" %>
+
+<h3 class="title"><%= Diff.new(@rev_a.title, @rev_b.title).to_html %></h3>
 
 <p><%= link_to "[ back to article ]", :action => "edit", :id => params[:id] %></p>
 

@@ -1,6 +1,7 @@
-<h2 class="title">Past Events</h2>
-<% if @past_events.size > 0 %>
-	<% for event in @past_events %>
+<% title "Past Events" %>
+
+<% if @past_events.present? %>
+	<% @past_events.each do |event| %>
 		<div class="event">
 			<%= image_tag event.image.upload.url(:square), :alt => event.image.description, :class => "image" unless event.image.nil? %>
 			<h3 class="title"><%= link_to event.name, event_path(event) %></h3>

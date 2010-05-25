@@ -1,43 +1,41 @@
-<% if @ongoing_events.size > 0 %>
-	<h2 class="title">Ongoing Events</h2>
-	<% for event in @ongoing_events %>
-		<div class="event">
-			<%= image_tag event.image.upload.url(:square), :alt => event.image.description, :class => "image" unless event.image.nil? %>
-			<h3 class="title"><%= link_to event.name, event_path(event) %></h3>
-			<p class="metadata"><%= format_event_dates(event) %></p>
-			<p>
-				<% if !event.address.nil? && !event.address.empty? %>
-					<b>Address: </b><%=h event.address %>
-				<br />
-				<% end %>
-				<% if !event.location.nil? && !event.location.empty? %>
-					<b>Location: </b><%=h event.location %>
-				<% end %>
-			</p>
-		</div>
-	<% end %>
-<% end %>
+<% title "Events" %>
 
-<h2 class="title">Upcoming Events</h2>
-<% if @upcoming_events.size > 0 %>
-	<% for event in @upcoming_events %>
-		<div class="event">
-			<%= image_tag event.image.upload.url(:square), :alt => event.image.description, :class => "image" unless event.image.nil? %>
-			<h3 class="title"><%= link_to event.name, event_path(event) %></h3>
-			<p class="metadata"><%= format_event_dates(event) %></p>
-			<p>
-				<% if !event.address.nil? && !event.address.empty? %>
-					<b>Address: </b><%=h event.address %>
-				<br />
-				<% end %>
-				<% if !event.location.nil? && !event.location.empty? %>
-					<b>Location: </b><%=h event.location %>
-				<% end %>
-			</p>
-		</div>
-	<% end %>
+<% if @ongoing_events.present? || @upcoming_events.present? %>
+  <% @ongoing_events.each do |event| %>
+	  <div class="event">
+		  <%= image_tag event.image.upload.url(:square), :alt => event.image.description, :class => "image" unless event.image.nil? %>
+		  <h3 class="title"><%= link_to event.name, event_path(event) %></h3>
+		  <p class="metadata"><%= format_event_dates(event) %></p>
+		  <p>
+			  <% if !event.address.nil? && !event.address.empty? %>
+				  <b>Address: </b><%=h event.address %>
+			  <br />
+			  <% end %>
+			  <% if !event.location.nil? && !event.location.empty? %>
+				  <b>Location: </b><%=h event.location %>
+			  <% end %>
+		  </p>
+	  </div>
+  <% end %>
+
+  <% @upcoming_events.each do |event| %>
+	  <div class="event">
+		  <%= image_tag event.image.upload.url(:square), :alt => event.image.description, :class => "image" unless event.image.nil? %>
+		  <h3 class="title"><%= link_to event.name, event_path(event) %></h3>
+		  <p class="metadata"><%= format_event_dates(event) %></p>
+		  <p>
+			  <% if !event.address.nil? && !event.address.empty? %>
+				  <b>Address: </b><%=h event.address %>
+			  <br />
+			  <% end %>
+			  <% if !event.location.nil? && !event.location.empty? %>
+				  <b>Location: </b><%=h event.location %>
+			  <% end %>
+		  </p>
+	  </div>
+  <% end %>
 <% else %>
-	<p>There are no upcoming events at this moment. Please check later, as all events are posted here.</p>
+  <p>Sorry, no events are ongoing or coming up at the moment. Please check again soon...</p>
 <% end %>
 
 <p>Interested in past events? Please check them <%= link_to "here", :action => "past" %>.</p>

@@ -9,17 +9,13 @@ class UsersController < ApplicationController
   def new
     @user = User.new
 
-    set_meta_tags :title => "Register",
-                  :description => "Register as a HHLinuxClub user",
-                  :keywords => "Register, Users"
-
     respond_to do |format|
       format.html
     end
   end
 
   def edit
-    @user = User.find_by_username(params[:id])
+    @user = User.find(:first, :conditions => {:username => params[:id]})
 
     redirect_to :root and return unless @user.id == current_user_id
 
@@ -42,7 +38,7 @@ class UsersController < ApplicationController
   end
 
   def update
-    @user = User.find_by_username(params[:id])
+    @user = User.find(:first, :conditions => {:username => params[:id]})
 
     redirect_to :root and return unless @user.id == current_user_id
 
@@ -64,7 +60,7 @@ class UsersController < ApplicationController
   end
 
   def remove
-    @user = User.find_by_username(params[:id])
+    @user = User.find(:first, :conditions => {:username => params[:id]})
 
     redirect_to :root and return unless @user.id == current_user_id
 
@@ -94,17 +90,13 @@ class UsersController < ApplicationController
   end
 
   def request_credentials
-    set_meta_tags :title => "Request credentials",
-                  :description => "Request credentials",
-                  :keywords => "Users"
-
     respond_to do |format|
       format.html
     end
   end
 
   def send_credentials
-    user = User.find_by_email(params[:email])
+    user = User.find(:first, :conditions => { :email => params[:email] })
     user.generate_reset_hash
 
     respond_to do |format|
@@ -124,7 +116,7 @@ class UsersController < ApplicationController
   end
 
   def password_reset
-    @user = User.find_by_username(params[:username])
+    @user = User.find(:first, :conditions => {:username => params[:id]})
     @reset_hash = params[:reset_hash]
 
     respond_to do |format|
@@ -133,7 +125,7 @@ class UsersController < ApplicationController
   end
 
   def update_password
-    user = User.find_by_username(params[:username])
+    user = User.find(:first, :conditions => {:username => params[:id]})
 
     respond_to do |format|
       if params[:password] == params[:password_confirmation]
@@ -151,7 +143,7 @@ class UsersController < ApplicationController
   end
 
   def activate
-    user = User.find_by_username(params[:username])
+    user = User.find(:first, :conditions => {:username => params[:id]})
 
     respond_to do |format|
       if user

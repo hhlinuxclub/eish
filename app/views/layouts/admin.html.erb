@@ -1,10 +1,10 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<!DOCTYPE html>
+<html lang="en">
     <head>
-        <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+        <meta charset="utf-8" />
         <meta name="ROBOTS" content="NOINDEX, NOFOLLOW" />
-        <%= display_meta_tags :site => "Administration - #{SITE_NAME}", :reverse => true %>
+        
+        <title><%= yield(:title) ? yield(:title) + " :: HHLinuxClub (Administration)" : "HHLinuxClub (Administration)"%></title>
 
 	      <%= stylesheet_link_tag "admin", "jquery.datepick" %>
 		  	<%= render :partial => "layouts/stylesheets" %>
@@ -19,8 +19,8 @@
                 <%= link_to (image_tag "hhlinuxclub_logo.png", :alt => "Haaga-Helia Linux Club"), :root, :title => "Go to site" %>
 								<div id="userLinks">
 										<p> Logged in as <em><%= current_user.username %></em>
-										&brvbar; <%= link_to "Go to site", :root, :class => "visitSite" %>
-										&brvbar; <%= link_to "Logout", logout_path %></p>
+										&#166; <%= link_to "Go to site", :root, :class => "visitSite" %>
+										&#166; <%= link_to "Logout", logout_path %></p>
 								</div>
             </div>
             <div id="container">
@@ -41,6 +41,9 @@
 		                  <span id="flashNotice"><%= flash[:notice] %></span>
 											<span id="flashError"><%= flash[:error] %></span>
 		              </p>
+		              <% if yield(:title) %>
+                    <h2 class="title"><%= yield(:title) %></h2>
+                  <% end %>
 		              <%= yield %>
 		          	</div>
             </div>

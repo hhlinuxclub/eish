@@ -1,9 +1,9 @@
 class HomeController < ApplicationController
   
   def index
-    news = News.find_all_by_published(true, :limit => 4, :select => "id, title, published_at", :order => "published_at DESC")
-    articles = Article.find_all_by_published(true, :limit => 4, :select => "id, title, published_at", :order => "published_at DESC")
-    @events = Event.available(4)
+    news = News.published.find(:all, :limit => 4, :select => "id, title, published_at", :order => "published_at DESC")
+    articles = Article.published.find(:all, :limit => 4, :select => "id, title, published_at", :order => "published_at DESC")
+    @events = Event.published.available.first(4)
     @user = current_user unless !logged_in?
     @welcome_message = Setting.option("welcome_message")
     @featured_article = Article.featured

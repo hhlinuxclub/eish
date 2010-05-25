@@ -1,4 +1,4 @@
-<h2 class="title">Settings</h2>
+<% title "Settings" %>
 
 <% form_tag :action => "update" do %>
 	<h3 class="title">Site name<span class="notice">Requires restart</span></h3>
@@ -21,16 +21,7 @@
 	<p>
 		<%= label :settings, :google_analytics_tracker_id, "Tracker ID" %><br />
 		<%= text_field_tag "settings[google_analytics_tracker_id]", @google_analytics_tracker_id, :size => 20 %>
-	</p>
-	
-	<h3 class="title">Search<span class="notice">Requires restart</span></h3>
-	<% unless XAPIT_GEM_LOADED %>
-		<p>You need to uncomment <strong>config.gem "xapit"</strong> from <em>config/environment.rb</em> to be able to enable search.</p>
-	<% end %>
-	<p>
-		<%= check_box :settings, :search_enabled, { :checked => ("checked" if @search_enabled), :disabled => ("disabled" unless XAPIT_GEM_LOADED )}, "t", "f" %>
-		<%= label :settings, :search_enabled, "Enable" %><br />
-	</p>
+  </p>
 	
 	<h3 class="title">HTTPS<span class="notice">Requires restart</span></h3>
 	<p>

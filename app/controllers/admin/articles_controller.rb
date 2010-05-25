@@ -1,6 +1,5 @@
 class Admin::ArticlesController < AdministrationController  
   def index
-    set_meta_tags :title => "Articles"
     
     @articles = Article.find_all_for_user(current_user, :order => "id DESC")
     @featured_article = Setting.featured_article_id
@@ -17,7 +16,6 @@ class Admin::ArticlesController < AdministrationController
   end
 
   def new
-    set_meta_tags :title => "Create new article"
     
     @article = Article.new
     @category = Category.new
@@ -32,8 +30,6 @@ class Admin::ArticlesController < AdministrationController
     @article = Article.find(params[:id], :include => :categories)
     @category = Category.new
     @categories = Category.all
-    
-    set_meta_tags :title => "Editing '" + @article.title + "'"
     
     respond_to do |format|
       if @article.editable?(current_user)
@@ -162,9 +158,7 @@ class Admin::ArticlesController < AdministrationController
   def compare
     @rev_a = Revision.find_by_article_id_and_number(params[:id].to_i, params[:rev_a])
     @rev_b = Revision.find_by_article_id_and_number(params[:id].to_i, params[:rev_b])
-    
-    set_meta_tags :title => "Compare Revisions"
-    
+
     respond_to do |format|
       if !@rev_a.nil? && !@rev_b.nil?
         format.html { @diff = Diff.new(@rev_a.body, @rev_b.body) }

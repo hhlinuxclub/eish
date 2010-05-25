@@ -35,4 +35,8 @@ module ApplicationHelper
   def can_edit?(item)
     logged_in? ? item.editable?(current_user) : false
   end
+  
+  def title(title)
+    content_for :title, title
+  end
 end

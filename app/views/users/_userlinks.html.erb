@@ -1,21 +1,23 @@
-<div id="<%= logged_in? ? "userLinks" : "loginLinks" %>">
-  <% if logged_in? %>
-      <p>Logged in as <em><%= current_user.username %></em>
-        &brvbar; <%= link_to "Profile", profile_path(current_user) %>
-        &brvbar; <%= link_to "Account", user_path(current_user) %>
-        <% if !current_user.unprivileged? %>
-            &brvbar; <%= link_to "Administration", admin_url %>
-        <% end %>
-        &brvbar; <%= link_to "Logout", logout_path %> </p>
-  <% else %>
+<% unless (controller.controller_name == "users" || controller.controller_name == "sessions") && !logged_in? %>
+    <div id="<%= logged_in? ? "userLinks" : "loginLinks" %>">
+      <% if logged_in? %>
+          <p>Logged in as <em><%= current_user.username %></em>
+            &#166; <%= link_to "Profile", profile_path(current_user) %>
+            &#166; <%= link_to "Account", user_path(current_user) %>
+            <% if !current_user.unprivileged? %>
+                &#166; <%= link_to "Administration", admin_url %>
+            <% end %>
+            &#166; <%= link_to "Logout", logout_path %> </p>
+      <% else %>
 
-      <% protocol = HTTPS_ENABLED ? 'https://' : 'http://' %>
-      <ul>
-        <li>
-          <%= link_to "Login", { :controller => "sessions", :action => "new", :protocol => protocol, :only_path => false }, :id => "loginLink" %></li>
-        <li><%= link_to "Register", { :controller => "users", :action => "new", :protocol => protocol, :only_path => false }, :id => "registerLink" %>
-        </li>
-      </ul>
+          <% protocol = HTTPS_ENABLED ? 'https://' : 'http://' %>
+          <ul>
+            <li>
+              <%= link_to "Login", { :controller => "sessions", :action => "new", :protocol => protocol, :only_path => false }, :id => "loginLink" %></li>
+            <li><%= link_to "Register", { :controller => "users", :action => "new", :protocol => protocol, :only_path => false }, :id => "registerLink" %>
+            </li>
+          </ul>
 
-  <% end %>
-</div>
+      <% end %>
+    </div>
+<% end %>

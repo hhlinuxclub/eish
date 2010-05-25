@@ -1,4 +1,5 @@
-<h2 class="title"><%=h @event.name %></h2>
+<% title @event.name %>
+
 <p class="metadata"><%= format_event_dates(@event) %></p>
 
 <% if can_edit?(@event) %>
@@ -13,6 +14,6 @@
 	<b>Location: </b><%=h @event.location %>
 </p>
 
-<%= RedCloth.new(@event.description).to_html %>
+<%= textilize(@event.description) %>
 
 <%= render :partial => "/assets/downloads", :locals => { :assetable => @event } %>

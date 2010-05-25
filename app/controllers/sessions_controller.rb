@@ -3,10 +3,6 @@ class SessionsController < ApplicationController
   before_filter :not_logged_in, :only => [:new, :create]
   
   def new
-    set_meta_tags :title => 'Login',
-                  :description => 'Login page',
-                  :keywords => 'Site, Login, Users'
-                  
     respond_to do |format|
       format.html
     end

@@ -1,5 +1,6 @@
-<h2 class="title">Contact</h2>
-<% if !@contacts.empty? %>
+<% title "Contact Us" %>
+
+<% if @contacts.present? %>
 	<p>All fields are compulsory.</p>
 	<% form_tag :action => "send_email" do %>
 		<p>

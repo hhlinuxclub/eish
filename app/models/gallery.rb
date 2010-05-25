@@ -5,12 +5,11 @@ class Gallery < ActiveRecord::Base
   
   validates_presence_of :name, :description
   
-  if SEARCH_ENABLED
-    xapit(:conditions => { :published => true }) do |index|
-      index.text :name, :weight => 2
-      index.text :description, :weight => 1
-    end
-  end
+  named_scope :published, :conditions => { :published => true }
+  named_scope :not_null, :conditions => "image_id IS NOT NULL", :order => "published_at DESC"
+  named_scope :for_user, lambda { |user|
+      { :conditions => { :user_id => user.id } }
+  }
   
   def to_param
     "#{id}-#{name.parameterize}"
