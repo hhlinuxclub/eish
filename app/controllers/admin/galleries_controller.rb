@@ -1,7 +1,6 @@
 class Admin::GalleriesController < AdministrationController
   def index    
-    set_meta_tags :title => "Galleries"
-    
+
     @galleries = Gallery.find_all_for_user(current_user, :order => "id DESC")
     
     respond_to do |format|
@@ -28,8 +27,6 @@ class Admin::GalleriesController < AdministrationController
     @asset = Image.new
     
     redirect_to admin_galleries_path and return unless @gallery.editable?(current_user)
-    
-    set_meta_tags :title => "Editing '" + @gallery.name + "'"
     
     respond_to do |format|
       format.html

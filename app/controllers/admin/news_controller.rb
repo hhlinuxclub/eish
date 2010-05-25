@@ -1,7 +1,5 @@
 class Admin::NewsController < AdministrationController  
   def index
-    set_meta_tags :title => "News"
-    
     @news = News.find_all_for_user(current_user, :order => "id DESC")
     
     respond_to do |format|
@@ -16,8 +14,6 @@ class Admin::NewsController < AdministrationController
   end
 
   def new
-    set_meta_tags :title => "Create news article"
-
     @news_article = News.new
     
     respond_to do |format|
@@ -27,8 +23,6 @@ class Admin::NewsController < AdministrationController
 
   def edit
     @news_article = News.find(params[:id])
-    
-    set_meta_tags :title => "Editing '" + @news_article.title + "'"
     
     respond_to do |format|
       if @news_article.editable?(current_user)

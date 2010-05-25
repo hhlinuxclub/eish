@@ -1,4 +1,4 @@
-<h2 class="title"><%= @gallery.name %></h2>
+<% title @gallery.name %>
 
 <% image_table(@gallery.images, @columns) do |image| %>
   <%= link_to(image_tag(image.upload.url(:thumb)), image.upload.url(:large), :rel => "group", :class => "fancybox", :title => image.description) %>

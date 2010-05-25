@@ -3,9 +3,7 @@ class Admin::UsersController < AdministrationController
 
   def index
     @users = User.all_current_users
-    
-    set_meta_tags :title => "Users"
-    
+
     respond_to do |format|
       format.html
     end
@@ -17,9 +15,7 @@ class Admin::UsersController < AdministrationController
   
   def new
     @user = User.new
-    
-    set_meta_tags :title => "Create user"
-    
+
     respond_to do |format|
       format.html
     end
@@ -27,8 +23,6 @@ class Admin::UsersController < AdministrationController
   
   def edit
     @user = User.find_by_username(params[:id])
-    
-    set_meta_tags :title => "Edit '" + @user.username + "'"
   end
   
   def create

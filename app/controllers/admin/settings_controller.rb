@@ -8,9 +8,7 @@ class Admin::SettingsController < AdministrationController
     @google_analytics_tracker_id = Setting.option("google_analytics_tracker_id")    
     @https_enabled = Setting.option("https_enabled", :boolean)
     @footer = Setting.option("footer")
-    
-    set_meta_tags :title => "Settings"
-    
+
     respond_to do |format|
       format.html
     end

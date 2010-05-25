@@ -1,4 +1,5 @@
-<h2 class="title">Latest News</h2>
+<% title "Latest News" %>
+
 <% for news_article in @news %>
 	<div class="newsArticle">
 		<%= image_tag news_article.image.upload.url(:square), :alt => news_article.image.description, :class => "image" unless news_article.image.nil? %>

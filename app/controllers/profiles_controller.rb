@@ -2,9 +2,7 @@ class ProfilesController < ApplicationController
   def show
     @user = User.find(:first, :conditions => { :username => params[:id] })
     
-    set_meta_tags :title => @user.username,
-                  :description => 'Profile page',
-                  :keywords => 'Profile, Users'
+    raise ActiveRecord::RecordNotFound if @user.nil?
     
     respond_to do |format|
       format.html
@@ -14,11 +12,9 @@ class ProfilesController < ApplicationController
   def edit
     @user = User.find(:first, :conditions => { :username => params[:id] })
     
-    redirect_to profile_path @user and return unless @user.id == current_user_id
+    raise ActiveRecord::RecordNotFound if @user.nil?
     
-    set_meta_tags :title => @user.username,
-                  :description => 'Profile page',
-                  :keywords => 'Profile, Users'
+    redirect_to profile_path @user and return unless @user.id == current_user_id
     
     respond_to do |format|
       format.html

@@ -9,10 +9,6 @@ class UsersController < ApplicationController
   def new
     @user = User.new
 
-    set_meta_tags :title => "Register",
-                  :description => "Register as a HHLinuxClub user",
-                  :keywords => "Register, Users"
-
     respond_to do |format|
       format.html
     end
@@ -94,10 +90,6 @@ class UsersController < ApplicationController
   end
 
   def request_credentials
-    set_meta_tags :title => "Request credentials",
-                  :description => "Request credentials",
-                  :keywords => "Users"
-
     respond_to do |format|
       format.html
     end

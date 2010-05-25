@@ -1,32 +1,16 @@
 h1. Welcome to the hhlc.eish!
 
-This program is tailored to the needs of the HHLinuxClub (HAAGA-HELIA Linux Club). However, if found useful for any other situation, feel free to use, modify and redistribute. If so, please make sure that the HHLC logo and name are removed.
+This program is tailored to the needs of the "HHLinuxClub":http://www.hhlinuxclub.org/. However, if found useful for any other situation, feel free to use, modify and redistribute.
 
 h2. Releases
 
 Version 0.5.6 is the latest stable release.
 
-h1. Required Gems
+h2. Required Gems
 
-* "RedCloth":http://redcloth.org/
-* "Redcloth with CodeRay":http://github.com/augustl/redcloth-with-coderay/
-* "will_paginate":http://wiki.github.com/mislav/will_paginate/
-* "CodeRay":http://coderay.rubychan.de/
+See Gemfile
 
-h1. Plugins Used
-
-* "MetaTags":http://github.com/kpumuk/meta-tags/
-* "paperclip":http://thoughtbot.com/projects/paperclip
-
-*MetaTags* is an SEO plugin by Dmytro Shteflyuk which makes it easier to set the page title and meta tags.
-
-*Paperclip* provides easy file attachment management for ActiveRecord.
-
-The plugins are included as git submodules (See *Initial Setup*) and are all published under the MIT license.
-
-NB. paperclip requires you to have "ImageMagick":http://www.imagemagick.org installed on your system.
-
-h1. Javascript
+h2. Javascript
 
 * "jQuery":http://jquery.com/
 * "jQuery Datepicker":http://keith-wood.name/datepick.html
@@ -45,59 +29,33 @@ Fancybox is the work of Janis Skarnelis, and is licensed under the "MIT":http://
 
 The *markItUp!* by "Jay Salvat":http://www.jaysalvat.com/ is dual licensed under both "MIT":http://www.opensource.org/licenses/mit-license.php and "GPL":http://www.gnu.org/licenses/gpl.html licenses.
 
-h1. Quick Setup (for development)
+h2. Quick Setup (for development)
 
-This requires the 'sqlite3-ruby' gem.
-
-<pre>
-wget http://github.com/jcxplorer/hhlc/tarball/0.5.6 #Download the stable release
-tar -xvf jcxplorer-hhlc-[SHA1].tar.gz #Unpack the tarball
-mv jcxplorer-hhlc-[SHA1] hhlc #Rename the resulting folder to something sane
-cd hhlc
-sudo rake gems:install #Attempt to install the required gems
-rake eish:setup #Perform the initial setup
-</pre>
-
-If you like to live on the edge, you can perform these steps on a cloned copy of the repository too:
+Install the 'bundler' gem before doing this.
 
 <pre>
-# Just replace the first three steps with:
 git clone git://github.com/jcxplorer/hhlc.git
+cd hhlc
+bundle install
+rake eish:setup
+./script/server
 </pre>
 
-h1. Search
+h2. Copyright
 
-Search support is currently experimental.
-
-Search is provided through the "Xapian":http://www.xapian.org/ Open Source Search Engine Library and the "Xapit":http://github.com/ryanb/xapit/ Rails gem.  In order for the Search to work you MUST have xapian-core and xapian-bindings (only the Ruby bindings are required) installed.
-
-For more information on installing Xapian, see the "Xapian install guide":http://www.xapian.org/docs/install.html.
-
-At the moment reindexing must be performed manually, for example by a cron job, using the following command:
-
-<pre>
-rake xapit:index
-</pre>
-
-However, this requires that the application be restarted for it to read the new database. We now also include the xapit-sync plugin which enables the search index to be updated automatically after changes are made, but it is still far from perfect.
-
-In order to enable search you must uncomment the line for Xapit in environment.rb and change SEARCH_ENABLED to true in the settings.rb initializer.
-
-h1. Copyright
-
-Copyright 2008 ‒ 2009 João Carlos Cardoso and Matias Korhonen.
+Copyright 2008 ‒ 2010 João Carlos Cardoso and Matias Korhonen.
 
 The above copyright notice applies to all files of this program, unless stated otherwise in the file itself or in the section "Exceptions" below. 
 
-h2. Exceptions
+h3. Exceptions
 
 * Icons found under the "public/images/tango" directory are part of the "Tango Icon Library":http://tango.freedesktop.org/Tango_Icon_Library and have been released into the Public Domain.
 
-h1. Bug Tracker
+h2. Bug Tracker
 
 Found a bug? Perfect. Let us know at our "bug tracker":http://hhlc.lighthouseapp.com.
 
-h1. License
+h2. License
 
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by

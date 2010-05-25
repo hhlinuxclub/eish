@@ -1,14 +1,13 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<!DOCTYPE html>
+<html lang="en">
 <head>
-  <meta http-equiv="content-type" content="text/html;charset=UTF-8"/>
-
-  <%= display_meta_tags :site => SITE_NAME, :reverse => true %>
+  <meta charset="utf-8" />
+  
+  <title><%= yield(:title) ? yield(:title) + " :: HHLinuxClub" : "HHLinuxClub"%></title>
 
   <%= stylesheet_link_tag "frontend" %>
+  
   <%= render :partial => "layouts/stylesheets" %>
-
   <%= render :partial => "layouts/javascript" %>
 
   <% if controller.controller_name == "home" %>
@@ -43,6 +42,9 @@
 </div>
 <div id="container">
   <div id="content" class="<%= controller.controller_name.to_s unless admin_namespace? %>">
+    <% if yield(:title) %>
+      <h2 class="title"><%= yield(:title) %></h2>
+    <% end %>
     <%= yield %>
   </div>
   <div id="footer">

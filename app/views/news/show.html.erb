@@ -1,4 +1,5 @@
-<h2 class="title"><%=h @news_article.title %></h2>
+<% title @news_article.title %>
+
 <p class="metadata">
 	<%=h long_date(@news_article.published_at) %>
 	by <%= link_to_profile @news_article.user %>

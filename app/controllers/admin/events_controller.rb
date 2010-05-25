@@ -1,7 +1,6 @@
 class Admin::EventsController < AdministrationController 
   def index    
-    set_meta_tags :title => "Events"
-    
+
     @events = Event.find_all_for_user(current_user, :order => "id DESC")
 
     respond_to do |format|
@@ -16,8 +15,7 @@ class Admin::EventsController < AdministrationController
   end
 
   def new
-    set_meta_tags :title => "Create new event"
-    
+
     @event = Event.new
 
     respond_to do |format|
@@ -29,8 +27,7 @@ class Admin::EventsController < AdministrationController
     @event = Event.find(params[:id])
     @event.all_day = @event.all_day?
     
-    set_meta_tags :title => "Editing '" + @event.name + "'"
-    
+ 
     respond_to do |format|
       if @event.editable?(current_user)
         format.html

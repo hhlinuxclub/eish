@@ -1,8 +1,7 @@
 <%= image_tag gravatar(@user.email), :id => "avatar" %>
 
-<h2 class="title">
-	<%=h @user.username %>
-</h2>
+
+<% title "Profile: #{@user.username}" %>
 
 <% if @user.id == current_user_id %>
 	<p class="adminLinks">
