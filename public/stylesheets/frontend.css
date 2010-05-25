@@ -256,7 +256,6 @@
 #loginLinks li {
     background: none;
     display: inline;
-    font-family: "Helvetica Neue", Helvetica, "Bitstream Vera Sans", "Trebuchet MS", sans-serif;
     font-size: 10pt;
     margin-left: 15px;
 }
@@ -492,7 +491,7 @@
 
 .title {
     color: #282828;
-    font-family: Georgia, "Bitstream Vera Serif", serif;
+    font-family: "Droid Serif", Georgia, "Bitstream Vera Serif", serif;
     margin-bottom: 0;
     padding-bottom: 0;
 }
@@ -510,16 +509,13 @@
     background-color: #FFB5D3;
 }
 
-a.cloudLink {
-    color: #555753;
+a:link, a:visited {
+    color: #0066cb;
+    text-decoration: none;
 }
 
 a:hover {
     color: #282828;
-}
-
-a:link, a:visited {
-    color: #0066cb;
 }
 
 blockquote {
@@ -530,7 +526,7 @@ blockquote {
 
 body {
     background: #bbcdde;
-    font-family: "Helvetica Neue", Helvetica, "Bitstream Vera Sans", "Trebuchet MS", sans-serif;
+    font-family: "Droid Sans", "Helvetica Neue", Helvetica, "Bitstream Vera Sans", "Trebuchet MS", sans-serif;
     margin: 0;
     padding: 0;
 }
@@ -580,10 +576,21 @@ th {
     padding: 0;
 }
 
+pre {
+    font-family: "Droid Sans Mono", monospace;
+}
+
 #colorbox {
     font-size: 9pt;
 }
 
 #cboxTitle {
     color: #000 !important;
+}
+
+#cloud {
+    text-align: center;
+    width: 65%;
+    margin: 10px auto 30px auto;
+    color: #555753;
 }

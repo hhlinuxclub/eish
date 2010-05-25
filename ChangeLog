@@ -107,6 +107,10 @@ http://hhlc.lighthouseapp.com/projects/22644-hhlc
   * Model.find_by_attribute: all #find_by_attribute finders removed
   * Search: Remove all together as it doesn't work well enough
   * JavaScript: Updated JS libraries & plugins
+  * Lightbox: Switch from Fancybox to Colorbox
+  * Plugins: Refactored all plugins into obscurity
+  * Bundler: Use bundler for gems
+  * Rails: Update to version 2.3.8
 
 9999-99-99  Unreleased <unreleased>
 

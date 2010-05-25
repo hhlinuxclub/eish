@@ -1,5 +1,5 @@
 module ArticlesHelper
-  def cloudify(categories, min_font_size = 100, max_font_size = 140, link_css_class = "cloudLink title", span_css_style = "display:inline-block;")
+  def cloudify(categories, min_font_size = 120, max_font_size = 180, link_css_class = "cloudLink", span_css_style = "display:inline-block;")
     xhtml = ""
     categories_array = Array.new
     
