@@ -15,7 +15,7 @@ h2. Quick Setup (for development)
 Install the 'bundler' gem before doing this.
 
 <pre>
-git clone git://github.com/jcxplorer/hhlc.git
+git clone git://github.com/jcxplorer/eish.git
 cd hhlc
 bundle install
 rake eish:setup
